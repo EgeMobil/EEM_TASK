@@ -7,7 +7,7 @@
 typedef enum {
     IDLE,    // tren istasyonda bekliyor
     LOADING, // tren yolcu alıyor ve  indiriyor
-    MOVING,  // tren öbür istasyona hareket edi yor
+    MOVING,  // tren öbür istasyona hareket ediyor
     STOPPING // tren durağa yaklaştı yavaşladı ve durdu
 } trainStates;
 
