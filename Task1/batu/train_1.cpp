@@ -3,12 +3,13 @@
 #include <locale.h>
 #include <ctype.h>
 #include <windows.h>
-typedef enum{
-    IDLE,//The train is waiting in station
-    LOADING,//Passengers are getting off or boarding the train.
-    MOVING, //Trg rain is going.
-    STOPPING// The train is slowing down and stopping.
-}trainStates;
+
+typedef enum {
+    IDLE,    // tren istasyonda bekliyor
+    LOADING, // tren yolcu alıyor ve indiriyor
+    MOVING,  // tren öbür istasyona hareket ediyor
+    STOPPING // tren durağa yaklaştı yavaşladı ve durdu
+} trainStates;
 
 void updateTrain(trainStates* train){
     static int station = 1;
