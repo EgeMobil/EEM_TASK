@@ -2,7 +2,7 @@
 arduino simülasyon link:
 https://wokwi.com/projects/417975623147266049
 */
-const int switchPin = 2;  // Anahtar pini
+const int switchPin = 2;  // Anahtar pin
 int switchState = 0;  // Anahtarın durumu
 const int iLED = 4;   // idle led
 const int lLED = 5;   // loading led
