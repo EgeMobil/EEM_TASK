@@ -1,0 +1,15 @@
+Bir çamaşır makinesinin yıkama, durulama ve sıkma gibi durumlarını kontrol edin.
+
+Durumlar:
+
+Yıkama: 30 saniye.
+Durulama: 20 saniye.
+Sıkma: 15 saniye.
+Geçişler:
+
+Yıkama tamamlandı → Durulama.
+Durulama tamamlandı → Sıkma.
+Sıkma tamamlandı → Yıkama (döngü başa döner).
+Eylemler:
+
+Her durumda motor belirli bir süre çalışır ve su giriş/çıkış kontrol edilir.
