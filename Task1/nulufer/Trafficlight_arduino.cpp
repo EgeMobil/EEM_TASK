@@ -84,5 +84,5 @@ void loop()
     }
 
     Serial.println("Trafik ışığı kontrol sistemi tamamlandı.");
-    delay(1000);  
+    delay(1000);   
 }
