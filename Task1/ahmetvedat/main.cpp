@@ -7,13 +7,13 @@
 
 typedef enum
 {
-    çamaşır_yıkama,
-    çamaşır_durulama,
-    çamaşır_sıkma
+    camasir_yikama,
+    camasir_durulama,
+    camasir_sikma
     
-}çamaşırState;
+}camasirState;
 
-void updateçamaşırState(çamaşırState* currentState, int i, bool suVar)
+void updatecamasirState(camasirState* currentState, int i, bool suVar)
 {
     
                                                    // Su olup olmadığını kontrol et
@@ -25,24 +25,24 @@ void updateçamaşırState(çamaşırState* currentState, int i, bool suVar)
     }
     switch(*currentState)
     {
-        case çamaşır_yıkama:
+        case camasir_yikama:
             printf("Çamaşırlar yıkanmaya başladı, birazdan durulanacak \n");
-            *currentState = çamaşır_durulama;
+            *currentState = camasir_durulama;
             sleep(3);
         break;
         
-        case çamaşır_durulama:
+        case camasir_durulama:
             printf("Çamaşırlar durulanmaya başladı, birazdan sıkma yapılacak \n");
-            *currentState = çamaşır_sıkma;
+            *currentState = camasir_sikma;
             sleep(2);
         break;
         
-        case çamaşır_sıkma:
+        case camasir_sikma:
             if (i == 5) {                                                           //Son durumsa farklı çıktı versin
                 printf("Çamaşırlara sıkma yapılmaya başlandı, birazdan bitecek \n");  
             } else {
                 printf("Çamaşırlara sıkma yapılmaya başlandı, birazdan yıkanacak \n");
-                *currentState = çamaşır_yıkama;
+                *currentState = camasir_yikama;
                 sleep(1.5);
                 }
         break;
@@ -57,14 +57,14 @@ void updateçamaşırState(çamaşırState* currentState, int i, bool suVar)
 //mainde kullandığımız şeyleri tanımladım
 int main()
 {
-    çamaşırState currentState = çamaşır_yıkama;
+    camasirState currentState = camasir_yikama;
     int iterations = 6;
     bool suVar = true;
     printf("Makine çalışmaya başlıyor. \n");
     
     for(int i = 0 ; i < iterations; i++)
     {
-        updateçamaşırState(&currentState, i, suVar);
+        updatecamasirState(&currentState, i, suVar);
         
         
     }
