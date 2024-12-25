@@ -27,13 +27,13 @@ typedef enum {
     EMPTYING,
     EMPTY,
     FULLING
-} DepoDurumu;
+} tankState;
 
 
-DepoDurumu durum = FULL; 
+tankState state = FULL; 
 
 
-void durumYazdir(DepoDurumu d) {
+void writeState(tankState d) {
     switch (d) {
         case FULL: printf("Durum: DOLU\n"); break;
         case EMPTYING: printf("Durum: BOSALIYOR\n"); break;
@@ -44,30 +44,30 @@ void durumYazdir(DepoDurumu d) {
 }
 
 
-void durumGuncelle() {
-    switch (durum) {
+void updateState() {
+    switch (state) {
         case FULL:
             printf(">> Su kullanıyoor\n");
             sleep(2); 
-            durum = EMPTYING; 
+            state = EMPTYING; 
             break;
 
         case EMPTYING:
             printf(">> Su seviyesi azalıyor\n");
             sleep(2); // 2 saniye
-            durum = EMPTY; 
+            state = EMPTY; 
             break;
 
-        case BOS:
+        case EMPTY:
             printf(">> Pompa calıştırılıyor\n");
             sleep(3); // gecıkme sürelerini ayarladım sleep() ile 3 saniye
-            durum = FULLING; 
+            state = FULLING; 
             break;
 
-        case DOLUYOR:
+        case FULLING:
             printf(">> Su deposu doluyor\n");
             sleep(3); // 3 saniye
-            durum = FULL; 
+            state = FULL; 
             break;
 
         default:
@@ -82,8 +82,8 @@ int main() {
     while (1) { // 1 yazarak sonsuz döngü yaptım.
     
 
-        durumYazdir(durum);
-        durumGuncelle();
+        writeState(state);
+        updateState();
         printf("----------------------------");
     }
 
