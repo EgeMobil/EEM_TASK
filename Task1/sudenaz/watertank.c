@@ -20,22 +20,22 @@ Pompa motoru çalıştırılır veya durdurulur.
 
 
 typedef enum {
-    DOLU,
-    BOSALIYOR,
-    BOS,
-    DOLUYOR
+    FULL,
+    EMPTYING,
+    EMPTY,
+    FULLING
 } DepoDurumu;
 
 
-DepoDurumu durum = DOLU; 
+DepoDurumu durum = FULL; 
 
 
 void durumYazdir(DepoDurumu d) {
     switch (d) {
-        case DOLU: printf("Durum: DOLU\n"); break;
-        case BOSALIYOR: printf("Durum: BOSALIYOR\n"); break;
-        case BOS: printf("Durum: BOS\n"); break;
-        case DOLUYOR: printf("Durum: DOLUYOR\n"); break;
+        case FULL: printf("Durum: DOLU\n"); break;
+        case EMPTYING: printf("Durum: BOSALIYOR\n"); break;
+        case EMPTY: printf("Durum: BOS\n"); break;
+        case FULLING: printf("Durum: DOLUYOR\n"); break;
         default: printf("Durum: BILINMIYOR\n");
     }
 }
@@ -43,28 +43,28 @@ void durumYazdir(DepoDurumu d) {
 
 void durumGuncelle() {
     switch (durum) {
-        case DOLU:
+        case FULL:
             printf(">> Su kullanıyoor\n");
             sleep(2); 
-            durum = BOSALIYOR; 
+            durum = EMPTYING; 
             break;
 
-        case BOSALIYOR:
+        case EMPTYING:
             printf(">> Su seviyesi azalıyor\n");
             sleep(2); // 2 saniye
-            durum = BOS; 
+            durum = EMPTY; 
             break;
 
         case BOS:
             printf(">> Pompa calıştırılıyor\n");
             sleep(3); // gecıkme sürelerini ayarladım sleep() ile 3 saniye
-            durum = DOLUYOR; 
+            durum = FULLING; 
             break;
 
         case DOLUYOR:
             printf(">> Su deposu doluyor\n");
             sleep(3); // 3 saniye
-            durum = DOLU; 
+            durum = FULL; 
             break;
 
         default:
