@@ -15,6 +15,7 @@ Doluyor ? Dolu (seviye tamamen dolduğunda).
 4- eylemler actionlar
 Pompa motoru çalıştırılır veya durdurulur.
 
+
 */
 
 
