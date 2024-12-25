@@ -16,6 +16,7 @@ Doluyor ? Dolu (seviye tamamen dolduğunda).
 Pompa motoru çalıştırılır veya durdurulur.
 
 
+
 */
 
 
