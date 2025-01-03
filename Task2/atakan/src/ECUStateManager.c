@@ -88,7 +88,7 @@ const char* GetExecutionStateCount(dtECUStateManager_processRunningCounter count
 
 FUNC(void, ECUStateManager)(void)
 {
-	for(int i=0; i<50 ; i++)
+	for(int i=0; i<500 ; i++)
 	{
 		/* Infinite loop */
 		ECU_StateMachine();
@@ -104,24 +104,46 @@ void ECU_StateMachine(void)
     
     /* @Delete: Test senaryosu State count = 20 olunca analog data wrapper process(pending içermeyen bir) geldiğini varsayalım */
     /*****************/
-    if( 20U == systemStartupStateCount)
-    {
-        if(ECUSTATE_ROUTINE == ECU_STATE)
+    static int processQueueIdx = 0;
+    if(( systemStartupStateCount % 30) == 0 )
+    {       
+
+        if( ECUSTATE_ROUTINE == ECU_STATE)
         {
             ECU_STATE = ECUSTATE_PROCESS;
             PROCESS_STATE = PROCESSSTATE_ANALOGDATAWRAPPER;
             AnalogDataWrapper_processExecutionState = PROCESS_EXECUTION_START;
         }
+        else if( ECUSTATE_PROCESS == ECU_STATE )
+        {
+            processQueue[processQueueIdx] = PROCESSSTATE_ANALOGDATAWRAPPER;
+            processQueueIdx++;
+
+            if(processQueueIdx > 5)
+            {
+                 processQueueIdx = 0;
+            }
+        }
         
     }
     /* @Delete: Test senaryosu State count = 30 olunca analog data wrapper process(pending içeren bir) geldiğini varsayalım */
-    if( 30U == systemStartupStateCount)
+    if(( systemStartupStateCount % 20 ) == 0 )
     {
         if(ECUSTATE_ROUTINE == ECU_STATE)
         {
             ECU_STATE = ECUSTATE_PROCESS;
             PROCESS_STATE = PROCESSSTATE_TXSIGNALADAPTER;
             TxSignalAdapter_processExecutionState = PROCESS_EXECUTION_START;
+        }
+        else if( ECUSTATE_PROCESS == ECU_STATE )
+        {
+            processQueue[processQueueIdx] = PROCESSSTATE_TXSIGNALADAPTER;
+            processQueueIdx++;
+
+            if(processQueueIdx > 5)
+            {
+                 processQueueIdx = 0;
+            }
         }
     }
     /*****************/
@@ -194,12 +216,37 @@ void ECU_StateMachine(void)
 
                         //ruRefresh(); // Perform ECU base refresh operation
 
+                        //Check processQueue
+                        for(int checkProcessQueueIdx = 0 ; checkProcessQueueIdx < 5 ; checkProcessQueueIdx++)
+                        {
+                            if( PROCESSSTATE_DEFAULT != processQueue[checkProcessQueueIdx] )
+                            {
+                                 ECU_STATE = ECUSTATE_PROCESS;
+                                 PROCESS_STATE = processQueue[checkProcessQueueIdx];
+                                 if(processQueue[checkProcessQueueIdx] == PROCESSSTATE_TXSIGNALADAPTER)
+                                 {
+                                    TxSignalAdapter_processExecutionState = PROCESS_EXECUTION_START;
+                                 }
+                                 else if(processQueue[checkProcessQueueIdx] == PROCESSSTATE_ANALOGDATAWRAPPER)
+                                 {
+                                    AnalogDataWrapper_processExecutionState = PROCESS_EXECUTION_START;
+                                 }
+                                 else
+                                 {
+                                    /* Defensive Coding */
+                                 }                               
+
+                                 processQueue[checkProcessQueueIdx] = PROCESSSTATE_DEFAULT;
+                                 break;
+                            }
+                        }
+
                         // Handle pending TxSignalAdapter process
                          if (PROCESS_STATE == PROCESSSTATE_TXSIGNALADAPTER && TxSignalAdapter_processExecutionState == PROCESS_EXECUTION_RUNNING)
                          {
                              // Increment the counter for the pending process
-                             TxSignalAdapter_processRunningCounter++;;
-                       
+                             TxSignalAdapter_processRunningCounter++;           
+
                              if (TxSignalAdapter_processRunningCounter >= TxSignalAdapter_PROCESS_RUNNING_DURATION)
                              {
                                  ECU_STATE = ECUSTATE_PROCESS; // Return to PROCESS state

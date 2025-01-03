@@ -11,6 +11,8 @@ dtECUStateManager_startUp  		        systemStartUp           = STARTUP_PRE_INIT;
 dtECUStateManager_refreshState	        REFRESH_STATE           = REFRESHSTATE_UNKNOWN;
 dtECUStateManager_processState          PROCESS_STATE           = PROCESSSTATE_UNKNOWN; 
 
+dtECUStateManager_processState          processQueue[5]         = {PROCESSSTATE_DEFAULT,PROCESSSTATE_DEFAULT,PROCESSSTATE_DEFAULT,PROCESSSTATE_DEFAULT,PROCESSSTATE_DEFAULT};
+
 /* Integration Process Execution Variables for Process */
 dtECUStateManager_processExecutionState AnalogDataWrapper_processExecutionState   = PROCESS_EXECUTION_UNKNOWN; 
 

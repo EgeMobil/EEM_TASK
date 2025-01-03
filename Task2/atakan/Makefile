@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -I./inc -Wall -Wextra -g
 
 # Kaynak dosyalar ve çıktı dosyası
-SRC = ./src/main.c ./src/ECUStateManager.c
+SRC = ./build/main.c ./src/ECUStateManager.c
 OUT = ./build/main.exe
 
 # Varsayılan hedef
