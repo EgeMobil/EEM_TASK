@@ -1,0 +1,59 @@
+\doxysection{ECUState\+Manager\+\_\+global.\+h}
+\label{_e_c_u_state_manager__global_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ECUSTATEMANAGER\_INC\_ECUSTATEMANAGER\_GLOBAL\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ECUSTATEMANAGER\_INC\_ECUSTATEMANAGER\_GLOBAL\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{/*\ MCU\ BsW\ -\/\ Low\ level\ layer\ }}
+\DoxyCodeLine{00005\ \textcolor{comment}{-\/\#include\ "{}stm32g4xx.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}stdio.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}string.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}stdlib.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ FUNC(returnType,\ functionName)\ returnType\ functionName}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*\ Monotony\ Type\ Definition\ */}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ MONOTONY\_NONE,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ MONOTONY\_INCREASING,\ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ MONOTONY\_DECREASING\ \ \ \ \ }
+\DoxyCodeLine{00026\ \}\ MonotonyType;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{/**************External\ Driver\ Include****************/}}
+\DoxyCodeLine{00029\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00030\ \textcolor{comment}{-\/\ Motor\ surucu\ entegresi\ kullanilyorsa\ \#include\ "{}drv8353.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{comment}{-\/\ Canbus\ entegresi\ kullaniliyorsa\ \#include\ "{}mcp2515.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00033\ \textcolor{comment}{/*****************************************************/}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/********Component\ sinif\ extern\ tanimlamalari*********/}}
+\DoxyCodeLine{00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00037\ \textcolor{comment}{-\/\ \#include\ "{}PWMConfiguration\_definition.h"{}}}
+\DoxyCodeLine{00038\ \textcolor{comment}{-\/\ extern\ dtPWMConfiguration\ PWMConfiguration;}}
+\DoxyCodeLine{00039\ \textcolor{comment}{}}
+\DoxyCodeLine{00040\ \textcolor{comment}{-\/\ \#include\ "{}AnalogConfiguration\_definition.h"{}}}
+\DoxyCodeLine{00041\ \textcolor{comment}{-\/\ extern\ dtAnalogConfiguration\ AnalogConfiguration;}}
+\DoxyCodeLine{00042\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00043\ \textcolor{comment}{/*****************************************************/}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/***************External\ Software\ Layer***************/}}
+\DoxyCodeLine{00046\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00047\ \textcolor{comment}{-\/\ Haberleşme\ Katmanı\ -\/\ Communication\ stack}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\#include\ "{}CommNewtork\_definition.h"{}}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\#include\ "{}CommNetwork\_Protocol.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{comment}{extern\ dtCommNetwork\ CommNetwork;}}
+\DoxyCodeLine{00051\ \textcolor{comment}{extern\ dtProtocol\ \ \ \ Protocol;}}
+\DoxyCodeLine{00052\ \textcolor{comment}{-\/\ Hata\ Yönetim\ Katmanı\ -\/\ ErrorLoggerDesc\ stack}}
+\DoxyCodeLine{00053\ \textcolor{comment}{...}}
+\DoxyCodeLine{00054\ \textcolor{comment}{...}}
+\DoxyCodeLine{00055\ \textcolor{comment}{...}}
+\DoxyCodeLine{00056\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*****************************************************/}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ECUSTATEMANAGER\_INC\_ECUSTATEMANAGER\_GLOBAL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

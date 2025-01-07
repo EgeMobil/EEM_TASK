@@ -1,0 +1,158 @@
+\doxysection{ihm\+External\+Irq\+Configuration Struct Reference}
+\label{structihm_external_irq_configuration}\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+
+
+Configuration structure for External IRQ management.  
+
+
+
+
+{\ttfamily \#include $<$Interrupt\+Handler\+Manager\+\_\+definition.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+port\+Name \textbf{ port}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+pin\+Name \textbf{ pin}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+trigger\+Type \textbf{ trigger}
+\item 
+void($\ast$ \textbf{ set\+Port} )(dt\+Interrupt\+Handler\+Manager\+\_\+port\+Name \textbf{ port})
+\begin{DoxyCompactList}\small\item\em Sets the port configuration. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+port\+Name($\ast$ \textbf{ get\+Port} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current port configuration. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Pin} )(dt\+Interrupt\+Handler\+Manager\+\_\+pin\+Name \textbf{ pin})
+\begin{DoxyCompactList}\small\item\em Sets the pin configuration. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+pin\+Name($\ast$ \textbf{ get\+Pin} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current pin configuration. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Trigger} )(dt\+Interrupt\+Handler\+Manager\+\_\+trigger\+Type \textbf{ trigger})
+\begin{DoxyCompactList}\small\item\em Sets the trigger type configuration. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+trigger\+Type($\ast$ \textbf{ get\+Trigger} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current trigger type configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration structure for External IRQ management. 
+
+This structure provides configuration attributes and associated getter and setter function pointers for managing external interrupts.
+
+The attributes include port, pin, and trigger type configurations. Getter and setter functions allow dynamic access and modification of these attributes during runtime. 
+
+\doxysubsection{Member Data Documentation}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!getPin@{getPin}}
+\index{getPin@{getPin}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{getPin}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_a9fdea01560cd951fccadbf7f36579899} 
+dt\+Interrupt\+Handler\+Manager\+\_\+pin\+Name($\ast$ ihm\+External\+Irq\+Configuration\+::get\+Pin) (void)}
+
+
+
+Gets the current pin configuration. 
+
+\begin{DoxyReturn}{Returns}
+Current pin configuration. 
+\end{DoxyReturn}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!getPort@{getPort}}
+\index{getPort@{getPort}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{getPort}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_a3818e2c04390cf46de98993e0950ddc3} 
+dt\+Interrupt\+Handler\+Manager\+\_\+port\+Name($\ast$ ihm\+External\+Irq\+Configuration\+::get\+Port) (void)}
+
+
+
+Gets the current port configuration. 
+
+\begin{DoxyReturn}{Returns}
+Current port configuration. 
+\end{DoxyReturn}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!getTrigger@{getTrigger}}
+\index{getTrigger@{getTrigger}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{getTrigger}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_a6471d76773b07fdfd09a96b3fb0b37bb} 
+dt\+Interrupt\+Handler\+Manager\+\_\+trigger\+Type($\ast$ ihm\+External\+Irq\+Configuration\+::get\+Trigger) (void)}
+
+
+
+Gets the current trigger type configuration. 
+
+\begin{DoxyReturn}{Returns}
+Current trigger type configuration. 
+\end{DoxyReturn}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!pin@{pin}}
+\index{pin@{pin}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{pin}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_aac58f889613c673b92b04dc36ec361cb} 
+dt\+Interrupt\+Handler\+Manager\+\_\+pin\+Name ihm\+External\+Irq\+Configuration\+::pin}
+
+Pin configuration for external IRQ. \index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!port@{port}}
+\index{port@{port}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{port}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_ae2a257a7601a475c1ea257bb8690dd86} 
+dt\+Interrupt\+Handler\+Manager\+\_\+port\+Name ihm\+External\+Irq\+Configuration\+::port}
+
+Port configuration for external IRQ. \index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!setPin@{setPin}}
+\index{setPin@{setPin}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{setPin}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_a5098ff48ec1ccfa8e223cb543861356a} 
+void($\ast$ ihm\+External\+Irq\+Configuration\+::set\+Pin) (dt\+Interrupt\+Handler\+Manager\+\_\+pin\+Name \textbf{ pin})}
+
+
+
+Sets the pin configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & Pin configuration to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!setPort@{setPort}}
+\index{setPort@{setPort}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{setPort}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_ac4ecf22aeb67b0873d0a67771e572528} 
+void($\ast$ ihm\+External\+Irq\+Configuration\+::set\+Port) (dt\+Interrupt\+Handler\+Manager\+\_\+port\+Name \textbf{ port})}
+
+
+
+Sets the port configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port configuration to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!setTrigger@{setTrigger}}
+\index{setTrigger@{setTrigger}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{setTrigger}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_afcb220e21172105d9215a8a4c4d958b8} 
+void($\ast$ ihm\+External\+Irq\+Configuration\+::set\+Trigger) (dt\+Interrupt\+Handler\+Manager\+\_\+trigger\+Type \textbf{ trigger})}
+
+
+
+Sets the trigger type configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trigger} & Trigger type configuration to set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\index{ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}!trigger@{trigger}}
+\index{trigger@{trigger}!ihmExternalIrqConfiguration@{ihmExternalIrqConfiguration}}
+\doxysubsubsection{trigger}
+{\footnotesize\ttfamily \label{structihm_external_irq_configuration_a6eb6adaf1aa0364f549f83de3fe54a8c} 
+dt\+Interrupt\+Handler\+Manager\+\_\+trigger\+Type ihm\+External\+Irq\+Configuration\+::trigger}
+
+Trigger type configuration for external IRQ. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Interrupt\+Handler\+Manager\+\_\+definition.\+h\end{DoxyCompactItemize}

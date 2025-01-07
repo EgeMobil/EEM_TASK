@@ -1,0 +1,627 @@
+\doxysection{ihm\+HALLConfiguration Struct Reference}
+\label{structihm_h_a_l_l_configuration}\index{ihmHALLConfiguration@{ihmHALLConfiguration}}
+
+
+Configuration structure for HALL interrupt management.  
+
+
+
+
+{\ttfamily \#include $<$Interrupt\+Handler\+Manager\+\_\+definition.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+AState\+Status \textbf{ halla\+\_\+state}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+BState\+Status \textbf{ hallb\+\_\+state}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+CState\+Status \textbf{ hallc\+\_\+state}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+AFlag \textbf{ halla\+\_\+fe\+\_\+flag}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BFlag \textbf{ hallb\+\_\+fe\+\_\+flag}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CFlag \textbf{ hallc\+\_\+fe\+\_\+flag}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+AFlag \textbf{ halla\+\_\+re\+\_\+flag}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BFlag \textbf{ hallb\+\_\+re\+\_\+flag}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CFlag \textbf{ hallc\+\_\+re\+\_\+flag}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+ACount \textbf{ halla\+\_\+fe\+\_\+count}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BCount \textbf{ hallb\+\_\+fe\+\_\+count}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CCount \textbf{ hallc\+\_\+fe\+\_\+count}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+ACount \textbf{ halla\+\_\+re\+\_\+count}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BCount \textbf{ hallb\+\_\+re\+\_\+count}
+\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CCount \textbf{ hallc\+\_\+re\+\_\+count}
+\item 
+void($\ast$ \textbf{ set\+Hall\+AState} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+AState\+Status state)
+\begin{DoxyCompactList}\small\item\em Sets the state status for Hall A. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+AState\+Status($\ast$ \textbf{ get\+Hall\+AState} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current state status for Hall A. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+AFalling\+Edge\+Flag} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+AFlag flag)
+\begin{DoxyCompactList}\small\item\em Sets the falling edge flag for Hall A. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+AFlag($\ast$ \textbf{ get\+Hall\+AFalling\+Edge\+Flag} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current falling edge flag for Hall A. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+ARising\+Edge\+Flag} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+AFlag flag)
+\begin{DoxyCompactList}\small\item\em Sets the rising edge flag for Hall A. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+AFlag($\ast$ \textbf{ get\+Hall\+ARising\+Edge\+Flag} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current rising edge flag for Hall A. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+AFalling\+Edge\+Count} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+ACount count)
+\begin{DoxyCompactList}\small\item\em Sets the falling edge count for Hall A. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+ACount($\ast$ \textbf{ get\+Hall\+AFalling\+Edge\+Count} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current falling edge count for Hall A. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+ARising\+Edge\+Count} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+ACount count)
+\begin{DoxyCompactList}\small\item\em Sets the rising edge count for Hall A. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+ACount($\ast$ \textbf{ get\+Hall\+ARising\+Edge\+Count} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current rising edge count for Hall A. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+BState} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+BState\+Status state)
+\begin{DoxyCompactList}\small\item\em Sets the state status for Hall B. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+BState\+Status($\ast$ \textbf{ get\+Hall\+BState} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current state status for Hall B. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+BFalling\+Edge\+Flag} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BFlag flag)
+\begin{DoxyCompactList}\small\item\em Sets the falling edge flag for Hall B. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BFlag($\ast$ \textbf{ get\+Hall\+BFalling\+Edge\+Flag} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current falling edge flag for Hall B. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+BRising\+Edge\+Flag} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BFlag flag)
+\begin{DoxyCompactList}\small\item\em Sets the rising edge flag for Hall B. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BFlag($\ast$ \textbf{ get\+Hall\+BRising\+Edge\+Flag} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current rising edge flag for Hall B. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+BFalling\+Edge\+Count} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BCount count)
+\begin{DoxyCompactList}\small\item\em Sets the falling edge count for Hall B. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BCount($\ast$ \textbf{ get\+Hall\+BFalling\+Edge\+Count} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current falling edge count for Hall B. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+BRising\+Edge\+Count} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BCount count)
+\begin{DoxyCompactList}\small\item\em Sets the rising edge count for Hall B. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BCount($\ast$ \textbf{ get\+Hall\+BRising\+Edge\+Count} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current rising edge count for Hall B. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+CState} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+CState\+Status state)
+\begin{DoxyCompactList}\small\item\em Sets the state status for Hall C. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+CState\+Status($\ast$ \textbf{ get\+Hall\+CState} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current state status for Hall C. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+CFalling\+Edge\+Flag} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CFlag flag)
+\begin{DoxyCompactList}\small\item\em Sets the falling edge flag for Hall C. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CFlag($\ast$ \textbf{ get\+Hall\+CFalling\+Edge\+Flag} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current falling edge flag for Hall C. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+CRising\+Edge\+Flag} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CFlag flag)
+\begin{DoxyCompactList}\small\item\em Sets the rising edge flag for Hall C. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CFlag($\ast$ \textbf{ get\+Hall\+CRising\+Edge\+Flag} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current rising edge flag for Hall C. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+CFalling\+Edge\+Count} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CCount count)
+\begin{DoxyCompactList}\small\item\em Sets the falling edge count for Hall C. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CCount($\ast$ \textbf{ get\+Hall\+CFalling\+Edge\+Count} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current falling edge count for Hall C. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ set\+Hall\+CRising\+Edge\+Count} )(dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CCount count)
+\begin{DoxyCompactList}\small\item\em Sets the rising edge count for Hall C. \end{DoxyCompactList}\item 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CCount($\ast$ \textbf{ get\+Hall\+CRising\+Edge\+Count} )(void)
+\begin{DoxyCompactList}\small\item\em Gets the current rising edge count for Hall C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration structure for HALL interrupt management. 
+
+This structure contains attributes and function pointers for managing HALL sensor states, edge flags, and edge counts for Hall A, Hall B, and Hall C. 
+
+\doxysubsection{Member Data Documentation}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallAFallingEdgeCount@{getHallAFallingEdgeCount}}
+\index{getHallAFallingEdgeCount@{getHallAFallingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallAFallingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_ad20e3ee3e4123b0889119089ef33898f} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+ACount($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+AFalling\+Edge\+Count) (void)}
+
+
+
+Gets the current falling edge count for Hall A. 
+
+\begin{DoxyReturn}{Returns}
+Current falling edge count. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallAFallingEdgeFlag@{getHallAFallingEdgeFlag}}
+\index{getHallAFallingEdgeFlag@{getHallAFallingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallAFallingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a5a506246c6be48bcb5e0843044a0d5f0} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+AFlag($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+AFalling\+Edge\+Flag) (void)}
+
+
+
+Gets the current falling edge flag for Hall A. 
+
+\begin{DoxyReturn}{Returns}
+Current falling edge flag. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallARisingEdgeCount@{getHallARisingEdgeCount}}
+\index{getHallARisingEdgeCount@{getHallARisingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallARisingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a1bf7f35e624b6eacd613ddb0ef9e37cf} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+ACount($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+ARising\+Edge\+Count) (void)}
+
+
+
+Gets the current rising edge count for Hall A. 
+
+\begin{DoxyReturn}{Returns}
+Current rising edge count. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallARisingEdgeFlag@{getHallARisingEdgeFlag}}
+\index{getHallARisingEdgeFlag@{getHallARisingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallARisingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a713ae991c6a2221d0a5a46bbf2ac040e} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+AFlag($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+ARising\+Edge\+Flag) (void)}
+
+
+
+Gets the current rising edge flag for Hall A. 
+
+\begin{DoxyReturn}{Returns}
+Current rising edge flag. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallAState@{getHallAState}}
+\index{getHallAState@{getHallAState}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallAState}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a84e6e420d7aa2c4ffed9cfc3d0f3141f} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+AState\+Status($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+AState) (void)}
+
+
+
+Gets the current state status for Hall A. 
+
+\begin{DoxyReturn}{Returns}
+Current state status. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallBFallingEdgeCount@{getHallBFallingEdgeCount}}
+\index{getHallBFallingEdgeCount@{getHallBFallingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallBFallingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_ad2d10ed9ca26418a8c0084d5ab934fef} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BCount($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+BFalling\+Edge\+Count) (void)}
+
+
+
+Gets the current falling edge count for Hall B. 
+
+\begin{DoxyReturn}{Returns}
+Current falling edge count. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallBFallingEdgeFlag@{getHallBFallingEdgeFlag}}
+\index{getHallBFallingEdgeFlag@{getHallBFallingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallBFallingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a80dd922178040d4a7d2c9016aaedb83a} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BFlag($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+BFalling\+Edge\+Flag) (void)}
+
+
+
+Gets the current falling edge flag for Hall B. 
+
+\begin{DoxyReturn}{Returns}
+Current falling edge flag. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallBRisingEdgeCount@{getHallBRisingEdgeCount}}
+\index{getHallBRisingEdgeCount@{getHallBRisingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallBRisingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a74af3042e1e89f53d5f092cb5716cb4f} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BCount($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+BRising\+Edge\+Count) (void)}
+
+
+
+Gets the current rising edge count for Hall B. 
+
+\begin{DoxyReturn}{Returns}
+Current rising edge count. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallBRisingEdgeFlag@{getHallBRisingEdgeFlag}}
+\index{getHallBRisingEdgeFlag@{getHallBRisingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallBRisingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_ac7ec6f02231dd9e6619b15ae32fd9635} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BFlag($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+BRising\+Edge\+Flag) (void)}
+
+
+
+Gets the current rising edge flag for Hall B. 
+
+\begin{DoxyReturn}{Returns}
+Current rising edge flag. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallBState@{getHallBState}}
+\index{getHallBState@{getHallBState}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallBState}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a4a2eff0610133af3e080612aea17b0d1} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+BState\+Status($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+BState) (void)}
+
+
+
+Gets the current state status for Hall B. 
+
+\begin{DoxyReturn}{Returns}
+Current state status. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallCFallingEdgeCount@{getHallCFallingEdgeCount}}
+\index{getHallCFallingEdgeCount@{getHallCFallingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallCFallingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a4f0aa41e32f13fa76255be2cc0344138} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CCount($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+CFalling\+Edge\+Count) (void)}
+
+
+
+Gets the current falling edge count for Hall C. 
+
+\begin{DoxyReturn}{Returns}
+Current falling edge count. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallCFallingEdgeFlag@{getHallCFallingEdgeFlag}}
+\index{getHallCFallingEdgeFlag@{getHallCFallingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallCFallingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a33c0b088d3e9a56fb4787dba86afd92a} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CFlag($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+CFalling\+Edge\+Flag) (void)}
+
+
+
+Gets the current falling edge flag for Hall C. 
+
+\begin{DoxyReturn}{Returns}
+Current falling edge flag. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallCRisingEdgeCount@{getHallCRisingEdgeCount}}
+\index{getHallCRisingEdgeCount@{getHallCRisingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallCRisingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a2c31c75fb1bf9ab77befded83cb459c0} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CCount($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+CRising\+Edge\+Count) (void)}
+
+
+
+Gets the current rising edge count for Hall C. 
+
+\begin{DoxyReturn}{Returns}
+Current rising edge count. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallCRisingEdgeFlag@{getHallCRisingEdgeFlag}}
+\index{getHallCRisingEdgeFlag@{getHallCRisingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallCRisingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a14f6276d83653550d0776ff188a18231} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CFlag($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+CRising\+Edge\+Flag) (void)}
+
+
+
+Gets the current rising edge flag for Hall C. 
+
+\begin{DoxyReturn}{Returns}
+Current rising edge flag. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!getHallCState@{getHallCState}}
+\index{getHallCState@{getHallCState}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{getHallCState}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_ab1b37fc72abed53161660dfd4037ca6e} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+CState\+Status($\ast$ ihm\+HALLConfiguration\+::get\+Hall\+CState) (void)}
+
+
+
+Gets the current state status for Hall C. 
+
+\begin{DoxyReturn}{Returns}
+Current state status. 
+\end{DoxyReturn}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!halla\_fe\_count@{halla\_fe\_count}}
+\index{halla\_fe\_count@{halla\_fe\_count}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{halla\_fe\_count}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a36e50b4beb2ae40dbff4f20990dc6ede} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+ACount ihm\+HALLConfiguration\+::halla\+\_\+fe\+\_\+count}
+
+Hall A falling edge count. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!halla\_fe\_flag@{halla\_fe\_flag}}
+\index{halla\_fe\_flag@{halla\_fe\_flag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{halla\_fe\_flag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_adf0f89fa8db137bdf74d14e05882e4a8} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+AFlag ihm\+HALLConfiguration\+::halla\+\_\+fe\+\_\+flag}
+
+Hall A falling edge flag. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!halla\_re\_count@{halla\_re\_count}}
+\index{halla\_re\_count@{halla\_re\_count}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{halla\_re\_count}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_ab0a50845b1b864ee3a7e9142e6d7f599} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+ACount ihm\+HALLConfiguration\+::halla\+\_\+re\+\_\+count}
+
+Hall A rising edge count. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!halla\_re\_flag@{halla\_re\_flag}}
+\index{halla\_re\_flag@{halla\_re\_flag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{halla\_re\_flag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a1fc67ab738c30b50270921c26811e41d} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+AFlag ihm\+HALLConfiguration\+::halla\+\_\+re\+\_\+flag}
+
+Hall A rising edge flag. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!halla\_state@{halla\_state}}
+\index{halla\_state@{halla\_state}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{halla\_state}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a7a2d0b0a450ed92986506ddf6a66b22e} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+AState\+Status ihm\+HALLConfiguration\+::halla\+\_\+state}
+
+Hall A state status. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallb\_fe\_count@{hallb\_fe\_count}}
+\index{hallb\_fe\_count@{hallb\_fe\_count}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallb\_fe\_count}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_aac500be2a70379f05244d64042509469} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BCount ihm\+HALLConfiguration\+::hallb\+\_\+fe\+\_\+count}
+
+Hall B falling edge count. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallb\_fe\_flag@{hallb\_fe\_flag}}
+\index{hallb\_fe\_flag@{hallb\_fe\_flag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallb\_fe\_flag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_aba6f014425eb96f36fad0ff7442dae50} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BFlag ihm\+HALLConfiguration\+::hallb\+\_\+fe\+\_\+flag}
+
+Hall B falling edge flag. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallb\_re\_count@{hallb\_re\_count}}
+\index{hallb\_re\_count@{hallb\_re\_count}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallb\_re\_count}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a8f01f4a039a16056423933574973011d} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BCount ihm\+HALLConfiguration\+::hallb\+\_\+re\+\_\+count}
+
+Hall B rising edge count. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallb\_re\_flag@{hallb\_re\_flag}}
+\index{hallb\_re\_flag@{hallb\_re\_flag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallb\_re\_flag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a8e2bff820344b2f31ecd359d1cb4199e} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BFlag ihm\+HALLConfiguration\+::hallb\+\_\+re\+\_\+flag}
+
+Hall B rising edge flag. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallb\_state@{hallb\_state}}
+\index{hallb\_state@{hallb\_state}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallb\_state}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_aaf40e7f6d667e442f8c4c11c67ab9033} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+BState\+Status ihm\+HALLConfiguration\+::hallb\+\_\+state}
+
+Hall B state status. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallc\_fe\_count@{hallc\_fe\_count}}
+\index{hallc\_fe\_count@{hallc\_fe\_count}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallc\_fe\_count}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a951eec49f38fa94e44286bd39fc489d2} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CCount ihm\+HALLConfiguration\+::hallc\+\_\+fe\+\_\+count}
+
+Hall C falling edge count. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallc\_fe\_flag@{hallc\_fe\_flag}}
+\index{hallc\_fe\_flag@{hallc\_fe\_flag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallc\_fe\_flag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a1e16052e52642d77d9a87e4f141f1462} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CFlag ihm\+HALLConfiguration\+::hallc\+\_\+fe\+\_\+flag}
+
+Hall C falling edge flag. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallc\_re\_count@{hallc\_re\_count}}
+\index{hallc\_re\_count@{hallc\_re\_count}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallc\_re\_count}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_af77105dce345ff841a74c37ea6ea3b76} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CCount ihm\+HALLConfiguration\+::hallc\+\_\+re\+\_\+count}
+
+Hall C rising edge count. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallc\_re\_flag@{hallc\_re\_flag}}
+\index{hallc\_re\_flag@{hallc\_re\_flag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallc\_re\_flag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_af215f7b60734e88305e1172868d010f9} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CFlag ihm\+HALLConfiguration\+::hallc\+\_\+re\+\_\+flag}
+
+Hall C rising edge flag. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!hallc\_state@{hallc\_state}}
+\index{hallc\_state@{hallc\_state}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{hallc\_state}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_aaaabd44d8a2f35b896c1ae9caa9fb7e8} 
+dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+CState\+Status ihm\+HALLConfiguration\+::hallc\+\_\+state}
+
+Hall C state status. \index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallAFallingEdgeCount@{setHallAFallingEdgeCount}}
+\index{setHallAFallingEdgeCount@{setHallAFallingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallAFallingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_af17f4ca9fd917597ee9054ed0f6552a6} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+AFalling\+Edge\+Count) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+ACount count)}
+
+
+
+Sets the falling edge count for Hall A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Falling edge count to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallAFallingEdgeFlag@{setHallAFallingEdgeFlag}}
+\index{setHallAFallingEdgeFlag@{setHallAFallingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallAFallingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_aeea8718153d93e9a6d4786d005779adc} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+AFalling\+Edge\+Flag) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+AFlag flag)}
+
+
+
+Sets the falling edge flag for Hall A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Falling edge flag to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallARisingEdgeCount@{setHallARisingEdgeCount}}
+\index{setHallARisingEdgeCount@{setHallARisingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallARisingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a52b2b88fde17421b06fba86be28fedd5} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+ARising\+Edge\+Count) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+ACount count)}
+
+
+
+Sets the rising edge count for Hall A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Rising edge count to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallARisingEdgeFlag@{setHallARisingEdgeFlag}}
+\index{setHallARisingEdgeFlag@{setHallARisingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallARisingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_adbe7361ccf47f90dea06b330e75f5f6f} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+ARising\+Edge\+Flag) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+AFlag flag)}
+
+
+
+Sets the rising edge flag for Hall A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Rising edge flag to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallAState@{setHallAState}}
+\index{setHallAState@{setHallAState}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallAState}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a0b6da3d16bb6f72f5a58763ffdb84e45} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+AState) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+AState\+Status state)}
+
+
+
+Sets the state status for Hall A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & State status to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallBFallingEdgeCount@{setHallBFallingEdgeCount}}
+\index{setHallBFallingEdgeCount@{setHallBFallingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallBFallingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_ae6370576ff4ffbbcb55a11e5a9b418bb} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+BFalling\+Edge\+Count) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BCount count)}
+
+
+
+Sets the falling edge count for Hall B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Falling edge count to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallBFallingEdgeFlag@{setHallBFallingEdgeFlag}}
+\index{setHallBFallingEdgeFlag@{setHallBFallingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallBFallingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a65286fe66bfe2093c3e4a311c94068a2} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+BFalling\+Edge\+Flag) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+BFlag flag)}
+
+
+
+Sets the falling edge flag for Hall B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Falling edge flag to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallBRisingEdgeCount@{setHallBRisingEdgeCount}}
+\index{setHallBRisingEdgeCount@{setHallBRisingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallBRisingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a7e35552b79c555bdda3593db5f41af7a} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+BRising\+Edge\+Count) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BCount count)}
+
+
+
+Sets the rising edge count for Hall B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Rising edge count to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallBRisingEdgeFlag@{setHallBRisingEdgeFlag}}
+\index{setHallBRisingEdgeFlag@{setHallBRisingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallBRisingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a6a25822ddaf1eb575fae1a3888a57330} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+BRising\+Edge\+Flag) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+BFlag flag)}
+
+
+
+Sets the rising edge flag for Hall B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Rising edge flag to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallBState@{setHallBState}}
+\index{setHallBState@{setHallBState}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallBState}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a446c651f9a7831ed2ed0c01e51b4654a} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+BState) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+BState\+Status state)}
+
+
+
+Sets the state status for Hall B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & State status to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallCFallingEdgeCount@{setHallCFallingEdgeCount}}
+\index{setHallCFallingEdgeCount@{setHallCFallingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallCFallingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_afe6c284043cad150804da1ea280b5aee} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+CFalling\+Edge\+Count) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CCount count)}
+
+
+
+Sets the falling edge count for Hall C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Falling edge count to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallCFallingEdgeFlag@{setHallCFallingEdgeFlag}}
+\index{setHallCFallingEdgeFlag@{setHallCFallingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallCFallingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a4dbb5853843d4dcb74419dba867cf76e} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+CFalling\+Edge\+Flag) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Falling\+Edge\+CFlag flag)}
+
+
+
+Sets the falling edge flag for Hall C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Falling edge flag to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallCRisingEdgeCount@{setHallCRisingEdgeCount}}
+\index{setHallCRisingEdgeCount@{setHallCRisingEdgeCount}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallCRisingEdgeCount}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a013119d1b982e1e4254745dc57a1a83f} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+CRising\+Edge\+Count) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CCount count)}
+
+
+
+Sets the rising edge count for Hall C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Rising edge count to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallCRisingEdgeFlag@{setHallCRisingEdgeFlag}}
+\index{setHallCRisingEdgeFlag@{setHallCRisingEdgeFlag}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallCRisingEdgeFlag}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_adbc822bc750c87f6c14fa98fe0f8bd23} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+CRising\+Edge\+Flag) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Rising\+Edge\+CFlag flag)}
+
+
+
+Sets the rising edge flag for Hall C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag} & Rising edge flag to set. \\
+\hline
+\end{DoxyParams}
+\index{ihmHALLConfiguration@{ihmHALLConfiguration}!setHallCState@{setHallCState}}
+\index{setHallCState@{setHallCState}!ihmHALLConfiguration@{ihmHALLConfiguration}}
+\doxysubsubsection{setHallCState}
+{\footnotesize\ttfamily \label{structihm_h_a_l_l_configuration_a5d629e63f63be98d8cf93a998293f4cc} 
+void($\ast$ ihm\+HALLConfiguration\+::set\+Hall\+CState) (dt\+Interrupt\+Handler\+Manager\+\_\+\+Hall\+CState\+Status state)}
+
+
+
+Sets the state status for Hall C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & State status to set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Interrupt\+Handler\+Manager\+\_\+definition.\+h\end{DoxyCompactItemize}
