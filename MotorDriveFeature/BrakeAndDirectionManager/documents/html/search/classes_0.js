@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dtinterrupthandlermanager_0',['dtInterruptHandlerManager',['../structdt_interrupt_handler_manager.html',1,'']]]
+  ['dtbdrconfiguration_0',['dtBdrConfiguration',['../structdt_bdr_configuration.html',1,'']]],
+  ['dtbrakeanddirectionmanager_1',['dtBrakeAndDirectionManager',['../structdt_brake_and_direction_manager.html',1,'']]]
 ];

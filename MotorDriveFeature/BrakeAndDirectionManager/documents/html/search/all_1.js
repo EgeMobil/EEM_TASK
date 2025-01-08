@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['externalirq_0',['externalIrq',['../structdt_interrupt_handler_manager.html#a7aca0b16dcf8bf3e1028cc1ff336bcb5',1,'dtInterruptHandlerManager']]]
+  ['config_0',['config',['../structdt_brake_and_direction_manager.html#a230ab19691edd9b580fa4101f6463d66',1,'dtBrakeAndDirectionManager']]]
 ];

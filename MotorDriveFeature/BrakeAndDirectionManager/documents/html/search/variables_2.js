@@ -1,29 +1,4 @@
 var searchData=
 [
-  ['getday_0',['getDay',['../structihm_timer_irq_configuration.html#a767acd1ed705ac5c4f8282c0f8dcacce',1,'ihmTimerIrqConfiguration']]],
-  ['getexternalirq_1',['getExternalIrq',['../structdt_interrupt_handler_manager.html#a36586da00491ddc510cc1868d491efe5',1,'dtInterruptHandlerManager']]],
-  ['gethall_2',['getHALL',['../structdt_interrupt_handler_manager.html#ac85b0d9f5914b89ef10951d29fa0e8e1',1,'dtInterruptHandlerManager']]],
-  ['gethallafallingedgecount_3',['getHallAFallingEdgeCount',['../structihm_h_a_l_l_configuration.html#ad20e3ee3e4123b0889119089ef33898f',1,'ihmHALLConfiguration']]],
-  ['gethallafallingedgeflag_4',['getHallAFallingEdgeFlag',['../structihm_h_a_l_l_configuration.html#a5a506246c6be48bcb5e0843044a0d5f0',1,'ihmHALLConfiguration']]],
-  ['gethallarisingedgecount_5',['getHallARisingEdgeCount',['../structihm_h_a_l_l_configuration.html#a1bf7f35e624b6eacd613ddb0ef9e37cf',1,'ihmHALLConfiguration']]],
-  ['gethallarisingedgeflag_6',['getHallARisingEdgeFlag',['../structihm_h_a_l_l_configuration.html#a713ae991c6a2221d0a5a46bbf2ac040e',1,'ihmHALLConfiguration']]],
-  ['gethallastate_7',['getHallAState',['../structihm_h_a_l_l_configuration.html#a84e6e420d7aa2c4ffed9cfc3d0f3141f',1,'ihmHALLConfiguration']]],
-  ['gethallbfallingedgecount_8',['getHallBFallingEdgeCount',['../structihm_h_a_l_l_configuration.html#ad2d10ed9ca26418a8c0084d5ab934fef',1,'ihmHALLConfiguration']]],
-  ['gethallbfallingedgeflag_9',['getHallBFallingEdgeFlag',['../structihm_h_a_l_l_configuration.html#a80dd922178040d4a7d2c9016aaedb83a',1,'ihmHALLConfiguration']]],
-  ['gethallbrisingedgecount_10',['getHallBRisingEdgeCount',['../structihm_h_a_l_l_configuration.html#a74af3042e1e89f53d5f092cb5716cb4f',1,'ihmHALLConfiguration']]],
-  ['gethallbrisingedgeflag_11',['getHallBRisingEdgeFlag',['../structihm_h_a_l_l_configuration.html#ac7ec6f02231dd9e6619b15ae32fd9635',1,'ihmHALLConfiguration']]],
-  ['gethallbstate_12',['getHallBState',['../structihm_h_a_l_l_configuration.html#a4a2eff0610133af3e080612aea17b0d1',1,'ihmHALLConfiguration']]],
-  ['gethallcfallingedgecount_13',['getHallCFallingEdgeCount',['../structihm_h_a_l_l_configuration.html#a4f0aa41e32f13fa76255be2cc0344138',1,'ihmHALLConfiguration']]],
-  ['gethallcfallingedgeflag_14',['getHallCFallingEdgeFlag',['../structihm_h_a_l_l_configuration.html#a33c0b088d3e9a56fb4787dba86afd92a',1,'ihmHALLConfiguration']]],
-  ['gethallcrisingedgecount_15',['getHallCRisingEdgeCount',['../structihm_h_a_l_l_configuration.html#a2c31c75fb1bf9ab77befded83cb459c0',1,'ihmHALLConfiguration']]],
-  ['gethallcrisingedgeflag_16',['getHallCRisingEdgeFlag',['../structihm_h_a_l_l_configuration.html#a14f6276d83653550d0776ff188a18231',1,'ihmHALLConfiguration']]],
-  ['gethallcstate_17',['getHallCState',['../structihm_h_a_l_l_configuration.html#ab1b37fc72abed53161660dfd4037ca6e',1,'ihmHALLConfiguration']]],
-  ['gethour_18',['getHour',['../structihm_timer_irq_configuration.html#aeb924364ceed9ba846528d6fee232b8f',1,'ihmTimerIrqConfiguration']]],
-  ['getmillisecond_19',['getMillisecond',['../structihm_timer_irq_configuration.html#a0f8d6136626222f07bae005dbfc7d047',1,'ihmTimerIrqConfiguration']]],
-  ['getminute_20',['getMinute',['../structihm_timer_irq_configuration.html#a4ec015f3ca6a0ea6242246e663a3f934',1,'ihmTimerIrqConfiguration']]],
-  ['getpin_21',['getPin',['../structihm_external_irq_configuration.html#a9fdea01560cd951fccadbf7f36579899',1,'ihmExternalIrqConfiguration']]],
-  ['getport_22',['getPort',['../structihm_external_irq_configuration.html#a3818e2c04390cf46de98993e0950ddc3',1,'ihmExternalIrqConfiguration']]],
-  ['getsecond_23',['getSecond',['../structihm_timer_irq_configuration.html#a9267fada6e049d6091eb879ff5243753',1,'ihmTimerIrqConfiguration']]],
-  ['gettimerirq_24',['getTimerIrq',['../structdt_interrupt_handler_manager.html#a3e63aae2ee3a173dd0c655ecf3295203',1,'dtInterruptHandlerManager']]],
-  ['gettrigger_25',['getTrigger',['../structihm_external_irq_configuration.html#a6471d76773b07fdfd09a96b3fb0b37bb',1,'ihmExternalIrqConfiguration']]]
+  ['direction_0',['direction',['../structdt_bdr_configuration.html#a3f1d03304218f63a52f8a913a619c9ad',1,'dtBdrConfiguration']]]
 ];
