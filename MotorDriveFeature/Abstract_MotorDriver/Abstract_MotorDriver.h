@@ -420,8 +420,52 @@ typedef struct
     uint32_t upperLimit;      /**< Maximum valid value for falling edge count. */
     MonotonyType monotony;    /**< Monotony constraint for falling edge count values. */
 } dcFallingEdgeCCount;
-
 /*************************************************************/
 
+/*************************************************************/
+/* IRawSpeed : rawSpeedStatus - Compu Method */
+typedef uint16_t cmRawSpeedStatus;
+
+/* IRawSpeed : rawSpeedStatus - Data Constraint */
+typedef struct
+{
+    uint32_t lowerLimit;      /**< Minimum valid value for Raw SpeedStatus data. */
+    uint32_t upperLimit;      /**< Maximum valid value for Raw SpeedStatus data. */
+    MonotonyType monotony;    /**< Monotony constraint for Raw SpeedStatus data. */
+} dcRawSpeedStatus;
+/*************************************************************/
+
+/*************************************************************/
+/* ISpeedStatus : speedStatus - Compu Method */
+typedef uint16_t cmSpeedStatus;
+
+/* ISpeedStatus : speedStatus - Data Constraint */
+typedef struct
+{
+    uint32_t lowerLimit;      /**< Minimum valid value for SpeedStatus data. */
+    uint32_t upperLimit;      /**< Maximum valid value for SpeedStatus data. */
+    MonotonyType monotony;    /**< Monotony constraint for SpeedStatus data. */
+} dcSpeedStatus;
+/*************************************************************/
+
+/*************************************************************/
+/* IIndicatorSpeedStatus : indicatorSpeedStatus - Compu Method */
+typedef enum
+{
+    INDICATORSPEEDSTATUS_IDLE = 0,       /**< System is idle, no speed detected or speed is zero. */
+    INDICATORSPEEDSTATUS_LOWSPEED,       /**< Speed is in the low range (e.g., 0-300 PWM or similar). */
+    INDICATORSPEEDSTATUS_MIDSPEED,       /**< Speed is in the medium range (e.g., 301-700 PWM or similar). */
+    INDICATORSPEEDSTATUS_HIGHSPEED,      /**< Speed is in the high range (e.g., 701-1000 PWM or similar). */
+    INDICATORSPEEDSTATUS_UNKNOWN,        /**< Speed status is unknown, sensor or calculation issue. */
+} cmIndicatorSpeedStatus;
+
+/* IIndicatorSpeedStatus : indicatorSpeedStatus - Data Constraint */
+typedef struct
+{
+    uint32_t lowerLimit;      /**< Minimum valid value for the indicator speed status. */
+    uint32_t upperLimit;      /**< Maximum valid value for the indicator speed status. */
+    MonotonyType monotony;    /**< Monotony constraint for indicator speed status. */
+} dcIndicatorSpeedStatus;
+/*************************************************************/
 
 #endif  /* ABSTRACT_MOTORDRIVER_H_ */

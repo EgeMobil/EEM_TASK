@@ -1,6 +1,9 @@
-#include <stdio.h>
+
+#include "tcSpeedControlManager.h"
 
 int main(){
-    printf("test");
+    
+    tcSpeedControlManager();
+
     return 0;
 }

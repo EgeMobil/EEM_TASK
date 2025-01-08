@@ -6,6 +6,9 @@
  * MotorDriverControlManager. It reads the current brake and direction statuses,
  * validates changes, updates configurations, and sends the status to the appropriate 
  * interfaces.
+ *  
+ * @author atakan.ertekin
+ * @date 07.01.2025
  */
 
 #include "Abstract_MotorDriver.h"

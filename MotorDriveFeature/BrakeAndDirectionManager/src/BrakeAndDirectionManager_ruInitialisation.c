@@ -1,10 +1,13 @@
 /**
- * @file BrakeAndDirectionManager.c
+ * @file BrakeAndDirectionManager_ruInitialisation.c
  * @brief Implementation of the BrakeAndDirectionManager initialization runable.
  *
  * This function initializes the BrakeAndDirectionManager by setting the default
  * configuration values for brake and direction statuses. It also updates the 
  * corresponding interfaces with these initial values.
+ * 
+ * @author atakan.ertekin
+ * @date 07.01.2025
  */
 
 #include "BrakeAndDirectionManager_private.h"
