@@ -14,16 +14,16 @@ IExternalInterruptStatus ExternalInterruptInterface = {
 };
 
 /* Static variables for storing current states */
-static cmPortName currentPortName = PORTNAME_NULL;
-static cmPinName currentPinName = PINNAME_NULL;
-static cmTriggerType currentTriggerType = TRIGGERTYPE_UNKNOWN;
+static cmExtIrqPortName currentPortName = EXTIRQ_PORTNAME_UNKNOWN;
+static cmExtIrqPinName currentPinName = EXTIRQ_PINNAME_UNKNOWN;
+static cmExtIrqTriggerType currentTriggerType = EXTIRQ_TRIGGERTYPE_UNKNOWN;
 
 /**
  * @brief Implementation for writing the port name.
  * @param portName Port name to write.
  * @return Status of the operation.
  */
-IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmPortName portName)
+IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmExtIrqPortName portName)
 {
     currentPortName = portName;
     printf("[IExternalInterrupt] Port name written: %d\n", portName);
@@ -34,7 +34,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmPortName p
  * @brief Implementation for reading the port name.
  * @return Current port name.
  */
-cmPortName IExternalInterrupt_readPortName_Impl(void)
+cmExtIrqPortName IExternalInterrupt_readPortName_Impl(void)
 {
     printf("[IExternalInterrupt] Port name read: %d\n", currentPortName);
     return currentPortName;
@@ -45,7 +45,7 @@ cmPortName IExternalInterrupt_readPortName_Impl(void)
  * @param pinName Pin name to write.
  * @return Status of the operation.
  */
-IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmPinName pinName)
+IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmExtIrqPinName pinName)
 {
     currentPinName = pinName;
     printf("[IExternalInterrupt] Pin name written: %d\n", pinName);
@@ -56,7 +56,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmPinName pin
  * @brief Implementation for reading the pin name.
  * @return Current pin name.
  */
-cmPinName IExternalInterrupt_readPinName_Impl(void)
+cmExtIrqPinName IExternalInterrupt_readPinName_Impl(void)
 {
     printf("[IExternalInterrupt] Pin name read: %d\n", currentPinName);
     return currentPinName;
@@ -67,7 +67,7 @@ cmPinName IExternalInterrupt_readPinName_Impl(void)
  * @param triggerType Trigger type to write.
  * @return Status of the operation.
  */
-IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmTriggerType triggerType)
+IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmExtIrqTriggerType triggerType)
 {
     currentTriggerType = triggerType;
     printf("[IExternalInterrupt] Trigger type written: %d\n", triggerType);
@@ -78,7 +78,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmTrigger
  * @brief Implementation for reading the trigger type.
  * @return Current trigger type.
  */
-cmTriggerType IExternalInterrupt_readTriggerType_Impl(void)
+cmExtIrqTriggerType IExternalInterrupt_readTriggerType_Impl(void)
 {
     printf("[IExternalInterrupt] Trigger type read: %d\n", currentTriggerType);
     return currentTriggerType;

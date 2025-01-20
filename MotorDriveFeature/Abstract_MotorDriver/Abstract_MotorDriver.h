@@ -130,9 +130,9 @@ typedef struct
  */
 typedef enum
 {
-    HALLA_STATUS_ENABLE = 0, /**< Hall sensor is enabled. */
-    HALLA_STATUS_DISABLE,    /**< Hall sensor is disabled. */
-    HALLA_STATUS_UNKNOWN     /**< Hall sensor state is unknown. */
+    HALLA_STATUS_LOW  = 0, /**< Hall sensor is enabled. */
+    HALLA_STATUS_HIGH,       /**< Hall sensor is disabled. */
+    HALLA_STATUS_UNKNOWN       /**< Hall sensor state is unknown. */
 } cmHallAStateStatus;
 
 /* IHALLA : State - Data Constraint */
@@ -159,8 +159,8 @@ typedef struct
  */
 typedef enum
 {
-    HALLA_RISING_EDGE_LOW = 0, /**< Rising edge is low. */
-    HALLA_RISING_EDGE_HIGH,    /**< Rising edge is high. */
+    HALLA_RISING_EDGE_RESET = 0, /**< Rising edge is low. */
+    HALLA_RISING_EDGE_SET,    /**< Rising edge is high. */
     HALLA_RISING_EDGE_UNKNOWN  /**< Rising edge state is unknown. */
 } cmRisingEdgeAFlag;
 
@@ -188,8 +188,8 @@ typedef struct
  */
 typedef enum
 {
-    HALLA_FALLING_EDGE_LOW = 0, /**< Falling edge is low. */
-    HALLA_FALLING_EDGE_HIGH,    /**< Falling edge is high. */
+    HALLA_FALLING_EDGE_RESET = 0, /**< Falling edge is low. */
+    HALLA_FALLING_EDGE_SET,    /**< Falling edge is high. */
     HALLA_FALLING_EDGE_UNKNOWN  /**< Falling edge state is unknown. */
 } cmFallingEdgeAFlag;
 
@@ -263,8 +263,8 @@ typedef struct
  */
 typedef enum
 {
-    HALLB_STATUS_ENABLE = 0, /**< Hall sensor is enabled. */
-    HALLB_STATUS_DISABLE,    /**< Hall sensor is disabled. */
+    HALLB_STATUS_LOW  = 0, /**< Hall sensor is enabled. */
+    HALLB_STATUS_HIGH,    /**< Hall sensor is disabled. */
     HALLB_STATUS_UNKNOWN     /**< Hall sensor state is unknown. */
 } cmHallBStateStatus;
 
@@ -292,8 +292,8 @@ typedef struct
  */
 typedef enum
 {
-    HALLB_RISING_EDGE_LOW = 0, /**< Rising edge is low. */
-    HALLB_RISING_EDGE_HIGH,    /**< Rising edge is high. */
+    HALLB_RISING_EDGE_RESET = 0, /**< Rising edge is low. */
+    HALLB_RISING_EDGE_SET,    /**< Rising edge is high. */
     HALLB_RISING_EDGE_UNKNOWN  /**< Rising edge state is unknown. */
 } cmRisingEdgeBFlag;
 
@@ -309,8 +309,8 @@ typedef struct
 /* IHALLB : FallingEdgeFlag - Compu Method */
 typedef enum
 {
-    HALLB_FALLING_EDGE_LOW = 0, /**< Falling edge is low. */
-    HALLB_FALLING_EDGE_HIGH,    /**< Falling edge is high. */
+    HALLB_FALLING_EDGE_RESET = 0, /**< Falling edge is low. */
+    HALLB_FALLING_EDGE_SET,    /**< Falling edge is high. */
     HALLB_FALLING_EDGE_UNKNOWN  /**< Falling edge state is unknown. */
 } cmFallingEdgeBFlag;
 
@@ -350,15 +350,15 @@ typedef struct
 /* IHALLC : State - Compu Method */
 typedef enum
 {
-    HALLC_STATUS_ENABLE = 0, /**< Hall sensor is enabled. */
-    HALLC_STATUS_DISABLE,    /**< Hall sensor is disabled. */
+    HALLC_STATUS_LOW  = 0, /**< Hall sensor is enabled. */
+    HALLC_STATUS_HIGH ,    /**< Hall sensor is disabled. */
     HALLC_STATUS_UNKNOWN     /**< Hall sensor state is unknown. */
 } cmHallCStateStatus;
 
 /* IHALLC : State - Data Constraint */
 typedef struct
 {
-    uint8_t lowerLimit;      /**< Minimum valid value for Hall state. */
+    uint8_t lowerLimit;      /**< Minimum valid value for Hall bstate. */
     uint8_t upperLimit;      /**< Maximum valid value for Hall state. */
     MonotonyType monotony;   /**< Monotony constraint for Hall state values. */
 } dcHallCStateStatus;
@@ -367,8 +367,8 @@ typedef struct
 /* IHALLC : RisingEdgeFlag - Compu Method */
 typedef enum
 {
-    HALLC_RISING_EDGE_LOW = 0, /**< Rising edge is low. */
-    HALLC_RISING_EDGE_HIGH,    /**< Rising edge is high. */
+    HALLC_RISING_EDGE_RESET = 0, /**< Rising edge is low. */
+    HALLC_RISING_EDGE_SET,    /**< Rising edge is high. */
     HALLC_RISING_EDGE_UNKNOWN  /**< Rising edge state is unknown. */
 } cmRisingEdgeCFlag;
 
@@ -384,8 +384,8 @@ typedef struct
 /* IHALLC : FallingEdgeFlag - Compu Method */
 typedef enum
 {
-    HALLC_FALLING_EDGE_LOW = 0, /**< Falling edge is low. */
-    HALLC_FALLING_EDGE_HIGH,    /**< Falling edge is high. */
+    HALLC_FALLING_EDGE_RESET = 0, /**< Falling edge is low. */
+    HALLC_FALLING_EDGE_SET,    /**< Falling edge is high. */
     HALLC_FALLING_EDGE_UNKNOWN  /**< Falling edge state is unknown. */
 } cmFallingEdgeCFlag;
 
@@ -453,9 +453,10 @@ typedef struct
 typedef enum
 {
     INDICATORSPEEDSTATUS_IDLE = 0,       /**< System is idle, no speed detected or speed is zero. */
-    INDICATORSPEEDSTATUS_LOWSPEED,       /**< Speed is in the low range (e.g., 0-300 PWM or similar). */
-    INDICATORSPEEDSTATUS_MIDSPEED,       /**< Speed is in the medium range (e.g., 301-700 PWM or similar). */
-    INDICATORSPEEDSTATUS_HIGHSPEED,      /**< Speed is in the high range (e.g., 701-1000 PWM or similar). */
+    INDICATORSPEEDSTATUS_LOWSPEED,       /**< Speed is in the low range (e.g., 0-250 PWM or similar). */
+    INDICATORSPEEDSTATUS_MIDSPEED,       /**< Speed is in the medium range (e.g., 250-500 PWM or similar). */
+    INDICATORSPEEDSTATUS_HIGHSPEED,      /**< Speed is in the high range (e.g., 500-750 PWM or similar). */
+    INDICATORSPEEDSTATUS_VERYHIGHSPEED,      /**< Speed is in the high range (e.g., 750-1000 PWM or similar). */
     INDICATORSPEEDSTATUS_UNKNOWN,        /**< Speed status is unknown, sensor or calculation issue. */
 } cmIndicatorSpeedStatus;
 
@@ -466,6 +467,80 @@ typedef struct
     uint32_t upperLimit;      /**< Maximum valid value for the indicator speed status. */
     MonotonyType monotony;    /**< Monotony constraint for indicator speed status. */
 } dcIndicatorSpeedStatus;
+/*************************************************************/
+
+
+/*************************************************************/
+typedef union
+{
+    uint8_t byte; /**< Full 1-byte representation of the status. */
+    struct
+    {
+        cmBrakeStatus     brakeStatus : 4;     /**< Brake status (last 4 bits). */
+        cmDirectionStatus directionStatus : 4; /**< Direction status (first 4 bits). */
+    };
+} cmIndicatorBdrStatus;
+
+/* IIndicatorBdrStatus : indicatorBdrStatus - Data Constraint */
+typedef struct
+{
+    uint32_t lowerLimit;      /**< Minimum valid value for the indicator BDR status. */
+    uint32_t upperLimit;      /**< Maximum valid value for the indicator BDR status. */
+    MonotonyType monotony;    /**< Monotony constraint for indicator BDR status. */
+} dcIndicatorBdrStatus;
+/*************************************************************/
+
+/*************************************************************/
+
+/* IPwmStep : pwmStep - Compu Method */
+typedef enum
+{
+    PWMSTEP_PWMSTATUS_LOW = 0,
+    PWMSTEP_PWMSTATUS_HIGH,
+    PWMSTEP_PWMSTATUS_UNKNOWN
+}cmPwmStep;
+/* IPwmStep : pwmStep - Data Constraint */
+typedef struct 
+{
+    uint32_t lowerLimit;  
+    uint32_t upperLimit;  
+    MonotonyType monotony;
+}dcPwmStep;
+
+/*************************************************************/
+/* IMotorDriveError : motorDriveError - Compu Method */
+typedef union
+{
+    uint32_t byte; /**< Full 1-byte representation of the status. */
+    struct
+    {
+        uint8_t pwm : 4;  
+        uint8_t bdr : 4;   
+        uint8_t irq : 4;
+        uint8_t speed : 4;
+        uint16_t gdr : 16;
+    };
+} cmMotorDriveError;
+/* IMotorDriveError : motorDriveError - Data Constraint */
+typedef struct 
+{
+    uint32_t lowerLimit;  
+    uint32_t upperLimit;  
+    MonotonyType monotony;
+}dcMotorDriveError;
+/*************************************************************/
+
+/*************************************************************/
+/* IHALLWheelSpeed : WheelSpeed - Compu Method */
+typedef uint16_t cmHALLWheelSpeed;
+
+/* IHALLWheelSpeed : WheelSpeed - Data Constraint */
+typedef struct
+{
+    uint32_t lowerLimit;      
+    uint32_t upperLimit;      
+    MonotonyType monotony;    
+} dcHALLWheelSpeed;
 /*************************************************************/
 
 #endif  /* ABSTRACT_MOTORDRIVER_H_ */

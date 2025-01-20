@@ -4,12 +4,12 @@
  * @brief Instance of the IHALLB interface.
  */
 IHALLB HALLBInterface = {
-    .writeState = IHALLB_writeState_Impl,
-    .readState = IHALLB_readState_Impl,
-    .writeRisingEdgeFlag = IHALLB_writeRisingEdgeFlag_Impl,
-    .readRisingEdgeFlag = IHALLB_readRisingEdgeFlag_Impl,
-    .writeFallingEdgeFlag = IHALLB_writeFallingEdgeFlag_Impl,
-    .readFallingEdgeFlag = IHALLB_readFallingEdgeFlag_Impl
+    .writeStatus = IHALLB_writeStatus_Impl,
+    .readStatus = IHALLB_readStatus_Impl,
+    .writeRisingEdgeBFlag = IHALLB_writeRisingEdgeFlag_Impl,
+    .readRisingEdgeBFlag = IHALLB_readRisingEdgeFlag_Impl,
+    .writeFallingEdgeBFlag = IHALLB_writeFallingEdgeFlag_Impl,
+    .readFallingEdgeBFlag = IHALLB_readFallingEdgeFlag_Impl
 };
 
 /* Static variables for storing current states */
@@ -22,16 +22,16 @@ static cmFallingEdgeBFlag currentFallingEdgeFlag = HALLB_FALLING_EDGE_UNKNOWN;
  * @param state Hall sensor state to write.
  * @return Status of the operation.
  */
-IHALLB_StatusType IHALLB_writeState_Impl(cmHallBStateStatus state)
+IHALLB_StatusType IHALLB_writeStatus_Impl(cmHallBStateStatus status)
 {
-    if (state < HALLB_STATUS_ENABLE || state > HALLB_STATUS_UNKNOWN)
+    if (status < HALLB_STATUS_LOW || status > HALLB_STATUS_UNKNOWN)
     {
-        printf("[IHALLB] Invalid state value: %d\n", state);
+        printf("[IHALLB] Invalid state value: %d\n", status);
         return IHALLB_NOT_OK;
     }
 
-    currentState = state;
-    printf("[IHALLB] State written: %d\n", state);
+    currentState = status;
+    printf("[IHALLB] State written: %d\n", status);
     return IHALLB_OK;
 }
 
@@ -39,7 +39,7 @@ IHALLB_StatusType IHALLB_writeState_Impl(cmHallBStateStatus state)
  * @brief Implementation for reading the Hall sensor state.
  * @return Current Hall sensor state.
  */
-cmHallBStateStatus IHALLB_readState_Impl(void)
+cmHallBStateStatus IHALLB_readStatus_Impl(void)
 {
     printf("[IHALLB] State read: %d\n", currentState);
     return currentState;
@@ -52,7 +52,7 @@ cmHallBStateStatus IHALLB_readState_Impl(void)
  */
 IHALLB_StatusType IHALLB_writeRisingEdgeFlag_Impl(cmRisingEdgeBFlag flag)
 {
-    if (flag < HALLB_RISING_EDGE_LOW || flag > HALLB_RISING_EDGE_UNKNOWN)
+    if (flag < HALLB_RISING_EDGE_RESET || flag > HALLB_RISING_EDGE_UNKNOWN)
     {
         printf("[IHALLB] Invalid rising edge flag: %d\n", flag);
         return IHALLB_NOT_OK;
@@ -80,7 +80,7 @@ cmRisingEdgeBFlag IHALLB_readRisingEdgeFlag_Impl(void)
  */
 IHALLB_StatusType IHALLB_writeFallingEdgeFlag_Impl(cmFallingEdgeBFlag flag)
 {
-    if (flag < HALLB_FALLING_EDGE_LOW || flag > HALLB_FALLING_EDGE_UNKNOWN)
+    if (flag < HALLB_FALLING_EDGE_RESET || flag > HALLB_FALLING_EDGE_UNKNOWN)
     {
         printf("[IHALLB] Invalid falling edge flag: %d\n", flag);
         return IHALLB_NOT_OK;

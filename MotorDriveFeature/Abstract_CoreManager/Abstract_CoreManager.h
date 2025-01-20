@@ -10,13 +10,13 @@
  */
 typedef enum
 {
-    PORTNAME_GPIOA = 0, /**< GPIO Port A */
-    PORTNAME_GPIOB,     /**< GPIO Port B */
-    PORTNAME_GPIOC,     /**< GPIO Port C */
-    PORTNAME_GPIOD,     /**< GPIO Port D */
-    PORTNAME_GPIOE,     /**< GPIO Port E */
-    PORTNAME_NULL = 0xFF /**< No valid port name */
-} cmPortName;
+    EXTIRQ_PORTNAME_GPIOA = 0, /**< GPIO Port A */
+    EXTIRQ_PORTNAME_GPIOB,     /**< GPIO Port B */
+    EXTIRQ_PORTNAME_GPIOC,     /**< GPIO Port C */
+    EXTIRQ_PORTNAME_GPIOD,     /**< GPIO Port D */
+    EXTIRQ_PORTNAME_GPIOE,     /**< GPIO Port E */
+    EXTIRQ_PORTNAME_UNKNOWN = 0xFF /**< No valid port name */
+} cmExtIrqPortName;
 
 /* IExternalInterruptStatus : Port Name - Data Constraint */
 /**
@@ -27,7 +27,7 @@ typedef struct
     uint8_t lowerLimit;      /**< Minimum valid value for port name. */
     uint8_t upperLimit;      /**< Maximum valid value for port name. */
     MonotonyType monotony;   /**< Monotony constraint for port names. */
-} dcPortName;
+} dcExtIrqPortName;
 
 /*************************************************************/
 /* IExternalInterruptStatus : Pin Name - Compu Method */
@@ -36,24 +36,24 @@ typedef struct
  */
 typedef enum
 {
-    PINNAME_0 = 0,   /**< GPIO Pin 0 */
-    PINNAME_1,       /**< GPIO Pin 1 */
-    PINNAME_2,       /**< GPIO Pin 2 */
-    PINNAME_3,       /**< GPIO Pin 3 */
-    PINNAME_4,       /**< GPIO Pin 4 */
-    PINNAME_5,       /**< GPIO Pin 5 */
-    PINNAME_6,       /**< GPIO Pin 6 */
-    PINNAME_7,       /**< GPIO Pin 7 */
-    PINNAME_8,       /**< GPIO Pin 8 */
-    PINNAME_9,       /**< GPIO Pin 9 */
-    PINNAME_10,      /**< GPIO Pin 10 */
-    PINNAME_11,      /**< GPIO Pin 11 */
-    PINNAME_12,      /**< GPIO Pin 12 */
-    PINNAME_13,      /**< GPIO Pin 13 */
-    PINNAME_14,      /**< GPIO Pin 14 */
-    PINNAME_15,      /**< GPIO Pin 15 */
-    PINNAME_NULL = 0xFF /**< No valid pin name */
-} cmPinName;
+    EXTIRQ_PINNAME_0 = 0,   /**< GPIO Pin 0 */
+    EXTIRQ_PINNAME_1,       /**< GPIO Pin 1 */
+    EXTIRQ_PINNAME_2,       /**< GPIO Pin 2 */
+    EXTIRQ_PINNAME_3,       /**< GPIO Pin 3 */
+    EXTIRQ_PINNAME_4,       /**< GPIO Pin 4 */
+    EXTIRQ_PINNAME_5,       /**< GPIO Pin 5 */
+    EXTIRQ_PINNAME_6,       /**< GPIO Pin 6 */
+    EXTIRQ_PINNAME_7,       /**< GPIO Pin 7 */
+    EXTIRQ_PINNAME_8,       /**< GPIO Pin 8 */
+    EXTIRQ_PINNAME_9,       /**< GPIO Pin 9 */
+    EXTIRQ_PINNAME_10,      /**< GPIO Pin 10 */
+    EXTIRQ_PINNAME_11,      /**< GPIO Pin 11 */
+    EXTIRQ_PINNAME_12,      /**< GPIO Pin 12 */
+    EXTIRQ_PINNAME_13,      /**< GPIO Pin 13 */
+    EXTIRQ_PINNAME_14,      /**< GPIO Pin 14 */
+    EXTIRQ_PINNAME_15,      /**< GPIO Pin 15 */
+    EXTIRQ_PINNAME_UNKNOWN = 0xFF /**< No valid pin name */
+} cmExtIrqPinName;
 
 /* IExternalInterruptStatus : Pin Name - Data Constraint */
 /**
@@ -64,7 +64,7 @@ typedef struct
     uint8_t lowerLimit;      /**< Minimum valid value for pin name. */
     uint8_t upperLimit;      /**< Maximum valid value for pin name. */
     MonotonyType monotony;   /**< Monotony constraint for pin names. */
-} dcPinName;
+} dcExtIrqPinName;
 
 /*************************************************************/
 /* IExternalInterruptStatus : Trigger Type - Compu Method */
@@ -73,10 +73,10 @@ typedef struct
  */
 typedef enum
 {
-    TRIGGERTYPE_UNKNOWN = 0,  /**< Unknown trigger type. */
-    TRIGGERTYPE_RISINGEDGE,   /**< Trigger on rising edge. */
-    TRIGGERTYPE_FALLINGEDGE,  /**< Trigger on falling edge. */
-} cmTriggerType;
+    EXTIRQ_TRIGGERTYPE_UNKNOWN = 0,  /**< Unknown trigger type. */
+    EXTIRQ_TRIGGERTYPE_RISINGEDGE,   /**< Trigger on rising edge. */
+    EXTIRQ_TRIGGERTYPE_FALLINGEDGE,  /**< Trigger on falling edge. */
+} cmExtIrqTriggerType;
 
 /* IExternalInterruptStatus : Trigger Type - Data Constraint */
 /**
@@ -87,7 +87,7 @@ typedef struct
     uint8_t lowerLimit;      /**< Minimum valid value for trigger type. */
     uint8_t upperLimit;      /**< Maximum valid value for trigger type. */
     MonotonyType monotony;   /**< Monotony constraint for trigger types. */
-} dcTriggerType;
+} dcExtIrqTriggerType;
 /*************************************************************/
 
 /*************************************************************/
@@ -179,6 +179,26 @@ typedef struct
     uint16_t upperLimit;      /**< Maximum valid value for days. */
     MonotonyType monotony;    /**< Monotony constraint for days. */
 } dcDay;
+/*************************************************************/
+
+/*************************************************************/
+/* IGPIOStatus : pinState - Compu Method */
+typedef enum
+{
+    GPIOSTATUS_PIN_RESET = 0, 
+    GPIOSTATUS_PIN_SET,     
+    GPIOSTATUS_UNKNOWN, 
+} cmGPIOpinState;
+
+/* IGPIOStatus : pinState - Data Constraint */
+typedef struct
+{
+    uint8_t lowerLimit;      /**< Minimum valid value for port name. */
+    uint8_t upperLimit;      /**< Maximum valid value for port name. */
+    MonotonyType monotony;   /**< Monotony constraint for port names. */
+} dcGPIOpinState;
+
+
 /*************************************************************/
 
 #endif /* ABSTRACT_COREMANAGER_H_ */

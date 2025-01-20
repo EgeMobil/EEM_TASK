@@ -4,8 +4,8 @@
  * @brief Instance of the IHALLA interface.
  */
 IHALLA HALLAInterface = {
-    .writeState = IHALLA_writeState_Impl,
-    .readState = IHALLA_readState_Impl,
+    .writeStatus = IHALLA_writeStatus_Impl,
+    .readStatus = IHALLA_readStatus_Impl,
     .writeRisingEdgeAFlag = IHALLA_writeRisingEdgeFlag_Impl,
     .readRisingEdgeAFlag = IHALLA_readRisingEdgeFlag_Impl,
     .writeFallingEdgeAFlag = IHALLA_writeFallingEdgeFlag_Impl,
@@ -22,16 +22,16 @@ static cmFallingEdgeAFlag currentFallingEdgeFlag = HALLA_FALLING_EDGE_UNKNOWN;
  * @param state Hall state to write.
  * @return Status of the operation.
  */
-IHALLA_StatusType IHALLA_writeState_Impl(cmHallAStateStatus state)
+IHALLA_StatusType IHALLA_writeStatus_Impl(cmHallAStateStatus status)
 {
-    if (state < HALLA_STATUS_ENABLE || state > HALLA_STATUS_UNKNOWN)
+    if (status < HALLA_STATUS_LOW || status > HALLA_STATUS_UNKNOWN)
     {
-        printf("[IHALLA] Invalid state value: %d\n", state);
+        printf("[IHALLA] Invalid state value: %d\n", status);
         return IHALLA_NOT_OK;
     }
 
-    currentState = state;
-    printf("[IHALLA] State written: %d\n", state);
+    currentState = status;
+    printf("[IHALLA] State written: %d\n", status);
     return IHALLA_OK;
 }
 
@@ -39,7 +39,7 @@ IHALLA_StatusType IHALLA_writeState_Impl(cmHallAStateStatus state)
  * @brief Implementation for reading the Hall sensor state.
  * @return Current Hall sensor state.
  */
-cmHallAStateStatus IHALLA_readState_Impl(void)
+cmHallAStateStatus IHALLA_readStatus_Impl(void)
 {
     printf("[IHALLA] State read: %d\n", currentState);
     return currentState;
@@ -52,7 +52,7 @@ cmHallAStateStatus IHALLA_readState_Impl(void)
  */
 IHALLA_StatusType IHALLA_writeRisingEdgeFlag_Impl(cmRisingEdgeAFlag flag)
 {
-    if (flag < HALLA_RISING_EDGE_LOW || flag > HALLA_RISING_EDGE_UNKNOWN)
+    if (flag < HALLA_RISING_EDGE_RESET || flag > HALLA_RISING_EDGE_UNKNOWN)
     {
         printf("[IHALLA] Invalid rising edge flag: %d\n", flag);
         return IHALLA_NOT_OK;
@@ -80,7 +80,7 @@ cmRisingEdgeAFlag IHALLA_readRisingEdgeFlag_Impl(void)
  */
 IHALLA_StatusType IHALLA_writeFallingEdgeFlag_Impl(cmFallingEdgeAFlag flag)
 {
-    if (flag < HALLA_FALLING_EDGE_LOW || flag > HALLA_FALLING_EDGE_UNKNOWN)
+    if (flag < HALLA_FALLING_EDGE_RESET || flag > HALLA_FALLING_EDGE_UNKNOWN)
     {
         printf("[IHALLA] Invalid falling edge flag: %d\n", flag);
         return IHALLA_NOT_OK;

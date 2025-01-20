@@ -52,4 +52,6 @@ extern FUNC(void, InterruptHandlerManager_ruExternalTrigger)(void);
  */
 extern FUNC(void, InterruptHandlerManager_ruTimerTrigger)(void); 
 
+extern FUNC(void, InterruptHandlerMAnager_ruInitialisation)(void);
+
 #endif /* INTERRUPTHANDLERMANAGER_INC_INTERRUPTHANDLERMANAGER_PUBLIC_H_ */

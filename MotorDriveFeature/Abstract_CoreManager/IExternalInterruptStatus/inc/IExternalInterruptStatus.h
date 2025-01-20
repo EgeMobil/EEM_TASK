@@ -22,39 +22,39 @@ typedef struct
      * @param portName Port name to write.
      * @return Status of the operation.
      */
-    IExternalInterrupt_StatusType (*writePortName)(cmPortName portName);
+    IExternalInterrupt_StatusType (*writePortName)(cmExtIrqPortName portName);
 
     /**
      * @brief Read the current port name for external interrupt.
      * @return Current port name.
      */
-    cmPortName (*readPortName)(void);
+    cmExtIrqPortName (*readPortName)(void);
 
     /**
      * @brief Write the pin name for external interrupt.
      * @param pinName Pin name to write.
      * @return Status of the operation.
      */
-    IExternalInterrupt_StatusType (*writePinName)(cmPinName pinName);
+    IExternalInterrupt_StatusType (*writePinName)(cmExtIrqPinName pinName);
 
     /**
      * @brief Read the current pin name for external interrupt.
      * @return Current pin name.
      */
-    cmPinName (*readPinName)(void);
+    cmExtIrqPinName (*readPinName)(void);
 
     /**
      * @brief Write the trigger type for external interrupt.
      * @param triggerType Trigger type to write.
      * @return Status of the operation.
      */
-    IExternalInterrupt_StatusType (*writeTriggerType)(cmTriggerType triggerType);
+    IExternalInterrupt_StatusType (*writeTriggerType)(cmExtIrqTriggerType triggerType);
 
     /**
      * @brief Read the current trigger type for external interrupt.
      * @return Current trigger type.
      */
-    cmTriggerType (*readTriggerType)(void);
+    cmExtIrqTriggerType (*readTriggerType)(void);
 } IExternalInterruptStatus;
 
 /**
@@ -73,7 +73,7 @@ extern IExternalInterruptStatus ExternalInterruptInterface;
  * @return Status of the operation. Returns `IEXTERNAL_INTERRUPT_OK` on success, 
  *         or `IEXTERNAL_INTERRUPT_NOT_OK` if the input is invalid.
  */
-IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmPortName portName);
+IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmExtIrqPortName portName);
 
 /**
  * @brief Implementation for reading the port name.
@@ -82,7 +82,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmPortName p
  * 
  * @return The current port name of type `cmPortName`.
  */
-cmPortName IExternalInterrupt_readPortName_Impl(void);
+cmExtIrqPortName IExternalInterrupt_readPortName_Impl(void);
 
 /**
  * @brief Implementation for writing the pin name.
@@ -93,7 +93,7 @@ cmPortName IExternalInterrupt_readPortName_Impl(void);
  * @return Status of the operation. Returns `IEXTERNAL_INTERRUPT_OK` on success, 
  *         or `IEXTERNAL_INTERRUPT_NOT_OK` if the input is invalid.
  */
-IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmPinName pinName);
+IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmExtIrqPinName pinName);
 
 /**
  * @brief Implementation for reading the pin name.
@@ -102,7 +102,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmPinName pin
  * 
  * @return The current pin name of type `cmPinName`.
  */
-cmPinName IExternalInterrupt_readPinName_Impl(void);
+cmExtIrqPinName IExternalInterrupt_readPinName_Impl(void);
 
 /**
  * @brief Implementation for writing the trigger type.
@@ -113,7 +113,7 @@ cmPinName IExternalInterrupt_readPinName_Impl(void);
  * @return Status of the operation. Returns `IEXTERNAL_INTERRUPT_OK` on success, 
  *         or `IEXTERNAL_INTERRUPT_NOT_OK` if the input is invalid.
  */
-IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmTriggerType triggerType);
+IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmExtIrqTriggerType triggerType);
 
 /**
  * @brief Implementation for reading the trigger type.
@@ -122,7 +122,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmTrigger
  * 
  * @return The current trigger type of type `cmTriggerType`.
  */
-cmTriggerType IExternalInterrupt_readTriggerType_Impl(void);
+cmExtIrqTriggerType IExternalInterrupt_readTriggerType_Impl(void);
 
 
 #endif /* IEXTERNAL_INTERRUPT_STATUS_H_ */

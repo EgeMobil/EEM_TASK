@@ -183,7 +183,7 @@ dtInterruptHandlerManager_day getTimerIrqDay_Impl(void)
  */
 void setHallAState_Impl(dtInterruptHandlerManager_HallAStateStatus state)
 {
-    instance.HALL.halla_state = state;
+    instance.HALL.halla_status = state;
 }
 
 /**
@@ -193,7 +193,7 @@ void setHallAState_Impl(dtInterruptHandlerManager_HallAStateStatus state)
  */
 void setHallBState_Impl(dtInterruptHandlerManager_HallBStateStatus state)
 {
-    instance.HALL.hallb_state = state;
+    instance.HALL.hallb_status = state;
 }
 
 /**
@@ -203,7 +203,7 @@ void setHallBState_Impl(dtInterruptHandlerManager_HallBStateStatus state)
  */
 void setHallCState_Impl(dtInterruptHandlerManager_HallCStateStatus state)
 {
-    instance.HALL.hallc_state = state;
+    instance.HALL.hallc_status = state;
 }
 
 /**
@@ -213,7 +213,7 @@ void setHallCState_Impl(dtInterruptHandlerManager_HallCStateStatus state)
  */
 dtInterruptHandlerManager_HallAStateStatus getHallAState_Impl(void)
 {
-    return instance.HALL.halla_state;
+    return instance.HALL.halla_status;
 }
 
 /**
@@ -223,7 +223,7 @@ dtInterruptHandlerManager_HallAStateStatus getHallAState_Impl(void)
  */
 dtInterruptHandlerManager_HallBStateStatus getHallBState_Impl(void)
 {
-    return instance.HALL.hallb_state;
+    return instance.HALL.hallb_status;
 }
 
 /**
@@ -233,7 +233,7 @@ dtInterruptHandlerManager_HallBStateStatus getHallBState_Impl(void)
  */
 dtInterruptHandlerManager_HallCStateStatus getHallCState_Impl(void)
 {
-    return instance.HALL.hallc_state;
+    return instance.HALL.hallc_status;
 }
 
 /**
@@ -297,6 +297,150 @@ void setHALL_Impl(ihmHALLConfiguration config)
 }
 
 
+void setHallAPinState_Impl(dtInterruptHandlerManager_pinState state)
+{
+    instance.hall_A = state;
+    printf("[InterruptHandlerManager] Hall A pin state set to: %d\n", state);
+}
+
+void setHallBPinState_Impl(dtInterruptHandlerManager_pinState state)
+{
+    instance.hall_B = state;
+    printf("[InterruptHandlerManager] Hall B pin state set to: %d\n", state);
+}
+
+void setHallCPinState_Impl(dtInterruptHandlerManager_pinState state)
+{
+    instance.hall_C = state;
+    printf("[InterruptHandlerManager] Hall C pin state set to: %d\n", state);
+}
+
+dtInterruptHandlerManager_pinState getHallAPinState_Impl(void)
+{
+    printf("[InterruptHandlerManager] Hall A pin state retrieved: %d\n", instance.hall_A);
+    return instance.hall_A;
+}
+
+dtInterruptHandlerManager_pinState getHallBPinState_Impl(void)
+{
+    printf("[InterruptHandlerManager] Hall B pin state retrieved: %d\n", instance.hall_B);
+    return instance.hall_B;
+}
+
+dtInterruptHandlerManager_pinState getHallCPinState_Impl(void)
+{
+    printf("[InterruptHandlerManager] Hall C pin state retrieved: %d\n", instance.hall_C);
+    return instance.hall_C;
+}
+
+/* Hall A Implementations */
+void setHallAStatus_Impl(dtInterruptHandlerManager_HallAStateStatus status) {
+    instance.HALL.halla_status = status;
+}
+dtInterruptHandlerManager_HallAStateStatus getHallAStatus_Impl(void) {
+    return instance.HALL.halla_status;
+}
+
+void setHallAFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeAFlag flag) {
+    instance.HALL.halla_fe_flag = flag;
+}
+dtInterruptHandlerManager_FallingEdgeAFlag getHallAFallingEdgeFlag_Impl(void) {
+    return instance.HALL.halla_fe_flag;
+}
+
+void setHallARisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeAFlag flag) {
+    instance.HALL.halla_re_flag = flag;
+}
+dtInterruptHandlerManager_RisingEdgeAFlag getHallARisingEdgeFlag_Impl(void) {
+    return instance.HALL.halla_re_flag;
+}
+
+void setHallAFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeACount count) {
+    instance.HALL.halla_fe_count = count;
+}
+dtInterruptHandlerManager_FallingEdgeACount getHallAFallingEdgeCount_Impl(void) {
+    return instance.HALL.halla_fe_count;
+}
+
+void setHallARisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeACount count) {
+    instance.HALL.halla_re_count = count;
+}
+dtInterruptHandlerManager_RisingEdgeACount getHallARisingEdgeCount_Impl(void) {
+    return instance.HALL.halla_re_count;
+}
+
+/* Hall B Implementations */
+void setHallBStatus_Impl(dtInterruptHandlerManager_HallBStateStatus status) {
+    instance.HALL.hallb_status = status;
+}
+dtInterruptHandlerManager_HallBStateStatus getHallBStatus_Impl(void) {
+    return instance.HALL.hallb_status;
+}
+
+void setHallBFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeBFlag flag) {
+    instance.HALL.hallb_fe_flag = flag;
+}
+dtInterruptHandlerManager_FallingEdgeBFlag getHallBFallingEdgeFlag_Impl(void) {
+    return instance.HALL.hallb_fe_flag;
+}
+
+void setHallBRisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeBFlag flag) {
+    instance.HALL.hallb_re_flag = flag;
+}
+dtInterruptHandlerManager_RisingEdgeBFlag getHallBRisingEdgeFlag_Impl(void) {
+    return instance.HALL.hallb_re_flag;
+}
+
+void setHallBFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeBCount count) {
+    instance.HALL.hallb_fe_count = count;
+}
+dtInterruptHandlerManager_FallingEdgeBCount getHallBFallingEdgeCount_Impl(void) {
+    return instance.HALL.hallb_fe_count;
+}
+
+void setHallBRisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeBCount count) {
+    instance.HALL.hallb_re_count = count;
+}
+dtInterruptHandlerManager_RisingEdgeBCount getHallBRisingEdgeCount_Impl(void) {
+    return instance.HALL.hallb_re_count;
+}
+
+/* Hall C Implementations */
+void setHallCStatus_Impl(dtInterruptHandlerManager_HallCStateStatus status) {
+    instance.HALL.hallc_status = status;
+}
+dtInterruptHandlerManager_HallCStateStatus getHallCStatus_Impl(void) {
+    return instance.HALL.hallc_status;
+}
+
+void setHallCFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeCFlag flag) {
+    instance.HALL.hallc_fe_flag = flag;
+}
+dtInterruptHandlerManager_FallingEdgeCFlag getHallCFallingEdgeFlag_Impl(void) {
+    return instance.HALL.hallc_fe_flag;
+}
+
+void setHallCRisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeCFlag flag) {
+    instance.HALL.hallc_re_flag = flag;
+}
+dtInterruptHandlerManager_RisingEdgeCFlag getHallCRisingEdgeFlag_Impl(void) {
+    return instance.HALL.hallc_re_flag;
+}
+
+void setHallCFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeCCount count) {
+    instance.HALL.hallc_fe_count = count;
+}
+dtInterruptHandlerManager_FallingEdgeCCount getHallCFallingEdgeCount_Impl(void) {
+    return instance.HALL.hallc_fe_count;
+}
+
+void setHallCRisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeCCount count) {
+    instance.HALL.hallc_re_count = count;
+}
+dtInterruptHandlerManager_RisingEdgeCCount getHallCRisingEdgeCount_Impl(void) {
+    return instance.HALL.hallc_re_count;
+}
+
 /* toString() Implementation */
 
 /**
@@ -305,16 +449,16 @@ void setHALL_Impl(ihmHALLConfiguration config)
  * @param value The cmPortName value to convert.
  * @return A string representation of the cmPortName value.
  */
-const char* getStringFromPortName(cmPortName value)
+const char* getStringFromPortName(cmExtIrqPortName value)
 {
     switch (value)
     {
-        case PORTNAME_GPIOA: return "GPIOA";
-        case PORTNAME_GPIOB: return "GPIOB";
-        case PORTNAME_GPIOC: return "GPIOC";
-        case PORTNAME_GPIOD: return "GPIOD";
-        case PORTNAME_GPIOE: return "GPIOE";
-        case PORTNAME_NULL: return "NULL";
+        case EXTIRQ_PORTNAME_GPIOA: return "GPIOA";
+        case EXTIRQ_PORTNAME_GPIOB: return "GPIOB";
+        case EXTIRQ_PORTNAME_GPIOC: return "GPIOC";
+        case EXTIRQ_PORTNAME_GPIOD: return "GPIOD";
+        case EXTIRQ_PORTNAME_GPIOE: return "GPIOE";
+        case EXTIRQ_PORTNAME_UNKNOWN: return "NULL";
         default: return "UNKNOWN_PORT";
     }
 }
@@ -325,27 +469,27 @@ const char* getStringFromPortName(cmPortName value)
  * @param value The cmPinName value to convert.
  * @return A string representation of the cmPinName value.
  */
-const char* getStringFromPinName(cmPinName value)
+const char* getStringFromPinName(cmExtIrqPinName value)
 {
     switch (value)
     {
-        case PINNAME_0: return "PIN_0";
-        case PINNAME_1: return "PIN_1";
-        case PINNAME_2: return "PIN_2";
-        case PINNAME_3: return "PIN_3";
-        case PINNAME_4: return "PIN_4";
-        case PINNAME_5: return "PIN_5";
-        case PINNAME_6: return "PIN_6";
-        case PINNAME_7: return "PIN_7";
-        case PINNAME_8: return "PIN_8";
-        case PINNAME_9: return "PIN_9";
-        case PINNAME_10: return "PIN_10";
-        case PINNAME_11: return "PIN_11";
-        case PINNAME_12: return "PIN_12";
-        case PINNAME_13: return "PIN_13";
-        case PINNAME_14: return "PIN_14";
-        case PINNAME_15: return "PIN_15";
-        case PINNAME_NULL: return "NULL";
+        case EXTIRQ_PINNAME_0: return "PIN_0";
+        case EXTIRQ_PINNAME_1: return "PIN_1";
+        case EXTIRQ_PINNAME_2: return "PIN_2";
+        case EXTIRQ_PINNAME_3: return "PIN_3";
+        case EXTIRQ_PINNAME_4: return "PIN_4";
+        case EXTIRQ_PINNAME_5: return "PIN_5";
+        case EXTIRQ_PINNAME_6: return "PIN_6";
+        case EXTIRQ_PINNAME_7: return "PIN_7";
+        case EXTIRQ_PINNAME_8: return "PIN_8";
+        case EXTIRQ_PINNAME_9: return "PIN_9";
+        case EXTIRQ_PINNAME_10: return "PIN_10";
+        case EXTIRQ_PINNAME_11: return "PIN_11";
+        case EXTIRQ_PINNAME_12: return "PIN_12";
+        case EXTIRQ_PINNAME_13: return "PIN_13";
+        case EXTIRQ_PINNAME_14: return "PIN_14";
+        case EXTIRQ_PINNAME_15: return "PIN_15";
+        case EXTIRQ_PINNAME_UNKNOWN: return "NULL";
         default: return "UNKNOWN_PIN";
     }
 }
@@ -356,13 +500,13 @@ const char* getStringFromPinName(cmPinName value)
  * @param value The cmTriggerType value to convert.
  * @return A string representation of the cmTriggerType value.
  */
-const char* getStringFromTriggerType(cmTriggerType value)
+const char* getStringFromTriggerType(cmExtIrqTriggerType value)
 {
     switch (value)
     {
-        case TRIGGERTYPE_UNKNOWN: return "UNKNOWN";
-        case TRIGGERTYPE_RISINGEDGE: return "RISING_EDGE";
-        case TRIGGERTYPE_FALLINGEDGE: return "FALLING_EDGE";
+        case EXTIRQ_TRIGGERTYPE_UNKNOWN: return "UNKNOWN";
+        case EXTIRQ_TRIGGERTYPE_RISINGEDGE: return "RISING_EDGE";
+        case EXTIRQ_TRIGGERTYPE_FALLINGEDGE: return "FALLING_EDGE";
         default: return "UNKNOWN_TRIGGER";
     }
 }
@@ -377,8 +521,8 @@ const char* getStringFromHallAStateStatus(cmHallAStateStatus value)
 {
     switch (value)
     {
-        case HALLA_STATUS_ENABLE: return "HALLA_ENABLED";
-        case HALLA_STATUS_DISABLE: return "HALLA_DISABLED";
+        case HALLA_STATUS_HIGH: return "HALLA_HIGH";
+        case HALLA_STATUS_LOW: return "HALLA_LOW";
         case HALLA_STATUS_UNKNOWN: return "HALLA_UNKNOWN";
         default: return "UNKNOWN_HALLA_STATE";
     }
@@ -394,8 +538,8 @@ const char* getStringFromHallBStateStatus(cmHallBStateStatus value)
 {
     switch (value)
     {
-        case HALLB_STATUS_ENABLE: return "HALLB_ENABLED";
-        case HALLB_STATUS_DISABLE: return "HALLB_DISABLED";
+        case HALLB_STATUS_HIGH: return "HALLB_HIGH";
+        case HALLB_STATUS_LOW: return "HALLB_LOW";
         case HALLB_STATUS_UNKNOWN: return "HALLB_UNKNOWN";
         default: return "UNKNOWN_HALLB_STATE";
     }
@@ -411,33 +555,142 @@ const char* getStringFromHallCStateStatus(cmHallCStateStatus value)
 {
     switch (value)
     {
-        case HALLC_STATUS_ENABLE: return "HALLC_ENABLED";
-        case HALLC_STATUS_DISABLE: return "HALLC_DISABLED";
+        case HALLC_STATUS_HIGH: return "HALLC_HIGH";
+        case HALLC_STATUS_LOW: return "HALLC_LOW";
         case HALLC_STATUS_UNKNOWN: return "HALLC_UNKNOWN";
         default: return "UNKNOWN_HALLC_STATE";
     }
 }
 
 
+/**
+ * @brief Converts the RisingEdgeFlag enum value to a string for Hall A.
+ * 
+ * @param flag The RisingEdgeFlag value to convert.
+ * @return A string representation of the RisingEdgeFlag value.
+ */
+const char* getStringFromRisingEdgeAFlag(cmRisingEdgeAFlag flag)
+{
+    switch (flag)
+    {
+        case HALLA_RISING_EDGE_RESET: return "RESET";
+        case HALLA_RISING_EDGE_SET: return "SET";
+        case HALLA_RISING_EDGE_UNKNOWN: return "UNKNOWN";
+        default: return "INVALID";
+    }
+}
 
 /**
- * @brief Converts the Interrupt Handler Manager configuration to a string.
+ * @brief Converts the FallingEdgeFlag enum value to a string for Hall A.
  * 
- * @return A dynamically allocated string representation of the current configuration.
- *         Caller is responsible for freeing the memory.
+ * @param flag The FallingEdgeFlag value to convert.
+ * @return A string representation of the FallingEdgeFlag value.
  */
+const char* getStringFromFallingEdgeAFlag(cmFallingEdgeAFlag flag)
+{
+    switch (flag)
+    {
+        case HALLA_FALLING_EDGE_RESET: return "RESET";
+        case HALLA_FALLING_EDGE_SET: return "SET";
+        case HALLA_FALLING_EDGE_UNKNOWN: return "UNKNOWN";
+        default: return "INVALID";
+    }
+}
+
+/**
+ * @brief Converts the RisingEdgeFlag enum value to a string for Hall B.
+ * 
+ * @param flag The RisingEdgeFlag value to convert.
+ * @return A string representation of the RisingEdgeFlag value.
+ */
+const char* getStringFromRisingEdgeBFlag(cmRisingEdgeBFlag flag)
+{
+    switch (flag)
+    {
+        case HALLB_RISING_EDGE_RESET: return "RESET";
+        case HALLB_RISING_EDGE_SET: return "SET";
+        case HALLB_RISING_EDGE_UNKNOWN: return "UNKNOWN";
+        default: return "INVALID";
+    }
+}
+
+/**
+ * @brief Converts the FallingEdgeFlag enum value to a string for Hall B.
+ * 
+ * @param flag The FallingEdgeFlag value to convert.
+ * @return A string representation of the FallingEdgeFlag value.
+ */
+const char* getStringFromFallingEdgeBFlag(cmFallingEdgeBFlag flag)
+{
+    switch (flag)
+    {
+        case HALLB_FALLING_EDGE_RESET: return "RESET";
+        case HALLB_FALLING_EDGE_SET: return "SET";
+        case HALLB_FALLING_EDGE_UNKNOWN: return "UNKNOWN";
+        default: return "INVALID";
+    }
+}
+
+/**
+ * @brief Converts the RisingEdgeFlag enum value to a string for Hall C.
+ * 
+ * @param flag The RisingEdgeFlag value to convert.
+ * @return A string representation of the RisingEdgeFlag value.
+ */
+const char* getStringFromRisingEdgeCFlag(cmRisingEdgeCFlag flag)
+{
+    switch (flag)
+    {
+        case HALLC_RISING_EDGE_RESET: return "RESET";
+        case HALLC_RISING_EDGE_SET: return "SET";
+        case HALLC_RISING_EDGE_UNKNOWN: return "UNKNOWN";
+        default: return "INVALID";
+    }
+}
+
+/**
+ * @brief Converts the FallingEdgeFlag enum value to a string for Hall C.
+ * 
+ * @param flag The FallingEdgeFlag value to convert.
+ * @return A string representation of the FallingEdgeFlag value.
+ */
+const char* getStringFromFallingEdgeCFlag(cmFallingEdgeCFlag flag)
+{
+    switch (flag)
+    {
+        case HALLC_FALLING_EDGE_RESET: return "RESET";
+        case HALLC_FALLING_EDGE_SET: return "SET";
+        case HALLC_FALLING_EDGE_UNKNOWN: return "UNKNOWN";
+        default: return "INVALID";
+    }
+}
+
+
+
 char* InterruptHandlerManager_toString(void)
 {
-    char* output = (char*)malloc(256);
+    char* output = (char*)malloc(512); // Daha büyük bir buffer
     if (output == NULL)
     {
         return strdup("Memory allocation failed.");
     }
 
-    snprintf(output, 256,
-             "[InterruptHandlerManager]: External IRQ: [Port: %s, Pin: %s, Trigger: %s], "
-             "Timer IRQ: [ms: %d, sec: %d, min: %d, hour: %d, day: %d], "
-             "HALL: [HallA: %s, HallB: %s, HallC: %s]",
+    snprintf(output, 512,
+             "[InterruptHandlerManager]:\n"
+             "External IRQ:\n"
+             "  Port: %s, Pin: %s, Trigger: %s\n"
+             "Timer IRQ:\n"
+             "  ms: %d, sec: %d, min: %d, hour: %d, day: %d\n"
+             "HALL:\n"
+             "  HallA:\n"
+             "    Status: %s, RisingEdgeFlag: %s, FallingEdgeFlag: %s\n"
+             "    RisingEdgeCount: %d, FallingEdgeCount: %d\n"
+             "  HallB:\n"
+             "    Status: %s, RisingEdgeFlag: %s, FallingEdgeFlag: %s\n"
+             "    RisingEdgeCount: %d, FallingEdgeCount: %d\n"
+             "  HallC:\n"
+             "    Status: %s, RisingEdgeFlag: %s, FallingEdgeFlag: %s\n"
+             "    RisingEdgeCount: %d, FallingEdgeCount: %d\n",
              getStringFromPortName(instance.externalIrq.port),
              getStringFromPinName(instance.externalIrq.pin),
              getStringFromTriggerType(instance.externalIrq.trigger),
@@ -446,12 +699,26 @@ char* InterruptHandlerManager_toString(void)
              instance.timerIrq.min,
              instance.timerIrq.hour,
              instance.timerIrq.day,
-             getStringFromHallAStateStatus(instance.HALL.halla_state),
-             getStringFromHallBStateStatus(instance.HALL.hallb_state),
-             getStringFromHallCStateStatus(instance.HALL.hallc_state));
+             getStringFromHallAStateStatus(instance.HALL.halla_status),
+             getStringFromRisingEdgeAFlag(instance.HALL.halla_re_flag),
+             getStringFromFallingEdgeAFlag(instance.HALL.halla_fe_flag),
+             instance.HALL.halla_re_count,
+             instance.HALL.halla_fe_count,
+             getStringFromHallBStateStatus(instance.HALL.hallb_status),
+             getStringFromRisingEdgeBFlag(instance.HALL.hallb_re_flag),
+             getStringFromFallingEdgeBFlag(instance.HALL.hallb_fe_flag),
+             instance.HALL.hallb_re_count,
+             instance.HALL.hallb_fe_count,
+             getStringFromHallCStateStatus(instance.HALL.hallc_status),
+             getStringFromRisingEdgeCFlag(instance.HALL.hallc_re_flag),
+             getStringFromFallingEdgeCFlag(instance.HALL.hallc_fe_flag),
+             instance.HALL.hallc_re_count,
+             instance.HALL.hallc_fe_count);
 
     return output;
 }
+
+
 
 /* Constructor Implementations */
 
@@ -471,9 +738,9 @@ void ExternalIrqConfiguration_CTOR(void)
     instance.externalIrq.setTrigger = setExternalIrqTrigger_Impl;
     instance.externalIrq.getTrigger = getExternalIrqTrigger_Impl;
 
-    instance.externalIrq.setPort(PORTNAME_NULL);
-    instance.externalIrq.setPin(PINNAME_NULL);
-    instance.externalIrq.setTrigger(TRIGGERTYPE_UNKNOWN);
+    instance.externalIrq.setPort(EXTIRQ_PORTNAME_UNKNOWN);
+    instance.externalIrq.setPin(EXTIRQ_PINNAME_UNKNOWN);
+    instance.externalIrq.setTrigger(EXTIRQ_TRIGGERTYPE_UNKNOWN);
 }
 
 /**
@@ -512,18 +779,62 @@ void TimerIrqConfiguration_CTOR(void)
  */
 void HALLConfiguration_CTOR(void)
 {
-    instance.HALL.setHallAState = setHallAState_Impl;
-    instance.HALL.getHallAState = getHallAState_Impl;
+    /* Assign function pointers for Hall A */
+    instance.HALL.setHallAStatus = setHallAState_Impl;
+    instance.HALL.getHallAStatus = getHallAState_Impl;
+    instance.HALL.setHallAFallingEdgeFlag = setHallAFallingEdgeFlag_Impl;
+    instance.HALL.getHallAFallingEdgeFlag = getHallAFallingEdgeFlag_Impl;
+    instance.HALL.setHallARisingEdgeFlag = setHallARisingEdgeFlag_Impl;
+    instance.HALL.getHallARisingEdgeFlag = getHallARisingEdgeFlag_Impl;
+    instance.HALL.setHallAFallingEdgeCount = setHallAFallingEdgeCount_Impl;
+    instance.HALL.getHallAFallingEdgeCount = getHallAFallingEdgeCount_Impl;
+    instance.HALL.setHallARisingEdgeCount = setHallARisingEdgeCount_Impl;
+    instance.HALL.getHallARisingEdgeCount = getHallARisingEdgeCount_Impl;
 
-    instance.HALL.setHallBState = setHallBState_Impl;
-    instance.HALL.getHallBState = getHallBState_Impl;
+    /* Assign function pointers for Hall B */
+    instance.HALL.setHallBStatus = setHallBState_Impl;
+    instance.HALL.getHallBStatus = getHallBState_Impl;
+    instance.HALL.setHallBFallingEdgeFlag = setHallBFallingEdgeFlag_Impl;
+    instance.HALL.getHallBFallingEdgeFlag = getHallBFallingEdgeFlag_Impl;
+    instance.HALL.setHallBRisingEdgeFlag = setHallBRisingEdgeFlag_Impl;
+    instance.HALL.getHallBRisingEdgeFlag = getHallBRisingEdgeFlag_Impl;
+    instance.HALL.setHallBFallingEdgeCount = setHallBFallingEdgeCount_Impl;
+    instance.HALL.getHallBFallingEdgeCount = getHallBFallingEdgeCount_Impl;
+    instance.HALL.setHallBRisingEdgeCount = setHallBRisingEdgeCount_Impl;
+    instance.HALL.getHallBRisingEdgeCount = getHallBRisingEdgeCount_Impl;
 
-    instance.HALL.setHallCState = setHallCState_Impl;
-    instance.HALL.getHallCState = getHallCState_Impl;
+    /* Assign function pointers for Hall C */
+    instance.HALL.setHallCStatus = setHallCState_Impl;
+    instance.HALL.getHallCStatus = getHallCState_Impl;
+    instance.HALL.setHallCFallingEdgeFlag = setHallCFallingEdgeFlag_Impl;
+    instance.HALL.getHallCFallingEdgeFlag = getHallCFallingEdgeFlag_Impl;
+    instance.HALL.setHallCRisingEdgeFlag = setHallCRisingEdgeFlag_Impl;
+    instance.HALL.getHallCRisingEdgeFlag = getHallCRisingEdgeFlag_Impl;
+    instance.HALL.setHallCFallingEdgeCount = setHallCFallingEdgeCount_Impl;
+    instance.HALL.getHallCFallingEdgeCount = getHallCFallingEdgeCount_Impl;
+    instance.HALL.setHallCRisingEdgeCount = setHallCRisingEdgeCount_Impl;
+    instance.HALL.getHallCRisingEdgeCount = getHallCRisingEdgeCount_Impl;
 
-    instance.HALL.setHallAState(HALLA_STATUS_UNKNOWN);
-    instance.HALL.setHallBState(HALLB_STATUS_UNKNOWN);
-    instance.HALL.setHallCState(HALLC_STATUS_UNKNOWN);
+    /* Initialize default values for Hall A, B, and C */
+    instance.HALL.setHallAStatus(HALLA_STATUS_UNKNOWN);
+    instance.HALL.setHallBStatus(HALLB_STATUS_UNKNOWN);
+    instance.HALL.setHallCStatus(HALLC_STATUS_UNKNOWN);
+
+    instance.HALL.setHallAFallingEdgeFlag(HALLA_FALLING_EDGE_UNKNOWN);
+    instance.HALL.setHallBFallingEdgeFlag(HALLB_FALLING_EDGE_UNKNOWN);
+    instance.HALL.setHallCFallingEdgeFlag(HALLC_FALLING_EDGE_UNKNOWN);
+
+    instance.HALL.setHallARisingEdgeFlag(HALLA_RISING_EDGE_UNKNOWN);
+    instance.HALL.setHallBRisingEdgeFlag(HALLB_RISING_EDGE_UNKNOWN);
+    instance.HALL.setHallCRisingEdgeFlag(HALLC_RISING_EDGE_UNKNOWN);
+
+    instance.HALL.setHallAFallingEdgeCount(0);
+    instance.HALL.setHallBFallingEdgeCount(0);
+    instance.HALL.setHallCFallingEdgeCount(0);
+
+    instance.HALL.setHallARisingEdgeCount(0);
+    instance.HALL.setHallBRisingEdgeCount(0);
+    instance.HALL.setHallCRisingEdgeCount(0);
 }
 
 /**
@@ -533,11 +844,6 @@ void HALLConfiguration_CTOR(void)
  */
 void InterruptHandlerManager_CTOR(void)
 {
-    /* Child class constructors */
-    ExternalIrqConfiguration_CTOR();
-    TimerIrqConfiguration_CTOR();
-    HALLConfiguration_CTOR();
-
     /* Function pointer Implementation */
     instance.getExternalIrq = getExternalIrq_Impl;
     instance.setExternalIrq = setExternalIrq_Impl;
@@ -545,11 +851,25 @@ void InterruptHandlerManager_CTOR(void)
     instance.setTimerIrq = setTimerIrq_Impl;
     instance.getHALL = getHALL_Impl;
     instance.setHALL = setHALL_Impl;
+
+    instance.setHallAPinState = setHallAPinState_Impl;
+    instance.getHallAPinState = getHallAPinState_Impl;
+    instance.setHallBPinState = setHallBPinState_Impl;
+    instance.getHallBPinState = getHallBPinState_Impl;
+    instance.setHallCPinState = setHallCPinState_Impl;
+    instance.getHallCPinState = getHallCPinState_Impl;
+
     instance.toString = InterruptHandlerManager_toString;
+
+    /* Child class constructors */
+    ExternalIrqConfiguration_CTOR();
+    TimerIrqConfiguration_CTOR();
+    HALLConfiguration_CTOR();
 
     /* Interface assignment */
     instance.IExternalInterruptStatus = &ExternalInterruptInterface;
     instance.ITimerInterruptStatus = &TimerInterruptInterface;
+    instance.IGPIOStatus = &GPIOStatusInterface;
     instance.IHALLA = &HALLAInterface;
     instance.IHALLB = &HALLBInterface;
     instance.IHALLC = &HALLCInterface;

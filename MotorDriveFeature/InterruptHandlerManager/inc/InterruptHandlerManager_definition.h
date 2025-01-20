@@ -24,11 +24,15 @@
 #ifndef INTERRUPTHANDLERMANAGER_INC_INTERRUPTHANDLERMANAGER_DEFINITION_H_
 #define INTERRUPTHANDLERMANAGER_INC_INTERRUPTHANDLERMANAGER_DEFINITION_H_
 
+/* ECU StateManager Global Include*/
 #include "ECUStateManager_global.h"
 
+/* Receiver Port Interface Definition Include */
 #include "IExternalInterruptStatus.h"
 #include "ITimerInterruptStatus.h"
+#include "IGPIOStatus.h"
 
+/* Sender Port Interface Definition Include */
 #include "IHALLA.h"
 #include "IHALLB.h"
 #include "IHALLC.h"
@@ -53,17 +57,17 @@ typedef dtIhmReturn dtInterruptHandlerManager_ihmReturn;
 /**
  * @brief Alias for port name type in Interrupt Handler Manager.
  */
-typedef cmPortName dtInterruptHandlerManager_portName;
+typedef cmExtIrqPortName dtInterruptHandlerManager_portName;
 
 /**
  * @brief Alias for pin name type in Interrupt Handler Manager.
  */
-typedef cmPinName dtInterruptHandlerManager_pinName;
+typedef cmExtIrqPinName dtInterruptHandlerManager_pinName;
 
 /**
  * @brief Alias for trigger type in Interrupt Handler Manager.
  */
-typedef cmTriggerType dtInterruptHandlerManager_triggerType;
+typedef cmExtIrqTriggerType dtInterruptHandlerManager_triggerType;
 
 /**
  * @brief Alias for millisecond type in Interrupt Handler Manager.
@@ -118,13 +122,13 @@ typedef cmFallingEdgeBFlag dtInterruptHandlerManager_FallingEdgeBFlag;
 /**
  * @brief Alias for Hall C falling edge flag in Interrupt Handler Manager.
  */
+
 typedef cmFallingEdgeCFlag dtInterruptHandlerManager_FallingEdgeCFlag;
 
 /**
  * @brief Alias for Hall A rising edge flag in Interrupt Handler Manager.
  */
 typedef cmRisingEdgeAFlag dtInterruptHandlerManager_RisingEdgeAFlag;
-
 /**
  * @brief Alias for Hall B rising edge flag in Interrupt Handler Manager.
  */
@@ -165,6 +169,8 @@ typedef cmRisingEdgeBCount dtInterruptHandlerManager_RisingEdgeBCount;
  */
 typedef cmRisingEdgeCCount dtInterruptHandlerManager_RisingEdgeCCount;
 
+
+typedef cmGPIOpinState  dtInterruptHandlerManager_pinState;
 
 /**
  * @brief Configuration structure for External IRQ management.
@@ -322,9 +328,9 @@ typedef struct
 typedef struct 
 {
     /* Configuration attributes */
-    dtInterruptHandlerManager_HallAStateStatus halla_state; /**< Hall A state status. */
-    dtInterruptHandlerManager_HallBStateStatus hallb_state; /**< Hall B state status. */
-    dtInterruptHandlerManager_HallCStateStatus hallc_state; /**< Hall C state status. */
+    dtInterruptHandlerManager_HallAStateStatus halla_status; /**< Hall A state status. */
+    dtInterruptHandlerManager_HallBStateStatus hallb_status; /**< Hall B state status. */
+    dtInterruptHandlerManager_HallCStateStatus hallc_status; /**< Hall C state status. */
 
     dtInterruptHandlerManager_FallingEdgeAFlag halla_fe_flag; /**< Hall A falling edge flag. */
     dtInterruptHandlerManager_FallingEdgeBFlag hallb_fe_flag; /**< Hall B falling edge flag. */
@@ -349,13 +355,13 @@ typedef struct
      * @brief Sets the state status for Hall A.
      * @param state State status to set.
      */
-    void (*setHallAState)(dtInterruptHandlerManager_HallAStateStatus state);
+    void (*setHallAStatus)(dtInterruptHandlerManager_HallAStateStatus status);
 
     /**
      * @brief Gets the current state status for Hall A.
      * @return Current state status.
      */
-    dtInterruptHandlerManager_HallAStateStatus (*getHallAState)(void);
+    dtInterruptHandlerManager_HallAStateStatus (*getHallAStatus)(void);
 
     /**
      * @brief Sets the falling edge flag for Hall A.
@@ -410,13 +416,13 @@ typedef struct
      * @brief Sets the state status for Hall B.
      * @param state State status to set.
      */
-    void (*setHallBState)(dtInterruptHandlerManager_HallBStateStatus state);
+    void (*setHallBStatus)(dtInterruptHandlerManager_HallBStateStatus status);
 
     /**
      * @brief Gets the current state status for Hall B.
      * @return Current state status.
      */
-    dtInterruptHandlerManager_HallBStateStatus (*getHallBState)(void);
+    dtInterruptHandlerManager_HallBStateStatus (*getHallBStatus)(void);
 
     /**
      * @brief Sets the falling edge flag for Hall B.
@@ -471,13 +477,13 @@ typedef struct
      * @brief Sets the state status for Hall C.
      * @param state State status to set.
      */
-    void (*setHallCState)(dtInterruptHandlerManager_HallCStateStatus state);
+    void (*setHallCStatus)(dtInterruptHandlerManager_HallCStateStatus status);
 
     /**
      * @brief Gets the current state status for Hall C.
      * @return Current state status.
      */
-    dtInterruptHandlerManager_HallCStateStatus (*getHallCState)(void);
+    dtInterruptHandlerManager_HallCStateStatus (*getHallCStatus )(void);
 
     /**
      * @brief Sets the falling edge flag for Hall C.
@@ -542,14 +548,20 @@ typedef struct
     /* Interface pointer */
     IExternalInterruptStatus* IExternalInterruptStatus; /**< Pointer to external interrupt status interface. */
     ITimerInterruptStatus* ITimerInterruptStatus;       /**< Pointer to timer interrupt status interface. */
+    IGPIOStatus* IGPIOStatus;
     IHALLA* IHALLA;                                     /**< Pointer to Hall A interface. */
     IHALLB* IHALLB;                                     /**< Pointer to Hall B interface. */
     IHALLC* IHALLC;                                     /**< Pointer to Hall C interface. */
+    
 
     /* Attributes */
     ihmExternalIrqConfiguration externalIrq; /**< Configuration for external interrupts. */
     ihmTimerIrqConfiguration    timerIrq;    /**< Configuration for timer interrupts. */
     ihmHALLConfiguration        HALL;        /**< Configuration for HALL sensors. */
+
+    dtInterruptHandlerManager_pinState hall_A; /* PinState also sets HALL->status */
+    dtInterruptHandlerManager_pinState hall_B;
+    dtInterruptHandlerManager_pinState hall_C;
 
     /* Getter Setter */
 
@@ -588,6 +600,43 @@ typedef struct
      * @return Current HALL configuration.
      */
     ihmHALLConfiguration (*getHALL)(void);
+
+    /**
+     * @brief Sets the pin state for Hall A.
+     * @param state Pin state to set for Hall A.
+     */
+    void (*setHallAPinState)(dtInterruptHandlerManager_pinState state);
+
+    /**
+     * @brief Gets the current pin state for Hall A.
+     * @return The current pin state for Hall A.
+     */
+    dtInterruptHandlerManager_pinState (*getHallAPinState)(void);
+
+    /**
+     * @brief Sets the pin state for Hall B.
+     * @param state Pin state to set for Hall B.
+     */
+    void (*setHallBPinState)(dtInterruptHandlerManager_pinState state);
+
+    /**
+     * @brief Gets the current pin state for Hall B.
+     * @return The current pin state for Hall B.
+     */
+    dtInterruptHandlerManager_pinState (*getHallBPinState)(void);
+
+    /**
+     * @brief Sets the pin state for Hall C.
+     * @param state Pin state to set for Hall C.
+     */
+    void (*setHallCPinState)(dtInterruptHandlerManager_pinState state);
+
+    /**
+     * @brief Gets the current pin state for Hall C.
+     * @return The current pin state for Hall C.
+     */
+    dtInterruptHandlerManager_pinState (*getHallCPinState)(void);
+
 
     /* toString */
     /**

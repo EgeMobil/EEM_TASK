@@ -13,24 +13,140 @@ void tcInterruptHandlerManager(void)
     /* Read InterruptHandlerManager Status before Initialisation */
     printf("[PRE-INIT] %s \n", manager->toString() );
 
-    /* Check IRQ comes from which line */
-    ExternalInterruptInterface.writePortName(PORTNAME_GPIOA);
-    ExternalInterruptInterface.writePinName(PINNAME_3);
-    ExternalInterruptInterface.writeTriggerType(TRIGGERTYPE_RISINGEDGE);
+    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B,IGPIOSTATUS_PIN_6);
+    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B,IGPIOSTATUS_PIN_7);
+    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_A,IGPIOSTATUS_PIN_5);
 
-    InterruptHandlerManager_ruExternalTrigger();
+    InterruptHandlerMAnager_ruInitialisation();
 
     printf("[POST-INIT] %s \n", manager->toString() );
 
-    /* Call InterruptHandlerManager ruRefresh 10 iteration */
-    for(uint8_t i = 0 ; i < 25 ; i++)
+    // Initialize Hall sensor ports and pins
+    const cmExtIrqPortName HALL_A_PORT = EXTIRQ_PORTNAME_GPIOB;
+    const cmExtIrqPinName HALL_A_PIN = EXTIRQ_PINNAME_6;
+    const cmExtIrqPortName HALL_B_PORT = EXTIRQ_PORTNAME_GPIOB;
+    const cmExtIrqPinName HALL_B_PIN = EXTIRQ_PINNAME_7;
+    const cmExtIrqPortName HALL_C_PORT = EXTIRQ_PORTNAME_GPIOA;
+    const cmExtIrqPinName HALL_C_PIN = EXTIRQ_PINNAME_5;
+
+    // Simulate six-step commutation pattern
+    const char* hall_codes[] = {"100", "110", "010", "011", "001", "101"};
+
+    for (int step = 0; step < 6; step++)
     {
-        TimerInterruptInterface.writeMillisecond(i);
+        printf("\nStep %d: Hall Code: %s\n", step + 1, hall_codes[step]);
 
-        InterruptHandlerManager_ruTimerTrigger();
-        printf("%s \n", manager->toString() );
+        // Simulate rising and falling edges for Hall sensors based on the current step
+        switch (step)
+        {
+            case 0: // Hall code 100
+                ExternalInterruptInterface.writePortName(HALL_A_PORT);
+                ExternalInterruptInterface.writePinName(HALL_A_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
 
+                ExternalInterruptInterface.writePortName(HALL_B_PORT);
+                ExternalInterruptInterface.writePinName(HALL_B_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_C_PORT);
+                ExternalInterruptInterface.writePinName(HALL_C_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+                break;
+
+            case 1: // Hall code 110
+                ExternalInterruptInterface.writePortName(HALL_A_PORT);
+                ExternalInterruptInterface.writePinName(HALL_A_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_B_PORT);
+                ExternalInterruptInterface.writePinName(HALL_B_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_C_PORT);
+                ExternalInterruptInterface.writePinName(HALL_C_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+                break;
+
+            case 2: // Hall code 010
+                ExternalInterruptInterface.writePortName(HALL_A_PORT);
+                ExternalInterruptInterface.writePinName(HALL_A_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_B_PORT);
+                ExternalInterruptInterface.writePinName(HALL_B_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_C_PORT);
+                ExternalInterruptInterface.writePinName(HALL_C_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+                break;
+
+            case 3: // Hall code 011
+                ExternalInterruptInterface.writePortName(HALL_A_PORT);
+                ExternalInterruptInterface.writePinName(HALL_A_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_B_PORT);
+                ExternalInterruptInterface.writePinName(HALL_B_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_C_PORT);
+                ExternalInterruptInterface.writePinName(HALL_C_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+                break;
+
+            case 4: // Hall code 001
+                ExternalInterruptInterface.writePortName(HALL_A_PORT);
+                ExternalInterruptInterface.writePinName(HALL_A_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_B_PORT);
+                ExternalInterruptInterface.writePinName(HALL_B_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_C_PORT);
+                ExternalInterruptInterface.writePinName(HALL_C_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+                break;
+
+            case 5: // Hall code 101
+                ExternalInterruptInterface.writePortName(HALL_A_PORT);
+                ExternalInterruptInterface.writePinName(HALL_A_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_B_PORT);
+                ExternalInterruptInterface.writePinName(HALL_B_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+
+                ExternalInterruptInterface.writePortName(HALL_C_PORT);
+                ExternalInterruptInterface.writePinName(HALL_C_PIN);
+                ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
+                InterruptHandlerManager_ruExternalTrigger();
+                break;
+        }
+
+        // Print state after each step
+        printf("%s \n", manager->toString());
     }
+
+    printf("Six-Step Commutation Test Completed.\n");
 
     return;
 }

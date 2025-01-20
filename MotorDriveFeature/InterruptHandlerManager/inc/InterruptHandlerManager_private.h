@@ -24,6 +24,15 @@
 
 #include "InterruptHandlerManager_definition.h"
 
+#define HALL_A_PORT ((dtInterruptHandlerManager_portName)EXTIRQ_PORTNAME_GPIOB)
+#define HALL_A_PIN  ((dtInterruptHandlerManager_pinName)EXTIRQ_PINNAME_6)
+
+#define HALL_B_PORT ((dtInterruptHandlerManager_portName)EXTIRQ_PORTNAME_GPIOB)
+#define HALL_B_PIN  ((dtInterruptHandlerManager_pinName)EXTIRQ_PINNAME_7)
+
+#define HALL_C_PORT ((dtInterruptHandlerManager_portName)EXTIRQ_PORTNAME_GPIOA)
+#define HALL_C_PIN  ((dtInterruptHandlerManager_pinName)EXTIRQ_PINNAME_5)
+
 /**
  * @brief Constructor for the Interrupt Handler Manager.
  * 
@@ -59,5 +68,8 @@ FUNC(void, InterruptHandlerManager_ruExternalTrigger)(void);
  * necessary actions associated with the timer IRQ configuration.
  */
 FUNC(void, InterruptHandlerManager_ruTimerTrigger)(void);
+
+FUNC(void, InterruptHandlerMAnager_ruInitialisation)(void);
+
 
 #endif /* INTERRUPTHANDLERMANAGER_INC_INTERRUPTHANDLERMANAGER_PRIVATE_H_ */

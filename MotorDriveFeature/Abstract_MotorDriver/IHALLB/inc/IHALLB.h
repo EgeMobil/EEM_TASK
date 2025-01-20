@@ -22,39 +22,39 @@ typedef struct
      * @param state Hall sensor state to write.
      * @return Status of the operation.
      */
-    IHALLB_StatusType (*writeState)(cmHallBStateStatus state);
+    IHALLB_StatusType (*writeStatus)(cmHallBStateStatus status);
 
     /**
      * @brief Read the current Hall sensor state.
      * @return Current Hall sensor state.
      */
-    cmHallBStateStatus (*readState)(void);
+    cmHallBStateStatus (*readStatus)(void);
 
     /**
      * @brief Write the rising edge flag.
      * @param flag Rising edge flag to write.
      * @return Status of the operation.
      */
-    IHALLB_StatusType (*writeRisingEdgeFlag)(cmRisingEdgeBFlag flag);
+    IHALLB_StatusType (*writeRisingEdgeBFlag)(cmRisingEdgeBFlag flag);
 
     /**
      * @brief Read the current rising edge flag.
      * @return Current rising edge flag.
      */
-    cmRisingEdgeBFlag (*readRisingEdgeFlag)(void);
+    cmRisingEdgeBFlag (*readRisingEdgeBFlag)(void);
 
     /**
      * @brief Write the falling edge flag.
      * @param flag Falling edge flag to write.
      * @return Status of the operation.
      */
-    IHALLB_StatusType (*writeFallingEdgeFlag)(cmFallingEdgeBFlag flag);
+    IHALLB_StatusType (*writeFallingEdgeBFlag)(cmFallingEdgeBFlag flag);
 
     /**
      * @brief Read the current falling edge flag.
      * @return Current falling edge flag.
      */
-    cmFallingEdgeBFlag (*readFallingEdgeFlag)(void);
+    cmFallingEdgeBFlag (*readFallingEdgeBFlag)(void);
 } IHALLB;
 
 /**
@@ -69,13 +69,13 @@ extern IHALLB HALLBInterface;
  * @param state Hall sensor state to write.
  * @return Status of the operation.
  */
-IHALLB_StatusType IHALLB_writeState_Impl(cmHallBStateStatus state);
+IHALLB_StatusType IHALLB_writeStatus_Impl(cmHallBStateStatus status);
 
 /**
  * @brief Implementation for reading the Hall sensor state.
  * @return Current Hall sensor state.
  */
-cmHallBStateStatus IHALLB_readState_Impl(void);
+cmHallBStateStatus IHALLB_readStatus_Impl(void);
 
 /**
  * @brief Implementation for writing the rising edge flag.

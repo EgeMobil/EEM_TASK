@@ -22,13 +22,13 @@ typedef struct
      * @param state Hall state to write.
      * @return Status of the operation.
      */
-    IHALLA_StatusType (*writeState)(cmHallAStateStatus state);
+    IHALLA_StatusType (*writeStatus)(cmHallAStateStatus status);
 
     /**
      * @brief Read the current Hall sensor state.
      * @return Current Hall sensor state.
      */
-    cmHallAStateStatus (*readState)(void);
+    cmHallAStateStatus (*readStatus)(void);
 
     /**
      * @brief Write the rising edge flag.
@@ -73,7 +73,7 @@ extern IHALLA HALLAInterface;
  *         - `IHALLA_OK` if the operation was successful.
  *         - `IHALLA_NOT_OK` if the operation failed.
  */
-IHALLA_StatusType IHALLA_writeState_Impl(cmHallAStateStatus state);
+IHALLA_StatusType IHALLA_writeStatus_Impl(cmHallAStateStatus state);
 
 /**
  * @brief Reads the current state status for Hall A.
@@ -82,7 +82,7 @@ IHALLA_StatusType IHALLA_writeState_Impl(cmHallAStateStatus state);
  * 
  * @return The current state status of type `cmHallAStateStatus`.
  */
-cmHallAStateStatus IHALLA_readState_Impl(void);
+cmHallAStateStatus IHALLA_readStatus_Impl(void);
 
 /**
  * @brief Writes the rising edge flag for Hall A.
