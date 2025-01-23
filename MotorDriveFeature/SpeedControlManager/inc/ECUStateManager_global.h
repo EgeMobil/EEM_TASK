@@ -10,6 +10,8 @@
 #include "stdlib.h"
 
 #define FUNC(returnType, functionName) returnType functionName
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define min(a, b) ((a) < (b) ? (a) : (b))
 
 /* Monotony Type Definition */
 /**

@@ -1,9 +1,7 @@
-
 #include "tcSpeedControlManager.h"
 
-int main(){
-    
+int main()
+{
     tcSpeedControlManager();
-
     return 0;
 }

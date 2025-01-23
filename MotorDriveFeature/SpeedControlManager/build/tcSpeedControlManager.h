@@ -1,6 +1,8 @@
-// test kodu ifndef, define tanimla
+#ifndef TC_SPEED_CONTROL_MANAGER_H
+#define TC_SPEED_CONTROL_MANAGER_H
 
-// public erişim. çünkü sanki bu test kodu başka bir komponentmiş gibi dışaridan erişmelidir.
+#include "SpeedControlManager_public.h"
 
-// test kodu prototipi
 void tcSpeedControlManager(void);
+
+#endif /* TC_SPEED_CONTROL_MANAGER_H*/

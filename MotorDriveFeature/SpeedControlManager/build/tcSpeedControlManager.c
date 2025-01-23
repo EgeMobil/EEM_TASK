@@ -1,44 +1,71 @@
-// örnek çalışma senaryosu gerçekleşecek
-
-/*
-ADC'den okunan hız: 2048 (0-4095 aralığında).
-Normalize edilmiş hedef hız:
-targetSpeed
-=
-(
-2048
-×
-1000
-4095
-)
-≈
-500
-targetSpeed=( 
-4095
-2048×1000
-​
- )≈500
-speedStep = 10:
-İlk 50 ms içinde hız, 0’dan 500’e ulaşır (10 birimlik adımlarla).
-
-*/
-
 #include "tcSpeedControlManager.h"
 
 void tcSpeedControlManager(void)
 {
-    // print komponent adı
+    printf("SpeedControlManager\n");
 
-    // constructor
+    // Constructor çağrısı
+    SpeedControlManager_CTOR();
 
-    // get singelton instace
+    // Singleton instance alma
+    dtSpeedControlManager* scm = SpeedControlManager_GetInstance();
+    if (scm == NULL)
+    {
+        printf("Error: SpeedControlManager_GetInstance returned NULL.\n");
+        return;
+    }
 
-    // init öncesi tostring oku
+    // Init öncesi toString okuma
+    printf("[PRE-INIT] %s\n", scm->toString());
 
-    // init runable cagir
+    // Init runable çağırma
+    SpeedControlManager_ruInitialistaion();
 
-    // init sonrasi toString
+    // Init sonrası toString okuma
+    printf("[POST-INIT] %s\n", scm->toString());
 
-    // hizlanma ve yavaslanma testlerini iterasyonlar uygulayarak gerceklestirelim.
+    // RawSpeed'i 2048 olarak ayarla
+    RawSpeedInterface.writeRawSpeed(2048);
 
+    // Hedef hızın normalize edildiğini kontrol et
+    SpeedControlManager_ruUpdate();
+    printf("[UPDATE] Target Speed (Normalized): %d\n", scm->config.targetSpeed);
+
+    // Hızlanma ve yavaşlama testleri
+    printf("[TEST] Starting acceleration and deceleration test...\n");
+
+    for (uint8_t i = 0; i < 100; i++) // 100 iterasyon örnek olarak seçildi
+    {
+        SpeedControlManager_ruRefresh(); // Hız güncelleme işlemi
+
+        printf("[Iteration %d] Current Speed: %d, Target Speed: %d\n", 
+               i, scm->config.currentSpeed, scm->config.targetSpeed);
+
+        if (scm->config.currentSpeed == scm->config.targetSpeed)
+        {
+            printf("[TEST] Target speed reached at iteration %d.\n", i);
+            break;
+        }
+    }
+
+    // Yeni bir test: hedef hızı düşür ve tekrar kontrol et
+    printf("[TEST] Reducing target speed...\n");
+    scm->IRawSpeed->writeRawSpeed(1024); // Yeni hedef hız ayarla (örneğin, 1024)
+
+    SpeedControlManager_ruUpdate();
+    printf("[UPDATE] New Target Speed (Normalized): %d\n", scm->config.targetSpeed);
+
+    for (uint8_t i = 0; i < 100; i++)
+    {
+        SpeedControlManager_ruRefresh();
+
+        printf("[Iteration %d] Current Speed: %d, Target Speed: %d\n", 
+               i, scm->config.currentSpeed, scm->config.targetSpeed);
+
+        if (scm->config.currentSpeed == scm->config.targetSpeed)
+        {
+            printf("[TEST] Target speed reached at iteration %d.\n", i);
+            break;
+        }
+    }
 }
