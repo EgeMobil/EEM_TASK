@@ -238,7 +238,7 @@ static char* toString_Impl(void)
              (instance.IHALLA != NULL) ? "Connected" : "Not Connected",
              (instance.IHALLB != NULL) ? "Connected" : "Not Connected",
              (instance.IHALLC != NULL) ? "Connected" : "Not Connected",
-             (instance.pwmStep != NULL) ? "Connected" : "Not Connected",
+             (instance.IPwmStep != NULL) ? "Connected" : "Not Connected",
 
              // Hall A information
              HallStateToString(instance.hall_a.status),
@@ -316,7 +316,7 @@ void HALLSensorConfiguration_CTOR(void)
     instance.IHALLA = &HALLAInterface;
     instance.IHALLB = &HALLBInterface;
     instance.IHALLC = &HALLCInterface;
-    instance.pwmStep = &PwmStepInterface;
+    instance.IPwmStep = &PwmStepInterface;
 
     /* Initialize attributes */
     HALLSensorConfigurationHallA_CTOR();

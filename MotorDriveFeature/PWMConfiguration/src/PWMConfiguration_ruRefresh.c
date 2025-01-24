@@ -43,7 +43,7 @@ FUNC(void, PWMConfiguration_ruRefresh)(void)
 
 
     /* Handle Direction Logic */
-    static dtPWMConfiguration_directionStatusType lastDirection = DIRECTION_FORWARD;
+    static dtPWMConfiguration_directionStatusType lastDirection = DIRECTION_STATUS_FORWARD;
     
     if (pwmc->getDirectionStatus() != lastDirection)
     {
@@ -51,7 +51,7 @@ FUNC(void, PWMConfiguration_ruRefresh)(void)
         if (currentSpeed == 0)
         {
             /* Change direction by updating GPIO state */
-            if (pwmc->getDirectionStatus() == DIRECTION_FORWARD)
+            if (pwmc->getDirectionStatus() == DIRECTION_STATUS_FORWARD)
             {
                 pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_SET, DIRECTION_OUTPUT_PORT, DIRECTION_OUTPUT_PIN);
             }

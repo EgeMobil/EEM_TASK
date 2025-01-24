@@ -1,0 +1,83 @@
+#include "ECUStateManager_private.h"
+
+// Helper functions for state names
+const char* GetStartupStateName(dtECUStateManager_startUp state)
+{
+    switch (state)
+    {
+        case STARTUP_UNKNOWN: return "UNKNOWN";
+        case STARTUP_PRE_INIT: return "PRE_INIT";
+        case STARTUP_INIT: return "INIT";
+        case STARTUP_POST_INIT: return "POST_INIT";
+        default: return "INVALID";
+    }
+}
+
+const char* GetEcuStateName(dtECUStateManager_ecuState state)
+{
+    switch (state)
+    {
+        case ECUSTATE_STARTUP: return "STARTUP";
+        case ECUSTATE_INIT: return "INIT";
+        case ECUSTATE_ROUTINE: return "ROUTINE";
+        case ECUSTATE_PROCESS: return "PROCESS";
+        case ECUSTATE_SUSPEND: return "SUSPEND";
+        case ECUSTATE_DEFAULT: return "DEFAULT";
+        default: return "INVALID";
+    }
+}
+
+const char* GetRefreshStateName(dtECUStateManager_refreshState state)
+{
+    switch (state)
+    {
+        case REFRESHSTATE_UNKNOWN: return "UNKNOWN";
+        case REFRESHSTATE_ANALOGREAD: return "(PRIO:X)ANALOGREAD";
+        case REFRESHSTATE_COMMUNICATION: return "(PRIO:X)COMMUNICATION";
+        case REFRESHSTATE_MOTORDRIVERCONTROLMANAGER: return "(PRIO:1)MOTORDRIVERCONTROL";
+        case REFRESHSTATE_GATEDRIVERCONTROLLER: return "(PRIO:2)GATEDRIVERCONTROLLER";
+        case REFRESHSTATE_SPEEDCONTROLMANAGER: return "(PRIO:3)SPEEDCONTROLMANAGER";
+        case REFRESHSTATE_MOTORDRIVERCOMMPROXY: return "(PRIO:4)MOTORDRIVERCOMMPROXY";
+        case REFRESHSTATE_MOTORDRIVERDCMPROXY: return "(PRIO:5)MOTORDRIVERDCMPROXY";
+        case REFRESHSTATE_PWMCONFIGURATION: return "(PRIO:6)PWMCONFIGURATION";
+        case REFRESHSTATE_SUSPEND: return "SUSPEND";
+        case REFRESHSTATE_DEFAULT: return "DEFAULT";
+        default: return "INVALID";
+    }
+}
+
+const char* GetProcessStateName(dtECUStateManager_processState state)
+{
+    switch (state)
+    {
+        case PROCESSSTATE_UNKNOWN: return "UNKNOWN";
+        case PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER: return "EXTERNALTRIGGER";
+        case PROCESSSTATE_INTERRUPTHANDLERMANAGER_TIMERTRIGGER: return "TIMERTRIGGER";
+        case PROCESSSTATE_HALLSENSORCONFIGURATION_UPDATE: return "HALLSENSOR_UPDATE";
+        case PROCESSSTATE_HALLSENSORCONFIGURATION_CALCULATEWHEELSPEED: return "CALCULATEWHEELSPEED";
+        case PROCESSSTATE_PWMCONFIGURATION_UPDATE: return "PWM_UPDATE";
+        case PROCESSSTATE_DIRECTIONANDBRAKEMANAGER_UPDATE: return "DIRECTIONANDBRAKEMANAGER_UPDATE";
+        case PROCESSSTATE_SPEEDCONTROLMANAGER_UPDATE: return "SPEEDCONTROLMANAGER_UPDATE";
+        case PROCESSSTATE_MOTORDRIVEDCMPROXY_COLLECT: return "MOTORDRIVEDCMPROXY_COLLECT";
+        case PROCESSSTATE_MOTORDRIVECOMMPROXY_UPDATEDIRECTION: return "COMMPROXY_UPDATEDIRECTION";
+        case PROCESSSTATE_MOTORDRIVECOMMPROXY_UPDATESPEED: return "COMMPROXY_UPDATESPEED";
+        case PROCESSSTATE_MOTORDRIVECOMMPROXY_UPDATEWHEELSPEED: return "COMMPROXY_UPDATEWHEELSPEED";
+        case PROCESSSTATE_ANALOGDATAWRAPPER: return "ANALOGDATAWRAPPER";
+        case PROCESSSTATE_TXSIGNALADAPTER: return "TXSIGNALADAPTER";
+        case PROCESSSTATE_FINISHED: return "FINISHED";
+        case PROCESSSTATE_DEFAULT: return "DEFAULT";
+        default: return "INVALID";
+    }
+}
+
+
+void ECUStateManager_toString(void)
+{
+printf("SysCount: %2d | Startup: %-10s | ECU_STATE: %-8s | REFRESH_STATE: %-30s | PROCESS_STATE: %-22s | \n",
+       systemStateCount,
+       GetStartupStateName(systemStartUp),
+       GetEcuStateName(ECU_STATE),
+       GetRefreshStateName(REFRESH_STATE),
+       GetProcessStateName(PROCESS_STATE) );
+
+}

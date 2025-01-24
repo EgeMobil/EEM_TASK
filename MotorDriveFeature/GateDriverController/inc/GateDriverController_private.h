@@ -1,7 +1,7 @@
 #ifndef GATEDRIVERCONTROLLER_PRIVATE_H_
 #define GATEDRIVERCONTROLLER_PRIVATE_H_
 
-/* CompName definition include */
+/* Gate Driver definition include */
 #include "GateDriverController_definition.h"
 
 /* Constructor Prototype */

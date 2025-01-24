@@ -62,7 +62,9 @@ FUNC(void, HALLSensorConfiguration_ruInitialisation)(void)
     }
 
     /* Write PwmStep for HALL A,B,C */
-    hsc->pwmStep->writePwmStepA(pwmStepA);
-    hsc->pwmStep->writePwmStepB(pwmStepB);
-    hsc->pwmStep->writePwmStepC(pwmStepC);
+    hsc->IPwmStep->writePwmStepA(pwmStepA);
+    hsc->IPwmStep->writePwmStepB(pwmStepB);
+    hsc->IPwmStep->writePwmStepC(pwmStepC);
+
+
 }

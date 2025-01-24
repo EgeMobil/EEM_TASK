@@ -13,7 +13,7 @@ SRC = ./build/main.c \
 	  ./build/tcBrakeAndDirectionManager.c \
       ./src/BrakeAndDirectionManager.c \
       ./src/BrakeAndDirectionManager_ruInitialisation.c \
-      ./src/BrakeAndDirectionManager_ruUpdate.c \
+      ./src/BrakeAndDirectionManager_ruRefresh.c \
       ../Abstract_MotorDriver/IBrakeAndDirection/src/IBrakeAndDirection.c \
 	  ../Abstract_MotorDriver/IBrakeStatus/src/IBrakeStatus.c \
 	  ../Abstract_MotorDriver/IDirectionStatus/src/IDirectionStatus.c

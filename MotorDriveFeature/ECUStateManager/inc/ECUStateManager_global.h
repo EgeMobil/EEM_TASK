@@ -4,12 +4,15 @@
 /* MCU BsW - Low level layer 
 -#include "stm32g4xx.h"
 */
-#include "stdio.h"
-#include "stdint.h"
-#include "string.h"
-#include "stdlib.h"
+
+#include "ECUStateManager_public.h"
 
 #define FUNC(returnType, functionName) returnType functionName
+
+/******ECU State Manager Process Handling***********/
+void ECUStateManager_RunProcess(dtECUStateManager_processState processState);
+
+/****************************************************/
 
 /* Monotony Type Definition */
 /**

@@ -4,6 +4,10 @@
 /* Include the public definition header */
 #include "GateDriverController_definition.h"
 
+#ifdef SIL_INTEGRATION
+#include "ECUStateManager_global.h"
+#endif
+
 /* Constructor external prototype for public access*/
 extern void GateDriverController_CTOR(void);
 

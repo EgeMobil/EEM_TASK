@@ -53,6 +53,6 @@ FUNC(void, BrakeAndDirectionManager_ruInitialistaion)(void);
  * This function updates the Brake and Direction Manager by processing any changes
  * or events in the brake and direction status. It is typically called periodically.
  */
-FUNC(void, BrakeAndDirectionManager_ruUpdate)(void);
+FUNC(void, BrakeAndDirectionManager_ruRefresh)(void);
 
 #endif /* BRAKEANDDIRECTIONMANAGER_INC_BRAKEANDDIRECTIONMANAGER_PRIVATE_H_ */

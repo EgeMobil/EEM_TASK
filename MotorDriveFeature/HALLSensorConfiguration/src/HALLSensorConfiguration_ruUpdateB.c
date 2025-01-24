@@ -62,6 +62,6 @@ FUNC(void, HALLSensorConfiguration_ruUpdateB)(void)
     }
 
     /* Send Pwm Step */
-    hsc->pwmStep->writePwmStepB(pwmStepB);
+    hsc->IPwmStep->writePwmStepB(pwmStepB);
 
 }

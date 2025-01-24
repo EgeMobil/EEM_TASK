@@ -48,6 +48,6 @@ extern FUNC(void, BrakeAndDirectionManager_ruInitialistaion)(void);
  * This function handles the periodic update of brake and direction statuses 
  * by reading inputs, validating changes, and updating configurations.
  */
-extern FUNC(void, BrakeAndDirectionManager_ruUpdate)(void);
+extern FUNC(void, BrakeAndDirectionManager_ruRefresh)(void);
 
 #endif /* BRAKEANDDIRECTIONMANAGER_INC_BRAKEANDDIRECTIONMANAGER_PUBLIC_H_ */

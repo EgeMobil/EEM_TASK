@@ -25,7 +25,7 @@
  * - Sends the updated statuses to the corresponding interfaces.
  * - Provides error handling for unknown statuses.
  */
-FUNC(void, BrakeAndDirectionManager_ruUpdate)(void)
+FUNC(void, BrakeAndDirectionManager_ruRefresh)(void)
 {
     dtBrakeAndDirectionManager_bdrDirection currentDirection; /**< Current direction status. */
     dtBrakeAndDirectionManager_bdrBrake currentBrake;         /**< Current brake status. */

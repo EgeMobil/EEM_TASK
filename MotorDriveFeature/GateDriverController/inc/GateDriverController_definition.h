@@ -1,6 +1,11 @@
 #ifndef GATEDRIVERCONTROLLER_DEFINITION_H_
 #define GATEDRIVERCONTROLLER_DEFINITION_H_
 
+#include "stdio.h"
+#include "stdint.h"
+#include "stdlib.h"
+#include "string.h"
+
 /* ECU StateManager Global Include*/
 #include "ECUStateManager_global.h"
 

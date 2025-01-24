@@ -200,7 +200,7 @@ typedef struct
     IHALLA* IHALLA; /**< Pointer to Hall A interface. */
     IHALLB* IHALLB; /**< Pointer to Hall B interface. */
     IHALLC* IHALLC; /**< Pointer to Hall C interface. */
-    IPwmStep* pwmStep; /**< Pointer to PWM Step interface. */
+    IPwmStep* IPwmStep; /**< Pointer to PWM Step interface. */
 
     /* Attributes */
     dtHALLSensorConfiguration_A hall_a; /**< Hall A configuration structure. */
