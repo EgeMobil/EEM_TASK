@@ -14,22 +14,6 @@
 
 #include "SpeedControlManager_private.h"
 
-/**
- * @brief Indicator speed status refresh.
- *
- * This function displays the current speed, target speed, and the speed step 
- * on the console for the SpeedControlManager. It is primarily used for 
- * debugging and displaying speed control changes.
- *
- * @param currentSpeed Current speed of the system.
- * @param targetSpeed Target speed to be reached.
- * @param speedStep The dynamic step used for adjusting speed.
- */
-void IIndicatorSpeedStatus_ruRefresh(uint16_t currentSpeed, uint16_t targetSpeed, uint16_t speedStep)
-{
-    printf("[IIndicatorSpeedStatus] Current speed: %u, Target speed: %u, Step: %u\n",
-           currentSpeed, targetSpeed, speedStep);
-}
 
 /**
  * @brief SpeedControlManager refresh runable.
@@ -74,8 +58,12 @@ FUNC(void, SpeedControlManager_ruRefresh)(void)
             scm->config.currentSpeed = scm->config.targetSpeed; // Prevent undershooting target speed
         }
     }
+    
+    /* Update Speed status based on current speed */
+    scm->getConfig().setSpeedStatus(scm->config.currentSpeed);
 
-    // Call the indicator update function
-    IIndicatorSpeedStatus_ruRefresh(scm->config.currentSpeed, scm->config.targetSpeed, speedStep);
+    /* Send Speed Status */
+    scm->ISpeedStatus->writeSpeedStatus( scm->getConfig().getSpeedStatus() );
+
 }
 

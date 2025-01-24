@@ -30,8 +30,9 @@ FUNC(void, SpeedControlManager_ruInitialistaion)(void)
     /* Set Indicator to Idle at startup */
     scm->getConfig().setIndicator(INDICATORSPEEDSTATUS_IDLE);
 
-    /* Set Speed Status to 0 at startup */
+    /* Set Speed Status and Raw Speed to 0 at startup */
     scm->getConfig().setSpeedStatus(0);
+    scm->getConfig().setRawSpeed(0);
 
     /* Update interface with the initial IndicatorSpeedStatus */
     scm->IIndicatorSpeedStatus->writeIndicatorSpeedStatus(scm->getConfig().getIndicator());

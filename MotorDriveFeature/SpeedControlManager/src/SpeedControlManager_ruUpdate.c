@@ -29,9 +29,9 @@ FUNC(void, SpeedControlManager_ruUpdate)(void)
     dtSpeedControlManager* scm = SpeedControlManager_GetInstance();
 
     // Retrieve the raw speed value and normalize it
-    uint16_t rawSpeed = scm->IRawSpeed->readRawSpeed();
+    scm->getConfig().setRawSpeed( scm->IRawSpeed->readRawSpeed() );
     uint16_t maxRawValue = 4095; // Maximum raw speed value (12-bit range)
 
     // Normalize the raw speed value to a target speed (in percentage)
-    scm->config.targetSpeed = (rawSpeed * 1000) / maxRawValue;
+    scm->config.targetSpeed = ( scm->getConfig().getRawSpeed() * 1000) / maxRawValue;
 }
