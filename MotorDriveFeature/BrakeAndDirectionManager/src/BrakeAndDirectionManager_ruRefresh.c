@@ -68,7 +68,7 @@ FUNC(void, BrakeAndDirectionManager_ruRefresh)(void)
     }
 
     /* Check if Direction can change (only in stop case or reverse scenario) */
-    if (currentDirection != DIRECTION_UNKNOWN && currentBrake == BRAKE_ENABLE /* Check Speed = 0 later */)
+    if (currentDirection != DIRECTION_UNKNOWN && currentBrake == BRAKE_ENABLE )
     {
         if (bdr->getConfig().getDirection() == DIRECTION_FORWARD && currentDirection == DIRECTION_BACKWARD)
         {
@@ -96,4 +96,7 @@ FUNC(void, BrakeAndDirectionManager_ruRefresh)(void)
 
         /* Provide Error IndicatorLamp @LATER */
     }
+
+    /* Update Brake Status for Speed Handling */
+    SpeedControlManager_ruBrakeUpdate();
 }

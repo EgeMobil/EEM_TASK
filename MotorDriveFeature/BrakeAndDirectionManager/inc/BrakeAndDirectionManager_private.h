@@ -18,6 +18,9 @@
 
 #include "BrakeAndDirectionManager_definition.h"
 
+/* Public Include */
+#include "SpeedControlManager_public.h"
+
 /**
  * @brief Constructor for the Brake and Direction Manager.
  * 

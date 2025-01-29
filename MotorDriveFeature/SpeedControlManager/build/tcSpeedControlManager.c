@@ -19,7 +19,7 @@ void tcSpeedControlManager(void)
     printf("[PRE-INIT] %s\n", scm->toString());
 
     // Init runable çağırma
-    SpeedControlManager_ruInitialistaion();
+    SpeedControlManager_ruInitialisation();
 
     // Init sonrası toString okuma
     printf("[POST-INIT] %s\n", scm->toString());
@@ -39,6 +39,15 @@ void tcSpeedControlManager(void)
     {
         SpeedControlManager_ruRefresh(); // Hız güncelleme işlemi
         printf("[Iteration %d] %s \n", i, scm->toString() );
+
+        if(i==30)
+        {
+            scm->getConfig().setBrake(BRAKE_ENABLE);
+        }
+        else if(i==35)
+        {
+            scm->getConfig().setBrake(BRAKE_DISABLE);
+        }
 
     }
 

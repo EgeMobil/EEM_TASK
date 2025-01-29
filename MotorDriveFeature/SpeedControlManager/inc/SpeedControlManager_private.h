@@ -23,6 +23,8 @@
  */
 void SpeedControlManager_CTOR(void);
 
+FUNC(void, SpeedControlManager_ruBrakeUpdate)(void);
+
 /**
  * @brief Retrieves the instance of the Speed Control Manager.
  * 
@@ -58,6 +60,6 @@ FUNC(void, SpeedControlManager_ruUpdate)(void);
  * Speed Control Manager, setting up the internal configurations 
  * and system interfaces.
  */
-FUNC(void, SpeedControlManager_ruInitialistaion)(void);
+FUNC(void, SpeedControlManager_ruInitialisation)(void);
 
 #endif /* SPEEDCONTROLMANAGER_INC_SPEEDCONTROLMANAGER_PRIVATE_H_ */

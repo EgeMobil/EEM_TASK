@@ -22,7 +22,7 @@
  * - Updates the indicator speed status interface with the initial value.
  * - Updates the speed status interface with the initial value.
  */
-FUNC(void, SpeedControlManager_ruInitialistaion)(void)
+FUNC(void, SpeedControlManager_ruInitialisation)(void)
 {
     /* Get Singleton Instance */
     dtSpeedControlManager* scm = SpeedControlManager_GetInstance();

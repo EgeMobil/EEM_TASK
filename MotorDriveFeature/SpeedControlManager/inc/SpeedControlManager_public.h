@@ -35,6 +35,9 @@ extern void SpeedControlManager_CTOR(void);
  */
 extern dtSpeedControlManager* SpeedControlManager_GetInstance(void);
 
+
+extern FUNC(void, SpeedControlManager_ruBrakeUpdate)(void);
+
 /**
  * @brief Refreshes the Speed Control Manager data.
  * 
@@ -58,6 +61,6 @@ extern FUNC(void, SpeedControlManager_ruUpdate)(void);
  * initializing all the necessary parameters and ensuring the manager is ready 
  * for operation.
  */
-extern FUNC(void, SpeedControlManager_ruInitialistaion)(void);
+extern FUNC(void, SpeedControlManager_ruInitialisation)(void);
 
 #endif /* SPEEDCONTROLMANAGER_INC_SPEEDCONTROLMANAGER_PUBLIC_H_ */

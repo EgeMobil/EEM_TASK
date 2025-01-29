@@ -16,6 +16,11 @@
         "ecustatemanager_public.h": "c",
         "interrupthandlermanager_private.h": "c",
         "interrupthandlermanager_definition.h": "c",
-        "pwmconfiguration_public.h": "c"
+        "pwmconfiguration_public.h": "c",
+        "motordrivercontrolmanager_private.h": "c",
+        "pwmconfiguration_private.h": "c",
+        "pwmconfiguration_definition.h": "c",
+        "iindicatorspeedstatus.h": "c",
+        "brakeanddirectionmanager_definition.h": "c"
     }
 }

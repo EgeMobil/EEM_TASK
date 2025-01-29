@@ -16,9 +16,11 @@
 
 /* Include interface headers */
 #include "ECUStateManager_global.h"
+
 #include "IRawSpeed.h"
 #include "ISpeedStatus.h"
 #include "IIndicatorSpeedStatus.h"
+#include "IBrakeStatus.h"
 
 /* Return value enum */
 /**
@@ -60,6 +62,8 @@ typedef cmSpeedStatus          dtSpeedControlManager_scmSpeedStatus;
  */
 typedef cmIndicatorSpeedStatus dtSpeedControlManager_scmIndicator;
 
+typedef cmBrakeStatusType dtSpeedControlManager_brakeStatus;
+
 /**
  * @struct dtScmConfig
  * @brief Configuration structure for Speed Control Manager.
@@ -74,6 +78,8 @@ typedef struct
     dtSpeedControlManager_scmRawSpeed    rawSpeed;      /**< Raw speed data */
     dtSpeedControlManager_scmSpeedStatus speedStatus;   /**< Speed status */
     dtSpeedControlManager_scmIndicator   indicator;     /**< Speed indicator status */
+
+    dtSpeedControlManager_brakeStatus brake; /**< Brake Status */
 
     uint16_t targetSpeed;    /**< Target speed */
     uint16_t currentSpeed;   /**< Current speed */
@@ -90,6 +96,9 @@ typedef struct
 
     uint16_t (*getDivider)(void);  /**< Function to get the divider value */
     void (*setDivider)(uint16_t divider); /**< Function to set the divider value */
+
+    dtSpeedControlManager_brakeStatus (*getBrake)(void); /**< Function to get brake data */
+    void (*setBrake)(dtSpeedControlManager_brakeStatus brake); /**< Function to set brake  data */
 
     dtSpeedControlManager_scmRawSpeed (*getRawSpeed)(void); /**< Function to get raw speed data */
     void (*setRawSpeed)(dtSpeedControlManager_scmRawSpeed rawSpeed); /**< Function to set raw speed data */
@@ -124,6 +133,7 @@ typedef struct
     IRawSpeed*             IRawSpeed; /**< Raw speed interface */
     ISpeedStatus*          ISpeedStatus; /**< Speed status interface */
     IIndicatorSpeedStatus* IIndicatorSpeedStatus; /**< Speed indicator interface */
+    IBrakeStatus*          IBrakeStatus; /**< Brake Status interface */
 
     dtSpeedControlManager_scmReturn retVal; /**< Return value */
     dtSpeedControlManager_scmConfiguration config; /**< Configuration structure */

@@ -34,4 +34,5 @@ FUNC(void, SpeedControlManager_ruUpdate)(void)
 
     // Normalize the raw speed value to a target speed (in percentage)
     scm->config.targetSpeed = ( scm->getConfig().getRawSpeed() * 1000) / maxRawValue;
+
 }

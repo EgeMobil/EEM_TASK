@@ -12,27 +12,18 @@ FUNC(void, PWMConfiguration_ruRefresh)(void)
     pwmc->setBrakeStatus( pwmc->IBrakeStatus->readBrake() );
     pwmc->setDirectionStatus( pwmc->IDirectionStatus->readDirection() );
 
+    /* Read Speed Status */
+    pwmc->setSpeedStatus( pwmc->ISpeedStatus->readSpeedStatus() );
+
     /* Current Speed (0-1000 scaled to duty cycle) */
     uint16_t currentSpeed = pwmc->getSpeedStatus();
 
-    /* Handle Brake Logic */
+    /* Handle Brake Logic @LATER @LATER @LATER */
     if ( pwmc->getBrakeStatus() == BRAKE_STATUS_ENABLE)
     {
-        /* Gradually reduce speed for controlled stop */
-        if (currentSpeed > 0)
-        {
-            uint16_t newSpeed = currentSpeed > 10 ? currentSpeed - 10 : 0; // Decrease speed step by step
-            pwmc->setSpeedStatus(newSpeed);
+        /* Set Brake Pin Low for Full Brake */
+        pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_RESET, BRAKE_OUTPUT_PORT, BRAKE_OUTPUT_PIN);
 
-            /* Update PWM duty cycle based on new speed */
-            pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_RESET, BRAKE_OUTPUT_PORT, BRAKE_OUTPUT_PIN);
-            pwmc->setDutyCycle(newSpeed / 10); // Assuming 0-100% duty cycle maps to 0-1000 speed
-        }
-        else
-        {
-            /* Set Brake Pin Low for Full Brake */
-            pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_RESET, BRAKE_OUTPUT_PORT, BRAKE_OUTPUT_PIN);
-        }
     }
     else
     {
@@ -40,7 +31,7 @@ FUNC(void, PWMConfiguration_ruRefresh)(void)
         pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_SET, BRAKE_OUTPUT_PORT, BRAKE_OUTPUT_PIN);
     }
 
-
+    
 
     /* Handle Direction Logic */
     static dtPWMConfiguration_directionStatusType lastDirection = DIRECTION_STATUS_FORWARD;

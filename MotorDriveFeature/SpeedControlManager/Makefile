@@ -6,6 +6,7 @@ CFLAGS = -I./inc \
 		 -I../Abstract_MotorDriver/IRawSpeed/inc\
  		 -I../Abstract_MotorDriver/IIndicatorSpeedStatus/inc \
 		 -I../Abstract_MotorDriver/ISpeedStatus/inc \
+		 -I../Abstract_MotorDriver/IBrakeStatus/inc \
  		 -Wall -Wextra -g
 
 # Kaynak dosyalar ve çıktı dosyası
@@ -14,8 +15,10 @@ SRC = ./build/main.c \
 	  ../Abstract_MotorDriver/IRawSpeed/src/IRawSpeed.c\
 	  ../Abstract_MotorDriver/IIndicatorSpeedStatus/src/IIndicatorSpeedStatus.c\
 	  ../Abstract_MotorDriver/ISpeedStatus/src/ISpeedStatus.c\
+	  ../Abstract_MotorDriver/IBrakeStatus/src/IBrakeStatus.c\
 	  ./src/SpeedControlManager.c \
       ./src/SpeedControlManager_ruInitialisation.c \
+	  ./src/SpeedControlManager_ruBrakeUpdate.c \
       ./src/SpeedControlManager_ruUpdate.c \
 	  ./src/SpeedControlManager_ruRefresh.c 
 

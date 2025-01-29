@@ -36,7 +36,7 @@ static dtSpeedControlManager instance;
  * 
  * @return The current return value of type `dtSpeedControlManager_scmReturn`.
  */
-dtSpeedControlManager_scmReturn getRetVal_Impl(void)
+dtSpeedControlManager_scmReturn SpeedControlManager_getRetVal_Impl(void)
 {
     return instance.retVal;
 }
@@ -46,7 +46,7 @@ dtSpeedControlManager_scmReturn getRetVal_Impl(void)
  * 
  * @param value The return value to set.
  */
-void setRetVal_Impl(dtSpeedControlManager_scmReturn value)
+void SpeedControlManager_setRetVal_Impl(dtSpeedControlManager_scmReturn value)
 {
     instance.retVal = value;
 }
@@ -56,7 +56,7 @@ void setRetVal_Impl(dtSpeedControlManager_scmReturn value)
  * 
  * @return The current configuration of type `dtSpeedControlManager_scmConfiguration`.
  */
-dtSpeedControlManager_scmConfiguration getConfig_Impl(void)
+dtSpeedControlManager_scmConfiguration SpeedControlManager_getConfig_Impl(void)
 {
     return instance.config;
 }
@@ -66,7 +66,7 @@ dtSpeedControlManager_scmConfiguration getConfig_Impl(void)
  * 
  * @param value The configuration to set.
  */
-void setConfig_Impl(dtSpeedControlManager_scmConfiguration value)
+void SpeedControlManager_setConfig_Impl(dtSpeedControlManager_scmConfiguration value)
 {
     instance.config = value;
 }
@@ -133,14 +133,24 @@ void setDivider_Impl(uint16_t value)
     instance.config.divider = value;
 }
 
-/* Raw Speed, Speed Status, and Indicator Implementation */
+/* Brake, Raw Speed, Speed Status, and Indicator Implementation */
+
+dtSpeedControlManager_brakeStatus SpeedControlManager_getBrake_Impl(void)
+{
+    return instance.config.brake;
+}
+
+void SpeedControlManager_setBrake_Impl(dtSpeedControlManager_brakeStatus brake)
+{
+    instance.config.brake = brake;
+}
 
 /**
  * @brief Gets the current raw speed configuration.
  * 
  * @return The current raw speed configuration.
  */
-dtSpeedControlManager_scmRawSpeed getRawSpeed_Impl(void)
+dtSpeedControlManager_scmRawSpeed SpeedControlManager_getRawSpeed_Impl(void)
 {
     return instance.config.rawSpeed;
 }
@@ -150,7 +160,7 @@ dtSpeedControlManager_scmRawSpeed getRawSpeed_Impl(void)
  * 
  * @param value The raw speed value to set.
  */
-void setRawSpeed_Impl(dtSpeedControlManager_scmRawSpeed value)
+void SpeedControlManager_setRawSpeed_Impl(dtSpeedControlManager_scmRawSpeed value)
 {
     instance.config.rawSpeed = value;
 }
@@ -160,7 +170,7 @@ void setRawSpeed_Impl(dtSpeedControlManager_scmRawSpeed value)
  * 
  * @return The current speed status configuration.
  */
-dtSpeedControlManager_scmSpeedStatus getSpeedStatus_Impl(void)
+dtSpeedControlManager_scmSpeedStatus SpeedControlManager_getSpeedStatus_Impl(void)
 {
     return instance.config.speedStatus;
 }
@@ -170,7 +180,7 @@ dtSpeedControlManager_scmSpeedStatus getSpeedStatus_Impl(void)
  * 
  * @param value The speed status value to set.
  */
-void setSpeedStatus_Impl(dtSpeedControlManager_scmSpeedStatus value)
+void SpeedControlManager_setSpeedStatus_Impl(dtSpeedControlManager_scmSpeedStatus value)
 {
     instance.config.speedStatus = value;
 }
@@ -260,14 +270,15 @@ char* SpeedControlManager_toString(void)
 
     snprintf(output, 256,
              "[SpeedControlManager]: IRawSpeed: %-10s, ISpeedStatus: %-10s, IIndicatorSpeedStatus: %-10s, "
-             "RetVal: %-10s, Indicator: %-10s, RawSpeed: %-10d, SpeedStatus: %-10d",
+             "RetVal: %-10s, Indicator: %-10s, RawSpeed: %-10d, SpeedStatus: %-10d, BrakeStatus: %-10d",
              IRawSpeed,
              ISpeedStatus,
              IIndicatorSpeedStatus,
              getStringFromScmReturn(retVal),
              getStringFromScmIndicator(config.indicator),
              instance->config.getRawSpeed(),
-             instance->config.getSpeedStatus());
+             instance->config.getSpeedStatus(),
+             instance->config.getBrake() );
 
     return output;
 }
@@ -289,12 +300,14 @@ void ScmConfiguration_CTOR(void)
     instance.config.setMaxStep = setMaxStep_Impl;
     instance.config.setDivider = setDivider_Impl;
 
-    instance.config.getRawSpeed = getRawSpeed_Impl;
-    instance.config.getSpeedStatus = getSpeedStatus_Impl;
+    instance.config.getBrake = SpeedControlManager_getBrake_Impl;
+    instance.config.getRawSpeed = SpeedControlManager_getRawSpeed_Impl;
+    instance.config.getSpeedStatus = SpeedControlManager_getSpeedStatus_Impl;
     instance.config.getIndicator = getIndicator_Impl;
 
-    instance.config.setRawSpeed = setRawSpeed_Impl;
-    instance.config.setSpeedStatus = setSpeedStatus_Impl;
+    instance.config.setBrake = SpeedControlManager_setBrake_Impl;
+    instance.config.setRawSpeed = SpeedControlManager_setRawSpeed_Impl;
+    instance.config.setSpeedStatus = SpeedControlManager_setSpeedStatus_Impl;
     instance.config.setIndicator = setIndicator_Impl;
 
     instance.config.setIndicator(INDICATORSPEEDSTATUS_UNKNOWN);
@@ -309,17 +322,18 @@ void SpeedControlManager_CTOR(void)
 {
     ScmConfiguration_CTOR();
 
-    instance.getRetVal = getRetVal_Impl;
-    instance.getConfig = getConfig_Impl;
+    instance.getRetVal = SpeedControlManager_getRetVal_Impl;
+    instance.getConfig = SpeedControlManager_getConfig_Impl;
 
-    instance.setRetVal = setRetVal_Impl;
-    instance.setConfig = setConfig_Impl;
+    instance.setRetVal = SpeedControlManager_setRetVal_Impl;
+    instance.setConfig = SpeedControlManager_setConfig_Impl;
 
     instance.toString = SpeedControlManager_toString;
 
     instance.setRetVal(SCM_UNKNOWN);
 
     // Interface assignment
+    instance.IBrakeStatus = &BrakeStatusInterface;
     instance.IRawSpeed = &RawSpeedInterface;
     instance.ISpeedStatus = &SpeedStatusInterface;
     instance.IIndicatorSpeedStatus = &IndicatorSpeedStatusInterface;

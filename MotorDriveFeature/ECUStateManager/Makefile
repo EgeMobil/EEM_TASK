@@ -113,6 +113,7 @@ SRC = ./build/main.c \
 	  ..\SpeedControlManager\src\SpeedControlManager.c \
 	  ..\SpeedControlManager\src\SpeedControlManager_ruInitialisation.c \
 	  ..\SpeedControlManager\src\SpeedControlManager_ruRefresh.c \
+	  ..\SpeedControlManager\src\SpeedControlManager_ruBrakeUpdate.c \
 	  ..\SpeedControlManager\src\SpeedControlManager_ruUpdate.c 
 OUT = ./build/main.exe
 

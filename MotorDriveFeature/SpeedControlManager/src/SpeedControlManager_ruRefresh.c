@@ -36,34 +36,43 @@ FUNC(void, SpeedControlManager_ruRefresh)(void)
     dtSpeedControlManager* scm = SpeedControlManager_GetInstance();  
     uint16_t speedStep;
 
-    // Calculate the dynamic step based on the difference between target and current speed
-    uint16_t speedDiff = abs((int32_t)scm->config.targetSpeed - (int32_t)scm->config.currentSpeed);
-    speedStep = max(minStep, min(maxStep, speedDiff / divider));
-    
-    if (scm->config.currentSpeed < scm->config.targetSpeed)
+    if( BRAKE_STATUS_ENABLE == scm->getConfig().getBrake() )
     {
-        // Speed increase
-        scm->config.currentSpeed += speedStep;
-        if (scm->config.currentSpeed > scm->config.targetSpeed)
-        {
-            scm->config.currentSpeed = scm->config.targetSpeed; // Prevent overshooting target speed
-        }
+        /* Set Speed status 0 for brake status */
+        scm->config.currentSpeed = 0U ;
     }
-    else if (scm->config.currentSpeed > scm->config.targetSpeed)
+    else
     {
-        // Speed decrease
-        scm->config.currentSpeed -= speedStep;
+        // Calculate the dynamic step based on the difference between target and current speed
+        uint16_t speedDiff = abs((int32_t)scm->config.targetSpeed - (int32_t)scm->config.currentSpeed);
+        speedStep = max(minStep, min(maxStep, speedDiff / divider));
+
         if (scm->config.currentSpeed < scm->config.targetSpeed)
         {
-            scm->config.currentSpeed = scm->config.targetSpeed; // Prevent undershooting target speed
+            // Speed increase
+            scm->config.currentSpeed += speedStep;
+            if (scm->config.currentSpeed > scm->config.targetSpeed)
+            {
+                scm->config.currentSpeed = scm->config.targetSpeed; // Prevent overshooting target speed
+            }
+        }
+        else if (scm->config.currentSpeed > scm->config.targetSpeed)
+        {
+            // Speed decrease
+            scm->config.currentSpeed -= speedStep;
+            if (scm->config.currentSpeed < scm->config.targetSpeed)
+            {
+                scm->config.currentSpeed = scm->config.targetSpeed; // Prevent undershooting target speed
+            }
+        }
+        else
+        {
+            /* Defensive Coding */
         }
     }
-    
     /* Update Speed status based on current speed */
     scm->getConfig().setSpeedStatus(scm->config.currentSpeed);
-
     /* Send Speed Status */
     scm->ISpeedStatus->writeSpeedStatus( scm->getConfig().getSpeedStatus() );
-
 }
 

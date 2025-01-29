@@ -4,6 +4,9 @@
 /* CompName definition include */
 #include "MotorDriverControlManager_definition.h"
 
+/* Public Include */
+#include "SpeedControlManager_public.h"
+
 /* Constructor Prototype */
 void MotorDriverControlManager_CTOR(void);
 

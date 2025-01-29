@@ -80,7 +80,7 @@ void HandleRoutineState(void)
 
         case REFRESHSTATE_MOTORDRIVERCONTROLMANAGER:
             // Refreshing Motor Driver Control Manager
-            MotorDriverControlManager_ruRefresh();
+            MotorDriverControlManager_ruRefresh();    
             break;
 
         case REFRESHSTATE_BRAKEANDDIRECTIONMANAGER:
@@ -125,8 +125,8 @@ void HandleRoutineState(void)
             break;
 
         case REFRESHSTATE_DEFAULT:
-            // Resetting REFRESH_STATE to REFRESHSTATE_MOTORDRIVERCONTROLMANAGER
-            REFRESH_STATE = REFRESHSTATE_MOTORDRIVERCONTROLMANAGER;
+            // Resetting REFRESH_STATE to REFRESHSTATE_GATEDRIVERCONTROLLER
+            REFRESH_STATE = REFRESHSTATE_GATEDRIVERCONTROLLER;
             break;
 
         default:
@@ -139,7 +139,7 @@ void HandleRoutineState(void)
     // Bir sonraki state geç,
     REFRESH_STATE++;
     if (REFRESH_STATE > REFRESHSTATE_COMMUNICATION) {
-        REFRESH_STATE = REFRESHSTATE_MOTORDRIVERCONTROLMANAGER; // Döngüyü tamamla ve başa dön
+        REFRESH_STATE = REFRESHSTATE_GATEDRIVERCONTROLLER; // Döngüyü tamamla ve başa dön
     }
 
 
@@ -174,53 +174,12 @@ void HandleProcessState(void)
 
             break;
 
-        case PROCESSSTATE_HALLSENSORCONFIGURATION_CALCULATEWHEELSPEED:
-            // Calculating Wheel Speed from Hall Sensor
-            // Wheel Speed Calculation işlemleri
-            
-            break;
-
         case PROCESSSTATE_PWMCONFIGURATION_UPDATE:
             // Updating PWM Configuration
             PWMConfiguration_ruUpdate();
             
             break;
 
-        case PROCESSSTATE_DIRECTIONANDBRAKEMANAGER_UPDATE:
-            // Updating Direction and Brake Manager
-            // Direction and Brake Update işlemleri
-            
-            break;
-
-        case PROCESSSTATE_SPEEDCONTROLMANAGER_UPDATE:
-            // Updating Speed Control Manager
-            // Speed Control Update işlemleri
-            
-            break;
-
-        case PROCESSSTATE_MOTORDRIVEDCMPROXY_COLLECT:
-            // Collecting Data for Motor Driver DCM Proxy
-            // DCM Proxy Data Collection işlemleri
-            
-            break;
-
-        case PROCESSSTATE_MOTORDRIVECOMMPROXY_UPDATEDIRECTION:
-            // Updating Direction in Motor Driver Communication Proxy
-            // Direction Update işlemleri
-            
-            break;
-
-        case PROCESSSTATE_MOTORDRIVECOMMPROXY_UPDATESPEED:
-            // Updating Speed in Motor Driver Communication Proxy
-            // Speed Update işlemleri
-            
-            break;
-
-        case PROCESSSTATE_MOTORDRIVECOMMPROXY_UPDATEWHEELSPEED:
-            // Updating Wheel Speed in Motor Driver Communication Proxy
-            // Wheel Speed Update işlemleri
-            
-            break;
 
         case PROCESSSTATE_TXSIGNALADAPTER:
             // Handling Tx Signal Adapter
