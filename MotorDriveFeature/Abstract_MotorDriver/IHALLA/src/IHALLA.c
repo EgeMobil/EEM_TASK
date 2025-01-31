@@ -26,12 +26,16 @@ IHALLA_StatusType IHALLA_writeStatus_Impl(cmHallAStateStatus status)
 {
     if (status < HALLA_STATUS_LOW || status > HALLA_STATUS_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IHALLA] Invalid state value: %d\n", status);
+#endif
         return IHALLA_NOT_OK;
     }
 
     currentState = status;
+#ifndef STM32G431xx
     printf("[IHALLA] State written: %d\n", status);
+#endif
     return IHALLA_OK;
 }
 
@@ -41,7 +45,9 @@ IHALLA_StatusType IHALLA_writeStatus_Impl(cmHallAStateStatus status)
  */
 cmHallAStateStatus IHALLA_readStatus_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IHALLA] State read: %d\n", currentState);
+#endif
     return currentState;
 }
 
@@ -54,12 +60,16 @@ IHALLA_StatusType IHALLA_writeRisingEdgeFlag_Impl(cmRisingEdgeAFlag flag)
 {
     if (flag < HALLA_RISING_EDGE_RESET || flag > HALLA_RISING_EDGE_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IHALLA] Invalid rising edge flag: %d\n", flag);
+#endif
         return IHALLA_NOT_OK;
     }
 
     currentRisingEdgeFlag = flag;
+#ifndef STM32G431xx
     printf("[IHALLA] Rising edge flag written: %d\n", flag);
+#endif
     return IHALLA_OK;
 }
 
@@ -69,7 +79,9 @@ IHALLA_StatusType IHALLA_writeRisingEdgeFlag_Impl(cmRisingEdgeAFlag flag)
  */
 cmRisingEdgeAFlag IHALLA_readRisingEdgeFlag_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IHALLA] Rising edge flag read: %d\n", currentRisingEdgeFlag);
+#endif
     return currentRisingEdgeFlag;
 }
 
@@ -82,12 +94,16 @@ IHALLA_StatusType IHALLA_writeFallingEdgeFlag_Impl(cmFallingEdgeAFlag flag)
 {
     if (flag < HALLA_FALLING_EDGE_RESET || flag > HALLA_FALLING_EDGE_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IHALLA] Invalid falling edge flag: %d\n", flag);
+#endif
         return IHALLA_NOT_OK;
     }
 
     currentFallingEdgeFlag = flag;
+#ifndef STM32G431xx
     printf("[IHALLA] Falling edge flag written: %d\n", flag);
+#endif
     return IHALLA_OK;
 }
 
@@ -97,6 +113,8 @@ IHALLA_StatusType IHALLA_writeFallingEdgeFlag_Impl(cmFallingEdgeAFlag flag)
  */
 cmFallingEdgeAFlag IHALLA_readFallingEdgeFlag_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IHALLA] Falling edge flag read: %d\n", currentFallingEdgeFlag);
+#endif
     return currentFallingEdgeFlag;
 }

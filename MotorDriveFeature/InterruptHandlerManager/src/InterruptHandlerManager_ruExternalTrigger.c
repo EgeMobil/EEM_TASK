@@ -1,6 +1,27 @@
+/**
+ * @file InterruptHandlerManager_ruExternalTrigger.c
+ * @brief Implementation of the InterruptHandlerManager external trigger runable.
+ *
+ * This function handles external interrupt triggers for Hall sensors A, B, and C.
+ * It manages the rising and falling edge triggers, updates the status of each Hall sensor,
+ * and increments the edge counts for each sensor.
+ * 
+ * @author atakan.ertekin
+ * @date 07.01.2025
+ */
 
 #include "InterruptHandlerManager_private.h"
 
+/**
+ * @brief External trigger handler for Hall sensors A, B, and C.
+ *
+ * This function processes the external interrupt for each Hall sensor. It:
+ * - Reads the port, pin, and trigger type of the interrupt.
+ * - Identifies if the interrupt belongs to Hall sensor A, B, or C.
+ * - Handles rising and falling edge triggers and updates the corresponding flags and statuses.
+ * - Increments the edge count for each Hall sensor.
+ * - Writes the updated interrupt flags to the corresponding interfaces.
+ */
 FUNC(void, InterruptHandlerManager_ruExternalTrigger)(void)
 {
     static uint32_t exti_re_count_a = 0;
@@ -145,5 +166,4 @@ FUNC(void, InterruptHandlerManager_ruExternalTrigger)(void)
     ihm->IHALLB->writeFallingEdgeBFlag( ihm->getHALL().getHallBFallingEdgeFlag() );
     ihm->IHALLC->writeRisingEdgeCFlag ( ihm->getHALL().getHallCRisingEdgeFlag() );
     ihm->IHALLC->writeFallingEdgeCFlag( ihm->getHALL().getHallCFallingEdgeFlag() );
-
 }

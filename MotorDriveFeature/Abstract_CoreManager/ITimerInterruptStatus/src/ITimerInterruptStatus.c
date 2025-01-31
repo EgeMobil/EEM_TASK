@@ -31,7 +31,10 @@ static cmDay currentDay = 0;
 ITimerInterrupt_StatusType ITimerInterrupt_writeMillisecond_Impl(cmMillisecond millisecond)
 {
     currentMillisecond = millisecond;
+    
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Millisecond written: %u\n", millisecond);
+#endif
     return ITIMER_INTERRUPT_OK;
 }
 
@@ -41,7 +44,9 @@ ITimerInterrupt_StatusType ITimerInterrupt_writeMillisecond_Impl(cmMillisecond m
  */
 cmMillisecond ITimerInterrupt_readMillisecond_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Millisecond read: %u\n", currentMillisecond);
+#endif
     return currentMillisecond;
 }
 
@@ -53,7 +58,9 @@ cmMillisecond ITimerInterrupt_readMillisecond_Impl(void)
 ITimerInterrupt_StatusType ITimerInterrupt_writeSecond_Impl(cmSecond second)
 {
     currentSecond = second;
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Second written: %u\n", second);
+#endif
     return ITIMER_INTERRUPT_OK;
 }
 
@@ -63,7 +70,9 @@ ITimerInterrupt_StatusType ITimerInterrupt_writeSecond_Impl(cmSecond second)
  */
 cmSecond ITimerInterrupt_readSecond_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Second read: %u\n", currentSecond);
+#endif
     return currentSecond;
 }
 
@@ -75,7 +84,9 @@ cmSecond ITimerInterrupt_readSecond_Impl(void)
 ITimerInterrupt_StatusType ITimerInterrupt_writeMinute_Impl(cmMinute minute)
 {
     currentMinute = minute;
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Minute written: %u\n", minute);
+#endif
     return ITIMER_INTERRUPT_OK;
 }
 
@@ -85,7 +96,9 @@ ITimerInterrupt_StatusType ITimerInterrupt_writeMinute_Impl(cmMinute minute)
  */
 cmMinute ITimerInterrupt_readMinute_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Minute read: %u\n", currentMinute);
+#endif
     return currentMinute;
 }
 
@@ -97,7 +110,9 @@ cmMinute ITimerInterrupt_readMinute_Impl(void)
 ITimerInterrupt_StatusType ITimerInterrupt_writeHour_Impl(cmHour hour)
 {
     currentHour = hour;
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Hour written: %u\n", hour);
+#endif
     return ITIMER_INTERRUPT_OK;
 }
 
@@ -107,7 +122,9 @@ ITimerInterrupt_StatusType ITimerInterrupt_writeHour_Impl(cmHour hour)
  */
 cmHour ITimerInterrupt_readHour_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Hour read: %u\n", currentHour);
+#endif
     return currentHour;
 }
 
@@ -119,7 +136,9 @@ cmHour ITimerInterrupt_readHour_Impl(void)
 ITimerInterrupt_StatusType ITimerInterrupt_writeDay_Impl(cmDay day)
 {
     currentDay = day;
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Day written: %u\n", day);
+#endif
     return ITIMER_INTERRUPT_OK;
 }
 
@@ -129,6 +148,8 @@ ITimerInterrupt_StatusType ITimerInterrupt_writeDay_Impl(cmDay day)
  */
 cmDay ITimerInterrupt_readDay_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[ITimerInterrupt] Day read: %u\n", currentDay);
+#endif
     return currentDay;
 }

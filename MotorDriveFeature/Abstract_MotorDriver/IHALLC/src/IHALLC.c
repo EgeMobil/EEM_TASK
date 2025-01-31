@@ -24,14 +24,18 @@ static cmFallingEdgeCFlag currentFallingEdgeFlag = HALLC_FALLING_EDGE_UNKNOWN;
  */
 IHALLC_StatusType IHALLC_writeStatus_Impl(cmHallCStateStatus status)
 {
+#ifndef defined(STM32G431xx)
+    printf("[IHALLC] Invalid state value: %d\n", status);
+#endif
     if (status < HALLC_STATUS_LOW || status > HALLC_STATUS_UNKNOWN)
     {
-        printf("[IHALLC] Invalid state value: %d\n", status);
         return IHALLC_NOT_OK;
     }
 
     currentState = status;
+#ifndef defined(STM32G431xx)
     printf("[IHALLC] State written: %d\n", status);
+#endif
     return IHALLC_OK;
 }
 
@@ -41,7 +45,9 @@ IHALLC_StatusType IHALLC_writeStatus_Impl(cmHallCStateStatus status)
  */
 cmHallCStateStatus IHALLC_readStatus_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[IHALLC] State read: %d\n", currentState);
+#endif
     return currentState;
 }
 
@@ -52,14 +58,18 @@ cmHallCStateStatus IHALLC_readStatus_Impl(void)
  */
 IHALLC_StatusType IHALLC_writeRisingEdgeFlag_Impl(cmRisingEdgeCFlag flag)
 {
+#ifndef defined(STM32G431xx)
+    printf("[IHALLC] Invalid rising edge flag: %d\n", flag);
+#endif
     if (flag < HALLC_RISING_EDGE_RESET || flag > HALLC_RISING_EDGE_UNKNOWN)
     {
-        printf("[IHALLC] Invalid rising edge flag: %d\n", flag);
         return IHALLC_NOT_OK;
     }
 
     currentRisingEdgeFlag = flag;
+#ifndef defined(STM32G431xx)
     printf("[IHALLC] Rising edge flag written: %d\n", flag);
+#endif
     return IHALLC_OK;
 }
 
@@ -69,7 +79,9 @@ IHALLC_StatusType IHALLC_writeRisingEdgeFlag_Impl(cmRisingEdgeCFlag flag)
  */
 cmRisingEdgeCFlag IHALLC_readRisingEdgeFlag_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[IHALLC] Rising edge flag read: %d\n", currentRisingEdgeFlag);
+#endif
     return currentRisingEdgeFlag;
 }
 
@@ -80,14 +92,18 @@ cmRisingEdgeCFlag IHALLC_readRisingEdgeFlag_Impl(void)
  */
 IHALLC_StatusType IHALLC_writeFallingEdgeFlag_Impl(cmFallingEdgeCFlag flag)
 {
+#ifndef defined(STM32G431xx)
+    printf("[IHALLC] Invalid falling edge flag: %d\n", flag);
+#endif
     if (flag < HALLC_FALLING_EDGE_RESET || flag > HALLC_FALLING_EDGE_UNKNOWN)
     {
-        printf("[IHALLC] Invalid falling edge flag: %d\n", flag);
         return IHALLC_NOT_OK;
     }
 
     currentFallingEdgeFlag = flag;
+#ifndef defined(STM32G431xx)
     printf("[IHALLC] Falling edge flag written: %d\n", flag);
+#endif
     return IHALLC_OK;
 }
 
@@ -97,6 +113,8 @@ IHALLC_StatusType IHALLC_writeFallingEdgeFlag_Impl(cmFallingEdgeCFlag flag)
  */
 cmFallingEdgeCFlag IHALLC_readFallingEdgeFlag_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[IHALLC] Falling edge flag read: %d\n", currentFallingEdgeFlag);
+#endif
     return currentFallingEdgeFlag;
 }

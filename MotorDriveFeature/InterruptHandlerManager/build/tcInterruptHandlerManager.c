@@ -2,24 +2,30 @@
 
 void tcInterruptHandlerManager(void)
 {
+    #ifndef defined(STM32G431xx)
     printf("InterruptHandlerManager \n");
+    #endif
 
     /* CTOR */
     InterruptHandlerManager_CTOR();
 
-    /* Get Singelton Instance For Test*/   
+    /* Get Singleton Instance For Test */   
     dtInterruptHandlerManager* manager = InterruptHandlerManager_GetInstance();  
 
     /* Read InterruptHandlerManager Status before Initialisation */
-    printf("[PRE-INIT] %s \n", manager->toString() );
+    #ifndef defined(STM32G431xx)
+    printf("[PRE-INIT] %s \n", manager->toString());
+    #endif
 
-    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B,IGPIOSTATUS_PIN_6);
-    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B,IGPIOSTATUS_PIN_7);
-    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_A,IGPIOSTATUS_PIN_5);
+    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B, IGPIOSTATUS_PIN_6);
+    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B, IGPIOSTATUS_PIN_7);
+    GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_A, IGPIOSTATUS_PIN_5);
 
-    InterruptHandlerMAnager_ruInitialisation();
+    InterruptHandlerManager_ruInitialisation();
 
-    printf("[POST-INIT] %s \n", manager->toString() );
+    #ifndef defined(STM32G431xx)
+    printf("[POST-INIT] %s \n", manager->toString());
+    #endif
 
     // Initialize Hall sensor ports and pins
     const cmExtIrqPortName HALL_A_PORT = EXTIRQ_PORTNAME_GPIOB;
@@ -34,7 +40,9 @@ void tcInterruptHandlerManager(void)
 
     for (int step = 0; step < 6; step++)
     {
+        #ifndef defined(STM32G431xx)
         printf("\nStep %d: Hall Code: %s\n", step + 1, hall_codes[step]);
+        #endif
 
         // Simulate rising and falling edges for Hall sensors based on the current step
         switch (step)
@@ -143,10 +151,14 @@ void tcInterruptHandlerManager(void)
         }
 
         // Print state after each step
+        #ifndef defined(STM32G431xx)
         printf("%s \n", manager->toString());
+        #endif
     }
 
+    #ifndef defined(STM32G431xx)
     printf("Six-Step Commutation Test Completed.\n");
+    #endif
 
     return;
 }

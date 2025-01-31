@@ -17,7 +17,7 @@ static dtInterruptHandlerManager instance;
  * 
  * @param port Port configuration to set.
  */
-void setExternalIrqPort_Impl(dtInterruptHandlerManager_portName port)
+void InterruptHandlerManager_setExternalIrqPort_Impl(dtInterruptHandlerManager_portName port)
 {
     instance.externalIrq.port = port;
 }
@@ -27,7 +27,7 @@ void setExternalIrqPort_Impl(dtInterruptHandlerManager_portName port)
  * 
  * @param pin Pin configuration to set.
  */
-void setExternalIrqPin_Impl(dtInterruptHandlerManager_pinName pin)
+void InterruptHandlerManager_setExternalIrqPin_Impl(dtInterruptHandlerManager_pinName pin)
 {
     instance.externalIrq.pin = pin;
 }
@@ -37,7 +37,7 @@ void setExternalIrqPin_Impl(dtInterruptHandlerManager_pinName pin)
  * 
  * @param trigger Trigger type configuration to set.
  */
-void setExternalIrqTrigger_Impl(dtInterruptHandlerManager_triggerType trigger)
+void InterruptHandlerManager_setExternalIrqTrigger_Impl(dtInterruptHandlerManager_triggerType trigger)
 {
     instance.externalIrq.trigger = trigger;
 }
@@ -47,7 +47,7 @@ void setExternalIrqTrigger_Impl(dtInterruptHandlerManager_triggerType trigger)
  * 
  * @return The current port configuration.
  */
-dtInterruptHandlerManager_portName getExternalIrqPort_Impl(void)
+dtInterruptHandlerManager_portName InterruptHandlerManager_getExternalIrqPort_Impl(void)
 {
     return instance.externalIrq.port;
 }
@@ -57,7 +57,7 @@ dtInterruptHandlerManager_portName getExternalIrqPort_Impl(void)
  * 
  * @return The current pin configuration.
  */
-dtInterruptHandlerManager_pinName getExternalIrqPin_Impl(void)
+dtInterruptHandlerManager_pinName InterruptHandlerManager_getExternalIrqPin_Impl(void)
 {
     return instance.externalIrq.pin;
 }
@@ -67,7 +67,7 @@ dtInterruptHandlerManager_pinName getExternalIrqPin_Impl(void)
  * 
  * @return The current trigger type configuration.
  */
-dtInterruptHandlerManager_triggerType getExternalIrqTrigger_Impl(void)
+dtInterruptHandlerManager_triggerType InterruptHandlerManager_getExternalIrqTrigger_Impl(void)
 {
     return instance.externalIrq.trigger;
 }
@@ -80,7 +80,7 @@ dtInterruptHandlerManager_triggerType getExternalIrqTrigger_Impl(void)
  * 
  * @param ms Millisecond configuration to set.
  */
-void setTimerIrqMillisecond_Impl(dtInterruptHandlerManager_millisecond ms)
+void InterruptHandlerManager_setTimerIrqMillisecond_Impl(dtInterruptHandlerManager_millisecond ms)
 {
     instance.timerIrq.ms = ms;
 }
@@ -90,7 +90,7 @@ void setTimerIrqMillisecond_Impl(dtInterruptHandlerManager_millisecond ms)
  * 
  * @param sec Second configuration to set.
  */
-void setTimerIrqSecond_Impl(dtInterruptHandlerManager_second sec)
+void InterruptHandlerManager_setTimerIrqSecond_Impl(dtInterruptHandlerManager_second sec)
 {
     instance.timerIrq.sec = sec;
 }
@@ -100,7 +100,7 @@ void setTimerIrqSecond_Impl(dtInterruptHandlerManager_second sec)
  * 
  * @param min Minute configuration to set.
  */
-void setTimerIrqMinute_Impl(dtInterruptHandlerManager_minute min)
+void InterruptHandlerManager_setTimerIrqMinute_Impl(dtInterruptHandlerManager_minute min)
 {
     instance.timerIrq.min = min;
 }
@@ -110,7 +110,7 @@ void setTimerIrqMinute_Impl(dtInterruptHandlerManager_minute min)
  * 
  * @param hour Hour configuration to set.
  */
-void setTimerIrqHour_Impl(dtInterruptHandlerManager_hour hour)
+void InterruptHandlerManager_setTimerIrqHour_Impl(dtInterruptHandlerManager_hour hour)
 {
     instance.timerIrq.hour = hour;
 }
@@ -120,7 +120,7 @@ void setTimerIrqHour_Impl(dtInterruptHandlerManager_hour hour)
  * 
  * @param day Day configuration to set.
  */
-void setTimerIrqDay_Impl(dtInterruptHandlerManager_day day)
+void InterruptHandlerManager_setTimerIrqDay_Impl(dtInterruptHandlerManager_day day)
 {
     instance.timerIrq.day = day;
 }
@@ -130,7 +130,7 @@ void setTimerIrqDay_Impl(dtInterruptHandlerManager_day day)
  * 
  * @return The current millisecond configuration.
  */
-dtInterruptHandlerManager_millisecond getTimerIrqMillisecond_Impl(void)
+dtInterruptHandlerManager_millisecond InterruptHandlerManager_getTimerIrqMillisecond_Impl(void)
 {
     return instance.timerIrq.ms;
 }
@@ -140,7 +140,7 @@ dtInterruptHandlerManager_millisecond getTimerIrqMillisecond_Impl(void)
  * 
  * @return The current second configuration.
  */
-dtInterruptHandlerManager_second getTimerIrqSecond_Impl(void)
+dtInterruptHandlerManager_second InterruptHandlerManager_getTimerIrqSecond_Impl(void)
 {
     return instance.timerIrq.sec;
 }
@@ -150,7 +150,7 @@ dtInterruptHandlerManager_second getTimerIrqSecond_Impl(void)
  * 
  * @return The current minute configuration.
  */
-dtInterruptHandlerManager_minute getTimerIrqMinute_Impl(void)
+dtInterruptHandlerManager_minute InterruptHandlerManager_getTimerIrqMinute_Impl(void)
 {
     return instance.timerIrq.min;
 }
@@ -160,7 +160,7 @@ dtInterruptHandlerManager_minute getTimerIrqMinute_Impl(void)
  * 
  * @return The current hour configuration.
  */
-dtInterruptHandlerManager_hour getTimerIrqHour_Impl(void)
+dtInterruptHandlerManager_hour InterruptHandlerManager_getTimerIrqHour_Impl(void)
 {
     return instance.timerIrq.hour;
 }
@@ -170,7 +170,7 @@ dtInterruptHandlerManager_hour getTimerIrqHour_Impl(void)
  * 
  * @return The current day configuration.
  */
-dtInterruptHandlerManager_day getTimerIrqDay_Impl(void)
+dtInterruptHandlerManager_day InterruptHandlerManager_getTimerIrqDay_Impl(void)
 {
     return instance.timerIrq.day;
 }
@@ -181,7 +181,7 @@ dtInterruptHandlerManager_day getTimerIrqDay_Impl(void)
  * 
  * @param state State status to set for Hall A.
  */
-void setHallAState_Impl(dtInterruptHandlerManager_HallAStateStatus state)
+void InterruptHandlerManager_setHallAState_Impl(dtInterruptHandlerManager_HallAStateStatus state)
 {
     instance.HALL.halla_status = state;
 }
@@ -191,7 +191,7 @@ void setHallAState_Impl(dtInterruptHandlerManager_HallAStateStatus state)
  * 
  * @param state State status to set for Hall B.
  */
-void setHallBState_Impl(dtInterruptHandlerManager_HallBStateStatus state)
+void InterruptHandlerManager_setHallBState_Impl(dtInterruptHandlerManager_HallBStateStatus state)
 {
     instance.HALL.hallb_status = state;
 }
@@ -201,7 +201,7 @@ void setHallBState_Impl(dtInterruptHandlerManager_HallBStateStatus state)
  * 
  * @param state State status to set for Hall C.
  */
-void setHallCState_Impl(dtInterruptHandlerManager_HallCStateStatus state)
+void InterruptHandlerManager_setHallCState_Impl(dtInterruptHandlerManager_HallCStateStatus state)
 {
     instance.HALL.hallc_status = state;
 }
@@ -211,7 +211,7 @@ void setHallCState_Impl(dtInterruptHandlerManager_HallCStateStatus state)
  * 
  * @return The current state status for Hall A.
  */
-dtInterruptHandlerManager_HallAStateStatus getHallAState_Impl(void)
+dtInterruptHandlerManager_HallAStateStatus InterruptHandlerManager_getHallAState_Impl(void)
 {
     return instance.HALL.halla_status;
 }
@@ -221,7 +221,7 @@ dtInterruptHandlerManager_HallAStateStatus getHallAState_Impl(void)
  * 
  * @return The current state status for Hall B.
  */
-dtInterruptHandlerManager_HallBStateStatus getHallBState_Impl(void)
+dtInterruptHandlerManager_HallBStateStatus InterruptHandlerManager_getHallBState_Impl(void)
 {
     return instance.HALL.hallb_status;
 }
@@ -231,7 +231,7 @@ dtInterruptHandlerManager_HallBStateStatus getHallBState_Impl(void)
  * 
  * @return The current state status for Hall C.
  */
-dtInterruptHandlerManager_HallCStateStatus getHallCState_Impl(void)
+dtInterruptHandlerManager_HallCStateStatus InterruptHandlerManager_getHallCState_Impl(void)
 {
     return instance.HALL.hallc_status;
 }
@@ -241,7 +241,7 @@ dtInterruptHandlerManager_HallCStateStatus getHallCState_Impl(void)
  * 
  * @return The current configuration of type `ihmExternalIrqConfiguration`.
  */
-ihmExternalIrqConfiguration getExternalIrq_Impl(void)
+ihmExternalIrqConfiguration InterruptHandlerManager_getExternalIrq_Impl(void)
 {
     return instance.externalIrq;
 }
@@ -251,7 +251,7 @@ ihmExternalIrqConfiguration getExternalIrq_Impl(void)
  * 
  * @param config The external IRQ configuration to set.
  */
-void setExternalIrq_Impl(ihmExternalIrqConfiguration config)
+void InterruptHandlerManager_setExternalIrq_Impl(ihmExternalIrqConfiguration config)
 {
     instance.externalIrq = config;
 }
@@ -261,7 +261,7 @@ void setExternalIrq_Impl(ihmExternalIrqConfiguration config)
  * 
  * @return The current configuration of type `ihmTimerIrqConfiguration`.
  */
-ihmTimerIrqConfiguration getTimerIrq_Impl(void)
+ihmTimerIrqConfiguration InterruptHandlerManager_getTimerIrq_Impl(void)
 {
     return instance.timerIrq;
 }
@@ -271,7 +271,7 @@ ihmTimerIrqConfiguration getTimerIrq_Impl(void)
  * 
  * @param config The timer IRQ configuration to set.
  */
-void setTimerIrq_Impl(ihmTimerIrqConfiguration config)
+void InterruptHandlerManager_setTimerIrq_Impl(ihmTimerIrqConfiguration config)
 {
     instance.timerIrq = config;
 }
@@ -281,7 +281,7 @@ void setTimerIrq_Impl(ihmTimerIrqConfiguration config)
  * 
  * @return The current configuration of type `ihmHALLConfiguration`.
  */
-ihmHALLConfiguration getHALL_Impl(void)
+ihmHALLConfiguration InterruptHandlerManager_getHALL_Impl(void)
 {
     return instance.HALL;
 }
@@ -291,153 +291,165 @@ ihmHALLConfiguration getHALL_Impl(void)
  * 
  * @param config The HALL configuration to set.
  */
-void setHALL_Impl(ihmHALLConfiguration config)
+void InterruptHandlerManager_setHALL_Impl(ihmHALLConfiguration config)
 {
     instance.HALL = config;
 }
 
 
-void setHallAPinState_Impl(dtInterruptHandlerManager_pinState state)
+void InterruptHandlerManager_setHallAPinState_Impl(dtInterruptHandlerManager_pinState state)
 {
     instance.hall_A = state;
+#ifndef defined(STM32G431xx)
     printf("[InterruptHandlerManager] Hall A pin state set to: %d\n", state);
+#endif
 }
 
-void setHallBPinState_Impl(dtInterruptHandlerManager_pinState state)
+void InterruptHandlerManager_setHallBPinState_Impl(dtInterruptHandlerManager_pinState state)
 {
     instance.hall_B = state;
+#ifndef defined(STM32G431xx)
     printf("[InterruptHandlerManager] Hall B pin state set to: %d\n", state);
+#endif
 }
 
-void setHallCPinState_Impl(dtInterruptHandlerManager_pinState state)
+void InterruptHandlerManager_setHallCPinState_Impl(dtInterruptHandlerManager_pinState state)
 {
     instance.hall_C = state;
+#ifndef defined(STM32G431xx)
     printf("[InterruptHandlerManager] Hall C pin state set to: %d\n", state);
+#endif
 }
 
-dtInterruptHandlerManager_pinState getHallAPinState_Impl(void)
+dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallAPinState_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[InterruptHandlerManager] Hall A pin state retrieved: %d\n", instance.hall_A);
+#endif
     return instance.hall_A;
 }
 
-dtInterruptHandlerManager_pinState getHallBPinState_Impl(void)
+dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallBPinState_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[InterruptHandlerManager] Hall B pin state retrieved: %d\n", instance.hall_B);
+#endif
     return instance.hall_B;
 }
 
-dtInterruptHandlerManager_pinState getHallCPinState_Impl(void)
+dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallCPinState_Impl(void)
 {
+#ifndef defined(STM32G431xx)
     printf("[InterruptHandlerManager] Hall C pin state retrieved: %d\n", instance.hall_C);
+#endif
     return instance.hall_C;
 }
 
 /* Hall A Implementations */
-void setHallAStatus_Impl(dtInterruptHandlerManager_HallAStateStatus status) {
+void InterruptHandlerManager_setHallAStatus_Impl(dtInterruptHandlerManager_HallAStateStatus status) {
     instance.HALL.halla_status = status;
 }
-dtInterruptHandlerManager_HallAStateStatus getHallAStatus_Impl(void) {
+dtInterruptHandlerManager_HallAStateStatus InterruptHandlerManager_getHallAStatus_Impl(void) {
     return instance.HALL.halla_status;
 }
 
-void setHallAFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeAFlag flag) {
+void InterruptHandlerManager_setHallAFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeAFlag flag) {
     instance.HALL.halla_fe_flag = flag;
 }
-dtInterruptHandlerManager_FallingEdgeAFlag getHallAFallingEdgeFlag_Impl(void) {
+dtInterruptHandlerManager_FallingEdgeAFlag InterruptHandlerManager_getHallAFallingEdgeFlag_Impl(void) {
     return instance.HALL.halla_fe_flag;
 }
 
-void setHallARisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeAFlag flag) {
+void InterruptHandlerManager_setHallARisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeAFlag flag) {
     instance.HALL.halla_re_flag = flag;
 }
-dtInterruptHandlerManager_RisingEdgeAFlag getHallARisingEdgeFlag_Impl(void) {
+dtInterruptHandlerManager_RisingEdgeAFlag InterruptHandlerManager_getHallARisingEdgeFlag_Impl(void) {
     return instance.HALL.halla_re_flag;
 }
 
-void setHallAFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeACount count) {
+void InterruptHandlerManager_setHallAFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeACount count) {
     instance.HALL.halla_fe_count = count;
 }
-dtInterruptHandlerManager_FallingEdgeACount getHallAFallingEdgeCount_Impl(void) {
+dtInterruptHandlerManager_FallingEdgeACount InterruptHandlerManager_getHallAFallingEdgeCount_Impl(void) {
     return instance.HALL.halla_fe_count;
 }
 
-void setHallARisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeACount count) {
+void InterruptHandlerManager_setHallARisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeACount count) {
     instance.HALL.halla_re_count = count;
 }
-dtInterruptHandlerManager_RisingEdgeACount getHallARisingEdgeCount_Impl(void) {
+dtInterruptHandlerManager_RisingEdgeACount InterruptHandlerManager_getHallARisingEdgeCount_Impl(void) {
     return instance.HALL.halla_re_count;
 }
 
 /* Hall B Implementations */
-void setHallBStatus_Impl(dtInterruptHandlerManager_HallBStateStatus status) {
+void InterruptHandlerManager_etHallBStatus_Impl(dtInterruptHandlerManager_HallBStateStatus status) {
     instance.HALL.hallb_status = status;
 }
 dtInterruptHandlerManager_HallBStateStatus getHallBStatus_Impl(void) {
     return instance.HALL.hallb_status;
 }
 
-void setHallBFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeBFlag flag) {
+void InterruptHandlerManager_setHallBFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeBFlag flag) {
     instance.HALL.hallb_fe_flag = flag;
 }
-dtInterruptHandlerManager_FallingEdgeBFlag getHallBFallingEdgeFlag_Impl(void) {
+dtInterruptHandlerManager_FallingEdgeBFlag InterruptHandlerManager_getHallBFallingEdgeFlag_Impl(void) {
     return instance.HALL.hallb_fe_flag;
 }
 
-void setHallBRisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeBFlag flag) {
+void InterruptHandlerManager_setHallBRisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeBFlag flag) {
     instance.HALL.hallb_re_flag = flag;
 }
-dtInterruptHandlerManager_RisingEdgeBFlag getHallBRisingEdgeFlag_Impl(void) {
+dtInterruptHandlerManager_RisingEdgeBFlag InterruptHandlerManager_getHallBRisingEdgeFlag_Impl(void) {
     return instance.HALL.hallb_re_flag;
 }
 
-void setHallBFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeBCount count) {
+void InterruptHandlerManager_setHallBFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeBCount count) {
     instance.HALL.hallb_fe_count = count;
 }
-dtInterruptHandlerManager_FallingEdgeBCount getHallBFallingEdgeCount_Impl(void) {
+dtInterruptHandlerManager_FallingEdgeBCount InterruptHandlerManager_getHallBFallingEdgeCount_Impl(void) {
     return instance.HALL.hallb_fe_count;
 }
 
-void setHallBRisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeBCount count) {
+void InterruptHandlerManager_setHallBRisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeBCount count) {
     instance.HALL.hallb_re_count = count;
 }
-dtInterruptHandlerManager_RisingEdgeBCount getHallBRisingEdgeCount_Impl(void) {
+dtInterruptHandlerManager_RisingEdgeBCount InterruptHandlerManager_getHallBRisingEdgeCount_Impl(void) {
     return instance.HALL.hallb_re_count;
 }
 
 /* Hall C Implementations */
-void setHallCStatus_Impl(dtInterruptHandlerManager_HallCStateStatus status) {
+void InterruptHandlerManager_setHallCStatus_Impl(dtInterruptHandlerManager_HallCStateStatus status) {
     instance.HALL.hallc_status = status;
 }
-dtInterruptHandlerManager_HallCStateStatus getHallCStatus_Impl(void) {
+dtInterruptHandlerManager_HallCStateStatus InterruptHandlerManager_getHallCStatus_Impl(void) {
     return instance.HALL.hallc_status;
 }
 
-void setHallCFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeCFlag flag) {
+void InterruptHandlerManager_setHallCFallingEdgeFlag_Impl(dtInterruptHandlerManager_FallingEdgeCFlag flag) {
     instance.HALL.hallc_fe_flag = flag;
 }
-dtInterruptHandlerManager_FallingEdgeCFlag getHallCFallingEdgeFlag_Impl(void) {
+dtInterruptHandlerManager_FallingEdgeCFlag InterruptHandlerManager_getHallCFallingEdgeFlag_Impl(void) {
     return instance.HALL.hallc_fe_flag;
 }
 
-void setHallCRisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeCFlag flag) {
+void InterruptHandlerManager_setHallCRisingEdgeFlag_Impl(dtInterruptHandlerManager_RisingEdgeCFlag flag) {
     instance.HALL.hallc_re_flag = flag;
 }
-dtInterruptHandlerManager_RisingEdgeCFlag getHallCRisingEdgeFlag_Impl(void) {
+dtInterruptHandlerManager_RisingEdgeCFlag InterruptHandlerManager_getHallCRisingEdgeFlag_Impl(void) {
     return instance.HALL.hallc_re_flag;
 }
 
-void setHallCFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeCCount count) {
+void InterruptHandlerManager_setHallCFallingEdgeCount_Impl(dtInterruptHandlerManager_FallingEdgeCCount count) {
     instance.HALL.hallc_fe_count = count;
 }
-dtInterruptHandlerManager_FallingEdgeCCount getHallCFallingEdgeCount_Impl(void) {
+dtInterruptHandlerManager_FallingEdgeCCount InterruptHandlerManager_getHallCFallingEdgeCount_Impl(void) {
     return instance.HALL.hallc_fe_count;
 }
 
-void setHallCRisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeCCount count) {
+void InterruptHandlerManager_setHallCRisingEdgeCount_Impl(dtInterruptHandlerManager_RisingEdgeCCount count) {
     instance.HALL.hallc_re_count = count;
 }
-dtInterruptHandlerManager_RisingEdgeCCount getHallCRisingEdgeCount_Impl(void) {
+dtInterruptHandlerManager_RisingEdgeCCount InterruptHandlerManager_getHallCRisingEdgeCount_Impl(void) {
     return instance.HALL.hallc_re_count;
 }
 
@@ -729,14 +741,14 @@ char* InterruptHandlerManager_toString(void)
  */
 void ExternalIrqConfiguration_CTOR(void)
 {
-    instance.externalIrq.setPort = setExternalIrqPort_Impl;
-    instance.externalIrq.getPort = getExternalIrqPort_Impl;
+    instance.externalIrq.setPort = InterruptHandlerManager_setExternalIrqPort_Impl;
+    instance.externalIrq.getPort = InterruptHandlerManager_getExternalIrqPort_Impl;
 
-    instance.externalIrq.setPin = setExternalIrqPin_Impl;
-    instance.externalIrq.getPin = getExternalIrqPin_Impl;
+    instance.externalIrq.setPin = InterruptHandlerManager_setExternalIrqPin_Impl;
+    instance.externalIrq.getPin = InterruptHandlerManager_getExternalIrqPin_Impl;
 
-    instance.externalIrq.setTrigger = setExternalIrqTrigger_Impl;
-    instance.externalIrq.getTrigger = getExternalIrqTrigger_Impl;
+    instance.externalIrq.setTrigger = InterruptHandlerManager_setExternalIrqTrigger_Impl;
+    instance.externalIrq.getTrigger = InterruptHandlerManager_getExternalIrqTrigger_Impl;
 
     instance.externalIrq.setPort(EXTIRQ_PORTNAME_UNKNOWN);
     instance.externalIrq.setPin(EXTIRQ_PINNAME_UNKNOWN);
@@ -750,20 +762,20 @@ void ExternalIrqConfiguration_CTOR(void)
  */
 void TimerIrqConfiguration_CTOR(void)
 {
-    instance.timerIrq.setMillisecond = setTimerIrqMillisecond_Impl;
-    instance.timerIrq.getMillisecond = getTimerIrqMillisecond_Impl;
+    instance.timerIrq.setMillisecond = InterruptHandlerManager_setTimerIrqMillisecond_Impl;
+    instance.timerIrq.getMillisecond = InterruptHandlerManager_getTimerIrqMillisecond_Impl;
 
-    instance.timerIrq.setSecond = setTimerIrqSecond_Impl;
-    instance.timerIrq.getSecond = getTimerIrqSecond_Impl;
+    instance.timerIrq.setSecond = InterruptHandlerManager_setTimerIrqSecond_Impl;
+    instance.timerIrq.getSecond = InterruptHandlerManager_getTimerIrqSecond_Impl;
 
-    instance.timerIrq.setMinute = setTimerIrqMinute_Impl;
-    instance.timerIrq.getMinute = getTimerIrqMinute_Impl;
+    instance.timerIrq.setMinute = InterruptHandlerManager_setTimerIrqMinute_Impl;
+    instance.timerIrq.getMinute = InterruptHandlerManager_getTimerIrqMinute_Impl;
 
-    instance.timerIrq.setHour = setTimerIrqHour_Impl;
-    instance.timerIrq.getHour = getTimerIrqHour_Impl;
+    instance.timerIrq.setHour = InterruptHandlerManager_setTimerIrqHour_Impl;
+    instance.timerIrq.getHour = InterruptHandlerManager_getTimerIrqHour_Impl;
 
-    instance.timerIrq.setDay = setTimerIrqDay_Impl;
-    instance.timerIrq.getDay = getTimerIrqDay_Impl;
+    instance.timerIrq.setDay = InterruptHandlerManager_setTimerIrqDay_Impl;
+    instance.timerIrq.getDay = InterruptHandlerManager_getTimerIrqDay_Impl;
 
     instance.timerIrq.setMillisecond(0);
     instance.timerIrq.setSecond(0);
@@ -780,40 +792,40 @@ void TimerIrqConfiguration_CTOR(void)
 void HALLConfiguration_CTOR(void)
 {
     /* Assign function pointers for Hall A */
-    instance.HALL.setHallAStatus = setHallAState_Impl;
-    instance.HALL.getHallAStatus = getHallAState_Impl;
-    instance.HALL.setHallAFallingEdgeFlag = setHallAFallingEdgeFlag_Impl;
-    instance.HALL.getHallAFallingEdgeFlag = getHallAFallingEdgeFlag_Impl;
-    instance.HALL.setHallARisingEdgeFlag = setHallARisingEdgeFlag_Impl;
-    instance.HALL.getHallARisingEdgeFlag = getHallARisingEdgeFlag_Impl;
-    instance.HALL.setHallAFallingEdgeCount = setHallAFallingEdgeCount_Impl;
-    instance.HALL.getHallAFallingEdgeCount = getHallAFallingEdgeCount_Impl;
-    instance.HALL.setHallARisingEdgeCount = setHallARisingEdgeCount_Impl;
-    instance.HALL.getHallARisingEdgeCount = getHallARisingEdgeCount_Impl;
+    instance.HALL.setHallAStatus = InterruptHandlerManager_setHallAState_Impl;
+    instance.HALL.getHallAStatus = InterruptHandlerManager_getHallAState_Impl;
+    instance.HALL.setHallAFallingEdgeFlag = InterruptHandlerManager_setHallAFallingEdgeFlag_Impl;
+    instance.HALL.getHallAFallingEdgeFlag = InterruptHandlerManager_getHallAFallingEdgeFlag_Impl;
+    instance.HALL.setHallARisingEdgeFlag = InterruptHandlerManager_setHallARisingEdgeFlag_Impl;
+    instance.HALL.getHallARisingEdgeFlag = InterruptHandlerManager_getHallARisingEdgeFlag_Impl;
+    instance.HALL.setHallAFallingEdgeCount = InterruptHandlerManager_setHallAFallingEdgeCount_Impl;
+    instance.HALL.getHallAFallingEdgeCount = InterruptHandlerManager_getHallAFallingEdgeCount_Impl;
+    instance.HALL.setHallARisingEdgeCount = InterruptHandlerManager_setHallARisingEdgeCount_Impl;
+    instance.HALL.getHallARisingEdgeCount = InterruptHandlerManager_getHallARisingEdgeCount_Impl;
 
     /* Assign function pointers for Hall B */
-    instance.HALL.setHallBStatus = setHallBState_Impl;
-    instance.HALL.getHallBStatus = getHallBState_Impl;
-    instance.HALL.setHallBFallingEdgeFlag = setHallBFallingEdgeFlag_Impl;
-    instance.HALL.getHallBFallingEdgeFlag = getHallBFallingEdgeFlag_Impl;
-    instance.HALL.setHallBRisingEdgeFlag = setHallBRisingEdgeFlag_Impl;
-    instance.HALL.getHallBRisingEdgeFlag = getHallBRisingEdgeFlag_Impl;
-    instance.HALL.setHallBFallingEdgeCount = setHallBFallingEdgeCount_Impl;
-    instance.HALL.getHallBFallingEdgeCount = getHallBFallingEdgeCount_Impl;
-    instance.HALL.setHallBRisingEdgeCount = setHallBRisingEdgeCount_Impl;
-    instance.HALL.getHallBRisingEdgeCount = getHallBRisingEdgeCount_Impl;
+    instance.HALL.setHallBStatus = InterruptHandlerManager_setHallBState_Impl;
+    instance.HALL.getHallBStatus = InterruptHandlerManager_getHallBState_Impl;
+    instance.HALL.setHallBFallingEdgeFlag = InterruptHandlerManager_setHallBFallingEdgeFlag_Impl;
+    instance.HALL.getHallBFallingEdgeFlag = InterruptHandlerManager_getHallBFallingEdgeFlag_Impl;
+    instance.HALL.setHallBRisingEdgeFlag = InterruptHandlerManager_setHallBRisingEdgeFlag_Impl;
+    instance.HALL.getHallBRisingEdgeFlag = InterruptHandlerManager_getHallBRisingEdgeFlag_Impl;
+    instance.HALL.setHallBFallingEdgeCount = InterruptHandlerManager_setHallBFallingEdgeCount_Impl;
+    instance.HALL.getHallBFallingEdgeCount = InterruptHandlerManager_getHallBFallingEdgeCount_Impl;
+    instance.HALL.setHallBRisingEdgeCount = InterruptHandlerManager_setHallBRisingEdgeCount_Impl;
+    instance.HALL.getHallBRisingEdgeCount = InterruptHandlerManager_getHallBRisingEdgeCount_Impl;
 
     /* Assign function pointers for Hall C */
-    instance.HALL.setHallCStatus = setHallCState_Impl;
-    instance.HALL.getHallCStatus = getHallCState_Impl;
-    instance.HALL.setHallCFallingEdgeFlag = setHallCFallingEdgeFlag_Impl;
-    instance.HALL.getHallCFallingEdgeFlag = getHallCFallingEdgeFlag_Impl;
-    instance.HALL.setHallCRisingEdgeFlag = setHallCRisingEdgeFlag_Impl;
-    instance.HALL.getHallCRisingEdgeFlag = getHallCRisingEdgeFlag_Impl;
-    instance.HALL.setHallCFallingEdgeCount = setHallCFallingEdgeCount_Impl;
-    instance.HALL.getHallCFallingEdgeCount = getHallCFallingEdgeCount_Impl;
-    instance.HALL.setHallCRisingEdgeCount = setHallCRisingEdgeCount_Impl;
-    instance.HALL.getHallCRisingEdgeCount = getHallCRisingEdgeCount_Impl;
+    instance.HALL.setHallCStatus = InterruptHandlerManager_setHallCState_Impl;
+    instance.HALL.getHallCStatus = InterruptHandlerManager_getHallCState_Impl;
+    instance.HALL.setHallCFallingEdgeFlag = InterruptHandlerManager_setHallCFallingEdgeFlag_Impl;
+    instance.HALL.getHallCFallingEdgeFlag = InterruptHandlerManager_getHallCFallingEdgeFlag_Impl;
+    instance.HALL.setHallCRisingEdgeFlag = InterruptHandlerManager_setHallCRisingEdgeFlag_Impl;
+    instance.HALL.getHallCRisingEdgeFlag = InterruptHandlerManager_getHallCRisingEdgeFlag_Impl;
+    instance.HALL.setHallCFallingEdgeCount = InterruptHandlerManager_setHallCFallingEdgeCount_Impl;
+    instance.HALL.getHallCFallingEdgeCount = InterruptHandlerManager_getHallCFallingEdgeCount_Impl;
+    instance.HALL.setHallCRisingEdgeCount = InterruptHandlerManager_setHallCRisingEdgeCount_Impl;
+    instance.HALL.getHallCRisingEdgeCount = InterruptHandlerManager_getHallCRisingEdgeCount_Impl;
 
     /* Initialize default values for Hall A, B, and C */
     instance.HALL.setHallAStatus(HALLA_STATUS_UNKNOWN);
@@ -845,19 +857,19 @@ void HALLConfiguration_CTOR(void)
 void InterruptHandlerManager_CTOR(void)
 {
     /* Function pointer Implementation */
-    instance.getExternalIrq = getExternalIrq_Impl;
-    instance.setExternalIrq = setExternalIrq_Impl;
-    instance.getTimerIrq = getTimerIrq_Impl;
-    instance.setTimerIrq = setTimerIrq_Impl;
-    instance.getHALL = getHALL_Impl;
-    instance.setHALL = setHALL_Impl;
+    instance.getExternalIrq = InterruptHandlerManager_getExternalIrq_Impl;
+    instance.setExternalIrq = InterruptHandlerManager_setExternalIrq_Impl;
+    instance.getTimerIrq = InterruptHandlerManager_getTimerIrq_Impl;
+    instance.setTimerIrq = InterruptHandlerManager_setTimerIrq_Impl;
+    instance.getHALL = InterruptHandlerManager_getHALL_Impl;
+    instance.setHALL = InterruptHandlerManager_setHALL_Impl;
 
-    instance.setHallAPinState = setHallAPinState_Impl;
-    instance.getHallAPinState = getHallAPinState_Impl;
-    instance.setHallBPinState = setHallBPinState_Impl;
-    instance.getHallBPinState = getHallBPinState_Impl;
-    instance.setHallCPinState = setHallCPinState_Impl;
-    instance.getHallCPinState = getHallCPinState_Impl;
+    instance.setHallAPinState = InterruptHandlerManager_setHallAPinState_Impl;
+    instance.getHallAPinState = InterruptHandlerManager_getHallAPinState_Impl;
+    instance.setHallBPinState = InterruptHandlerManager_setHallBPinState_Impl;
+    instance.getHallBPinState = InterruptHandlerManager_getHallBPinState_Impl;
+    instance.setHallCPinState = InterruptHandlerManager_setHallCPinState_Impl;
+    instance.getHallCPinState = InterruptHandlerManager_getHallCPinState_Impl;
 
     instance.toString = InterruptHandlerManager_toString;
 

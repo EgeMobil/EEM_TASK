@@ -2,16 +2,20 @@
 
 void tcPWMConfiguration(void)
 {
+    #ifndef defined(STM32G431xx)
     printf("[PWMConfiguration]\n");
+    #endif
 
     /* CTOR */
     PWMConfiguration_CTOR();
 
-    /* Get Singelton Instance For Test */
+    /* Get Singleton Instance For Test */
     dtPWMConfiguration* manager = PWMConfiguration_GetInstance();
 
-    /* Read PWMConfiguration  before Initialisation */
-    printf("[PRE-INIT] %s \n", manager->toString() );
+    /* Read PWMConfiguration before Initialisation */
+    #ifndef defined(STM32G431xx)
+    printf("[PRE-INIT] %s \n", manager->toString());
+    #endif
 
     /* PwmStep IF Initial values */
     PwmStepInterface.writePwmStepA(PWMSTEP_PWMSTATUS_UNKNOWN);
@@ -23,11 +27,13 @@ void tcPWMConfiguration(void)
     SpeedStatusInterface.writeSpeedStatus(0U);
     DirectionStatusInterface.writeDirection(DIRECTION_FORWARD);
 
-    /* Initalize PWMConfiguration */
+    /* Initialize PWMConfiguration */
     PWMConfiguration_ruInitialisation();
 
     /* Read PWMConfiguration Status after Initialisation */
-    printf("[POST-INIT] %s \n", manager->toString() );
+    #ifndef defined(STM32G431xx)
+    printf("[POST-INIT] %s \n", manager->toString());
+    #endif
 
     /* Define Six-Step Sequence */
     const uint8_t sixStepSequence[6][3] = {
@@ -46,11 +52,13 @@ void tcPWMConfiguration(void)
 
     for (uint8_t step = 0; step < 6; step++)
     {
+        #ifndef defined(STM32G431xx)
         printf("[TEST] Applying Step %d: A=%d, B=%d, C=%d\n",
                step + 1,
                sixStepSequence[step][0],
                sixStepSequence[step][1],
                sixStepSequence[step][2]);
+        #endif
 
         /* Set PwmStep values for this step */
         PwmStepInterface.writePwmStepA(sixStepSequence[step][0]);
@@ -61,7 +69,9 @@ void tcPWMConfiguration(void)
         PWMConfiguration_ruUpdate();
 
         /* Read Configuration Status After Update */
+        #ifndef defined(STM32G431xx)
         printf("[POST-UPDATE - Step %d] %s \n", step + 1, manager->toString());
+        #endif
     }
 
     return;

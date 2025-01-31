@@ -1,25 +1,35 @@
-/* Doxygen Runable Comment */
-
-/* Baseclass private access include */
 #include "MotorDriverCommProxy_private.h"
-
+/** 
+ * @file MotorDriverCommProxy_ruUpdateIndicator.c
+ * @brief Updates the motor driver indicator lamps based on the current status.
+ * 
+ * This function reads the indicator status for brake, direction, and speed, and updates 
+ * the corresponding lamps (brake, direction, and speed) accordingly. The function also 
+ * handles the lamp states and updates the indicator PDU (Protocol Data Unit).
+ * 
+ * @details The function performs the following actions:
+ * 1. Reads the brake status and updates the brake lamp.
+ * 2. Reads the direction status and updates the forward and reverse direction lamps.
+ * 3. Reads the speed status and updates the corresponding speed lamp.
+ * 4. Constructs the final indicator PDU to represent the state of all lamps and updates it.
+ */
 FUNC(void, MotorDriverCommProxy_ruUpdateIndicator)(void)
 {
     /* Indicator lamp static variables */
-    static dtMotorDriverCommProxy_brakeLamp     brakeLamp = MDCP_BRAKELAMP_UNKNOWN;
-    static dtMotorDriverCommProxy_directionLamp D_directionLamp = MDCP_DIRECTIONLAMP_UNKNOWN;
-    static dtMotorDriverCommProxy_directionLamp R_directionLamp = MDCP_DIRECTIONLAMP_UNKNOWN;
-    static dtMotorDriverCommProxy_speedLamp     speedLamp = MDCP_SPEEDLAMP_UNKNOWN;
+    static dtMotorDriverCommProxy_brakeLamp     brakeLamp = MDCP_BRAKELAMP_UNKNOWN; /**< Static variable to hold brake lamp status */
+    static dtMotorDriverCommProxy_directionLamp D_directionLamp = MDCP_DIRECTIONLAMP_UNKNOWN; /**< Static variable for the forward direction lamp */
+    static dtMotorDriverCommProxy_directionLamp R_directionLamp = MDCP_DIRECTIONLAMP_UNKNOWN; /**< Static variable for the reverse direction lamp */
+    static dtMotorDriverCommProxy_speedLamp     speedLamp = MDCP_SPEEDLAMP_UNKNOWN; /**< Static variable for the speed lamp */
 
     /* Get Singleton Instance */
     dtMotorDriverCommProxy* mdcp = MotorDriverCommProxy_GetInstance();
 
-    /* Read and update indicator pdu variables */
-    mdcp->setIBdr( mdcp->IIndicatorBdrStatus->readIndicatorBdrStatus() );
-    mdcp->setISpeed( mdcp->IIndicatorSpeedStatus->readIndicatorSpeedStatus() );
+    /* Read and update indicator PDU variables */
+    mdcp->setIBdr(mdcp->IIndicatorBdrStatus->readIndicatorBdrStatus()); /**< Update the brake and direction status */
+    mdcp->setISpeed(mdcp->IIndicatorSpeedStatus->readIndicatorSpeedStatus()); /**< Update the speed status */
     
-    dtMotorDriverCommProxy_indicatorBdrStatus currentIndicatorBdr = mdcp->getIBdr();
-    dtMotorDriverCommProxy_indicatorSpeedStatus currentIndicatorSpeed = mdcp->getISpeed();
+    dtMotorDriverCommProxy_indicatorBdrStatus currentIndicatorBdr = mdcp->getIBdr(); /**< Get current brake and direction status */
+    dtMotorDriverCommProxy_indicatorSpeedStatus currentIndicatorSpeed = mdcp->getISpeed(); /**< Get current speed status */
 
     /* BRAKE :: ENABLE-DISABLE-UNKOWN */
     if( BRAKE_ENABLE == currentIndicatorBdr.brakeStatus )
@@ -80,7 +90,7 @@ FUNC(void, MotorDriverCommProxy_ruUpdateIndicator)(void)
         }
         else if( currentIndicatorSpeed == INDICATORSPEEDSTATUS_VERYHIGHSPEED )
         {
-            /* Very H igh Speed */
+            /* Very High Speed */
             speedLamp = MDCP_SPEEDLAMP_VERYHIGH;
         }
         else
@@ -101,19 +111,18 @@ FUNC(void, MotorDriverCommProxy_ruUpdateIndicator)(void)
         uint16_t word; 
         struct
         {
-        dtMotorDriverCommProxy_brakeLamp     brake : 4; // İlk 4 bit
-        dtMotorDriverCommProxy_directionLamp D_direction : 4; // İkinci 4 bit
-        dtMotorDriverCommProxy_directionLamp R_direction : 4; // Üçüncü 4 bit
-        dtMotorDriverCommProxy_speedLamp     speed : 4; // Dördüncü 4 bit
-        }lamp; // Bit seviyesinde erişim 
+            dtMotorDriverCommProxy_brakeLamp     brake : 4; /**< Brake lamp status (4 bits) */
+            dtMotorDriverCommProxy_directionLamp D_direction : 4; /**< Forward direction lamp status (4 bits) */
+            dtMotorDriverCommProxy_directionLamp R_direction : 4; /**< Reverse direction lamp status (4 bits) */
+            dtMotorDriverCommProxy_speedLamp     speed : 4; /**< Speed lamp status (4 bits) */
+        }lamp; /**< Bit-level access to indicator status */
     }indicator;
 
-    indicator.lamp.brake        = brakeLamp;
-    indicator.lamp.D_direction  = D_directionLamp;
-    indicator.lamp.R_direction  = R_directionLamp;
-    indicator.lamp.speed        = speedLamp;
+    indicator.lamp.brake        = brakeLamp; /**< Assign brake lamp status */
+    indicator.lamp.D_direction  = D_directionLamp; /**< Assign forward direction lamp status */
+    indicator.lamp.R_direction  = R_directionLamp; /**< Assign reverse direction lamp status */
+    indicator.lamp.speed        = speedLamp; /**< Assign speed lamp status */
 
     /* Update PDU */
-    mdcp->setIndicator(indicator.word);
-
+    mdcp->setIndicator(indicator.word); /**< Set the updated indicator word */
 }

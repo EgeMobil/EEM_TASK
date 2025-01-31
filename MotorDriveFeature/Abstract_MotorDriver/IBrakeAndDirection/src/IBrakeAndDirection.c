@@ -1,4 +1,3 @@
-
 #include "IBrakeAndDirection.h"
 
 /**
@@ -24,12 +23,16 @@ IBrakeAndDirection_StatusType IBrakeAndDirection_writeDirection_Impl(cmDirection
 {
     if (direction < DIRECTION_BACKWARD || direction > DIRECTION_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IBrakeAndDirection] Invalid direction value: %d\n", direction);
+#endif
         return IBRAKEANDDIRECTION_NOT_OK;
     }
 
     currentDirection = direction;
+#ifndef STM32G431xx
     printf("[IBrakeAndDirection] Direction written: %d\n", direction);
+#endif
     return IBRAKEANDDIRECTION_OK;
 }
 
@@ -39,7 +42,9 @@ IBrakeAndDirection_StatusType IBrakeAndDirection_writeDirection_Impl(cmDirection
  */
 cmDirectionStatus IBrakeAndDirection_readDirection_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IBrakeAndDirection] Direction read: %d\n", currentDirection);
+#endif
     return currentDirection;
 }
 
@@ -52,12 +57,16 @@ IBrakeAndDirection_StatusType IBrakeAndDirection_writeBrake_Impl(cmBrakeStatus b
 {
     if (brake < BRAKE_DISABLE || brake > BRAKE_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IBrakeAndDirection] Invalid brake value: %d\n", brake);
+#endif
         return IBRAKEANDDIRECTION_NOT_OK;
     }
 
     currentBrake = brake;
+#ifndef STM32G431xx
     printf("[IBrakeAndDirection] Brake written: %d\n", brake);
+#endif
     return IBRAKEANDDIRECTION_OK;
 }
 
@@ -67,6 +76,8 @@ IBrakeAndDirection_StatusType IBrakeAndDirection_writeBrake_Impl(cmBrakeStatus b
  */
 cmBrakeStatus IBrakeAndDirection_readBrake_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IBrakeAndDirection] Brake read: %d\n", currentBrake);
+#endif
     return currentBrake;
 }

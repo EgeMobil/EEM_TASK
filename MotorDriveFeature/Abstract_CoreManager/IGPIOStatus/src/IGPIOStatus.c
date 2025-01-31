@@ -67,13 +67,17 @@ IGPIOStatus_StatusType IGPIOStatus_writePinState_Impl(cmGPIOpinState pinState, I
     /* Validate port and pin */
     if (port < IGPIOSTATUS_PORT_A || port > IGPIOSTATUS_PORT_F || pin < IGPIOSTATUS_PIN_0 || pin > IGPIOSTATUS_PIN_15)
     {
+        #ifndef defined(STM32G431xx)
         printf("[IGPIOStatus] Invalid port (%d) or pin (%d).\n", port, pin);
+        #endif
         return IGPIOSTATUS_NOT_OK;
     }
 
     /* Update the state */
     GPIOStateMap[port][pin] = pinState;
+    #ifndef defined(STM32G431xx)
     printf("[IGPIOStatus] Port %d, Pin %d state written: %d\n", port, pin, pinState);
+    #endif
     return IGPIOSTATUS_OK;
 }
 
@@ -88,12 +92,16 @@ cmGPIOpinState IGPIOStatus_readPinState_Impl(IGPIOStatus_GPIOPort port, IGPIOSta
     /* Validate port and pin */
     if (port < IGPIOSTATUS_PORT_A || port > IGPIOSTATUS_PORT_F || pin < IGPIOSTATUS_PIN_0 || pin > IGPIOSTATUS_PIN_15)
     {
+        #ifndef defined(STM32G431xx)
         printf("[IGPIOStatus] Invalid port (%d) or pin (%d).\n", port, pin);
+        #endif
         return GPIOSTATUS_UNKNOWN;
     }
 
     /* Read the state */
     cmGPIOpinState currentState = GPIOStateMap[port][pin];
+    #ifndef defined(STM32G431xx)
     printf("[IGPIOStatus] Port %d, Pin %d state read: %d\n", port, pin, currentState);
+    #endif
     return currentState;
 }

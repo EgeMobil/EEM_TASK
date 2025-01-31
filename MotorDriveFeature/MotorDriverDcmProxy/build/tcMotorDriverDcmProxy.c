@@ -2,16 +2,20 @@
 
 void tcMotorDriverDcmProxy(void)
 {
+    #ifndef defined(STM32G431xx)
     printf("MotorDriverDcmProxy \n");
+    #endif
 
     /* CTOR */
     MotorDriverDcmProxy_CTOR();
 
-    /* Get Singelton Instance For Test */
+    /* Get Singleton Instance For Test */
     dtMotorDriverDcmProxy* manager = MotorDriverDcmProxy_GetInstance();
 
     /* Read MotorDriverDcmProxy before collect errors */
-    printf("[PRE-COLLECT] %s \n", manager->toString() );
+    #ifndef defined(STM32G431xx)
+    printf("[PRE-COLLECT] %s \n", manager->toString());
+    #endif
 
     cmMotorDriveError testErr;
     testErr.bdr = 1;
@@ -25,9 +29,10 @@ void tcMotorDriverDcmProxy(void)
     MotorDriverDcmProxy_ruCollect();
 
     /* Read MotorDriverDcmProxy after collect errors */
-    printf("[COLLECTED] %s \n", manager->toString() );
+    #ifndef defined(STM32G431xx)
+    printf("[COLLECTED] %s \n", manager->toString());
+    #endif
 
     /* Send to diag */
     MotorDriverDcmProxy_ruRefresh();
-
 }

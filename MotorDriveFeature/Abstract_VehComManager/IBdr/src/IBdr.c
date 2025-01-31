@@ -16,7 +16,10 @@ IBdr_StatusType IBdr_writeBdr_Impl(cmBdr bdr)
 {
     // bdr constraints are assumed to be globally handled in the system.
     currentBdr = bdr;
+#ifndef defined(STM32G431xx)
+
     printf("[IBdr] bdr written: %u\n", bdr);
+#endif    
     return IBDR_OK;
 }
 
@@ -26,6 +29,8 @@ IBdr_StatusType IBdr_writeBdr_Impl(cmBdr bdr)
  */
 cmBdr IBdr_readBdr_Impl(void)
 {
+    #ifndef defined(STM32G431xx)
     printf("[IBdr] bdr  read: %u\n", currentBdr);
+    #endif    
     return currentBdr;
 }

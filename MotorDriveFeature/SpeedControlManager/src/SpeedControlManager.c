@@ -78,7 +78,7 @@ void SpeedControlManager_setConfig_Impl(dtSpeedControlManager_scmConfiguration v
  * 
  * @return The current minimum step value.
  */
-uint16_t getMinStep_Impl(void)
+uint16_t SpeedControlManager_getMinStep_Impl(void)
 {
     return instance.config.minStep;
 }
@@ -88,7 +88,7 @@ uint16_t getMinStep_Impl(void)
  * 
  * @param value The minimum step value to set.
  */
-void setMinStep_Impl(uint16_t value)
+void SpeedControlManager_setMinStep_Impl(uint16_t value)
 {
     instance.config.minStep = value;
 }
@@ -98,7 +98,7 @@ void setMinStep_Impl(uint16_t value)
  * 
  * @return The current maximum step value.
  */
-uint16_t getMaxStep_Impl(void)
+uint16_t SpeedControlManager_getMaxStep_Impl(void)
 {
     return instance.config.maxStep;
 }
@@ -108,7 +108,7 @@ uint16_t getMaxStep_Impl(void)
  * 
  * @param value The maximum step value to set.
  */
-void setMaxStep_Impl(uint16_t value)
+void SpeedControlManager_setMaxStep_Impl(uint16_t value)
 {
     instance.config.maxStep = value;
 }
@@ -118,7 +118,7 @@ void setMaxStep_Impl(uint16_t value)
  * 
  * @return The current divider step value.
  */
-uint16_t getDividerStep_Impl(void)
+uint16_t SpeedControlManager_getDividerStep_Impl(void)
 {
     return instance.config.divider;
 }
@@ -128,7 +128,7 @@ uint16_t getDividerStep_Impl(void)
  * 
  * @param value The divider value to set.
  */
-void setDivider_Impl(uint16_t value)
+void SpeedControlManager_setDivider_Impl(uint16_t value)
 {
     instance.config.divider = value;
 }
@@ -190,7 +190,7 @@ void SpeedControlManager_setSpeedStatus_Impl(dtSpeedControlManager_scmSpeedStatu
  * 
  * @return The current indicator configuration.
  */
-dtSpeedControlManager_scmIndicator getIndicator_Impl(void)
+dtSpeedControlManager_scmIndicator SpeedControlManager_getIndicator_Impl(void)
 {
     return instance.config.indicator;
 }
@@ -200,7 +200,7 @@ dtSpeedControlManager_scmIndicator getIndicator_Impl(void)
  * 
  * @param value The indicator value to set.
  */
-void setIndicator_Impl(dtSpeedControlManager_scmIndicator value)
+void SpeedControlManager_setIndicator_Impl(dtSpeedControlManager_scmIndicator value)
 {
     instance.config.indicator = value;
 }
@@ -292,23 +292,23 @@ char* SpeedControlManager_toString(void)
  */
 void ScmConfiguration_CTOR(void)
 {
-    instance.config.getMinStep = getMinStep_Impl;
-    instance.config.getMaxStep = getMaxStep_Impl;
-    instance.config.getDivider = getDividerStep_Impl;
+    instance.config.getMinStep = SpeedControlManager_getMinStep_Impl;
+    instance.config.getMaxStep = SpeedControlManager_getMaxStep_Impl;
+    instance.config.getDivider = SpeedControlManager_getDividerStep_Impl;
 
-    instance.config.setMinStep = setMinStep_Impl;
-    instance.config.setMaxStep = setMaxStep_Impl;
-    instance.config.setDivider = setDivider_Impl;
+    instance.config.setMinStep = SpeedControlManager_setMinStep_Impl;
+    instance.config.setMaxStep = SpeedControlManager_setMaxStep_Impl;
+    instance.config.setDivider = SpeedControlManager_setDivider_Impl;
 
     instance.config.getBrake = SpeedControlManager_getBrake_Impl;
     instance.config.getRawSpeed = SpeedControlManager_getRawSpeed_Impl;
     instance.config.getSpeedStatus = SpeedControlManager_getSpeedStatus_Impl;
-    instance.config.getIndicator = getIndicator_Impl;
+    instance.config.getIndicator = SpeedControlManager_getIndicator_Impl;
 
     instance.config.setBrake = SpeedControlManager_setBrake_Impl;
     instance.config.setRawSpeed = SpeedControlManager_setRawSpeed_Impl;
     instance.config.setSpeedStatus = SpeedControlManager_setSpeedStatus_Impl;
-    instance.config.setIndicator = setIndicator_Impl;
+    instance.config.setIndicator = SpeedControlManager_setIndicator_Impl;
 
     instance.config.setIndicator(INDICATORSPEEDSTATUS_UNKNOWN);
 }

@@ -21,14 +21,16 @@ IIndicator_StatusType IIndicator_writeIndicator_Impl(cmIndicator value)
     // Example validation: Ensure value is within uint16_t range
     if (value > 0xFFFE)
     {
+        #ifndef defined(STM32G431xx)
         printf("[IIndicator] Invalid indicator value: %u\n", value);
+        #endif
         return IINDICATOR_NOT_OK;
     }
 
     currentIndicator = value;
-
+    #ifndef defined(STM32G431xx)
     printf("[IIndicator] Indicator value written: %u\n", value);
-
+    #endif
     return IINDICATOR_OK;
 }
 
@@ -38,7 +40,8 @@ IIndicator_StatusType IIndicator_writeIndicator_Impl(cmIndicator value)
  */
 cmIndicator IIndicator_readIndicator_Impl(void)
 {
+    #ifndef defined(STM32G431xx)
     printf("[IIndicator] Indicator value read: %u\n", currentIndicator);
-
+    #endif
     return currentIndicator;
 }

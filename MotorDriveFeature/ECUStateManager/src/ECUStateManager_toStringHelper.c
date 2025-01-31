@@ -1,6 +1,11 @@
 #include "ECUStateManager_private.h"
 
-// Helper functions for state names
+/**
+ * @brief Helper function to get the string representation of the startup state.
+ *
+ * @param state The startup state to convert to a string.
+ * @return A string representing the startup state.
+ */
 const char* GetStartupStateName(dtECUStateManager_startUp state)
 {
     switch (state)
@@ -13,6 +18,12 @@ const char* GetStartupStateName(dtECUStateManager_startUp state)
     }
 }
 
+/**
+ * @brief Helper function to get the string representation of the ECU state.
+ *
+ * @param state The ECU state to convert to a string.
+ * @return A string representing the ECU state.
+ */
 const char* GetEcuStateName(dtECUStateManager_ecuState state)
 {
     switch (state)
@@ -27,6 +38,12 @@ const char* GetEcuStateName(dtECUStateManager_ecuState state)
     }
 }
 
+/**
+ * @brief Helper function to get the string representation of the refresh state.
+ *
+ * @param state The refresh state to convert to a string.
+ * @return A string representing the refresh state.
+ */
 const char* GetRefreshStateName(dtECUStateManager_refreshState state)
 {
     switch (state)
@@ -47,6 +64,12 @@ const char* GetRefreshStateName(dtECUStateManager_refreshState state)
     }
 }
 
+/**
+ * @brief Helper function to get the string representation of the process state.
+ *
+ * @param state The process state to convert to a string.
+ * @return A string representing the process state.
+ */
 const char* GetProcessStateName(dtECUStateManager_processState state)
 {
     switch (state)
@@ -64,14 +87,18 @@ const char* GetProcessStateName(dtECUStateManager_processState state)
     }
 }
 
-
+/**
+ * @brief Prints the current state of the ECU system, including startup, ECU, refresh, and process states.
+ */
 void ECUStateManager_toString(void)
 {
-printf("SysCount: %2d | Startup: %-10s | ECU_STATE: %-8s | REFRESH_STATE: %-30s | PROCESS_STATE: %-22s | \n",
-       systemStateCount,
-       GetStartupStateName(systemStartUp),
-       GetEcuStateName(ECU_STATE),
-       GetRefreshStateName(REFRESH_STATE),
-       GetProcessStateName(PROCESS_STATE) );
+#ifndef defined(STM32G431xx)
 
+    printf("SysCount: %2d | Startup: %-10s | ECU_STATE: %-8s | REFRESH_STATE: %-30s | PROCESS_STATE: %-22s | \n",
+           systemStateCount,
+           GetStartupStateName(systemStartUp),
+           GetEcuStateName(ECU_STATE),
+           GetRefreshStateName(REFRESH_STATE),
+           GetProcessStateName(PROCESS_STATE) );
+#endif
 }

@@ -1,8 +1,28 @@
-/* Doxygen Runable Comment */
+/**
+ * @file GateDriverController_private.c
+ * @brief Private functions for the Gate Driver Controller.
+ * 
+ * This file contains private functions for internal use within the Gate Driver Controller.
+ * It includes the initialization and refresh operations that manage the behavior of 
+ * the gate driver.
+ * 
+ */
 
-/* Baseclass private access include */
 #include "GateDriverController_private.h"
 
+/**
+ * @brief Refresh runnable for the Gate Driver Controller.
+ * 
+ * This function performs the refresh tasks for the Gate Driver Controller, including:
+ * - Reading registers and updating the controller attributes.
+ * - Checking various error conditions and reporting them if necessary.
+ * 
+ * The following checks are performed:
+ * - Fault Register 1 (FAULT, VDS_OCP, GDF, UVLO, OTSD, VDS_HA, VDS_LA, VDS_HB, VDS_LB, VDS_HC, VDS_LC).
+ * - Vgs Status (SA_OC, SB_OC, SC_OC, OTW, GDUV, VGS_HA, VGS_LA, VGS_HB, VGS_LB, VGS_HC, VGS_LC).
+ * 
+ * If any of the faults are active, the appropriate error reporting mechanism should be triggered.
+ */
 FUNC(void, GateDriverController_ruRefresh)(void)
 {
     /* Get Singleton Instance */
@@ -108,6 +128,4 @@ FUNC(void, GateDriverController_ruRefresh)(void)
     {
         // Report Gate-Source Voltage Fault in Phase LC
     }
-
-
 }

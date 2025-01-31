@@ -20,12 +20,16 @@ IDirectionStatus_StatusType IDirectionStatus_writeDirection_Impl(cmDirectionStat
 {
     if (direction < DIRECTION_STATUS_BACKWARD || direction > DIRECTION_STATUS_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IDirectionStatus] Invalid direction value: %d\n", direction);
+#endif
         return IDIRECTIONSTATUS_NOT_OK;
     }
 
     currentDirection = direction;
+#ifndef STM32G431xx
     printf("[IDirectionStatus] Direction written: %d\n", direction);
+#endif
     return IDIRECTIONSTATUS_OK;
 }
 
@@ -35,6 +39,8 @@ IDirectionStatus_StatusType IDirectionStatus_writeDirection_Impl(cmDirectionStat
  */
 cmDirectionStatusType IDirectionStatus_readDirection_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IDirectionStatus] Direction read: %d\n", currentDirection);
+#endif
     return currentDirection;
 }

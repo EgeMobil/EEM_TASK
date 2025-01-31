@@ -21,14 +21,16 @@ IWheelSpeed_StatusType IWheelSpeed_writeWheelSpeed_Impl(cmWheelSpeed speed)
     // Example validation: Ensure value is within uint16_t range
     if (speed > 0xFFFE)
     {
+        #ifndef defined(STM32G431xx)
         printf("[IWheelSpeed] Invalid wheel speed value: %u\n", speed);
+        #endif
         return IWHEELSPEED_NOT_OK;
     }
 
     currentWheelSpeed = speed;
-
+    #ifndef defined(STM32G431xx)
     printf("[IWheelSpeed] Wheel speed written: %u\n", speed);
-
+    #endif
     return IWHEELSPEED_OK;
 }
 
@@ -37,8 +39,9 @@ IWheelSpeed_StatusType IWheelSpeed_writeWheelSpeed_Impl(cmWheelSpeed speed)
  * @return Current wheel speed.
  */
 cmWheelSpeed IWheelSpeed_readWheelSpeed_Impl(void)
-{
+{    
+    #ifndef defined(STM32G431xx)
     printf("[IWheelSpeed] Wheel speed read: %u\n", currentWheelSpeed);
-
+    #endif
     return currentWheelSpeed;
 }

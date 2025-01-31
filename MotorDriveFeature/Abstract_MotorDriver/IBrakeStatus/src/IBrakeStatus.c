@@ -20,12 +20,16 @@ IBrakeStatus_StatusType IBrakeStatus_writeBrake_Impl(cmBrakeStatusType brake)
 {
     if (brake < BRAKE_STATUS_DISABLE || brake > BRAKE_STATUS_UNKNOWN)
     {
+#ifndef STM32G431xx
         printf("[IBrakeStatus] Invalid brake value: %d\n", brake);
+#endif
         return IBRAKESTATUS_NOT_OK;
     }
 
     currentBrake = brake;
+#ifndef STM32G431xx
     printf("[IBrakeStatus] Brake written: %d\n", brake);
+#endif
     return IBRAKESTATUS_OK;
 }
 
@@ -35,6 +39,8 @@ IBrakeStatus_StatusType IBrakeStatus_writeBrake_Impl(cmBrakeStatusType brake)
  */
 cmBrakeStatusType IBrakeStatus_readBrake_Impl(void)
 {
+#ifndef STM32G431xx
     printf("[IBrakeStatus] Brake read: %d\n", currentBrake);
+#endif
     return currentBrake;
 }

@@ -37,7 +37,7 @@ static dtBrakeAndDirectionManager instance;
  * 
  * @return The current return value of type `dtBrakeAndDirectionManager_bdrReturn`.
  */
-dtBrakeAndDirectionManager_bdrReturn getRetVal_Impl(void)
+dtBrakeAndDirectionManager_bdrReturn BrakeAndDirectionManager_getRetVal_Impl(void)
 {
     return instance.retVal;
 }
@@ -47,7 +47,7 @@ dtBrakeAndDirectionManager_bdrReturn getRetVal_Impl(void)
  * 
  * @param value The return value to set.
  */
-void setRetVal_Impl(dtBrakeAndDirectionManager_bdrReturn value)
+void BrakeAndDirectionManager_setRetVal_Impl(dtBrakeAndDirectionManager_bdrReturn value)
 {
     instance.retVal = value;
 }
@@ -57,7 +57,7 @@ void setRetVal_Impl(dtBrakeAndDirectionManager_bdrReturn value)
  * 
  * @return The current configuration of type `dtBrakeAndDirectionManager_bdrConfiguration`.
  */
-dtBrakeAndDirectionManager_bdrConfiguration getConfig_Impl(void)
+dtBrakeAndDirectionManager_bdrConfiguration BrakeAndDirectionManager_getConfig_Impl(void)
 {
     return instance.config;
 }
@@ -67,7 +67,7 @@ dtBrakeAndDirectionManager_bdrConfiguration getConfig_Impl(void)
  * 
  * @param value The configuration to set.
  */
-void setConfig_Impl(dtBrakeAndDirectionManager_bdrConfiguration value)
+void BrakeAndDirectionManager_setConfig_Impl(dtBrakeAndDirectionManager_bdrConfiguration value)
 {
     instance.config = value;
 }
@@ -77,7 +77,7 @@ void setConfig_Impl(dtBrakeAndDirectionManager_bdrConfiguration value)
  * 
  * @return The current direction of type `dtBrakeAndDirectionManager_bdrDirection`.
  */
-dtBrakeAndDirectionManager_bdrDirection getDirection_Impl(void)
+dtBrakeAndDirectionManager_bdrDirection BrakeAndDirectionManager_getDirection_Impl(void)
 {
     return instance.config.direction;
 }
@@ -87,7 +87,7 @@ dtBrakeAndDirectionManager_bdrDirection getDirection_Impl(void)
  * 
  * @return The current brake of type `dtBrakeAndDirectionManager_bdrBrake`.
  */
-dtBrakeAndDirectionManager_bdrBrake getBrake_Impl(void)
+dtBrakeAndDirectionManager_bdrBrake BrakeAndDirectionManager_getBrake_Impl(void)
 {
     return instance.config.brake;
 }
@@ -97,7 +97,7 @@ dtBrakeAndDirectionManager_bdrBrake getBrake_Impl(void)
  * 
  * @param direction The direction to set.
  */
-void setDirection_Impl(dtBrakeAndDirectionManager_bdrDirection direction)
+void BrakeAndDirectionManager_setDirection_Impl(dtBrakeAndDirectionManager_bdrDirection direction)
 {
     instance.config.direction = direction;
 }
@@ -107,7 +107,7 @@ void setDirection_Impl(dtBrakeAndDirectionManager_bdrDirection direction)
  * 
  * @param brake The brake configuration to set.
  */
-void setBrake_Impl(dtBrakeAndDirectionManager_bdrBrake brake)
+void BrakeAndDirectionManager_setBrake_Impl(dtBrakeAndDirectionManager_bdrBrake brake)
 {
     instance.config.brake = brake;
 }
@@ -214,10 +214,10 @@ char* BrakeAndDirectionManager_toString(void)
 void BdrConfiguration_CTOR(void)
 {
     /* Function pointer Implementation */
-    instance.config.getDirection = getDirection_Impl;
-    instance.config.setDirection = setDirection_Impl;
-    instance.config.getBrake = getBrake_Impl;
-    instance.config.setBrake = setBrake_Impl;
+    instance.config.getDirection = BrakeAndDirectionManager_getDirection_Impl;
+    instance.config.setDirection = BrakeAndDirectionManager_setDirection_Impl;
+    instance.config.getBrake = BrakeAndDirectionManager_getBrake_Impl;
+    instance.config.setBrake = BrakeAndDirectionManager_setBrake_Impl;
     
     /* Initial value assignment */
     instance.config.setDirection(DIRECTION_UNKNOWN);
@@ -235,10 +235,10 @@ void BrakeAndDirectionManager_CTOR(void)
     BdrConfiguration_CTOR();
 
     /* Function pointer Implementation */
-    instance.getRetVal = getRetVal_Impl;
-    instance.setRetVal = setRetVal_Impl;
-    instance.getConfig = getConfig_Impl;
-    instance.setConfig = setConfig_Impl;
+    instance.getRetVal = BrakeAndDirectionManager_getRetVal_Impl;
+    instance.setRetVal = BrakeAndDirectionManager_setRetVal_Impl;
+    instance.getConfig = BrakeAndDirectionManager_getConfig_Impl;
+    instance.setConfig = BrakeAndDirectionManager_setConfig_Impl;
     instance.toString = BrakeAndDirectionManager_toString;
 
     /* Initial value assignment */

@@ -1,7 +1,12 @@
+/** 
+ * @file MotorDriverControlManager_definition.h
+ * @brief Defines the structure and types for the Motor Driver Control Manager, including interfaces and attributes.
+ */
+
 #ifndef MOTORDRIVERCONTROLMANAGER_DEFINITION_H_
 #define MOTORDRIVERCONTROLMANAGER_DEFINITION_H_
 
-/* ECU StateManager Global Include*/
+/* ECU StateManager Global Include */
 #include "ECUStateManager_global.h"
 
 /* Receiver Port Interface Definition Include */
@@ -15,60 +20,82 @@
 /* Base Return Value Definition */
 typedef enum
 {
-    MDC_ERR = 0,
-    MDC_EOK ,
-    MDC_UNKNOWN
-}dtMdcReturn;
+    MDC_ERR = 0,  /**< Error state */
+    MDC_EOK,      /**< Success state */
+    MDC_UNKNOWN   /**< Unknown error state */
+} dtMdcReturn;
 
-/* Compu Method Alias Type Definitions */
+/** 
+ * @brief Type alias for method return values in MotorDriverControlManager.
+ */
 typedef dtMdcReturn dtMotorDriverControlManager_dtMdcReturn;
 
-typedef cmSpeed             dtMotorDriverControlManager_Speed          ;
-typedef cmBdr               dtMotorDriverControlManager_Bdr            ;
-typedef cmRawSpeedStatus    dtMotorDriverControlManager_RawSpeedStatus ;
-typedef cmBrakeStatus       dtMotorDriverControlManager_BrakeStatus    ;
-typedef cmDirectionStatus   dtMotorDriverControlManager_DirectionStatus;
+/** 
+ * @brief Type alias for speed-related data.
+ */
+typedef cmSpeed dtMotorDriverControlManager_Speed;
 
-/* Configuration Child-Class Definition (IF NEEDED!) */
+/** 
+ * @brief Type alias for brake and direction-related data.
+ */
+typedef cmBdr dtMotorDriverControlManager_Bdr;
 
-/* BaseClass Definition */
+/** 
+ * @brief Type alias for raw speed status data.
+ */
+typedef cmRawSpeedStatus dtMotorDriverControlManager_RawSpeedStatus;
+
+/** 
+ * @brief Type alias for brake status data.
+ */
+typedef cmBrakeStatus dtMotorDriverControlManager_BrakeStatus;
+
+/** 
+ * @brief Type alias for direction status data.
+ */
+typedef cmDirectionStatus dtMotorDriverControlManager_DirectionStatus;
+
+/** 
+ * @brief Structure definition for the MotorDriverControlManager class.
+ * 
+ * This structure defines the attributes and function pointers for accessing and controlling motor
+ * speed, brake and direction states, as well as the related interfaces.
+ */
 typedef struct 
 {
-    /* Interface Pointer */
-    ISpeed* ISpeed;
-    IBdr* IBdr;
-    IRawSpeed* IRawSpeed;
-    IBrakeAndDirection* IBrakeAndDirection;
+    /* Interface Pointers */
+    ISpeed* ISpeed;                    /**< Interface for speed control */
+    IBdr* IBdr;                         /**< Interface for brake and direction control */
+    IRawSpeed* IRawSpeed;               /**< Interface for raw speed status */
+    IBrakeAndDirection* IBrakeAndDirection; /**< Interface for brake and direction status */
 
     /* Attributes */
-    dtMotorDriverControlManager_Speed           speed          ;
-    dtMotorDriverControlManager_Bdr             bdr            ;
-    dtMotorDriverControlManager_RawSpeedStatus  rawSpeedStatus ;
-    dtMotorDriverControlManager_BrakeStatus     brakeStatus    ;
-    dtMotorDriverControlManager_DirectionStatus directionStatus; 
+    dtMotorDriverControlManager_Speed           speed;          /**< Motor speed state */
+    dtMotorDriverControlManager_Bdr             bdr;            /**< Brake and direction state */
+    dtMotorDriverControlManager_RawSpeedStatus  rawSpeedStatus; /**< Raw speed status */
+    dtMotorDriverControlManager_BrakeStatus     brakeStatus;    /**< Brake status */
+    dtMotorDriverControlManager_DirectionStatus directionStatus; /**< Direction status */
 
-/* Getter/Setter Function Pointers */
-    dtMotorDriverControlManager_Speed (*getSpeed)(void);
-    void (*setSpeed)(dtMotorDriverControlManager_Speed speed);
+    /* Getter/Setter Function Pointers */
+    dtMotorDriverControlManager_Speed (*getSpeed)(void);          /**< Getter for speed */
+    void (*setSpeed)(dtMotorDriverControlManager_Speed speed);    /**< Setter for speed */
 
-    dtMotorDriverControlManager_Bdr (*getBdr)(void);
-    void (*setBdr)(dtMotorDriverControlManager_Bdr bdr);
+    dtMotorDriverControlManager_Bdr (*getBdr)(void);              /**< Getter for brake and direction */
+    void (*setBdr)(dtMotorDriverControlManager_Bdr bdr);           /**< Setter for brake and direction */
 
-    dtMotorDriverControlManager_RawSpeedStatus (*getRawSpeedStatus)(void);
-    void (*setRawSpeedStatus)(dtMotorDriverControlManager_RawSpeedStatus status);
+    dtMotorDriverControlManager_RawSpeedStatus (*getRawSpeedStatus)(void); /**< Getter for raw speed status */
+    void (*setRawSpeedStatus)(dtMotorDriverControlManager_RawSpeedStatus status); /**< Setter for raw speed status */
 
-    dtMotorDriverControlManager_BrakeStatus (*getBrakeStatus)(void);
-    void (*setBrakeStatus)(dtMotorDriverControlManager_BrakeStatus status);
+    dtMotorDriverControlManager_BrakeStatus (*getBrakeStatus)(void); /**< Getter for brake status */
+    void (*setBrakeStatus)(dtMotorDriverControlManager_BrakeStatus status); /**< Setter for brake status */
 
-    dtMotorDriverControlManager_DirectionStatus (*getDirectionStatus)(void);
-    void (*setDirectionStatus)(dtMotorDriverControlManager_DirectionStatus status);
+    dtMotorDriverControlManager_DirectionStatus (*getDirectionStatus)(void); /**< Getter for direction status */
+    void (*setDirectionStatus)(dtMotorDriverControlManager_DirectionStatus status); /**< Setter for direction status */
 
     /* toString Function Pointer */
-    char* (*toString)(void);
+    char* (*toString)(void); /**< Function to convert the structure to a string representation */
 
-    /* Functional Behaviours */
-
-}dtMotorDriverControlManager;
-
+    /* Functional Behaviours - Additional methods can be added for functionality */
+} dtMotorDriverControlManager;
 
 #endif /* MOTORDRIVERCONTROLMANAGER_DEFINITION_H_ */
