@@ -11,6 +11,8 @@
 
 #include "ECUStateManager_private.h"
 
+#include "IGPIOStatus.h"
+
 /**
  * @brief Global variable that stores the current ECU state.
  * 
@@ -77,6 +79,10 @@ void HandleStartupState(void)
 
         case STARTUP_INIT:
             // System in INIT stage
+
+        	/* Read and update Initial GPIOStatus for Bsw */
+        	IGPIOStatus_Init();
+
             // ECU initialization tasks
             ECU_STATE = ECUSTATE_INIT;
             break;

@@ -54,7 +54,7 @@ static cmOCPControl currentOCPControl;
 /* Register Access Implementation */
 IDRV8353_StatusType IDRV8353_writeFaultReg1_Impl(cmFaultReg1 fault)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] FaultReg1 written: 0x%04X\n", fault.word);
 #endif
     currentFaultReg1 = fault;
@@ -64,7 +64,7 @@ IDRV8353_StatusType IDRV8353_writeFaultReg1_Impl(cmFaultReg1 fault)
 
 cmFaultReg1 IDRV8353_readFaultReg1_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] FaultReg1 read: 0x%04X\n", currentFaultReg1.word);
 #endif
     currentFaultReg1.word = DRV8353Interface.Read(ADDR_DRVREG_FAULT1);
@@ -73,7 +73,7 @@ cmFaultReg1 IDRV8353_readFaultReg1_Impl(void)
 
 IDRV8353_StatusType IDRV8353_writeVgsStatus_Impl(cmVgsStatus status)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] VgsStatus written: 0x%04X\n", currentVgsStatus.word);
 #endif
     currentVgsStatus = status;
@@ -83,7 +83,7 @@ IDRV8353_StatusType IDRV8353_writeVgsStatus_Impl(cmVgsStatus status)
 
 cmVgsStatus IDRV8353_readVgsStatus_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] VgsStatus read: 0x%04X\n", currentVgsStatus.word);
 #endif
     currentVgsStatus.word = DRV8353Interface.Read(ADDR_DRVREG_VGSSTATUS);
@@ -92,7 +92,7 @@ cmVgsStatus IDRV8353_readVgsStatus_Impl(void)
 
 IDRV8353_StatusType IDRV8353_writeDriverControl_Impl(cmDriverControl control)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] DriverControl written: 0x%04X\n", control.word);
 #endif
     currentDriverControl = control;
@@ -101,7 +101,7 @@ IDRV8353_StatusType IDRV8353_writeDriverControl_Impl(cmDriverControl control)
 
 cmDriverControl IDRV8353_readDriverControl_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] DriverControl read: 0x%04X\n", currentDriverControl.word);
 #endif
     return currentDriverControl;
@@ -109,7 +109,7 @@ cmDriverControl IDRV8353_readDriverControl_Impl(void)
 
 IDRV8353_StatusType IDRV8353_writeGateDriveHS_Impl(cmGateDriveHS hs)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] GateDriveHS written: 0x%04X\n", hs.word);
 #endif
     currentGateDriveHS = hs;
@@ -118,7 +118,7 @@ IDRV8353_StatusType IDRV8353_writeGateDriveHS_Impl(cmGateDriveHS hs)
 
 cmGateDriveHS IDRV8353_readGateDriveHS_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] GateDriveHS read: 0x%04X\n", currentGateDriveHS.word);
 #endif
     return currentGateDriveHS;
@@ -126,7 +126,7 @@ cmGateDriveHS IDRV8353_readGateDriveHS_Impl(void)
 
 IDRV8353_StatusType IDRV8353_writeGateDriveLS_Impl(cmGateDriveLS ls)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] GateDriveLS written: 0x%04X\n", ls.word);
 #endif
     currentGateDriveLS = ls;
@@ -135,7 +135,7 @@ IDRV8353_StatusType IDRV8353_writeGateDriveLS_Impl(cmGateDriveLS ls)
 
 cmGateDriveLS IDRV8353_readGateDriveLS_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] GateDriveLS read: 0x%04X\n", currentGateDriveLS.word);
 #endif
     return currentGateDriveLS;
@@ -143,7 +143,7 @@ cmGateDriveLS IDRV8353_readGateDriveLS_Impl(void)
 
 IDRV8353_StatusType IDRV8353_writeOCPControl_Impl(cmOCPControl ocp)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] OCPControl written: 0x%04X\n", ocp.word);
 #endif
     currentOCPControl = ocp;
@@ -152,7 +152,7 @@ IDRV8353_StatusType IDRV8353_writeOCPControl_Impl(cmOCPControl ocp)
 
 cmOCPControl IDRV8353_readOCPControl_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] OCPControl read: 0x%04X\n", currentOCPControl.word);
 #endif
     return currentOCPControl;
@@ -161,14 +161,14 @@ cmOCPControl IDRV8353_readOCPControl_Impl(void)
 /* Complex Device Driver Access Implementation */
 void DRV8353_Init_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Initialization performed.\n");
 #endif
 }
 
 uint16_t DRV8353_Transaction_Impl(uint16_t DataOut)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Transaction with DataOut: 0x%04X\n", DataOut);
 #endif
     return DataOut; // Simulate a transaction returning the same data
@@ -176,7 +176,7 @@ uint16_t DRV8353_Transaction_Impl(uint16_t DataOut)
 
 uint16_t DRV8353_Read_Impl(uint8_t reg_addr)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Read from register addr: 0x%02X value is 0x7FF for test \n", reg_addr);
 #endif
     return 0x7FF; // Simulate reading the maximum possible value
@@ -184,7 +184,7 @@ uint16_t DRV8353_Read_Impl(uint8_t reg_addr)
 
 uint16_t DRV8353_Write_Impl(uint8_t reg_addr, uint16_t reg_value)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Write to register: 0x%02X, Value: 0x%04X\n", reg_addr, reg_value);
 #endif
     return reg_value; // Simulate writing and returning the written value
@@ -192,7 +192,7 @@ uint16_t DRV8353_Write_Impl(uint8_t reg_addr, uint16_t reg_value)
 
 uint8_t DRV8353_SetGain_Impl(uint8_t gain)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Gain set to: %d\n", gain);
 #endif
     return gain;
@@ -200,7 +200,7 @@ uint8_t DRV8353_SetGain_Impl(uint8_t gain)
 
 uint8_t DRV8353_GetGain_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Gain retrieved.\n");
 #endif
     return 0x01; // Simulate a gain value
@@ -208,7 +208,7 @@ uint8_t DRV8353_GetGain_Impl(void)
 
 uint8_t DRV8353_SetVDSLimit_Impl(uint8_t lmt)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] VDS Limit set to: %d\n", lmt);
 #endif
     return lmt;
@@ -216,7 +216,7 @@ uint8_t DRV8353_SetVDSLimit_Impl(uint8_t lmt)
 
 uint8_t DRV8353_GetVDSLimit_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] VDS Limit retrieved.\n");
 #endif
     return 0x02; // Simulate a limit value
@@ -224,7 +224,7 @@ uint8_t DRV8353_GetVDSLimit_Impl(void)
 
 uint8_t DRV8353_SetGateStrength_Impl(uint32_t strength)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Gate strength set to: %u\n", strength);
 #endif
     return 0x01; // Simulate success
@@ -232,7 +232,7 @@ uint8_t DRV8353_SetGateStrength_Impl(uint32_t strength)
 
 uint32_t DRV8353_GetGateStrength_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Gate strength retrieved.\n");
 #endif
     return 0x01; // Simulate a gate strength value
@@ -240,7 +240,7 @@ uint32_t DRV8353_GetGateStrength_Impl(void)
 
 void DRV8353_SetCalibration_Impl(uint8_t channel)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IDRV8353] Calibration set for channel: %d\n", channel);
 #endif
 }

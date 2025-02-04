@@ -22,13 +22,13 @@ IPwmStep_StatusType IPwmStep_writePwmStepA_Impl(cmPwmStep pwmStepA)
 {
     if (pwmStepA < PWMSTEP_PWMSTATUS_LOW || pwmStepA > PWMSTEP_PWMSTATUS_UNKNOWN)
     {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IPwmStep] Invalid pwmStepA value: %d\n", pwmStepA);
 #endif
         return IPWMSTEP_NOT_OK;
     }
     currentPwmStepA = pwmStepA;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IPwmStep] pwmStepA written: %d\n", pwmStepA);
 #endif
     return IPWMSTEP_OK;
@@ -36,7 +36,7 @@ IPwmStep_StatusType IPwmStep_writePwmStepA_Impl(cmPwmStep pwmStepA)
 
 cmPwmStep IPwmStep_readPwmStepA_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IPwmStep] pwmStepA read: %d\n", currentPwmStepA);
 #endif
     return currentPwmStepA;
@@ -47,13 +47,13 @@ IPwmStep_StatusType IPwmStep_writePwmStepB_Impl(cmPwmStep pwmStepB)
 {
     if (pwmStepB < PWMSTEP_PWMSTATUS_LOW || pwmStepB > PWMSTEP_PWMSTATUS_UNKNOWN)
     {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IPwmStep] Invalid pwmStepB value: %d\n", pwmStepB);
 #endif
         return IPWMSTEP_NOT_OK;
     }
     currentPwmStepB = pwmStepB;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IPwmStep] pwmStepB written: %d\n", pwmStepB);
 #endif
     return IPWMSTEP_OK;
@@ -61,7 +61,7 @@ IPwmStep_StatusType IPwmStep_writePwmStepB_Impl(cmPwmStep pwmStepB)
 
 cmPwmStep IPwmStep_readPwmStepB_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IPwmStep] pwmStepB read: %d\n", currentPwmStepB);
 #endif
     return currentPwmStepB;
@@ -72,13 +72,13 @@ IPwmStep_StatusType IPwmStep_writePwmStepC_Impl(cmPwmStep pwmStepC)
 {
     if (pwmStepC < PWMSTEP_PWMSTATUS_LOW || pwmStepC > PWMSTEP_PWMSTATUS_UNKNOWN)
     {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IPwmStep] Invalid pwmStepC value: %d\n", pwmStepC);
 #endif
         return IPWMSTEP_NOT_OK;
     }
     currentPwmStepC = pwmStepC;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IPwmStep] pwmStepC written: %d\n", pwmStepC);
 #endif
     return IPWMSTEP_OK;
@@ -86,7 +86,7 @@ IPwmStep_StatusType IPwmStep_writePwmStepC_Impl(cmPwmStep pwmStepC)
 
 cmPwmStep IPwmStep_readPwmStepC_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IPwmStep] pwmStepC read: %d\n", currentPwmStepC);
 #endif
     return currentPwmStepC;

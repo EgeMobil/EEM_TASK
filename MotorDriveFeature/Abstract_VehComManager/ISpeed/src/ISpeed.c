@@ -16,7 +16,7 @@ ISpeed_StatusType ISpeed_writeSpeed_Impl(cmSpeed speed)
 {
     // Speed constraints are assumed to be globally handled in the system.
     currentSpeed = speed;
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[ISpeed] Speed written: %u\n", speed);
     #endif
     return ISPEED_OK;
@@ -28,7 +28,7 @@ ISpeed_StatusType ISpeed_writeSpeed_Impl(cmSpeed speed)
  */
 cmSpeed ISpeed_readSpeed_Impl(void)
 {
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[ISpeed] Speed  read: %u\n", currentSpeed);
     #endif
     return currentSpeed;

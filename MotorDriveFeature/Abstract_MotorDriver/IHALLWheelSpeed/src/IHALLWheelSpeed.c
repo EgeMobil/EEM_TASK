@@ -18,7 +18,7 @@ static cmHALLWheelSpeed currentHALLWheelSpeed = 0; // Default to 0
  */
 IHALLWheelSpeed_StatusType IHALLWheelSpeed_writeHALLWheelSpeed_Impl(cmHALLWheelSpeed speed)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IHALLWheelSpeed] Invalid HALL wheel speed value: %u\n", speed);
 #endif
     // Validate speed against constraints (example: max value of 65535 for uint16_t)
@@ -29,7 +29,7 @@ IHALLWheelSpeed_StatusType IHALLWheelSpeed_writeHALLWheelSpeed_Impl(cmHALLWheelS
 
     currentHALLWheelSpeed = speed;
 
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IHALLWheelSpeed] HALL wheel speed written: %u\n", speed);
 #endif
 
@@ -42,7 +42,7 @@ IHALLWheelSpeed_StatusType IHALLWheelSpeed_writeHALLWheelSpeed_Impl(cmHALLWheelS
  */
 cmHALLWheelSpeed IHALLWheelSpeed_readHALLWheelSpeed_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IHALLWheelSpeed] HALL wheel speed read: %u\n", currentHALLWheelSpeed);
 #endif
     return currentHALLWheelSpeed;

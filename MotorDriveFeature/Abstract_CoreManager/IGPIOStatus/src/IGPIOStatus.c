@@ -1,6 +1,7 @@
 #include "IGPIOStatus.h"
 #include <stdio.h>
 
+
 /**
  * @brief Instance of the IGPIOStatus interface.
  */
@@ -67,18 +68,26 @@ IGPIOStatus_StatusType IGPIOStatus_writePinState_Impl(cmGPIOpinState pinState, I
     /* Validate port and pin */
     if (port < IGPIOSTATUS_PORT_A || port > IGPIOSTATUS_PORT_F || pin < IGPIOSTATUS_PIN_0 || pin > IGPIOSTATUS_PIN_15)
     {
-        #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IGPIOStatus] Invalid port (%d) or pin (%d).\n", port, pin);
-        #endif
+#endif
         return IGPIOSTATUS_NOT_OK;
     }
 
-    /* Update the state */
-    GPIOStateMap[port][pin] = pinState;
-    #ifndef defined(STM32G431xx)
+    /* Call HAL function to actually set the pin state */
+    IGPIOStatus_StatusType status = IGPIOStatus_writePinState_HAL(pinState, port, pin);
+
+    if (status == IGPIOSTATUS_OK)
+    {
+        /* Cache the written state in case it's needed later */
+        GPIOStateMap[port][pin] = pinState;
+    }
+
+#ifndef STM32G431xx
     printf("[IGPIOStatus] Port %d, Pin %d state written: %d\n", port, pin, pinState);
-    #endif
-    return IGPIOSTATUS_OK;
+#endif
+
+    return status;
 }
 
 /**
@@ -92,16 +101,33 @@ cmGPIOpinState IGPIOStatus_readPinState_Impl(IGPIOStatus_GPIOPort port, IGPIOSta
     /* Validate port and pin */
     if (port < IGPIOSTATUS_PORT_A || port > IGPIOSTATUS_PORT_F || pin < IGPIOSTATUS_PIN_0 || pin > IGPIOSTATUS_PIN_15)
     {
-        #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IGPIOStatus] Invalid port (%d) or pin (%d).\n", port, pin);
-        #endif
+#endif
         return GPIOSTATUS_UNKNOWN;
     }
 
-    /* Read the state */
-    cmGPIOpinState currentState = GPIOStateMap[port][pin];
-    #ifndef defined(STM32G431xx)
+    /* Call HAL function to get the actual pin state */
+    GPIOStateMap[port][pin] = IGPIOStatus_readPinState_HAL(port, pin);
+
+#ifndef STM32G431xx
     printf("[IGPIOStatus] Port %d, Pin %d state read: %d\n", port, pin, currentState);
-    #endif
-    return currentState;
+#endif
+
+    return GPIOStateMap[port][pin];
+}
+
+/**
+ * @brief Initializes GPIOStateMap with current HAL GPIO states.
+ * This function must be called at system startup.
+ */
+void IGPIOStatus_Init(void)
+{
+    for (IGPIOStatus_GPIOPort port = IGPIOSTATUS_PORT_A; port <= IGPIOSTATUS_PORT_F; port++)
+    {
+        for (IGPIOStatus_GPIOPin pin = IGPIOSTATUS_PIN_0; pin <= IGPIOSTATUS_PIN_15; pin++)
+        {
+            GPIOStateMap[port][pin] = IGPIOStatus_readPinState_HAL(port, pin);
+        }
+    }
 }

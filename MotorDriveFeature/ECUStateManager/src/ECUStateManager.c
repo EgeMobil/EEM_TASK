@@ -20,11 +20,8 @@
  */
 void ECUStateManager(void)
 {
-    for(int i = 0; i < 310; i++)
-    {
-        /* Infinite loop */
+        /* Use In - Infinite loop */
         ECU_StateMachine();
-    }
 }
 
 #define TEST_HALL_A_PORT ((dtInterruptHandlerManager_portName)EXTIRQ_PORTNAME_GPIOB)
@@ -48,78 +45,6 @@ void ECUStateManager(void)
  */
 void ECU_StateMachine(void) 
 {
-    /* @DELETE : SIL TEST */
-    
-    /**************************************/
-    if (systemStateCount == 120) 
-    {
-        BdrInterface.writeBdr(0x0101);
-    }
-    if (systemStateCount == 130) 
-    {
-        BdrInterface.writeBdr(0x0100);
-    }
-
-    if (systemStateCount == 10) 
-    {
-        SpeedInterface.writeSpeed(400);
-    }
-    else if(systemStateCount == 250) 
-    {
-        SpeedInterface.writeSpeed(0);
-    }
-
-    if (systemStateCount == 50) 
-    {
-        /* 1-0-0 changed into 1-1-0 */
-        ExternalInterruptInterface.writePortName(TEST_HALL_B_PORT);
-        ExternalInterruptInterface.writePinName(TEST_HALL_B_PIN);
-        ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
-        ECUStateManager_RunProcess(PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER);
-    }
-    if (systemStateCount == 100) 
-    {
-        /* 1-1-0 changed into 0-1-0 */
-        ExternalInterruptInterface.writePortName(TEST_HALL_A_PORT);
-        ExternalInterruptInterface.writePinName(TEST_HALL_A_PIN);
-        ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
-        ECUStateManager_RunProcess(PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER);
-    }
-    if (systemStateCount == 150) 
-    {
-        /* 0-1-0 changed into 0-1-1 */
-        ExternalInterruptInterface.writePortName(TEST_HALL_C_PORT);
-        ExternalInterruptInterface.writePinName(TEST_HALL_C_PIN);
-        ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
-        ECUStateManager_RunProcess(PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER);
-    }
-    if (systemStateCount == 200) 
-    {
-        /* 0-1-1 changed into 0-0-1 */
-        ExternalInterruptInterface.writePortName(TEST_HALL_B_PORT);
-        ExternalInterruptInterface.writePinName(TEST_HALL_B_PIN);
-        ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
-        ECUStateManager_RunProcess(PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER);
-    }
-    if (systemStateCount == 250) 
-    {
-        /* 0-0-1 changed into 1-0-1 */
-        ExternalInterruptInterface.writePortName(TEST_HALL_A_PORT);
-        ExternalInterruptInterface.writePinName(TEST_HALL_A_PIN);
-        ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_RISINGEDGE);
-        ECUStateManager_RunProcess(PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER);
-    }
-    if (systemStateCount == 300) 
-    {
-        /* 1-0-1 changed into 1-0-0 Back to the start state */
-        ExternalInterruptInterface.writePortName(TEST_HALL_C_PORT);
-        ExternalInterruptInterface.writePinName(TEST_HALL_C_PIN);
-        ExternalInterruptInterface.writeTriggerType(EXTIRQ_TRIGGERTYPE_FALLINGEDGE);
-        ECUStateManager_RunProcess(PROCESSSTATE_INTERRUPTHANDLERMANAGER_EXTERNALTRIGGER);
-    }
-
-    /**************************************/
-
     /* Sequence Count Increase for all step */
     systemStateCount++;
 

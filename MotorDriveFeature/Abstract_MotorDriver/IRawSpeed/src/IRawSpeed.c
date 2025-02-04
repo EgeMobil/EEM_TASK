@@ -20,7 +20,7 @@ IRawSpeed_StatusType IRawSpeed_writeRawSpeed_Impl(cmRawSpeedStatus rawSpeed)
 {
     // Example: Global constraints could be checked externally before calling this function.
     currentRawSpeed = rawSpeed;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IRawSpeed] Raw speed written: %u\n", rawSpeed);
 #endif
     return IRAWSPEED_OK;
@@ -32,7 +32,7 @@ IRawSpeed_StatusType IRawSpeed_writeRawSpeed_Impl(cmRawSpeedStatus rawSpeed)
  */
 cmRawSpeedStatus IRawSpeed_readRawSpeed_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IRawSpeed] Raw speed read: %u\n", currentRawSpeed);
 #endif
     return currentRawSpeed;

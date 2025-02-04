@@ -92,8 +92,7 @@ const char* GetProcessStateName(dtECUStateManager_processState state)
  */
 void ECUStateManager_toString(void)
 {
-#ifndef defined(STM32G431xx)
-
+#ifndef STM32G431xx
     printf("SysCount: %2d | Startup: %-10s | ECU_STATE: %-8s | REFRESH_STATE: %-30s | PROCESS_STATE: %-22s | \n",
            systemStateCount,
            GetStartupStateName(systemStartUp),

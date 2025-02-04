@@ -15,7 +15,7 @@
 FUNC(void, MotorDriverDcmProxy_ruRefresh)(void)
 {
     /* Get Singleton Instance */
-    dtMotorDriverDcmProxy* mdp = MotorDriverDcmProxy_GetInstance();
+    //dtMotorDriverDcmProxy* mdp = MotorDriverDcmProxy_GetInstance();
 
     // /* Read Errors from IF */
     // mdp->setBdrError( mdp->IMotorDriveError->readMotorDriveError().bdr );

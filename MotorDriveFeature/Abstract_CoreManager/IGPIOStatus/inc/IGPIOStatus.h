@@ -77,4 +77,9 @@ extern IGPIOStatus GPIOStatusInterface;
 IGPIOStatus_StatusType IGPIOStatus_writePinState_Impl(cmGPIOpinState pinState, IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
 cmGPIOpinState IGPIOStatus_readPinState_Impl(IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
 
+IGPIOStatus_StatusType IGPIOStatus_writePinState_HAL(cmGPIOpinState pinState, IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
+cmGPIOpinState IGPIOStatus_readPinState_HAL(IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
+
+void IGPIOStatus_Init(void);
+
 #endif /* IGPIOSTATUS_H_ */

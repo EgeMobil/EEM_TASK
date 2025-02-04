@@ -20,14 +20,14 @@ IIndicatorSpeedStatus_StatusType IIndicatorSpeedStatus_writeIndicatorSpeedStatus
 {
     if (status < INDICATORSPEEDSTATUS_IDLE || status > INDICATORSPEEDSTATUS_UNKNOWN)
     {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IIndicatorSpeedStatus] Invalid indicator speed status value: %d\n", status);
 #endif
         return IINDICATORSPEEDSTATUS_NOT_OK;
     }
 
     currentIndicatorSpeedStatus = status;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IIndicatorSpeedStatus] Indicator speed status written: %d\n", status);
 #endif
     return IINDICATORSPEEDSTATUS_OK;
@@ -39,7 +39,7 @@ IIndicatorSpeedStatus_StatusType IIndicatorSpeedStatus_writeIndicatorSpeedStatus
  */
 cmIndicatorSpeedStatus IIndicatorSpeedStatus_readIndicatorSpeedStatus_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IIndicatorSpeedStatus] Indicator speed status read: %d\n", currentIndicatorSpeedStatus);
 #endif
     return currentIndicatorSpeedStatus;

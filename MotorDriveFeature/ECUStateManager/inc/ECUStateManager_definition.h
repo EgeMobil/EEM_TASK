@@ -15,6 +15,14 @@
 
 #include "stdio.h"
 #include "stdint.h" 
+#include "string.h"
+#include "stdarg.h"
+#include "math.h"
+#include "stdlib.h"
+
+#define FUNC(returnType, functionName) returnType functionName
+#define max(a, b) ((a) > (b) ? (a) : (b))
+#define min(a, b) ((a) < (b) ? (a) : (b))
 
 #define SIL_INTEGRATION
 //#undef SIL_INTEGRATION

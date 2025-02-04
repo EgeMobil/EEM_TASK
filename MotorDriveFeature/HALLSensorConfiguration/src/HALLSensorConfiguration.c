@@ -27,7 +27,7 @@ static dtHALLSensorConfiguration instance;
 static void HALLSensorConfiguration_setHallAConfig_Impl(dtHALLAconfiguration config)
 {
     instance.hall_a = config;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall A configuration updated.\n");
 #endif
 }
@@ -41,7 +41,7 @@ static void HALLSensorConfiguration_setHallAConfig_Impl(dtHALLAconfiguration con
  */
 static dtHALLAconfiguration HALLSensorConfiguration_getHallAConfig_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Retrieving Hall A configuration.\n");
 #endif
     return instance.hall_a;
@@ -58,7 +58,7 @@ static dtHALLAconfiguration HALLSensorConfiguration_getHallAConfig_Impl(void)
 static void HALLSensorConfiguration_setHallBConfig_Impl(dtHALLBconfiguration config)
 {
     instance.hall_b = config;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall B configuration updated.\n");
 #endif
 }
@@ -72,7 +72,7 @@ static void HALLSensorConfiguration_setHallBConfig_Impl(dtHALLBconfiguration con
  */
 static dtHALLBconfiguration HALLSensorConfiguration_getHallBConfig_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Retrieving Hall B configuration.\n");
 #endif
     return instance.hall_b;
@@ -89,7 +89,7 @@ static dtHALLBconfiguration HALLSensorConfiguration_getHallBConfig_Impl(void)
 static void HALLSensorConfiguration_setHallCConfig_Impl(dtHALLCconfiguration config)
 {
     instance.hall_c = config;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall C configuration updated.\n");
 #endif
 }
@@ -103,7 +103,7 @@ static void HALLSensorConfiguration_setHallCConfig_Impl(dtHALLCconfiguration con
  */
 static dtHALLCconfiguration HALLSensorConfiguration_getHallCConfig_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Retrieving Hall C configuration.\n");
 #endif
     return instance.hall_c;
@@ -122,7 +122,7 @@ static dtHALLCconfiguration HALLSensorConfiguration_getHallCConfig_Impl(void)
 static void HALLSensorConfiguration_setHallAState_Impl(dtHALLSensorConfiguration_HallAStateStatus state)
 {
     instance.hall_a.status = state;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall A state updated: %d\n", state);
 #endif
 }
@@ -150,7 +150,7 @@ static dtHALLSensorConfiguration_HallAStateStatus HALLSensorConfiguration_getHal
 static void HALLSensorConfiguration_setHallARisingEdgeFlag_Impl(dtHALLSensorConfiguration_RisingEdgeAFlag flag)
 {
     instance.hall_a.re_flag = flag;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall A rising edge flag updated: %d\n", flag);
 #endif
 }
@@ -178,7 +178,7 @@ static dtHALLSensorConfiguration_RisingEdgeAFlag HALLSensorConfiguration_getHall
 static void HALLSensorConfiguration_setHallAFallingEdgeFlag_Impl(dtHALLSensorConfiguration_FallingEdgeAFlag flag)
 {
     instance.hall_a.fe_flag = flag;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall A falling edge flag updated: %d\n", flag);
 #endif
 }
@@ -208,7 +208,7 @@ static dtHALLSensorConfiguration_FallingEdgeAFlag HALLSensorConfiguration_getHal
 static void HALLSensorConfiguration_setHallBState_Impl(dtHALLSensorConfiguration_HallBStateStatus state)
 {
     instance.hall_b.status = state;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall B state updated: %d\n", state);
 #endif
 }
@@ -236,7 +236,7 @@ static dtHALLSensorConfiguration_HallBStateStatus HALLSensorConfiguration_getHal
 static void HALLSensorConfiguration_setHallBRisingEdgeFlag_Impl(dtHALLSensorConfiguration_RisingEdgeBFlag flag)
 {
     instance.hall_b.re_flag = flag;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall B rising edge flag updated: %d\n", flag);
 #endif
 }
@@ -264,7 +264,7 @@ static dtHALLSensorConfiguration_RisingEdgeBFlag HALLSensorConfiguration_getHall
 static void HALLSensorConfiguration_setHallBFallingEdgeFlag_Impl(dtHALLSensorConfiguration_FallingEdgeBFlag flag)
 {
     instance.hall_b.fe_flag = flag;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall B falling edge flag updated: %d\n", flag);
 #endif
 }
@@ -294,7 +294,7 @@ static dtHALLSensorConfiguration_FallingEdgeBFlag HALLSensorConfiguration_getHal
 static void HALLSensorConfiguration_setHallCState_Impl(dtHALLSensorConfiguration_HallCStateStatus state)
 {
     instance.hall_c.status = state;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall C state updated: %d\n", state);
 #endif
 }
@@ -322,7 +322,7 @@ static dtHALLSensorConfiguration_HallCStateStatus HALLSensorConfiguration_getHal
 static void HALLSensorConfiguration_setHallCRisingEdgeFlag_Impl(dtHALLSensorConfiguration_RisingEdgeCFlag flag)
 {
     instance.hall_c.re_flag = flag;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall C rising edge flag updated: %d\n", flag);
 #endif
 }
@@ -350,7 +350,7 @@ static dtHALLSensorConfiguration_RisingEdgeCFlag HALLSensorConfiguration_getHall
 static void HALLSensorConfiguration_setHallCFallingEdgeFlag_Impl(dtHALLSensorConfiguration_FallingEdgeCFlag flag)
 {
     instance.hall_c.fe_flag = flag;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[HALLSensorConfiguration] Hall C falling edge flag updated: %d\n", flag);
 #endif
 }

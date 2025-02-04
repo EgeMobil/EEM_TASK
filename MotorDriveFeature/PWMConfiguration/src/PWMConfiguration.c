@@ -133,14 +133,14 @@ dtPWMConfiguration* PWMConfiguration_GetInstance(void) { return &instance; }
 
 /** @brief Starts the PWM timer. */
 void PWMConfiguration_startTimer_Impl(void) { 
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("Timer started.\n");
     #endif
 }
 
 /** @brief Stops the PWM timer. */
 void PWMConfiguration_stopTimer_Impl(void) { 
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("Timer stopped.\n");
     #endif
 }
@@ -148,7 +148,7 @@ void PWMConfiguration_stopTimer_Impl(void) {
 /** @brief Sets the timer frequency. */
 void PWMConfiguration_setTimerFrequency_Impl(uint16_t value) {
     instance.frequency = value;
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("Frequency set to %u.\n", value);
     #endif
 }
@@ -156,7 +156,7 @@ void PWMConfiguration_setTimerFrequency_Impl(uint16_t value) {
 /** @brief Sets the timer duty cycle. */
 void PWMConfiguration_setTimerDutyCycle_Impl(uint16_t value) {
     instance.dutyCycle = value;
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("Duty cycle set to %u.\n", value);
     #endif
 }

@@ -300,7 +300,7 @@ void InterruptHandlerManager_setHALL_Impl(ihmHALLConfiguration config)
 void InterruptHandlerManager_setHallAPinState_Impl(dtInterruptHandlerManager_pinState state)
 {
     instance.hall_A = state;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[InterruptHandlerManager] Hall A pin state set to: %d\n", state);
 #endif
 }
@@ -308,7 +308,7 @@ void InterruptHandlerManager_setHallAPinState_Impl(dtInterruptHandlerManager_pin
 void InterruptHandlerManager_setHallBPinState_Impl(dtInterruptHandlerManager_pinState state)
 {
     instance.hall_B = state;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[InterruptHandlerManager] Hall B pin state set to: %d\n", state);
 #endif
 }
@@ -316,14 +316,14 @@ void InterruptHandlerManager_setHallBPinState_Impl(dtInterruptHandlerManager_pin
 void InterruptHandlerManager_setHallCPinState_Impl(dtInterruptHandlerManager_pinState state)
 {
     instance.hall_C = state;
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[InterruptHandlerManager] Hall C pin state set to: %d\n", state);
 #endif
 }
 
 dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallAPinState_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[InterruptHandlerManager] Hall A pin state retrieved: %d\n", instance.hall_A);
 #endif
     return instance.hall_A;
@@ -331,7 +331,7 @@ dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallAPinState_Impl
 
 dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallBPinState_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[InterruptHandlerManager] Hall B pin state retrieved: %d\n", instance.hall_B);
 #endif
     return instance.hall_B;
@@ -339,7 +339,7 @@ dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallBPinState_Impl
 
 dtInterruptHandlerManager_pinState InterruptHandlerManager_getHallCPinState_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[InterruptHandlerManager] Hall C pin state retrieved: %d\n", instance.hall_C);
 #endif
     return instance.hall_C;
@@ -692,17 +692,17 @@ char* InterruptHandlerManager_toString(void)
              "External IRQ:\n"
              "  Port: %s, Pin: %s, Trigger: %s\n"
              "Timer IRQ:\n"
-             "  ms: %d, sec: %d, min: %d, hour: %d, day: %d\n"
+             "  ms: %ld, sec: %d, min: %d, hour: %d, day: %d\n"
              "HALL:\n"
              "  HallA:\n"
              "    Status: %s, RisingEdgeFlag: %s, FallingEdgeFlag: %s\n"
-             "    RisingEdgeCount: %d, FallingEdgeCount: %d\n"
+             "    RisingEdgeCount: %ld, FallingEdgeCount: %ld\n"
              "  HallB:\n"
              "    Status: %s, RisingEdgeFlag: %s, FallingEdgeFlag: %s\n"
-             "    RisingEdgeCount: %d, FallingEdgeCount: %d\n"
+             "    RisingEdgeCount: %ld, FallingEdgeCount: %ld\n"
              "  HallC:\n"
              "    Status: %s, RisingEdgeFlag: %s, FallingEdgeFlag: %s\n"
-             "    RisingEdgeCount: %d, FallingEdgeCount: %d\n",
+             "    RisingEdgeCount: %ld, FallingEdgeCount: %ld\n",
              getStringFromPortName(instance.externalIrq.port),
              getStringFromPinName(instance.externalIrq.pin),
              getStringFromTriggerType(instance.externalIrq.trigger),

@@ -21,7 +21,7 @@ IIndicatorBdrStatus_StatusType IIndicatorBdrStatus_writeIndicatorBdrStatus_Impl(
     // Validate direction status
     if (status.directionStatus > DIRECTION_UNKNOWN)
     {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IIndicatorBdrStatus] Invalid direction status value: %d\n", status.directionStatus);
 #endif
         return IINDICATORBDRSTATUS_NOT_OK;
@@ -30,7 +30,7 @@ IIndicatorBdrStatus_StatusType IIndicatorBdrStatus_writeIndicatorBdrStatus_Impl(
     // Validate brake status
     if (status.brakeStatus > BRAKE_UNKNOWN)
     {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
         printf("[IIndicatorBdrStatus] Invalid brake status value: %d\n", status.brakeStatus);
 #endif
         return IINDICATORBDRSTATUS_NOT_OK;
@@ -39,7 +39,7 @@ IIndicatorBdrStatus_StatusType IIndicatorBdrStatus_writeIndicatorBdrStatus_Impl(
     // Set the current status
     currentIndicatorBdrStatus = status;
 
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IIndicatorBdrStatus] Indicator BDR status written: Direction = %d, Brake = %d\n",
            status.directionStatus, status.brakeStatus);
 #endif
@@ -53,7 +53,7 @@ IIndicatorBdrStatus_StatusType IIndicatorBdrStatus_writeIndicatorBdrStatus_Impl(
  */
 cmIndicatorBdrStatus IIndicatorBdrStatus_readIndicatorBdrStatus_Impl(void)
 {
-#ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IIndicatorBdrStatus] Indicator BDR status read: Direction = %d, Brake = %d\n",
            currentIndicatorBdrStatus.directionStatus, currentIndicatorBdrStatus.brakeStatus);
 #endif

@@ -26,7 +26,7 @@ static cmExtIrqTriggerType currentTriggerType = EXTIRQ_TRIGGERTYPE_UNKNOWN;
 IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmExtIrqPortName portName)
 {
     currentPortName = portName;
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IExternalInterrupt] Port name written: %d\n", portName);
     #endif
     return IEXTERNAL_INTERRUPT_OK;
@@ -38,7 +38,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writePortName_Impl(cmExtIrqPort
  */
 cmExtIrqPortName IExternalInterrupt_readPortName_Impl(void)
 {
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IExternalInterrupt] Port name read: %d\n", currentPortName);
     #endif
     return currentPortName;
@@ -52,7 +52,7 @@ cmExtIrqPortName IExternalInterrupt_readPortName_Impl(void)
 IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmExtIrqPinName pinName)
 {
     currentPinName = pinName;
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IExternalInterrupt] Pin name written: %d\n", pinName);
     #endif
     return IEXTERNAL_INTERRUPT_OK;
@@ -64,9 +64,9 @@ IExternalInterrupt_StatusType IExternalInterrupt_writePinName_Impl(cmExtIrqPinNa
  */
 cmExtIrqPinName IExternalInterrupt_readPinName_Impl(void)
 {
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IExternalInterrupt] Pin name read: %d\n", currentPinName);
-    #endif
+#endif
     return currentPinName;
 }
 
@@ -78,9 +78,9 @@ cmExtIrqPinName IExternalInterrupt_readPinName_Impl(void)
 IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmExtIrqTriggerType triggerType)
 {
     currentTriggerType = triggerType;
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IExternalInterrupt] Trigger type written: %d\n", triggerType);
-    #endif
+#endif
     return IEXTERNAL_INTERRUPT_OK;
 }
 
@@ -90,7 +90,7 @@ IExternalInterrupt_StatusType IExternalInterrupt_writeTriggerType_Impl(cmExtIrqT
  */
 cmExtIrqTriggerType IExternalInterrupt_readTriggerType_Impl(void)
 {
-    #ifndef defined(STM32G431xx)
+#ifndef STM32G431xx
     printf("[IExternalInterrupt] Trigger type read: %d\n", currentTriggerType);
     #endif
     return currentTriggerType;
