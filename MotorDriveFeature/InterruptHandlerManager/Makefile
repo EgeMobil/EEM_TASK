@@ -21,9 +21,10 @@ SRC = ./build/main.c \
 	  ../Abstract_CoreManager/IExternalInterruptStatus/src/IExternalInterruptStatus.c \
 	  ../Abstract_CoreManager/ITimerInterruptStatus/src/ITimerInterruptStatus.c \
 	  ../Abstract_CoreManager/IGPIOStatus/src/IGPIOStatus.c \
+	  ../Abstract_CoreManager/IGPIOStatus/src/IGPIOStatus_HAL_Impl.c \
 	  ./src/InterruptHandlerManager.c \
       ./src/InterruptHandlerManager_ruExternalTrigger.c \
-	  ./src/InterruptHandlerMAnager_ruInitialisation.c \
+	  ./src/InterruptHandlerManager_ruInitialisation.c \
       ./src/InterruptHandlerManager_ruTimerTrigger.c 
 
 OUT = ./build/main.exe

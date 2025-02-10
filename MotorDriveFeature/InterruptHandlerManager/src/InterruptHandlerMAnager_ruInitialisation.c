@@ -21,7 +21,7 @@
  * - Sets the initial pin states based on the GPIO status.
  * - Sends the initial pin states to the corresponding interfaces.
  */
-FUNC(void, InterruptHandlerMAnager_ruInitialisation)(void)
+FUNC(void, InterruptHandlerManager_ruInitialisation)(void)
 {
     dtInterruptHandlerManager_pinState currentPinState_A;
     dtInterruptHandlerManager_pinState currentPinState_B;

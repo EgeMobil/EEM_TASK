@@ -2,6 +2,10 @@
 CC = gcc
 CFLAGS = -I./inc \
 		 -I./build \
+		 -I../SpeedControlManager/inc\
+		 -I../Abstract_MotorDriver/IRawSpeed/inc\
+ 		 -I../Abstract_MotorDriver/IIndicatorSpeedStatus/inc \
+		 -I../Abstract_MotorDriver/ISpeedStatus/inc \
 		 -I../Abstract_MotorDriver \
 		 -I../Abstract_MotorDriver/IBrakeAndDirection/inc \
 		 -I../Abstract_MotorDriver/IBrakeStatus/inc \
@@ -14,6 +18,14 @@ SRC = ./build/main.c \
       ./src/BrakeAndDirectionManager.c \
       ./src/BrakeAndDirectionManager_ruInitialisation.c \
       ./src/BrakeAndDirectionManager_ruRefresh.c \
+	  ../Abstract_MotorDriver/IIndicatorSpeedStatus/src/IIndicatorSpeedStatus.c\
+	  ../Abstract_MotorDriver/ISpeedStatus/src/ISpeedStatus.c\
+	  ../Abstract_MotorDriver/IRawSpeed/src/IRawSpeed.c\
+	  ../SpeedControlManager/src/SpeedControlManager.c \
+	  ../SpeedControlManager/src/SpeedControlManager_ruInitialisation.c \
+	  ../SpeedControlManager/src/SpeedControlManager_ruBrakeUpdate.c \
+	  ../SpeedControlManager/src/SpeedControlManager_ruUpdate.c \
+	  ../SpeedControlManager/src/SpeedControlManager_ruRefresh.c \
       ../Abstract_MotorDriver/IBrakeAndDirection/src/IBrakeAndDirection.c \
 	  ../Abstract_MotorDriver/IBrakeStatus/src/IBrakeStatus.c \
 	  ../Abstract_MotorDriver/IDirectionStatus/src/IDirectionStatus.c
@@ -30,4 +42,3 @@ $(OUT): $(SRC)
 # Temizlik
 clean:
 	if exist build\*.exe del /Q build\*.exe
-

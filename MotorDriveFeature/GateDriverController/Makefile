@@ -4,6 +4,7 @@ CFLAGS = -I../Abstract_SmartGateDriver \
 		 -I../Abstract_SmartGateDriver/IDRV8353/inc \
 		 -I./inc \
 		 -I./build \
+		 -I../ECUStateManager/inc \
 		 -Wall -Wextra -g
 
 # Kaynak dosyalar ve çıktı dosyası
