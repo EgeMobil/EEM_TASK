@@ -1,0 +1,18 @@
+var searchData=
+[
+  ['gatedrivercontroller_5fctor_0',['GateDriverController_CTOR',['../_gate_driver_controller__private_8h.html#a5dbd532eee9a70e2ef5cb06f11edb3c0',1,'GateDriverController_CTOR(void):&#160;GateDriverController.c'],['../_gate_driver_controller__public_8h.html#a5dbd532eee9a70e2ef5cb06f11edb3c0',1,'GateDriverController_CTOR(void):&#160;GateDriverController.c'],['../_gate_driver_controller_8c.html#a5dbd532eee9a70e2ef5cb06f11edb3c0',1,'GateDriverController_CTOR(void):&#160;GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetdrivercontrol_5fimpl_1',['GateDriverController_getDriverControl_Impl',['../_gate_driver_controller_8c.html#a1445caaa4dcf6cfec43601b925c4bf92',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetfaultreg1_5fimpl_2',['GateDriverController_getFaultReg1_Impl',['../_gate_driver_controller_8c.html#a6836bf976a1df724df7c787dd4f57dff',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetgatedrivehs_5fimpl_3',['GateDriverController_getGateDriveHS_Impl',['../_gate_driver_controller_8c.html#a164c818741ee7d8b821b15e4fb6ca576',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetgatedrivels_5fimpl_4',['GateDriverController_getGateDriveLS_Impl',['../_gate_driver_controller_8c.html#ae4d41713aa9cc94885f7434bd992f58b',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetinstance_5',['GateDriverController_GetInstance',['../_gate_driver_controller__private_8h.html#af77f703a4d002b14b2e658ecca3736f8',1,'GateDriverController_GetInstance(void):&#160;GateDriverController.c'],['../_gate_driver_controller__public_8h.html#af77f703a4d002b14b2e658ecca3736f8',1,'GateDriverController_GetInstance(void):&#160;GateDriverController.c'],['../_gate_driver_controller_8c.html#af77f703a4d002b14b2e658ecca3736f8',1,'GateDriverController_GetInstance(void):&#160;GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetocpcontrol_5fimpl_6',['GateDriverController_getOCPControl_Impl',['../_gate_driver_controller_8c.html#a0d4e47f1f44235c76ba099c2c8d4e450',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fgetvgsstatus_5fimpl_7',['GateDriverController_getVgsStatus_Impl',['../_gate_driver_controller_8c.html#a14ae6397301cb26fc6f97bcda6b83485',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fsetdrivercontrol_5fimpl_8',['GateDriverController_setDriverControl_Impl',['../_gate_driver_controller_8c.html#a40af72d0d8761b6723f495a78b9798ec',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fsetfaultreg1_5fimpl_9',['GateDriverController_setFaultReg1_Impl',['../_gate_driver_controller_8c.html#a800131ba4847826e3dd991174480f977',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fsetgatedrivehs_5fimpl_10',['GateDriverController_setGateDriveHS_Impl',['../_gate_driver_controller_8c.html#a87238c8e55d9dc702347cd9324b4c9f0',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fsetgatedrivels_5fimpl_11',['GateDriverController_setGateDriveLS_Impl',['../_gate_driver_controller_8c.html#ab741de90f1e5aeae67c2451335eb43fb',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fsetocpcontrol_5fimpl_12',['GateDriverController_setOCPControl_Impl',['../_gate_driver_controller_8c.html#a879baecca6632c4562282425fa79388b',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5fsetvgsstatus_5fimpl_13',['GateDriverController_setVgsStatus_Impl',['../_gate_driver_controller_8c.html#aee4fe98d10ffdc709ad7696d04246b75',1,'GateDriverController.c']]],
+  ['gatedrivercontroller_5ftostring_14',['GateDriverController_toString',['../_gate_driver_controller_8c.html#a90ea93ef3c78d3492ac126b076cc1aed',1,'GateDriverController.c']]]
+];
