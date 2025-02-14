@@ -2,7 +2,7 @@
 
 void tcMotorDriverControlManager(void)
 {
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("MotorDriverControlManager \n");
     #endif
 
@@ -13,13 +13,13 @@ void tcMotorDriverControlManager(void)
     dtMotorDriverControlManager* manager = MotorDriverControlManager_GetInstance();
 
     /* Read MotorDriverControlManager Status before Initialisation */
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[PRE-INIT] %s \n", manager->toString());
     #endif
 
     MotorDriverControlManager_ruInitialisation();
 
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[POST-INIT] %s \n", manager->toString());
     #endif
 
@@ -28,7 +28,7 @@ void tcMotorDriverControlManager(void)
 
     MotorDriverControlManager_ruRefresh();
 
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[REFRESH:1] %s \n", manager->toString());
     #endif
 
@@ -37,7 +37,7 @@ void tcMotorDriverControlManager(void)
 
     MotorDriverControlManager_ruRefresh();
 
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[REFRESH:2] %s \n", manager->toString());
     #endif
 }

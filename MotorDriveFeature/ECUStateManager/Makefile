@@ -66,7 +66,6 @@ SRC = ./build/main.c \
 	  \
 	  ../Abstract_CoreManager/IExternalInterruptStatus/src/IExternalInterruptStatus.c \
       ../Abstract_CoreManager/IGPIOStatus/src/IGPIOStatus.c \
-	  ../Abstract_CoreManager/IGPIOStatus/src/IGPIOStatus_HAL_Impl.c \
       ../Abstract_CoreManager/ITimerInterruptStatus/src/ITimerInterruptStatus.c \
 	  \
 	  ../Abstract_VehComManager/IBdr/src/IBdr.c \

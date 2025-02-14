@@ -21,7 +21,7 @@
  * - Sets the initial pin states based on the GPIO status.
  * - Sends the initial pin states to the corresponding interfaces.
  */
-FUNC(void, InterruptHandlerManager_ruInitialisation)(void)
+FUNC(void, InterruptHandlerMAnager_ruInitialisation)(void)
 {
     dtInterruptHandlerManager_pinState currentPinState_A;
     dtInterruptHandlerManager_pinState currentPinState_B;
@@ -29,6 +29,9 @@ FUNC(void, InterruptHandlerManager_ruInitialisation)(void)
 
     /* Get Singleton Instance */
     dtInterruptHandlerManager* ihm = InterruptHandlerManager_GetInstance();
+
+    /* Start Timer IRQ Here */
+    ihm->ITimerInterruptStatus->startTimer();
 
     /* Read GPIO Status */
     currentPinState_A = ihm->IGPIOStatus->readPinState(HALL_A_PORT, HALL_A_PIN);

@@ -222,27 +222,12 @@ void GateDriverController_CTOR(void)
     instance.toString = GateDriverController_toString;
 
     /* Initialize Attributes to Default Values */
-    instance.faultReg1.word = 0x0000;
-    instance.vgsStatus.word = 0x0000;
-    instance.driverControl.word = 0x0000;
-
-    /* GateDriveHS default configuration */
-    instance.gateDriveHS.control_bits.LOCK = 0b011;
-    instance.gateDriveHS.control_bits.IDRIVEP_HS = 0b1111;
-    instance.gateDriveHS.control_bits.IDRIVEN_HS = 0b1111;
-
-    /* GateDriveLS default configuration */
-    instance.gateDriveLS.control_bits.CBC = 0b1;
-    instance.gateDriveLS.control_bits.TDRIVE = 0b11;
-    instance.gateDriveLS.control_bits.IDRIVEP_LS = 0b1111;
-    instance.gateDriveLS.control_bits.IDRIVEN_LS = 0b1111;
-
-    /* OCPControl default configuration */
-    instance.ocpControl.control_bits.TRETRY = 0b0;
-    instance.ocpControl.control_bits.DEAD_TIME = 0b01;
-    instance.ocpControl.control_bits.OCP_MODE = 0b01;
-    instance.ocpControl.control_bits.OCP_DEG = 0b10;
-    instance.ocpControl.control_bits.VDS_LVL = 0b1101; // Default 1.0 V
+    instance.faultReg1.word = 0;
+    instance.vgsStatus.word = 0;
+    instance.driverControl.word = 0;
+    instance.gateDriveHS.word = 0;
+    instance.gateDriveLS.word = 0;
+    instance.ocpControl.word = 0;
 }
 
 /**

@@ -2,7 +2,7 @@
 
 void tcMotorDriverDcmProxy(void)
 {
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("MotorDriverDcmProxy \n");
     #endif
 
@@ -13,7 +13,7 @@ void tcMotorDriverDcmProxy(void)
     dtMotorDriverDcmProxy* manager = MotorDriverDcmProxy_GetInstance();
 
     /* Read MotorDriverDcmProxy before collect errors */
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[PRE-COLLECT] %s \n", manager->toString());
     #endif
 
@@ -29,7 +29,7 @@ void tcMotorDriverDcmProxy(void)
     MotorDriverDcmProxy_ruCollect();
 
     /* Read MotorDriverDcmProxy after collect errors */
-    #ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[COLLECTED] %s \n", manager->toString());
     #endif
 

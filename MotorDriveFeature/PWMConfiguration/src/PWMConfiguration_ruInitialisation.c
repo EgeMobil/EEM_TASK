@@ -43,7 +43,27 @@ FUNC(void, PWMConfiguration_ruInitialisation)(void)
     
     /* Read and set initial direction and brake status */
     pwmc->setBrakeStatus( pwmc->IBrakeStatus->readBrake() );
+    /* Handle Brake Logic */
+    if ( pwmc->getBrakeStatus() == BRAKE_STATUS_ENABLE)
+    {
+        /* Set Brake Pin Low for Full Brake */
+        pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_RESET, BRAKE_OUTPUT_PORT, BRAKE_OUTPUT_PIN);
+    }
+    else
+    {
+        /* Release Brake Pin High */
+        pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_SET, BRAKE_OUTPUT_PORT, BRAKE_OUTPUT_PIN);
+    }
+
     pwmc->setDirectionStatus( pwmc->IDirectionStatus->readDirection() );
+    if (pwmc->getDirectionStatus() == DIRECTION_STATUS_FORWARD)
+    {
+        pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_SET, DIRECTION_OUTPUT_PORT, DIRECTION_OUTPUT_PIN);
+    }
+    else
+    {
+        pwmc->IGPIOStatus->writePinState(GPIOSTATUS_PIN_RESET, DIRECTION_OUTPUT_PORT, DIRECTION_OUTPUT_PIN);
+    }
     
     /* Read and set initial speed status, ensuring it starts at 0 */
     pwmc->setSpeedStatus( pwmc->ISpeedStatus->readSpeedStatus() );

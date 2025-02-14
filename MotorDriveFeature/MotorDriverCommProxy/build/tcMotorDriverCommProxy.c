@@ -2,9 +2,9 @@
 
 void tcMotorDriverCommProxy(void)
 {
-#ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf(" MotorDriverCommProxy \n");
-#endif
+    #endif
 
     /* CTOR */
     MotorDriverCommProxy_CTOR();
@@ -12,9 +12,9 @@ void tcMotorDriverCommProxy(void)
     /* Get Singleton Instance For Test */
     dtMotorDriverCommProxy* manager = MotorDriverCommProxy_GetInstance();
 
-#ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[BEFORE UPDATE] %s \n", manager->toString());
-#endif
+    #endif
 
     cmIndicatorBdrStatus bdrTest;
     bdrTest.brakeStatus = BRAKE_DISABLE;
@@ -26,9 +26,9 @@ void tcMotorDriverCommProxy(void)
 
     MotorDriverCommProxy_ruUpdateIndicator();
 
-#ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[INDICATOR UPDATE] %s \n", manager->toString());
-#endif
+    #endif
 
     //@LATER
     //WheelSpeedInterface.writeWheelSpeed(1500);
@@ -38,7 +38,7 @@ void tcMotorDriverCommProxy(void)
     /* Send Comm Manager Test */
     MotorDriverCommProxy_ruRefresh();
 
-#ifndef STM32G4xx
+    #ifndef defined(STM32G431xx)
     printf("[AFTER UPDATE] %s \n", manager->toString());
-#endif
+    #endif
 }

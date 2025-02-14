@@ -111,8 +111,9 @@ cmGPIOpinState IGPIOStatus_readPinState_Impl(IGPIOStatus_GPIOPort port, IGPIOSta
     GPIOStateMap[port][pin] = IGPIOStatus_readPinState_HAL(port, pin);
 
 #ifndef STM32G431xx
-   printf("[IGPIOStatus] Port %d, Pin %d state read: %d\n", port, pin, GPIOStateMap[port][pin]);
+    printf("[IGPIOStatus] Port %d, Pin %d state read: %d\n", port, pin, currentState);
 #endif
+
     return GPIOStateMap[port][pin];
 }
 

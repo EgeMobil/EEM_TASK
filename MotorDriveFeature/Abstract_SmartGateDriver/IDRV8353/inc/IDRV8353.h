@@ -3,6 +3,8 @@
 
 #include "Abstract_SmartGateDriver.h"
 
+#include "drv8353.h"
+
 /**
  * @brief Status type for the IDRV8353 interface.
  */
@@ -37,7 +39,6 @@ typedef struct
 
     /* Complex Device Driver Access */
     void (*Init)(void);
-    uint16_t (*Transaction)(uint16_t DataOut);
     uint16_t (*Read)(uint8_t reg_addr);
     uint16_t (*Write)(uint8_t reg_addr, uint16_t reg_value);
     uint8_t (*SetGain)(uint8_t gain);
@@ -73,7 +74,6 @@ cmOCPControl IDRV8353_readOCPControl_Impl(void);
 
 /* Function Prototypes for Complex Device Driver Access */
 void DRV8353_Init_Impl(void);
-uint16_t DRV8353_Transaction_Impl(uint16_t DataOut);
 uint16_t DRV8353_Read_Impl(uint8_t reg_addr);
 uint16_t DRV8353_Write_Impl(uint8_t reg_addr, uint16_t reg_value);
 uint8_t DRV8353_SetGain_Impl(uint8_t gain);
@@ -83,5 +83,19 @@ uint8_t DRV8353_GetVDSLimit_Impl(void);
 uint8_t DRV8353_SetGateStrength_Impl(uint32_t strength);
 uint32_t DRV8353_GetGateStrength_Impl(void);
 void DRV8353_SetCalibration_Impl(uint8_t channel);
+
+#ifdef STM32G431xx
+IDRV8353_StatusType IDRV8353_Init_HAL(void);
+uint16_t IDRV8353_ReadRegister_HAL(uint8_t reg_addr);
+IDRV8353_StatusType IDRV8353_WriteRegister_HAL(uint8_t reg_addr, uint16_t reg_value);
+IDRV8353_StatusType IDRV8353_SetGain_HAL(DRV_Gain gain);
+DRV_Gain IDRV8353_GetGain_HAL(void);
+IDRV8353_StatusType IDRV8353_SetVDSLimit_HAL(DRV_VDS_Limit limit);
+DRV_VDS_Limit IDRV8353_GetVDSLimit_HAL(void);
+IDRV8353_StatusType IDRV8353_SetGateStrength_HAL(uint32_t strength);
+uint32_t IDRV8353_GetGateStrength_HAL(void);
+void IDRV8353_SetCalibration_HAL(uint8_t channel);
+#endif
+
 
 #endif /* IDRV8353_H_ */

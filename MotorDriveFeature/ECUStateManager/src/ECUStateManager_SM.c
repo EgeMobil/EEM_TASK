@@ -49,6 +49,29 @@ dtECUStateManager_refreshState REFRESH_STATE = REFRESHSTATE_UNKNOWN;
 dtECUStateManager_processState PROCESS_STATE = PROCESSSTATE_UNKNOWN;
 
 /**
+ * @brief Time variables for tracking last execution time of each routine (in ms).
+ */
+static uint32_t lastGateDriverUpdate = 0;
+static uint32_t lastMotorDriverUpdate = 0;
+static uint32_t lastBrakeDirectionUpdate = 0;
+static uint32_t lastSpeedControlUpdate = 0;
+static uint32_t lastPwmConfigUpdate = 0;
+static uint32_t lastCommProxyUpdate = 0;
+static uint32_t lastDcmProxyUpdate = 0;
+
+/**
+ * @brief Defined update periods (in milliseconds) for each routine.
+ */
+#define PERIOD_GATEDRIVERCONTROLLER      1000  /**< Gate driver SPI communication update */
+#define PERIOD_MOTORDRIVERCONTROLMANAGER 100    /**< Motor driver speed, brake, and direction handling */
+#define PERIOD_BRAKEANDDIRECTIONMANAGER  100    /**< Brake and direction handling */
+#define PERIOD_SPEEDCONTROLMANAGER       100    /**< Speed control update */
+#define PERIOD_PWMCONFIGURATION          100    /**< PWM duty cycle updates */
+#define PERIOD_MOTORDRIVERCOMMPROXY      100  /**< Motor driver communication updates */
+#define PERIOD_MOTORDRIVERDCMPROXY       500  /**< Error reporting */
+
+
+/**
  * @brief Handles the startup state and transitions between startup phases.
  * 
  * This function manages the different phases of the startup process:
@@ -121,81 +144,100 @@ void HandleInitState(void)
     systemStartUp = STARTUP_POST_INIT;
     ECU_STATE = ECUSTATE_STARTUP;
 }
-
+uint32_t testA =0;
+uint32_t testB =0;
+uint32_t testC =0;
+uint32_t testD =0;
+uint32_t testE =0;
+uint32_t testF =0;
+uint32_t testG =0;
 /**
- * @brief Handles the routine operation state.
- * 
- * This function manages the routine operations of the ECU, including refreshing components
- * like the gate driver, motor driver, and other interfaces.
+ * @brief Handles routine execution based on pre-defined time intervals.
+ *
+ * This function ensures that each system component is updated at
+ * the correct time intervals to optimize performance and reduce CPU load.
  */
 void HandleRoutineState(void)
 {
-    // Handling ROUTINE state
+    uint32_t currentTime = TimerInterruptInterface.readMillisecond(); /**< Retrieve the current system time (in ms) */
+
+    /** Update Gate Driver Controller at defined period (10ms) */
+    if ((currentTime - lastGateDriverUpdate) >= PERIOD_GATEDRIVERCONTROLLER) {
+    	REFRESH_STATE = REFRESHSTATE_GATEDRIVERCONTROLLER;
+        GateDriverController_ruRefresh();
+        lastGateDriverUpdate = currentTime;testA++;
+    }
+
+    /** Update Motor Driver Control Manager at defined period (5ms) */
+    if ((currentTime - lastMotorDriverUpdate) >= PERIOD_MOTORDRIVERCONTROLMANAGER) {
+    	REFRESH_STATE = REFRESHSTATE_MOTORDRIVERCONTROLMANAGER;
+        MotorDriverControlManager_ruRefresh();
+        lastMotorDriverUpdate = currentTime;testB++;
+    }
+
+    /** Update Brake and Direction Manager at defined period (5ms) */
+    if ((currentTime - lastBrakeDirectionUpdate) >= PERIOD_BRAKEANDDIRECTIONMANAGER) {
+    	REFRESH_STATE = REFRESHSTATE_BRAKEANDDIRECTIONMANAGER;
+        BrakeAndDirectionManager_ruRefresh();
+        lastBrakeDirectionUpdate = currentTime;testC++;
+    }
+
+    /** Update Speed Control Manager at defined period (2ms) */
+    if ((currentTime - lastSpeedControlUpdate) >= PERIOD_SPEEDCONTROLMANAGER) {
+    	REFRESH_STATE = REFRESHSTATE_SPEEDCONTROLMANAGER;
+        SpeedControlManager_ruRefresh();
+        lastSpeedControlUpdate = currentTime;testD++;
+    }
+
+    /** Update PWM Configuration at defined period (2ms) */
+    if ((currentTime - lastPwmConfigUpdate) >= PERIOD_PWMCONFIGURATION) {
+    	REFRESH_STATE = REFRESHSTATE_PWMCONFIGURATION;
+        PWMConfiguration_ruRefresh();
+        lastPwmConfigUpdate = currentTime;testE++;
+    }
+
+    /** Update Motor Driver Communication Proxy at defined period (10ms) */
+    if ((currentTime - lastCommProxyUpdate) >= PERIOD_MOTORDRIVERCOMMPROXY) {
+    	REFRESH_STATE = REFRESHSTATE_MOTORDRIVERCOMMPROXY;
+        MotorDriverCommProxy_ruRefresh();
+        lastCommProxyUpdate = currentTime;testF++;
+    }
+
+    /** Update Motor Driver DCM Proxy (Error Reporting) at defined period (20ms) */
+    if ((currentTime - lastDcmProxyUpdate) >= PERIOD_MOTORDRIVERDCMPROXY) {
+    	REFRESH_STATE = REFRESHSTATE_MOTORDRIVERDCMPROXY;
+        MotorDriverDcmProxy_ruRefresh();
+        lastDcmProxyUpdate = currentTime;testG++;
+    }
+
+    /** Handle additional system states */
     switch (REFRESH_STATE) {
-        case REFRESHSTATE_GATEDRIVERCONTROLLER:
-            // Refreshing Gate Driver Controller
-            GateDriverController_ruRefresh();
-            break;
-
-        case REFRESHSTATE_MOTORDRIVERCONTROLMANAGER:
-            // Refreshing Motor Driver Control Manager
-            MotorDriverControlManager_ruRefresh();
-            break;
-
-        case REFRESHSTATE_BRAKEANDDIRECTIONMANAGER:
-            // Refreshing Brake and Direction Manager
-            BrakeAndDirectionManager_ruRefresh();
-            break;
-
-        case REFRESHSTATE_SPEEDCONTROLMANAGER:
-            // Refreshing Speed Control Manager
-            SpeedControlManager_ruRefresh();
-            break;
-
-        case REFRESHSTATE_PWMCONFIGURATION:
-            // Refreshing PWM Configuration
-            PWMConfiguration_ruRefresh();
-            break;
-
-        case REFRESHSTATE_MOTORDRIVERCOMMPROXY:
-            // Refreshing Motor Driver Communication Proxy
-            MotorDriverCommProxy_ruRefresh();
-            break;
-
-        case REFRESHSTATE_MOTORDRIVERDCMPROXY:
-            // Refreshing Motor Driver DCM Proxy
-            MotorDriverDcmProxy_ruRefresh();
-            break;
-
         case REFRESHSTATE_ANALOGREAD:
-            // Performing Analog Read
+            /** Perform analog data reading */
+
+        	REFRESH_STATE = REFRESHSTATE_COMMUNICATION;
             break;
 
         case REFRESHSTATE_COMMUNICATION:
-            // Performing Communication Refresh
+            /** Perform communication refresh */
+
+        	/* Final system state */
+        	REFRESH_STATE = REFRESHSTATE_DEFAULT;
             break;
 
         case REFRESHSTATE_SUSPEND:
-            // System is in SUSPEND state
-            // Suspend operations
+            /** System is in SUSPEND mode */
             break;
 
         case REFRESHSTATE_DEFAULT:
-            // Resetting REFRESH_STATE to REFRESHSTATE_GATEDRIVERCONTROLLER
-            REFRESH_STATE = REFRESHSTATE_GATEDRIVERCONTROLLER;
+            /** Reset REFRESH_STATE to the default state */
+            REFRESH_STATE = REFRESHSTATE_ANALOGREAD;
             break;
 
         default:
-            // Invalid REFRESH_STATE detected
-            // Default to first routine, analog reading
-            REFRESH_STATE = REFRESHSTATE_DEFAULT; 
+            /** Invalid REFRESH_STATE detected, resetting to default */
+            REFRESH_STATE = REFRESHSTATE_DEFAULT;
             break;
-    }
-
-    // Move to next state
-    REFRESH_STATE++;
-    if (REFRESH_STATE > REFRESHSTATE_COMMUNICATION) {
-        REFRESH_STATE = REFRESHSTATE_GATEDRIVERCONTROLLER; // Complete the loop and restart
     }
 }
 
@@ -229,6 +271,7 @@ void HandleProcessState(void)
             HALLSensorConfiguration_ruUpdateA();
             HALLSensorConfiguration_ruUpdateB();
             HALLSensorConfiguration_ruUpdateC();
+            ECUStateManager_RunProcess(PROCESSSTATE_PWMCONFIGURATION_UPDATE);
             break;
 
         case PROCESSSTATE_PWMCONFIGURATION_UPDATE:

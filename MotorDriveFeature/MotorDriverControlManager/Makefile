@@ -2,15 +2,11 @@
 CC = gcc
 CFLAGS = -I./inc \
          -I./build \
-         -I../SpeedControlManager/inc \
-         -I../Abstract_MotorDriver/IRawSpeed/inc\
-         -I../Abstract_MotorDriver/IIndicatorSpeedStatus/inc \
-         -I../Abstract_MotorDriver/ISpeedStatus/inc \
          -I../Abstract_VehComManager \
          -I../Abstract_VehComManager/ISpeed/inc \
          -I../Abstract_VehComManager/IBdr/inc \
          -I../Abstract_MotorDriver \
-         -I../Abstract_MotorDriver/IBrakeStatus/inc \
+         -I../Abstract_MotorDriver/IRawSpeed/inc \
          -I../Abstract_MotorDriver/IBrakeAndDirection/inc \
          -Wall -Wextra -g
 

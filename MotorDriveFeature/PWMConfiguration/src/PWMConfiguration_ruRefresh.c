@@ -43,6 +43,8 @@ FUNC(void, PWMConfiguration_ruRefresh)(void)
 
     /* Current Speed (0-1000 scaled to duty cycle) */
     uint16_t currentSpeed = pwmc->getSpeedStatus();
+    /* Set current speed as a duty cycle */
+    pwmc->setTimerDutyCycle(currentSpeed);
 
     /* Handle Brake Logic */
     if ( pwmc->getBrakeStatus() == BRAKE_STATUS_ENABLE)

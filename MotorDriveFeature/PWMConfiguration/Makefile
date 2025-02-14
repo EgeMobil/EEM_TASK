@@ -19,7 +19,6 @@ SRC = ./build/main.c \
 	  ../Abstract_MotorDriver/IBrakeStatus/src/IBrakeStatus.c \
 	  ../Abstract_MotorDriver/IDirectionStatus/src/IDirectionStatus.c \
 	  ../Abstract_CoreManager/IGPIOStatus/src/IGPIOStatus.c \
-	  ../Abstract_CoreManager/IGPIOStatus/src/IGPIOStatus_HAL_Impl.c \
 	  ./src/PWMConfiguration.c \
 	  ./src/PWMConfiguration_ruInitialisation.c \
 	  ./src/PWMConfiguration_ruUpdate.c \
@@ -32,6 +31,7 @@ all: $(OUT)
 # Çıktı dosyasını oluşturma
 $(OUT): $(SRC)
 	$(CC) $(CFLAGS) -o $(OUT) $(SRC)
+
 # Temizlik
 clean:
 	if exist build\*.exe del /Q build\*.exe

@@ -59,7 +59,15 @@ FUNC(void, SpeedControlManager_ruRefresh)(void)
         else if (scm->config.currentSpeed > scm->config.targetSpeed)
         {
             // Speed decrease
-            scm->config.currentSpeed -= speedStep;
+        	if( scm->config.currentSpeed >= speedStep)
+        	{
+        		scm->config.currentSpeed -= speedStep;
+        	}
+        	else
+        	{
+        		scm->config.currentSpeed = 0;
+        	}
+
             if (scm->config.currentSpeed < scm->config.targetSpeed)
             {
                 scm->config.currentSpeed = scm->config.targetSpeed; // Prevent undershooting target speed

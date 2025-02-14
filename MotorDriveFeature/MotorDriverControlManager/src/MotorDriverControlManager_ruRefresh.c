@@ -35,6 +35,6 @@ FUNC(void, MotorDriverControlManager_ruRefresh)(void)
     mdc->IBrakeAndDirection->writeBrake(mdc->getBrakeStatus()); /**< Write the brake status to the motor driver */
 
     /* Call Speed Update Event */
-    MotorDriverControlManager_ruRefresh(); /**< Update the speed control manager */
+    SpeedControlManager_ruUpdate(); /**< Update the speed control manager */
 }
 

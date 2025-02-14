@@ -77,8 +77,11 @@ extern IGPIOStatus GPIOStatusInterface;
 IGPIOStatus_StatusType IGPIOStatus_writePinState_Impl(cmGPIOpinState pinState, IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
 cmGPIOpinState IGPIOStatus_readPinState_Impl(IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
 
+#ifdef STM32G431xx
+/* HAL Prototypes */
 IGPIOStatus_StatusType IGPIOStatus_writePinState_HAL(cmGPIOpinState pinState, IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
 cmGPIOpinState IGPIOStatus_readPinState_HAL(IGPIOStatus_GPIOPort port, IGPIOStatus_GPIOPin pin);
+#endif
 
 void IGPIOStatus_Init(void);
 

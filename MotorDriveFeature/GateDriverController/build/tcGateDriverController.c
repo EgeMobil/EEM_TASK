@@ -2,7 +2,7 @@
 
 void tcGateDriverController(void)
 {
-#ifndef STM32G4xx
+#ifndef defined(STM32G431xx)
     printf("[GateDriverController] \n");
 #endif
 
@@ -13,13 +13,13 @@ void tcGateDriverController(void)
     dtGateDriverController* manager = GateDriverController_GetInstance();
 
     /* Read GateDriverController Status before Initialisation */
-#ifndef STM32G4xx
+#ifndef defined(STM32G431xx)
     printf("[PRE-INIT] %s \n", manager->toString());
 #endif
 
     GateDriverController_ruInitialisation();
 
-#ifndef STM32G4xx
+#ifndef defined(STM32G431xx)
     printf("[POST-INIT] %s \n", manager->toString());
 #endif
 
@@ -27,7 +27,7 @@ void tcGateDriverController(void)
     {
         GateDriverController_ruRefresh();
 
-#ifndef STM32G4xx
+#ifndef defined(STM32G431xx)
         printf("[%d] %s \n", i, manager->toString());
 #endif
     }

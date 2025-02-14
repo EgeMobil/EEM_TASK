@@ -4,6 +4,8 @@
  * @brief Instance of the ITimerInterruptStatus interface.
  */
 ITimerInterruptStatus TimerInterruptInterface = {
+	.startTimer = ITimerInterrupt_startTimer_Impl,
+	.stopTimer = ITimerInterrupt_stopTimer_Impl,
     .writeMillisecond = ITimerInterrupt_writeMillisecond_Impl,
     .readMillisecond = ITimerInterrupt_readMillisecond_Impl,
     .writeSecond = ITimerInterrupt_writeSecond_Impl,
@@ -22,6 +24,48 @@ static cmSecond currentSecond = 0;
 static cmMinute currentMinute = 0;
 static cmHour currentHour = 0;
 static cmDay currentDay = 0;
+
+
+/**
+ * @brief Starts the timer interrupt.
+ *
+ * This function enables and starts the configured timer interrupt.
+ *
+ * @return Status of the operation:
+ *         - `ITIMER_INTERRUPT_OK` if the operation was successful.
+ *         - `ITIMER_INTERRUPT_NOT_OK` if there was an issue.
+ */
+ITimerInterrupt_StatusType ITimerInterrupt_startTimer_Impl(void)
+{
+	ITimerInterrupt_StatusType status = ITimerInterrupt_startTimer_HAL();
+
+#ifndef STM32G431xx
+    printf("[ITimerInterrupt] Timer Interrupt Started! \n");
+#endif
+
+    return status;
+}
+
+/**
+ * @brief Stops the timer interrupt.
+ *
+ * This function disables the timer interrupt.
+ *
+ * @return Status of the operation:
+ *         - `ITIMER_INTERRUPT_OK` if the operation was successful.
+ *         - `ITIMER_INTERRUPT_NOT_OK` if there was an issue.
+ */
+ITimerInterrupt_StatusType ITimerInterrupt_stopTimer_Impl(void)
+{
+	ITimerInterrupt_StatusType status = ITimerInterrupt_stopTimer_HAL();
+
+#ifndef STM32G431xx
+    printf("[ITimerInterrupt] Timer Interrupt Stopped \n");
+#endif
+
+    return status;
+
+}
 
 /**
  * @brief Implementation for writing the millisecond value.

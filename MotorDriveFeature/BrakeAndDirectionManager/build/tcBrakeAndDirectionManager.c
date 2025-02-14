@@ -2,7 +2,7 @@
 
 void tcBrakeAndDirectionManager(void)
 {
-#ifndef STM32G431xx
+#ifndef defined(STM32G431xx)
     printf("BrakeAndDirectionManager \n");
 #endif
 
@@ -13,7 +13,7 @@ void tcBrakeAndDirectionManager(void)
     dtBrakeAndDirectionManager* manager = BrakeAndDirectionManager_GetInstance();
 
     /* Read BrakeAndDirectionManager Status before Initialisation */
-#ifndef STM32G431xx
+#ifndef defined(STM32G431xx)
     printf("[PRE-INIT] %s \n", manager->toString());
 #endif
 
@@ -21,14 +21,14 @@ void tcBrakeAndDirectionManager(void)
     BrakeAndDirectionManager_ruInitialistaion();
 
     /* Read BrakeAndDirectionManager Status after Initialisation */
-#ifndef STM32G431xx
+#ifndef defined(STM32G431xx)
     printf("[POST-INIT] %s \n", manager->toString());
 #endif
 
     /* Call BrakeAndDirectionManager ruRefresh 5 iteration */
     for(uint8_t i = 0; i < 25; i++)
     {
-#ifndef STM32G431xx
+#ifndef defined(STM32G431xx)
         printf("[ruRefresh iteration = %d ]\n", i);
 #endif
 
@@ -66,10 +66,10 @@ void tcBrakeAndDirectionManager(void)
             BrakeAndDirectionInterface.writeDirection(DIRECTION_FORWARD);
         }
 
-        BrakeAndDirectionManager_ruRefresh();
+        BrakeAndDirectionManager_ruUpdate();
         
         /* Print BrakeAndDirectionManager After ruUpdate */
-#ifndef STM32G431xx
+#ifndef defined(STM32G431xx)
         printf("[%d] %s \n", i, manager->toString());
 #endif
     }       

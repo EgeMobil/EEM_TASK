@@ -16,6 +16,11 @@
 #include "ECUStateManager_definition.h"
 
 /**
+ * @brief ECU state variable.
+ */
+extern dtECUStateManager_ecuState ECU_STATE;
+
+/**
  * @brief Public variable for system startup state.
  */
 extern dtECUStateManager_startUp systemStartUp;

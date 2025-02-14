@@ -81,6 +81,36 @@ void PWMConfiguration_setBrakeStatus_Impl(dtPWMConfiguration_brakeStatusType val
 /** @brief Gets the brake status. */
 dtPWMConfiguration_brakeStatusType PWMConfiguration_getBrakeStatus_Impl(void) { return instance.brake; }
 
+/** @brief Sets the Step A configuration. */
+void PWMConfiguration_setStepA_Impl(dtPWMConfiguration_pwmStep value) {
+    instance.stepA = value;
+}
+
+/** @brief Gets the Step A configuration. */
+dtPWMConfiguration_pwmStep PWMConfiguration_getStepA_Impl(void) {
+    return instance.stepA;
+}
+
+/** @brief Sets the Step B configuration. */
+void PWMConfiguration_setStepB_Impl(dtPWMConfiguration_pwmStep value) {
+    instance.stepB = value;
+}
+
+/** @brief Gets the Step B configuration. */
+dtPWMConfiguration_pwmStep PWMConfiguration_getStepB_Impl(void) {
+    return instance.stepB;
+}
+
+/** @brief Sets the Step C configuration. */
+void PWMConfiguration_setStepC_Impl(dtPWMConfiguration_pwmStep value) {
+    instance.stepC = value;
+}
+
+/** @brief Gets the Step C configuration. */
+dtPWMConfiguration_pwmStep PWMConfiguration_getStepC_Impl(void) {
+    return instance.stepC;
+}
+
 /** @brief Converts the PWM configuration to a string representation. */
 const char* PWMConfiguration_toString_Impl(void)
 {
@@ -118,6 +148,13 @@ void PWMConfiguration_CTOR(void)
     instance.getBrakeStatus = PWMConfiguration_getBrakeStatus_Impl;
     instance.toString = PWMConfiguration_toString_Impl;
 
+    instance.setStepA = PWMConfiguration_setStepA_Impl;
+    instance.getStepA = PWMConfiguration_getStepA_Impl;
+	instance.setStepB = PWMConfiguration_setStepB_Impl;
+	instance.getStepB = PWMConfiguration_getStepB_Impl;
+	instance.setStepC = PWMConfiguration_setStepC_Impl;
+	instance.getStepC = PWMConfiguration_getStepC_Impl;
+
     instance.startTimer = PWMConfiguration_startTimer_Impl;
     instance.stopTimer = PWMConfiguration_stopTimer_Impl;
     instance.setTimerFrequency = PWMConfiguration_setTimerFrequency_Impl;
@@ -135,14 +172,18 @@ dtPWMConfiguration* PWMConfiguration_GetInstance(void) { return &instance; }
 void PWMConfiguration_startTimer_Impl(void) { 
 #ifndef STM32G431xx
     printf("Timer started.\n");
-    #endif
+#else
+    (void)instance.IPwmStep->startTimer();
+#endif
 }
 
 /** @brief Stops the PWM timer. */
 void PWMConfiguration_stopTimer_Impl(void) { 
 #ifndef STM32G431xx
     printf("Timer stopped.\n");
-    #endif
+#else
+    (void)instance.IPwmStep->stopTimer();
+#endif
 }
 
 /** @brief Sets the timer frequency. */
@@ -150,7 +191,9 @@ void PWMConfiguration_setTimerFrequency_Impl(uint16_t value) {
     instance.frequency = value;
 #ifndef STM32G431xx
     printf("Frequency set to %u.\n", value);
-    #endif
+#else
+    (void)instance.IPwmStep->setFrequency(value);
+#endif
 }
 
 /** @brief Sets the timer duty cycle. */
@@ -158,5 +201,7 @@ void PWMConfiguration_setTimerDutyCycle_Impl(uint16_t value) {
     instance.dutyCycle = value;
 #ifndef STM32G431xx
     printf("Duty cycle set to %u.\n", value);
-    #endif
+#else
+    (void)instance.IPwmStep->setDutyCycle(value);
+#endif
 }

@@ -25,4 +25,6 @@ FUNC(void, InterruptHandlerManager_ruTimerTrigger)(void)
 
     /* Read time and update the timer IRQ */
     ihm->getTimerIrq().setMillisecond(ihm->ITimerInterruptStatus->readMillisecond());
+
+    /* Time base-event management here */
 }

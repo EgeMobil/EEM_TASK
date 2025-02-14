@@ -84,8 +84,8 @@ typedef enum
     REFRESHSTATE_DEFAULT
 } dtRefreshState;
 
-/**
- * @brief Alias for refresh state.
+/* @brief Alias for refresh state.
+**
  */
 typedef dtRefreshState dtECUStateManager_refreshState;
 

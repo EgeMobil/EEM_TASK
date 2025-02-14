@@ -31,7 +31,6 @@ IDRV8353 DRV8353Interface = {
 
     /* Complex Device Driver Access */
     .Init = DRV8353_Init_Impl,
-    .Transaction = DRV8353_Transaction_Impl,
     .Read = DRV8353_Read_Impl,
     .Write = DRV8353_Write_Impl,
     .SetGain = DRV8353_SetGain_Impl,
@@ -163,84 +162,96 @@ void DRV8353_Init_Impl(void)
 {
 #ifndef STM32G431xx
     printf("[IDRV8353] Initialization performed.\n");
+#else
+    DRV8353_Init();
 #endif
-}
-
-uint16_t DRV8353_Transaction_Impl(uint16_t DataOut)
-{
-#ifndef STM32G431xx
-    printf("[IDRV8353] Transaction with DataOut: 0x%04X\n", DataOut);
-#endif
-    return DataOut; // Simulate a transaction returning the same data
 }
 
 uint16_t DRV8353_Read_Impl(uint8_t reg_addr)
 {
 #ifndef STM32G431xx
-    printf("[IDRV8353] Read from register addr: 0x%02X value is 0x7FF for test \n", reg_addr);
+    printf("[IDRV8353] Read from register addr: 0x%02X, returning 0x07FF for test\n", reg_addr);
+    return 0x07FF; // Simulated value
+#else
+    return DRV8353_Read(reg_addr);
 #endif
-    return 0x7FF; // Simulate reading the maximum possible value
 }
 
 uint16_t DRV8353_Write_Impl(uint8_t reg_addr, uint16_t reg_value)
 {
 #ifndef STM32G431xx
     printf("[IDRV8353] Write to register: 0x%02X, Value: 0x%04X\n", reg_addr, reg_value);
+    return reg_value;
+#else
+    return DRV8353_Write(reg_addr, reg_value);
 #endif
-    return reg_value; // Simulate writing and returning the written value
 }
 
 uint8_t DRV8353_SetGain_Impl(uint8_t gain)
 {
 #ifndef STM32G431xx
     printf("[IDRV8353] Gain set to: %d\n", gain);
-#endif
     return gain;
+#else
+    return (DRV8353_SetGain((DRV_Gain)gain) == RETVAL_OK) ? IDRV8353_OK : IDRV8353_NOT_OK;
+#endif
 }
 
 uint8_t DRV8353_GetGain_Impl(void)
 {
 #ifndef STM32G431xx
-    printf("[IDRV8353] Gain retrieved.\n");
+    printf("[IDRV8353] Gain retrieved, returning test value 0x01.\n");
+    return 0x01;
+#else
+    return DRV8353_GetGain();
 #endif
-    return 0x01; // Simulate a gain value
 }
 
 uint8_t DRV8353_SetVDSLimit_Impl(uint8_t lmt)
 {
 #ifndef STM32G431xx
     printf("[IDRV8353] VDS Limit set to: %d\n", lmt);
-#endif
     return lmt;
+#else
+    return (DRV8353_SetVDSLimit((DRV_VDS_Limit)lmt) == RETVAL_OK) ? IDRV8353_OK : IDRV8353_NOT_OK;
+#endif
 }
 
 uint8_t DRV8353_GetVDSLimit_Impl(void)
 {
 #ifndef STM32G431xx
-    printf("[IDRV8353] VDS Limit retrieved.\n");
+    printf("[IDRV8353] VDS Limit retrieved, returning test value 0x02.\n");
+    return 0x02;
+#else
+    return DRV8353_GetVDSLimit();
 #endif
-    return 0x02; // Simulate a limit value
 }
 
 uint8_t DRV8353_SetGateStrength_Impl(uint32_t strength)
 {
 #ifndef STM32G431xx
     printf("[IDRV8353] Gate strength set to: %u\n", strength);
-#endif
     return 0x01; // Simulate success
+#else
+    return (DRV8353_SetGateStrength(strength) == RETVAL_OK) ? IDRV8353_OK : IDRV8353_NOT_OK;
+#endif
 }
 
 uint32_t DRV8353_GetGateStrength_Impl(void)
 {
 #ifndef STM32G431xx
-    printf("[IDRV8353] Gate strength retrieved.\n");
+    printf("[IDRV8353] Gate strength retrieved, returning test value 0x01.\n");
+    return 0x01;
+#else
+    return DRV8353_GetGateStrength();
 #endif
-    return 0x01; // Simulate a gate strength value
 }
 
 void DRV8353_SetCalibration_Impl(uint8_t channel)
 {
 #ifndef STM32G431xx
     printf("[IDRV8353] Calibration set for channel: %d\n", channel);
+#else
+    DRV8353_SetCalibration(channel);
 #endif
 }

@@ -18,6 +18,18 @@ typedef enum
 typedef struct
 {
     /**
+     * @brief Starts the timer interrupt.
+     * @return Status of the operation.
+     */
+    ITimerInterrupt_StatusType (*startTimer)(void);
+
+    /**
+     * @brief Stops the timer interrupt.
+     * @return Status of the operation.
+     */
+    ITimerInterrupt_StatusType (*stopTimer)(void);
+
+    /**
      * @brief Write the millisecond value for timer interrupt configuration.
      * @param millisecond Millisecond value to write.
      * @return Status of the operation.
@@ -89,6 +101,28 @@ typedef struct
 extern ITimerInterruptStatus TimerInterruptInterface;
 
 /* Function prototypes */
+
+/**
+ * @brief Starts the timer interrupt.
+ *
+ * This function enables and starts the configured timer interrupt.
+ *
+ * @return Status of the operation:
+ *         - `ITIMER_INTERRUPT_OK` if the operation was successful.
+ *         - `ITIMER_INTERRUPT_NOT_OK` if there was an issue.
+ */
+ITimerInterrupt_StatusType ITimerInterrupt_startTimer_Impl(void);
+
+/**
+ * @brief Stops the timer interrupt.
+ *
+ * This function disables the timer interrupt.
+ *
+ * @return Status of the operation:
+ *         - `ITIMER_INTERRUPT_OK` if the operation was successful.
+ *         - `ITIMER_INTERRUPT_NOT_OK` if there was an issue.
+ */
+ITimerInterrupt_StatusType ITimerInterrupt_stopTimer_Impl(void);
 
 /**
  * @brief Writes the millisecond value for timer interrupt configuration.
@@ -194,6 +228,11 @@ ITimerInterrupt_StatusType ITimerInterrupt_writeDay_Impl(cmDay day);
  * @return The current day value of type `cmDay`.
  */
 cmDay ITimerInterrupt_readDay_Impl(void);
+
+#ifdef STM32G431xx
+ITimerInterrupt_StatusType ITimerInterrupt_startTimer_HAL(void);
+ITimerInterrupt_StatusType ITimerInterrupt_stopTimer_HAL(void);
+#endif
 
 
 #endif /* ITIMER_INTERRUPT_STATUS_H_ */
