@@ -2,7 +2,7 @@
 
 void tcPWMConfiguration(void)
 {
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[PWMConfiguration]\n");
     #endif
 
@@ -13,7 +13,7 @@ void tcPWMConfiguration(void)
     dtPWMConfiguration* manager = PWMConfiguration_GetInstance();
 
     /* Read PWMConfiguration before Initialisation */
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[PRE-INIT] %s \n", manager->toString());
     #endif
 
@@ -31,7 +31,7 @@ void tcPWMConfiguration(void)
     PWMConfiguration_ruInitialisation();
 
     /* Read PWMConfiguration Status after Initialisation */
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[POST-INIT] %s \n", manager->toString());
     #endif
 
@@ -52,7 +52,7 @@ void tcPWMConfiguration(void)
 
     for (uint8_t step = 0; step < 6; step++)
     {
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("[TEST] Applying Step %d: A=%d, B=%d, C=%d\n",
                step + 1,
                sixStepSequence[step][0],
@@ -69,7 +69,7 @@ void tcPWMConfiguration(void)
         PWMConfiguration_ruUpdate();
 
         /* Read Configuration Status After Update */
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("[POST-UPDATE - Step %d] %s \n", step + 1, manager->toString());
         #endif
     }

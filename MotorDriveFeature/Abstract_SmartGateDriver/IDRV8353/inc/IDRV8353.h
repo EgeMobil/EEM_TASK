@@ -2,9 +2,9 @@
 #define IDRV8353_H_
 
 #include "Abstract_SmartGateDriver.h"
-
+#ifdef STM32G4xx
 #include "drv8353.h"
-
+#endif
 /**
  * @brief Status type for the IDRV8353 interface.
  */

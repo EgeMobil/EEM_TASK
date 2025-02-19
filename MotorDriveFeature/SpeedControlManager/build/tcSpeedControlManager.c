@@ -2,7 +2,7 @@
 
 void tcSpeedControlManager(void)
 {
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("SpeedControlManager\n");
     #endif
 
@@ -13,14 +13,14 @@ void tcSpeedControlManager(void)
     dtSpeedControlManager* scm = SpeedControlManager_GetInstance();
     if (scm == NULL)
     {
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("Error: SpeedControlManager_GetInstance returned NULL.\n");
         #endif
         return;
     }
 
     // Init öncesi toString okuma
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[PRE-INIT] %s\n", scm->toString());
     #endif
 
@@ -28,7 +28,7 @@ void tcSpeedControlManager(void)
     SpeedControlManager_ruInitialisation();
 
     // Init sonrası toString okuma
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[POST-INIT] %s\n", scm->toString());
     #endif
 
@@ -38,19 +38,19 @@ void tcSpeedControlManager(void)
     // Hedef hızın normalize edildiğini kontrol et
     SpeedControlManager_ruUpdate();
 
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[UPDATE] Target Speed (Normalized): %d\n", scm->config.targetSpeed);
     #endif
 
     // Hızlanma testleri
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[TEST] Starting acceleration  test...\n");
     #endif
 
     for (uint8_t i = 0; i < 100; i++) // 100 iterasyon örnek olarak seçildi
     {
         SpeedControlManager_ruRefresh(); // Hız güncelleme işlemi
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("[Iteration %d] %s \n", i, scm->toString());
         #endif
 
@@ -65,25 +65,25 @@ void tcSpeedControlManager(void)
     }
 
     // Yavaşlama testi
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[TEST] Starting  deceleration test...\n");
     #endif
     // Yeni bir test: hedef hızı düşür ve tekrar kontrol et
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[TEST] Reducing target speed...\n");
     #endif
     scm->IRawSpeed->writeRawSpeed(1024); // Yeni hedef hız ayarla (örneğin, 1024)
 
     SpeedControlManager_ruUpdate();
     
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[UPDATE] New Target Speed (Normalized): %d\n", scm->config.targetSpeed);
     #endif
 
     for (uint8_t i = 0; i < 100; i++)
     {
         SpeedControlManager_ruRefresh(); // Hız güncelleme işlemi
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("[Iteration %d] %s \n", i, scm->toString());
         #endif
     }

@@ -104,7 +104,7 @@ cmPwmStep IPwmStep_readPwmStepB_Impl(void);
 IPwmStep_StatusType IPwmStep_writePwmStepC_Impl(cmPwmStep pwmStepC);
 cmPwmStep IPwmStep_readPwmStepC_Impl(void);
 
-#ifdef STM32G431xx
+#ifndef STM32G431xx
 /* HAL Prototypes */
 IPwmStep_StatusType IPwmStep_writePwmStepA_HAL(cmPwmStep pwmStepA);
 IPwmStep_StatusType IPwmStep_writePwmStepB_HAL(cmPwmStep pwmStepB);

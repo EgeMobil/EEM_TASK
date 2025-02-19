@@ -2,7 +2,7 @@
 
 void tcMotorDriverCommProxy(void)
 {
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf(" MotorDriverCommProxy \n");
     #endif
 
@@ -12,7 +12,7 @@ void tcMotorDriverCommProxy(void)
     /* Get Singleton Instance For Test */
     dtMotorDriverCommProxy* manager = MotorDriverCommProxy_GetInstance();
 
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[BEFORE UPDATE] %s \n", manager->toString());
     #endif
 
@@ -26,7 +26,7 @@ void tcMotorDriverCommProxy(void)
 
     MotorDriverCommProxy_ruUpdateIndicator();
 
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[INDICATOR UPDATE] %s \n", manager->toString());
     #endif
 
@@ -38,7 +38,7 @@ void tcMotorDriverCommProxy(void)
     /* Send Comm Manager Test */
     MotorDriverCommProxy_ruRefresh();
 
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[AFTER UPDATE] %s \n", manager->toString());
     #endif
 }

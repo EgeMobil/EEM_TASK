@@ -2,7 +2,7 @@
 
 void tcInterruptHandlerManager(void)
 {
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("InterruptHandlerManager \n");
     #endif
 
@@ -13,7 +13,7 @@ void tcInterruptHandlerManager(void)
     dtInterruptHandlerManager* manager = InterruptHandlerManager_GetInstance();  
 
     /* Read InterruptHandlerManager Status before Initialisation */
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[PRE-INIT] %s \n", manager->toString());
     #endif
 
@@ -21,9 +21,9 @@ void tcInterruptHandlerManager(void)
     GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_B, IGPIOSTATUS_PIN_7);
     GPIOStatusInterface.writePinState(GPIOSTATUS_PIN_RESET, IGPIOSTATUS_PORT_A, IGPIOSTATUS_PIN_5);
 
-    InterruptHandlerManager_ruInitialisation();
+    InterruptHandlerMAnager_ruInitialisation();
 
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("[POST-INIT] %s \n", manager->toString());
     #endif
 
@@ -40,7 +40,7 @@ void tcInterruptHandlerManager(void)
 
     for (int step = 0; step < 6; step++)
     {
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("\nStep %d: Hall Code: %s\n", step + 1, hall_codes[step]);
         #endif
 
@@ -151,12 +151,12 @@ void tcInterruptHandlerManager(void)
         }
 
         // Print state after each step
-        #ifndef defined(STM32G431xx)
+        #ifndef STM32G4xx
         printf("%s \n", manager->toString());
         #endif
     }
 
-    #ifndef defined(STM32G431xx)
+    #ifndef STM32G4xx
     printf("Six-Step Commutation Test Completed.\n");
     #endif
 
