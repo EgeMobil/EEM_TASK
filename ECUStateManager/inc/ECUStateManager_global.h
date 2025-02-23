@@ -4,10 +4,29 @@
 /* MCU BsW - Low level layer 
 -#include "stm32g4xx.h"
 */
-#include "stdio.h"
-#include "stdint.h"
+
+#include "ECUStateManager_public.h"
 
 #define FUNC(returnType, functionName) returnType functionName
+
+/******ECU State Manager Process Handling***********/
+void ECUStateManager_RunProcess(dtECUStateManager_processState processState);
+
+/****************************************************/
+
+/* Monotony Type Definition */
+/**
+ * @brief Defines the monotony type for constraints.
+ * - MONOTONY_NONE: No monotony constraint.
+ * - MONOTONY_INCREASING: Values must increase.
+ * - MONOTONY_DECREASING: Values must decrease.
+ */
+typedef enum
+{
+    MONOTONY_NONE,          /**< No monotony constraint. */
+    MONOTONY_INCREASING,    /**< Values must increase monotonically. */
+    MONOTONY_DECREASING     /**< Values must decrease monotonically. */
+} MonotonyType;
 
 /**************External Driver Include****************/
 /*
