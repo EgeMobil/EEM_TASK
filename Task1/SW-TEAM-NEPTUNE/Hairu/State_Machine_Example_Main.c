@@ -4,8 +4,8 @@
 
 
 /*
-Problem Analysis: When a smoke is detected the system shall turn on alarm and make a call to a fire department
-
+Problem Analysis: When a smoke is detected the system shall turn on alarm and make a call to a fire department 
+ 
 States:
 1. IDLE
 2. SMOKE_DETECT
