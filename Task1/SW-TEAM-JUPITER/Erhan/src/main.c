@@ -13,6 +13,8 @@
 
 int main()
 {
+    elevatorControlSystem_init();
+    
     while(1)
     {
         elevatorControlSystem();
