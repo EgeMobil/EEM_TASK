@@ -16,42 +16,42 @@ void elevatorControlSystem(void)
     switch (state_machine_step)
     {
         case SM_ELEVATOR_WAIT:
-            printf("asansör beklemede kullanmak için lütfen enter tuşuna basiniz.\n");
+            printf("The elevator is waiting. Please press the Enter key to use it.\n");
             getchar();
             while (getchar() != '\n');
             state_machine_step = SM_ELEVATOR_ENTERING_DOOR_OPENING;
         break;
-
+    
         case SM_ELEVATOR_ENTERING_DOOR_OPENING:
-            printf("kapi aciliyor ve yolcular biniyor\n");
+            printf("The door is opening, and passengers are boarding.\n");
             state_machine_step = SM_ELEVATOR_FLOOR_SELECTION;
         break;
-
+    
         case SM_ELEVATOR_FLOOR_SELECTION:
-            printf("kat seçimi yapabilirsiniz\n");
-            scanf("%d",&floor_selection);
-            if(floor_selection == Before_floor_selection)
+            printf("You can select a floor.\n");
+            scanf("%d", &floor_selection);
+            if (floor_selection == Before_floor_selection)
             {
-                printf("zaten o kattasınız\n");
+                printf("You are already on this floor.\n");
                 state_machine_step = SM_ELEVATOR_FLOOR_SELECTION;
                 break;
             }
             Before_floor_selection = floor_selection;
             state_machine_step = SM_ELEVATOR_MOVEMENT;
-        break;
-
+            break;
+    
         case SM_ELEVATOR_MOVEMENT:
-            printf("asansor hareket ediyor\n");
+            printf("The elevator is moving.\n");
             state_machine_step = SM_ELEVATOR_EXITING_DOOR_OPENING;
         break;
-
+    
         case SM_ELEVATOR_EXITING_DOOR_OPENING:
-            printf("asansör %d'ye ulaştı kapi aciliyor ve yolcular iniyor\n", floor_selection);
+            printf("The elevator has arrived at floor %d. The door is opening, and passengers are exiting.\n", floor_selection);
             state_machine_step = SM_ELEVATOR_WAIT;
         break;
     
         default:
-            printf("beklenmedik bir hata gerçekleşti\n");
+            printf("An unexpected error has occurred.\n");
         break;
     }
 }

@@ -2,10 +2,12 @@
 #include <unistd.h>
 #include "elevatorControlSystem.h"
 
-// asansör konrol sistemi sistemi başlatmak için öncelikle enter tuşuna basmalısınız sonrasında gitmeniz gereken katı girmelisiniz 
-// asansörün giriş tuşunu enter olarak düşündüm
-// eğer aynı katı girerseniz bir kez daha girmenizi istemektedir
-// sistemi daha iyi görebilmemiz için 100 ms bekleme konulmuştur
+// Asansör kontrol sistemini başlatmak için öncelikle Enter tuşuna basmanız gerekmektedir. Bu tuş, asansörün giriş komutu olarak düşünülmüştür. 
+// Sistemi başlattıktan sonra, gitmek istediğiniz kat numarasını girmelisiniz.
+// Eğer bulunduğunuz katı tekrar girerseniz, sistem sizden geçerli bir kat numarası girmenizi isteyecektir. 
+// Bu, yanlış girişleri önlemek ve sistemin daha doğru çalışmasını sağlamak için eklenmiştir.
+// Ayrıca, sistemin çalışma sürecini daha iyi gözlemleyebilmek adına her işlemin ardından 100 ms bekleme süresi eklenmiştir. 
+// Bu kısa gecikme, sistemin akışını daha net görmenizi sağlayacaktır.
 
 
 
