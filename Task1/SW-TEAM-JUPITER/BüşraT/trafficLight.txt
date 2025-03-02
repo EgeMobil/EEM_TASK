@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <unistd.h> // sleep() fonksiyonu için
+
+// Durumları temsil eden enum
+typedef enum {
+    RED,    // Kırmızı ışık: Araçlar durur, yayalar geçebilir
+    YELLOW, // Sarı ışık: Araçlar hazırlık yapar, yayalar bekler
+    GREEN   // Yeşil ışık: Araçlar geçer, yayalar bekler
+} TrafficLightState;
+
+void printState(TrafficLightState state) {
+    switch (state) {
+        case RED:
+            printf("Trafik ışığı: KIRMIZI - Araçlar DURUR, Yayalar GEÇEBİLİR.\n");
+            break;
+        case YELLOW:
+            printf("Trafik ışığı: SARI - Araçlar HAZIRLANIYOR, Yayalar BEKLEMELİ.\n");
+            break;
+        case GREEN:
+            printf("Trafik ışığı: YEŞİL - Araçlar GEÇEBİLİR, Yayalar BEKLEMELİ.\n");
+            break;
+    }
+}
+
+int main() {
+    TrafficLightState currentState = RED; // Başlangıç durumu KIRMIZI (yayalar geçebilir)
+
+    while (1) {
+        printState(currentState);
+
+        // Duruma göre bekleme süreleri (saniye cinsinden)
+        switch (currentState) {
+            case RED:
+                sleep(5); // Kırmızı ışıkta 5 saniye bekle
+                currentState = YELLOW;
+                break;
+            case YELLOW:
+                sleep(2); // Sarı ışıkta 2 saniye bekle
+                currentState = GREEN;
+                break;
+            case GREEN:
+                sleep(5); // Yeşil ışıkta 5 saniye bekle
+                currentState = RED;
+                break;
+        }
+    }
+
+    return 0;
+}
