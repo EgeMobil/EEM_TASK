@@ -10,8 +10,8 @@ void* mymemcpy(void* vpdest, const void* vpsource, int n)
     while(n--)
     {
         *pdest = *psource;
-        *pdest++;
-        *psource++;
+        *(pdest++);
+        *(psource++);
     }
     return vpdest;
 }
