@@ -1,0 +1,94 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>  
+
+// PIR sensör durumları 
+#define PIR_SENSOR_ACTIVE 1  // Hareket algılandı
+#define PIR_SENSOR_IDLE   0  // Hareket yok
+
+// Zaman aşımı süresi 
+#define TIMEOUT_DURATION 5  
+
+// State machine enum tanımı
+typedef enum {
+    IDLE_STATE,        // Bekleme
+    MOTION_DETECTED,   // Hareket algılandı
+    LIGHT_ON,          // LED açıldı
+    TIMEOUT            // Zaman aşımı
+} LightState;
+
+
+LightState currentState = IDLE_STATE;
+int ledState = 0;  // LED'in durumu (0: Kapalı, 1: Açık)
+time_t startTime;
+int iterations =10;
+
+// PIR sensöründen gelen değeri okuyan fonksiyon
+int readPIRSensor() {
+     
+    return rand() % 2;  // 0 ya da 1 
+}
+
+// LED'in durumunu güncelleyen fonksiyon
+void setLED(int state) {
+    ledState = state; // Değişkeni güncelleme
+}
+
+// State machine güncelleme
+void updateState() {
+    int sensorInput = readPIRSensor();  // PIR sensöründen veriyi oku
+
+    switch (currentState) {
+        case IDLE_STATE:
+            if (sensorInput == PIR_SENSOR_ACTIVE) {
+                printf(" Hareket Algılandı! LED Açılıyor...\n");
+                setLED(1);  // LED açılır (ledState = 1)
+                startTime = time(NULL);  // Zamanlayıcıyı başlat
+                currentState = MOTION_DETECTED;
+            }
+            break;
+
+        case MOTION_DETECTED:
+            if (sensorInput == PIR_SENSOR_IDLE) {
+                currentState = LIGHT_ON;
+            } else {
+                startTime = time(NULL);  // Yeni hareket algılanırsa zamanlayıcı sıfırlanır
+            }
+            break;
+
+        case LIGHT_ON:
+            if ((time(NULL) - startTime) >= TIMEOUT_DURATION) {
+                printf(" Zaman Aşımı! LED Kapanıyor...\n");
+                setLED(0);  // LED kapanır (ledState = 0)
+                currentState = TIMEOUT;
+            }
+            break;
+
+        case TIMEOUT:
+            if (sensorInput == PIR_SENSOR_ACTIVE) {
+                printf(" Tekrar Hareket Algılandı! LED Açılıyor...\n");
+                setLED(1);  // LED açılır (ledState = 1)
+                startTime = time(NULL);
+                currentState = MOTION_DETECTED;
+            } else {
+                currentState = IDLE_STATE;
+            }
+            break;
+    }
+}
+
+
+int main() {
+    printf("Akıllı LED Aydınlatma Sistemi Başlatıldı\n");
+    srand(time(NULL));
+
+    for (int i = 0; i < iterations; i++) {
+        
+        updateState();
+        sleep(1);
+    }
+
+    printf("Program Sonlandı.\n");
+    return 0;
+}
