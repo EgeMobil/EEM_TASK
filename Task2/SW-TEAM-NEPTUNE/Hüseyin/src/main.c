@@ -16,7 +16,7 @@ int main(void) {
         add2Buffer();
         float avgTemp = getAvgTemp();
 
-        printf("\rTemperature: %.2f°C\t|\tAverage: %.2f°C   ", getTemp(), avgTemp);
+        printf("\033[2K\rTemperature: %.2f°C\t|\tAverage: %.2f°C", getTemp(), avgTemp);
         fflush(stdout);
         
         msleep(1000);
