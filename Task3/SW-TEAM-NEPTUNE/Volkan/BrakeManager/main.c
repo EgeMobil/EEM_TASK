@@ -3,7 +3,10 @@
 int main(){
     
     BrakeManager_ruInit();
-    BrakeManager_ruUpdateSelf();
-    BrakeManager_ruControl();
+ 
+    while(1){
+    	BrakeManager_ruUpdateSelf();
+    	BrakeManager_ruControl();
+    }
 
 }
