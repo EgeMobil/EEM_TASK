@@ -3,9 +3,9 @@ CC = gcc
 CFLAGS = -I./inc  -I./build  -Wall -Wextra -g
 
 # Source and output files
-SRC = ./build/main.c ./src/acceleration_control.c ./build/tcCompName.c
+SRC = ./main.c ./src/AccelerationManager.c ./src/AccelerationManager_ruInit.c ./src/AccelerationManager_ruControl.c ./src/AccelerationManager_ruUpdate.c
 
-OUT = ./build/main.exe
+OUT = ./build/Executable.exe
 
 # Target
 all: $(OUT)
