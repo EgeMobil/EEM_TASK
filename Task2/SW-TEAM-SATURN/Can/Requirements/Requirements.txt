@@ -1,0 +1,86 @@
+This file includes all the requirements for the project.
+
+SW_Req 1:
+    Title: APP_WAIT State
+    Description: The software shall have a APP_WAIT state.
+    Rationale: To ensure the software can handle idle periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it enters and exits the APP_WAIT state correctly.
+SW_Req 2:
+    Title: APP_GRIP_OPEN State
+    Description: The software shall have a APP_GRIP_OPEN state.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it enters and exits the APP_GRIP_OPEN state correctly.
+SW_Req 3:
+    Title: APP_GRIP_CLOSE State
+    Description: The software shall have a APP_GRIP_CLOSE state.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it enters and exits the APP_GRIP_CLOSE state correctly.
+SW_Req 4:
+    Title: APP_GRIP_MOVE State
+    Description: The software shall have a APP_GRIP_MOVE state.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it enters and exits the APP_GRIP_MOVE state correctly.
+SW_Req 5:
+    Title: APP_GRIP_RELEASE State
+    Description: The software shall have a APP_GRIP_RELEASE state.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it enters and exits the APP_GRIP_RELEASE state correctly.
+SW_Req 6:
+    Title: Move Enable
+    Description: The software shall enable move if move request is received. 
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the move enable request is received.
+SW_Req 7:
+    Title: Move Disable
+    Description: The software shall disable move if move request is finished.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the move disable request is received.
+SW_Req 8:
+    Title: Move Finished
+    Description: The software shall check if the move is finished or not.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the move is finished or not.
+SW_Req 9:
+    Title: Move Request
+    Description: The software shall check if the move request is received or not.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the move request is received or not.
+SW_Req 10:
+    Title: Object Detected
+    Description: The software shall ensure that object is detected.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the object is detected or not.
+SW_Req 11:
+    Title: Move Request Rejected
+    Description: The software shall reject move request if object is not gripped successfully.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the move request is rejected or not.
+SW_Req 12:
+    Title: Check Object While Movement
+    Description: The software shall ensure that object is on actuator while moving.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can check if the object is on actuator while moving.   
+SW_Req 13:
+    Title: Initialize Movement
+    Description: The software shall Initialize the movement objects.
+    Rationale: To ensure the software can handle active periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it can initialize the movement objects.
+SW_Req 14:
+Title: APP_INIT State
+    Description: The software shall have a APP_INIT state.
+    Rationale: To ensure the software can handle idle periods effectively.
+    Priority: High
+    Verification: Test the software to ensure it enters and exits the APP_INIT state correctly.
