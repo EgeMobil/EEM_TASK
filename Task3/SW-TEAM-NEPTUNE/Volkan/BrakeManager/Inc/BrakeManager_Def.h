@@ -16,34 +16,29 @@ typedef enum {
 
 struct BrakeManager {
 
-    // Public Stateler
     BrakeStatus_t Status;
     ABS_Status_t ABS_Status;
 
     /* Private variables --> bunlara doğrudan erişim olmayacak. */
     float   current_brake_pressure;  /* Fren basıncı */
     uint8_t abs_active;             /* ABS aktif mi? */
-    float   pedal_position;          /* Pedal konumu (0-10 arası) */
-    float   vehicle_speed;           /* Araç hızı */
-    float   wheel_speed;            /* Tekerlek hızı */
     uint8_t brake_active;
+    float   vehicle_speed;
 
     /* Private fonksiyonlar */
     void (*applyBrakePressure)(float pressure);  /* Fren basıncı uygular */
-    float (*readCurrentPressure)(void);     /* Fren basıncını okur */
-    void (*releaseBrakePressure)(void);     /* Freni bırakır */
-    void (*regulateBrakePressure)(void);    /* Fren basıncını düzenler */
-    int  (*detectWheelSlip)(void);           /* Kayma tespiti yapılır */
-    void  (*setPedalPos)(float pedalPos);    /* Fren pedalını okur */
-    void (*pedalPosToPressure)(void);       /* Fren pedalını basınca dönüştürür */
-    void (*setVehicleSpeed)(float speed);   /* Nesnenin araç hızını günceller*/
-    void (*setWheelSpeed)(float wheel_Speed);/* Nesnenin araç hızını günceller*/
-    ABS_Status_t (*manangmentABS)(void);     /* ABS nin aktif olup olmadığına karar verir*/    
+    void (*releaseBrakePressure)(void);         /* Freni bırakır */
+
+    void (*setBrakePressure)(float pressure);   /* Fren basıncını set eder */
+    void (*setVehicleSpeed)(float speed);   /* Fren basıncını set eder */
+
+    ABS_Status_t (*manangmentABS)(void);        /* ABS'yi yönetir */
+    void (*absAlgorithm)(void);                 /* ABS algoritmasını çalıştırır */
+    const char* (*toString)(void);              /* Nesne bilgisini stringe çevirir */
 };
 
 typedef struct BrakeManager BrakeManager_t;
 
-void BrakeManager_CTOR(void);   /* Constructor */
 
 
 #endif /* BRAKEMANAGER_DEF_H */

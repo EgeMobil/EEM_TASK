@@ -2,10 +2,6 @@
 #include "BrakeManager_Public.h"
 #include <stdio.h>
 
-float SpeedManager_Get_Vehicle_Speed(void);
-float SpeedManager_Get_Wheel_Speed(void);
-float SensorManager_PedalPos_Api(void);
-
 
 /**
  * @brief Fren Sisteminin Kontrol Algoritmasını Uygular
@@ -25,21 +21,15 @@ float SensorManager_PedalPos_Api(void);
 void BrakeManager_ruControl(void) {
 
     BrakeManager_t* bm = BrakeManager_GetInstance();
+    
+    float currentPressure = bm->current_brake_pressure;
 
-    bm->pedalPosToPressure();                           // Pedal pozisyonunu fren basıncına dönüştür
-    float currentPressure = bm->readCurrentPressure();  // Mevcut fren basıncını oku
-    ABS_Status_t ABS_status = bm->manangmentABS();      // ABS durumunu kontrol et
     if(currentPressure > 0 ){
-
-        if(bm->detectWheelSlip() && ABS_status == ABS_ON){
-            // Kayma tespit edilirse ve ABS aktifse, fren basıncı düzenlenir
-            bm->regulateBrakePressure();
-        }else{
-            bm->applyBrakePressure(currentPressure);
+        if(bm->manangmentABS() == ABS_ON){
+            bm->absAlgorithm();  // ABS algoritmasını çalıştır
         }
-
+        bm->applyBrakePressure(currentPressure);
     }else{
         bm->releaseBrakePressure();
     }
-    
 }

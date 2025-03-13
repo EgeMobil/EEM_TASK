@@ -3,7 +3,6 @@
 
 #include "BrakeManager_Def.h"  
 
-
 /**
  * @brief Freni uygulayan fonksiyon
  * 
@@ -11,55 +10,22 @@
 void ApplyBrakePressure_Impl(float pressure);
 
 /**
- * @brief Anlık Basıncı döndürür
- * 
- */
- float readCurrentPressure_Impl(void);
-
-/**
  * @brief Freni serbest bırakan fonskiyon
  * 
  */
- void ReleaseBrakePressure_Impl(void);
-
-
-/**
- * @brief Freni regüle eden fonskiyon
- * 
- */
-void RegulateBrakePressure_Impl(void);
+void ReleaseBrakePressure_Impl(void);
 
 /**
- * @brief Aracın kayıp kaymadığına karar veren fonskiyon
+ * @brief Fren basıncını set eden fonksiyon
  * 
  */
-int DetectWheelSlip_Impl(void);
-
+void SetBrakePressure_Impl(float pressure);
 
 /**
- * @brief Fren pedalının değerini set eden fonskiyon
+ * @brief Speed set eden fonksiyon
  * 
  */
-void setPedalPos_Impl(float pedalPos);
-
-/**
- * @brief Fren pedalının yüzdesine göre uygulanacak basıncı hesaplayan fonskiyon
- * 
- */
-void pedalPosToPressure_Impl(void);
-
-
-/**
- * @brief Araç hızını başka apiden alıp set eden fonksiyon
- * 
- */
-void setVehicleSpeed_Impl(float speed);
-
-/**
- * @brief Araç tekerlek hızını başka apiden alıp set eden fonksiyon
- * 
- */
-void setWheelSpeed_Impl(float speed);
+void SetVehicleSpeed_Impl(float speed);
 
 /**
  * @brief ABS'i aktif ve pasif eden fonskiyon
@@ -67,9 +33,19 @@ void setWheelSpeed_Impl(float speed);
  */
 ABS_Status_t manangmentABS_Impl(void);
 
+/**
+ * @brief ABS Algoritması
+ * 
+ */
+void ABSAlgorithm_Impl(void);
 
-extern BrakeManager_t* BrakeManager_GetInstance(void);
+/**
+ * @brief Nesne bilgisini stringe çevirir
+ * 
+ */
+const char* toString_Impl(void);
+
+BrakeManager_t* BrakeManager_GetInstance(void);
+
 
 #endif /* BRAKEMANAGER_PRIVATE_H */
-
-

@@ -6,13 +6,6 @@
 #define MAX_BRAKE_PRESSURE 100
 #define MIN_BRAKE_PRESSURE
 
-
-/**
- * @brief BrakeManager nesnesini başlatır.
- * 
- */
-void BrakeManager_CTOR(void);
-
 /**
  * @brief BrakeManager nesnesinin adresini döndürür
  * 

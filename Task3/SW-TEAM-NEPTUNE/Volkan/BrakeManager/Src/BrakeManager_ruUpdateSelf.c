@@ -3,14 +3,14 @@
 #include "BrakeManager_Public.h"
 #include <stdio.h>
 
-float Brake_PedalPos_Api(){
-    return 1;
+
+// Deneme amaçlı koyulmuş değişkenler.
+float pressure=0,speed=0;
+float PressureManager_Get_Current_Pressure(){
+    return pressure;
 }
 float SpeedManager_Get_Vehicle_Speed(){
-    return 2;
-}
-float SpeedManager_Get_Wheel_Speed(){
-    return 2;
+    return speed;
 }
 /**
  * @brief Fren Yöneticisi Durumunu Günceller
@@ -28,11 +28,9 @@ void BrakeManager_ruUpdateSelf(void){
 
     BrakeManager_t* bm = BrakeManager_GetInstance();
 
-    float pos = Brake_PedalPos_Api();
+    float pressure = PressureManager_Get_Current_Pressure();
     float speed = SpeedManager_Get_Vehicle_Speed();
-    float wspeed = SpeedManager_Get_Wheel_Speed();
 
-    bm->setPedalPos(pos);
+    bm->setBrakePressure(pressure);
     bm->setVehicleSpeed(speed);
-    bm->setWheelSpeed(wspeed);
 }
