@@ -1,0 +1,11 @@
+// acceleration_control_private.h
+#ifndef ACCELERATION_CONTROL_PRIVATE_H
+#define ACCELERATION_CONTROL_PRIVATE_H
+
+static float gasPedalSignal = 0.0f;
+static float enginePower = 0.0f;
+
+static void calculateEnginePower();
+static void processGasPedalInput(float pedalValue);
+
+#endif // ACCELERATION_CONTROL_PRIVATE_H

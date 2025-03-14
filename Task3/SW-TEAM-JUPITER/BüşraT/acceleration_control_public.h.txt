@@ -1,0 +1,9 @@
+// acceleration_control_public.h
+#ifndef ACCELERATION_CONTROL_PUBLIC_H
+#define ACCELERATION_CONTROL_PUBLIC_H
+
+void Acceleration_setThrottle(float value);
+float Acceleration_getThrottle();
+void Acceleration_limitPower();
+
+#endif // ACCELERATION_CONTROL_PUBLIC_H
