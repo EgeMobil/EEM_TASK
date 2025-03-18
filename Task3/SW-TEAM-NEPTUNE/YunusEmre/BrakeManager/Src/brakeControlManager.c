@@ -15,7 +15,7 @@ static char* brakeControlManager_toString_Impl(void);
  * and default values for the attributes.
  */
 void brakeControlManager_CTOR(void)
-{
+{ 
     instance.maxBrakePressure       = MAX_BRAKE_PRESSURE;
     instance.brakeAbsLimitPressure  = ABS_BRAKE_TRESHOLD_PRESSURE;
     instance.brakeStatus            = BRAKE_NOT_PRESSED;
