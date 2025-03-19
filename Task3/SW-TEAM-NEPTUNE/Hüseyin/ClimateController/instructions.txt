@@ -1,0 +1,18 @@
+Run commands in MakeFile folder
+
+Compile:
+    gcc -o main src/main.c src/Climate.c src/Climate_TempSensor.c -Iinc -lpthread
+    or
+    make
+
+Run:
+    Linux:      ./main
+    Windows:    .\main.exe
+
+Clean:
+    make clean
+
+Note:
+    The program will work with pre-defined target temperature value. If you want to change the target temperature, 
+    enter a target value between 5 and 55 celcius degree (lower and upper bounds) and hit enter. The value will change in next cycle.
+    Cycle Speed: 1 cycle/sec
