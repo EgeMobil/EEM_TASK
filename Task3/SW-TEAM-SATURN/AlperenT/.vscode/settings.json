@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "definition.h": "c",
+        "traction_control_public.h": "c"
+    }
+}

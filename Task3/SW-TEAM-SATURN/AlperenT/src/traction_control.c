@@ -1,8 +1,8 @@
 
-#include "traction_control_private.h"
-#include "traction_control_public.h"
-#include "definition.h"
-#include "stdlib.h"
+#include "..\inc\traction_control_private.h"
+#include "..\inc\traction_control_public.h"
+#include "..\inc\definition.h"
+
 
 static bool traction_enabled = false;
 static Sensor wheelSensor;
@@ -22,7 +22,7 @@ bool Traction_getStatus() {
 
 static void sensor_read(void* self) {
     Sensor* sensor = (Sensor*) self;
-    sensor->data.sensorData = 512; // Simüle edilen sensör verisi
+    sensor->data.sensorData = 60; // Simüle edilen sensör verisi 60 km/h
 }
 
 static uint16_t sensor_getValue(void* self) {
