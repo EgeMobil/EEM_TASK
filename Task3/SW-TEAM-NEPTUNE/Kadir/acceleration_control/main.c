@@ -32,5 +32,7 @@ int main() {
     // İvmelenme ve motor gücü hesaplamaları
     Acceleration_applyAcceleration();
 
+    printfunc();
+
     return 0;
 }

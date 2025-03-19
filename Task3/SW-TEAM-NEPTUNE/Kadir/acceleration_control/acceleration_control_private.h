@@ -3,16 +3,11 @@
 
 #include <stdbool.h>
 
-// Gaz pedalından gelen sinyalleri gizle
-static int currentThrottle = 0; // 0 ile 100 arasında bir throttle değeri
 
-// Motor gücünü sınırlamak için hesaplamalar
-static int currentPower = 0; // Motor gücü hp
 
-// İvmelenme hesaplama algoritması
-static int calculateAcceleration(int throttle, int power);
-
-// Yakıt karışımı hesaplaması
-static int calculateFuelConsumption(int power, int throttle);
+static float calculateAcceleration(float throttle, float power);
+static float calculateFuelConsumption(float power, float throttle);
+static void calculateEnginePower();
+static void setPower(float power);
 
 #endif // ACCELERATION_CONTROL_PRIVATE_H
