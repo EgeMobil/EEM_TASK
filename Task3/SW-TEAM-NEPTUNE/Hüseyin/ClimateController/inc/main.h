@@ -6,9 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <unistd.h>
-#include <poll.h>
 #include <string.h>
+
+#ifdef _WIN32
+    #include <conio.h>
+    #include <time.h>
+#else
+    #include <poll.h>
+    #include <unistd.h>
+#endif
 
 #define TIMEOUT_MS 1000
 

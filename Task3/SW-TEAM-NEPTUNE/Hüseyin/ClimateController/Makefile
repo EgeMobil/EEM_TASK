@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Iinc -Wall
-LDFLAGS = -lpthread -lws2_32
+LDFLAGS = -lpthread
 
 SRC = src/main.c src/Climate.c src/Climate_TempSensor.c
 TARGET = main

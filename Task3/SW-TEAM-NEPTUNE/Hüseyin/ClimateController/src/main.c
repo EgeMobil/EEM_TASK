@@ -19,6 +19,29 @@ int main() {
     return 0;
 }
 
+#ifdef _WIN32
+
+int getInputWithTimeout(float* input) {
+    clock_t start_time = clock();
+    char buffer[100];
+
+    while ((clock() - start_time) < TIMEOUT_MS * CLOCKS_PER_SEC / 1000) {
+        if (_kbhit()) {  // Klavyeden giriş var mı?
+            if (fgets(buffer, sizeof(buffer), stdin) != NULL) {
+                *input = strtof(buffer, NULL);
+
+                if (*input == 0.0f) {
+                    return 2;
+                }
+                return 1;
+            }
+        }
+    }
+    return 0;  // Timeout
+}
+
+#else
+
 int getInputWithTimeout(float* input) {
     struct pollfd fds;
     int ret;
@@ -52,3 +75,5 @@ int getInputWithTimeout(float* input) {
     }
     return 0;
 }
+
+#endif
