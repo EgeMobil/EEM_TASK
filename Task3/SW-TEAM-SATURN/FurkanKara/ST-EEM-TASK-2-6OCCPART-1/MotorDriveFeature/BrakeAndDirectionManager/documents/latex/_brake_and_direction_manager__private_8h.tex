@@ -1,0 +1,115 @@
+\doxysection{Brake\+And\+Direction\+Manager\+\_\+private.\+h File Reference}
+\hypertarget{_brake_and_direction_manager__private_8h}{}\label{_brake_and_direction_manager__private_8h}\index{BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}}
+
+
+Private header file for the Brake and Direction Manager.  
+
+
+{\ttfamily \#include "{}Brake\+And\+Direction\+Manager\+\_\+definition.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_brake_and_direction_manager__private_8h_af3f0f8d71fd1b8ab8a279c56fd01a506}{Brake\+And\+Direction\+Manager\+\_\+\+CTOR}} (void)
+\begin{DoxyCompactList}\small\item\em Constructor for the Brake and Direction Manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdt_brake_and_direction_manager}{dt\+Brake\+And\+Direction\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_brake_and_direction_manager__private_8h_a2317dd3a26aefb7320fed5e1575fecf7}{Brake\+And\+Direction\+Manager\+\_\+\+Get\+Instance}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the instance of the Brake and Direction Manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_brake_and_direction_manager__private_8h_a6f64989c9378e60dddfd3af199a17768}{FUNC}} (void, Brake\+And\+Direction\+Manager\+\_\+ru\+Initialistaion)(void)
+\begin{DoxyCompactList}\small\item\em Runnable for the initialization process. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_brake_and_direction_manager__private_8h_a04b43c836c621771f543b71f199b039e}{FUNC}} (void, Brake\+And\+Direction\+Manager\+\_\+ru\+Update)(void)
+\begin{DoxyCompactList}\small\item\em Runnable for the update process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Private header file for the Brake and Direction Manager. 
+
+This file contains private function prototypes and definitions for the Brake and Direction Manager. It includes internal functions and runables that are not exposed to external modules.
+
+This header is intended for use within the implementation of the Brake and Direction Manager only.
+
+\begin{DoxyAuthor}{Author}
+atakan.\+ertekin 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07.\+01.\+2025 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_brake_and_direction_manager__private_8h_af3f0f8d71fd1b8ab8a279c56fd01a506}\index{BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}!BrakeAndDirectionManager\_CTOR@{BrakeAndDirectionManager\_CTOR}}
+\index{BrakeAndDirectionManager\_CTOR@{BrakeAndDirectionManager\_CTOR}!BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}}
+\doxysubsubsection{\texorpdfstring{BrakeAndDirectionManager\_CTOR()}{BrakeAndDirectionManager\_CTOR()}}
+{\footnotesize\ttfamily \label{_brake_and_direction_manager__private_8h_af3f0f8d71fd1b8ab8a279c56fd01a506} 
+void Brake\+And\+Direction\+Manager\+\_\+\+CTOR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for the Brake and Direction Manager. 
+
+Initializes the Brake and Direction Manager by setting up function pointers, interfaces, and initial values for attributes.
+
+This function must be called before using the manager instance.
+
+Initializes the function pointers, assigns initial values, and binds the interfaces. \Hypertarget{_brake_and_direction_manager__private_8h_a2317dd3a26aefb7320fed5e1575fecf7}\index{BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}!BrakeAndDirectionManager\_GetInstance@{BrakeAndDirectionManager\_GetInstance}}
+\index{BrakeAndDirectionManager\_GetInstance@{BrakeAndDirectionManager\_GetInstance}!BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}}
+\doxysubsubsection{\texorpdfstring{BrakeAndDirectionManager\_GetInstance()}{BrakeAndDirectionManager\_GetInstance()}}
+{\footnotesize\ttfamily \label{_brake_and_direction_manager__private_8h_a2317dd3a26aefb7320fed5e1575fecf7} 
+\mbox{\hyperlink{structdt_brake_and_direction_manager}{dt\+Brake\+And\+Direction\+Manager}} \texorpdfstring{$\ast$}{*} Brake\+And\+Direction\+Manager\+\_\+\+Get\+Instance (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the instance of the Brake and Direction Manager. 
+
+Provides access to the singleton instance of the Brake and Direction Manager.
+
+\begin{DoxyReturn}{Returns}
+Pointer to the {\ttfamily \doxylink{structdt_brake_and_direction_manager}{dt\+Brake\+And\+Direction\+Manager}} instance.
+\end{DoxyReturn}
+Gets the instance of the Brake and Direction Manager.
+
+\begin{DoxyReturn}{Returns}
+Pointer to the static {\ttfamily \doxylink{structdt_brake_and_direction_manager}{dt\+Brake\+And\+Direction\+Manager}} instance. 
+\end{DoxyReturn}
+\Hypertarget{_brake_and_direction_manager__private_8h_a6f64989c9378e60dddfd3af199a17768}\index{BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}!FUNC@{FUNC}}
+\index{FUNC@{FUNC}!BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}}
+\doxysubsubsection{\texorpdfstring{FUNC()}{FUNC()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{_brake_and_direction_manager__private_8h_a6f64989c9378e60dddfd3af199a17768} 
+FUNC (\begin{DoxyParamCaption}\item[{void}]{}{, }\item[{Brake\+And\+Direction\+Manager\+\_\+ru\+Initialistaion}]{}{}\end{DoxyParamCaption})}
+
+
+
+Runnable for the initialization process. 
+
+This function is responsible for initializing the Brake and Direction Manager during the system startup phase.
+
+Runnable for the initialization process.
+
+This function performs the following tasks during initialization\+:
+\begin{DoxyItemize}
+\item Retrieves the singleton instance of the Brake\+And\+Direction\+Manager.
+\item Sets the initial direction to {\ttfamily DIRECTION\+\_\+\+FORWARD}.
+\item Sets the initial brake status to {\ttfamily BRAKE\+\_\+\+DISABLE}.
+\item Updates the brake and direction statuses in the corresponding interfaces. 
+\end{DoxyItemize}\Hypertarget{_brake_and_direction_manager__private_8h_a04b43c836c621771f543b71f199b039e}\index{BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}!FUNC@{FUNC}}
+\index{FUNC@{FUNC}!BrakeAndDirectionManager\_private.h@{BrakeAndDirectionManager\_private.h}}
+\doxysubsubsection{\texorpdfstring{FUNC()}{FUNC()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{_brake_and_direction_manager__private_8h_a04b43c836c621771f543b71f199b039e} 
+FUNC (\begin{DoxyParamCaption}\item[{void}]{}{, }\item[{Brake\+And\+Direction\+Manager\+\_\+ru\+Update}]{}{}\end{DoxyParamCaption})}
+
+
+
+Runnable for the update process. 
+
+This function updates the Brake and Direction Manager by processing any changes or events in the brake and direction status. It is typically called periodically.
+
+Runnable for the update process.
+
+This function is responsible for managing the brake and direction statuses. It performs the following tasks\+:
+\begin{DoxyItemize}
+\item Reads the brake and direction statuses from the Motor\+Driver\+Control\+Manager.
+\item Checks and validates changes in the brake and direction statuses.
+\item Updates the configuration of the Brake\+And\+Direction\+Manager based on the new statuses.
+\item Sends the updated statuses to the corresponding interfaces.
+\item Provides error handling for unknown statuses. 
+\end{DoxyItemize}\texorpdfstring{$<$}{<} Current direction status.
+
+\texorpdfstring{$<$}{<} Current brake status.

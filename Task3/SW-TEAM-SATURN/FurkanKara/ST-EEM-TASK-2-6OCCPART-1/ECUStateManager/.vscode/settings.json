@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "ecustatemanager_public.h": "c",
+        "ecustatemanager_definition.h": "c",
+        "ecustatemanager_global.h": "c",
+        "ecustatemanager_private.h": "c"
+    }
+}

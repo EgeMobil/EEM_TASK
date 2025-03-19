@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "time.h": "c",
+        "accelerationmanager_public.h": "c",
+        "accelerationmanager_definition.h": "c"
+    }
+}

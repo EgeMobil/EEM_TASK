@@ -1,0 +1,33 @@
+BarışB -> Katman geçişleri idare eder, daha iyi olabilir genel olarak okunabilir.
+
+BarişÇ -> Katmanlı mimari katman geçişi zayıf, complexity yüksek. Başarılı!
+
+BüşraÖ -> Interview yapılmadı.
+
+BüşraT -> Sade ve hoş daha iyi olabilir. teşekkürler
+
+Ekrem -> Katmanlı mimari içermiyor. Yaklaşım temel ve okunulabilir teşekkürler.
+
+Erhan -> Komponent odaklı yaklaşım güzel, katmanlı mimari eksik. Oldukça beğendim.
+
+Esra -> Katman geçişleri daha bağımsız olabilir. FreeRTOS için ayrıca teşekkürler!
+
+FurkanO -> Kod çalışır ancak katmanlı mimari içermiyor. Yeterli seviyede başarılı
+
+FurkanT -> Katman geçişleri daha iyi olabilir. Başarılı
+
+Hairu -> Katman geçişleri anlaşılır, yorumlama güzel. Genel olarak başarılı.
+
+İsmail -> Virüs korumasından dolayı düzgün gözlemlenmiyor. Commit atmayı unutma!
+
+Kadir -> Yeterli ancak isimlendirme zayıf. Gönderdiğin mailde ismin yazmıyor.
+
+Kutay -> Katmanlı mimari içermiyor, türkçe tanımlama içeriyor. Spagetti. Günü kurtarır.
+
+Okan -> Katmanlı mimari zayıf ama yaklaşım hoş. Daha iyi hale getirilebilir. Teşekkürler
+
+Ömer -> Katmanlı mimari birbirine bağımlı, takip edilebilirlik orta-zayıf. User-case için teşekkürler. 
+
+Volkan -> Yorumlar hoş, katman geçişleri zayıf. yaklaşım hoş teşekkürler.
+
+Yusuf -> Katman geçişleri zayıf, genel olarak başarılı anca daha iyi olabilir.

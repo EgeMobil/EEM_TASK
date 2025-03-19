@@ -1,0 +1,23 @@
+Bir trafik ışığı sistemi düşünün. Bu sistemin kırmızı, sarı ve yeşil olmak üzere üç durumu var.
+
+Durumlar:
+
+Kırmızı ışık: Dur.
+Sarı ışık: Geçişe hazırlan.
+Yeşil ışık: Git.
+Geçişler:
+
+Kırmızı → Yeşil (20 saniye sonra).
+Yeşil → Sarı (10 saniye sonra).
+Sarı → Kırmızı (5 saniye sonra).
+Eylemler:
+
+Her durumda ışık rengi değişir ve süre başlatılır.
+
+Her bir senaryo için:
+
+State Machine (Durum Makinesi) mantığı kurulmalı:
+Bir enum ile durumlar tanımlanmalı.
+Durum geçişleri bir fonksiyon içinde ele alınmalı.
+Durum geçişlerini simüle edecek bir olay veya sayaç eklenmeli:
+Örneğin: Zamanlayıcı (delay), sensör tetiklenmesi veya düğme basılması gibi.
