@@ -1,0 +1,75 @@
+<mxfile host="Electron" modified="2025-01-03T07:47:48.404Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="MFD3AfvtNpX7JlWugx0y" version="24.0.4" type="device">
+  <diagram name="Page-1" id="q-otbSK6who0XxGtIiqZ">
+    <mxGraphModel dx="915" dy="648" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="670" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-9" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;Component&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;/&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;+ Attribute1: Type&lt;br/&gt;+ Attribute2: Type&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="190" y="610" width="210" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-10" value="" style="shape=component;jettyWidth=8;jettyHeight=4;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-9">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-24" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-11" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="180" y="680" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-12" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=throwing;symbol=signal;direction=south;strokeOpacity=100;noLabel=0;strokeColor=default;fillColor=default;fillStyle=auto;strokeWidth=1;fixedWidth=1;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-11">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-13" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-11">
+          <mxGeometry x="20" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-14" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="180" y="715" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-15" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=throwing;symbol=signal;direction=south;strokeOpacity=100;noLabel=0;strokeColor=default;fillColor=default;fillStyle=auto;strokeWidth=1;fixedWidth=1;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-14">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-16" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-14">
+          <mxGeometry x="20" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-17" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="320" y="680" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-18" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=throwing;symbol=signal;direction=south;strokeOpacity=100;noLabel=0;strokeColor=default;fillColor=default;fillStyle=auto;strokeWidth=1;fixedWidth=1;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-17">
+          <mxGeometry x="60" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-19" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-17">
+          <mxGeometry width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-20" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="320" y="720" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-21" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=throwing;symbol=signal;direction=south;strokeOpacity=100;noLabel=0;strokeColor=default;fillColor=default;fillStyle=auto;strokeWidth=1;fixedWidth=1;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-20">
+          <mxGeometry x="60" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-22" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-20">
+          <mxGeometry width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-23" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="320" y="760" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-24" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=throwing;symbol=signal;direction=south;strokeOpacity=100;noLabel=0;strokeColor=default;fillColor=default;fillStyle=auto;strokeWidth=1;fixedWidth=1;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-23">
+          <mxGeometry x="60" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-25" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-23">
+          <mxGeometry width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-26" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="320" y="800" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-27" value="" style="points=[[0.145,0.145,0],[0.5,0,0],[0.855,0.145,0],[1,0.5,0],[0.855,0.855,0],[0.5,1,0],[0.145,0.855,0],[0,0.5,0]];shape=mxgraph.bpmn.event;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;align=center;perimeter=ellipsePerimeter;outlineConnect=0;aspect=fixed;outline=throwing;symbol=signal;direction=south;strokeOpacity=100;noLabel=0;strokeColor=default;fillColor=default;fillStyle=auto;strokeWidth=1;fixedWidth=1;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-26">
+          <mxGeometry x="60" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DT-DmE5ymV6dhbfyWgM1-28" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="DT-DmE5ymV6dhbfyWgM1-26">
+          <mxGeometry width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

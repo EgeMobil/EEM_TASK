@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "traction_control_public.h": "c",
+        "traction_control_private.h": "c",
+        "traction_control_manager.h": "c"
+    }
+}

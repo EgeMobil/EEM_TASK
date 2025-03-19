@@ -1,0 +1,10 @@
+Merhabalar, tasarladığım sistem hakkında biraz bilgi vermek isterim.
+Yazılımı geliştirirken, bir ECU (Elektronik Kontrol Ünitesi) gibi çalışacak bir yapı kurmayı hedefledim.
+Bu yapıda, pedalın kontrolünü sağlamak için bir state machine (durum makinesi) kullanarak sürekli olarak pedal pozisyonunu izledim.
+Bu sayede anlık değişimlere daha duyarlı bir sistem elde ettiğimi düşünüyorum.
+
+Ayrıca, donanıma bağlı bir timer kesmesi kullanarak, her 100 ms’de bir sabit mesaj nesnesini gönderdim.
+State machine yapısından faydalanarak, mesajın içeriğinde bir değişiklik yapılması gerektiğinde, hızlı bir şekilde tepki verip periyodu bozmadan mesajın içeriğini güncelledim.
+
+Tepki süresi kadar önemli bir diğer konu ise DM (Diagnostic Message) tarafında okunan veride oluşan bozuklukların tespitiydi.
+Bozukluk tespit ettiğim anda, hatayı ilk olarak mesajla birlikte ilettim ve sonrasında bu hatayı kalıcı hafızaya kaydettim. 

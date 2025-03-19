@@ -1,0 +1,14 @@
+Run commands in MakeFile folder
+
+Compile:
+    gcc -o main src/main.c src/tempSensor.c -Iinc -lpthread
+    or
+    make
+
+Run:
+    Linux:      ./main
+    Windows:    .\main.exe
+
+Clean:
+    make clean
+
