@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "app.h": "c",
-        "pedalsubsystem.h": "c",
-        "system.h": "c"
-    }
-}

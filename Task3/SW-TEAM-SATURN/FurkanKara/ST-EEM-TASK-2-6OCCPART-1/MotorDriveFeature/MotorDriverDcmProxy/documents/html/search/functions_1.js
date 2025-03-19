@@ -1,5 +1,0 @@
-var searchData=
-[
-  ['motordriverdcmproxy_5fctor_0',['MotorDriverDcmProxy_CTOR',['../_motor_driver_dcm_proxy__private_8h.html#a16e59e5272e470e1eee2f9992df8ad05',1,'MotorDriverDcmProxy_CTOR(void):&#160;MotorDriverDcmProxy.c'],['../_motor_driver_dcm_proxy__public_8h.html#a16e59e5272e470e1eee2f9992df8ad05',1,'MotorDriverDcmProxy_CTOR(void):&#160;MotorDriverDcmProxy.c'],['../_motor_driver_dcm_proxy_8c.html#a16e59e5272e470e1eee2f9992df8ad05',1,'MotorDriverDcmProxy_CTOR(void):&#160;MotorDriverDcmProxy.c']]],
-  ['motordriverdcmproxy_5fgetinstance_1',['MotorDriverDcmProxy_GetInstance',['../_motor_driver_dcm_proxy__private_8h.html#af396bd0c4f3214876df1609bec17544e',1,'MotorDriverDcmProxy_GetInstance(void):&#160;MotorDriverDcmProxy.c'],['../_motor_driver_dcm_proxy__public_8h.html#af396bd0c4f3214876df1609bec17544e',1,'MotorDriverDcmProxy_GetInstance(void):&#160;MotorDriverDcmProxy.c'],['../_motor_driver_dcm_proxy_8c.html#af396bd0c4f3214876df1609bec17544e',1,'MotorDriverDcmProxy_GetInstance(void):&#160;MotorDriverDcmProxy.c']]]
-];

@@ -1,3 +1,0 @@
-../Core/Src/PedalController.c:17:6:ProcessADCValues	2
-../Core/Src/PedalController.c:33:9:GetAverageIfConsistent	3
-../Core/Src/PedalController.c:50:9:CalculatePedalPercentage	3

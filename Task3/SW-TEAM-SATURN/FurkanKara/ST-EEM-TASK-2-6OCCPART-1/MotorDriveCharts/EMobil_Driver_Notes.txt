@@ -1,1 +1,0 @@
-1-) GateDriverController için IDRV8353 interface inde read-write cdd ile sync olacak.
