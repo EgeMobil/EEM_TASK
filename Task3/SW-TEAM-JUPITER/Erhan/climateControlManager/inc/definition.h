@@ -10,6 +10,14 @@
 #define MAX_TEMPERATURE 36.0  // Maksimum sıcaklık (°C)
 
 
+typedef enum
+{ 
+    LowMode,
+    MiddleMode,
+    HighMode, 
+    VeryHighMode,
+}en_CCMFanMode; //eklendi
+
 #define CURRENT_TEMPERATURE 17.0 //ortam sıcaklığı
 
 typedef enum
@@ -23,6 +31,8 @@ typedef struct
 {
     float temperatureCurrent; //mevcut sıcaklık
     float temperatureDesired; //istenen istenen sıcaklık
+    float FanStatus;          //fan açık mı kapalı mı //eklendi
+    char* FanSpeedMode;                               //eklendi
 
     float        (*getCurrentTempPtr)(void);
     en_CCMReturn (*setTemperaturePtr)(float);
