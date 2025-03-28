@@ -3,12 +3,17 @@
 
 #include "definition.h"
 
+typedef enum //eklendi
+{
+    fanIsOpen,
+    FanIsClosed,
+}CCM_FanStatus;
 
 extern st_climateControlConfig climateControlConfig;
 
 void initClimateControl(void);
 
- en_CCMReturn setTemperature( float newTemp);
+en_CCMReturn setTemperature( float newTemp);
 
 
 

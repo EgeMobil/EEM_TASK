@@ -6,6 +6,8 @@
 
 st_climateControlConfig climateControlConfig;
 
+static const char* CCMFanSpeedModes[] = {"Low Mode", "Middle Mode", "High Mode", "Very High Mode"}; //eklendi
+
 //ortam sıcaklığını get eden fonskiyon
 float getCurrentTemp(void)
 {
@@ -25,6 +27,11 @@ en_CCMReturn setTemperature( float newTemp)
 //sıcaklık sensöründen veri okuyan ve fan hızını ayarlayan fonksiyon
 en_CCMReturn adjustFanSpeed(void)
 {
+    if(climateControlConfig.FanStatus) //eklendi
+    {
+        printf("Air conditioner is off\n"); 
+        return CCM_EOK;
+    }
 
     if (CCM_EOK != Value_temperatureSensor())
         return CCM_ERR;
@@ -46,31 +53,31 @@ void initClimateControl(void)
 }
 
 //fan hızını ayarlayan fonksiyon
-en_CCMReturn config_FanSpeed(void)
+static en_CCMReturn config_FanSpeed(void) //değişti static eklendi
 {
     if      (abs(climateControlConfig.temperatureCurrent - climateControlConfig.temperatureDesired) >= 7)
     {
-        printf("The fan is running in very high mode.\n");
+        printf("The fan is running in %s.\n", CCMFanSpeedModes[VeryHighMode]); //eklendi
         return CCM_EOK;
     }else if(abs(climateControlConfig.temperatureCurrent - climateControlConfig.temperatureDesired) >= 5)
     {
-        printf("The fan is running in high mode.\n");
+        printf("The fan is running in %s.\n", CCMFanSpeedModes[HighMode]); //eklendi
         return CCM_EOK;
     }else if(abs(climateControlConfig.temperatureCurrent - climateControlConfig.temperatureDesired) >= 3)
     {
-        printf("The fan is running in middle mode.\n");
+        printf("The fan is running in %s.\n", CCMFanSpeedModes[MiddleMode]); //eklendi
         return CCM_EOK;
     }else if(abs(climateControlConfig.temperatureCurrent - climateControlConfig.temperatureDesired) >= 0)
     {
-        printf("The fan is running in low mode.\n");
+        printf("The fan is running in %s.\n", CCMFanSpeedModes[LowMode]); //eklendi
         return CCM_EOK;
     }
     return CCM_EOK; //burayı düzenle gönder
 }
 
 
-//sıcaklık sensöründen veri okuyan fonksiyon
-en_CCMReturn Value_temperatureSensor(void)
+//sıcaklık sensöründen veri okuyan fonksiyon (değeri arttıran veya düşüren fonksiyon)
+static en_CCMReturn Value_temperatureSensor(void) //değişti static eklendi
 {
     if (climateControlConfig.temperatureCurrent <= climateControlConfig.temperatureDesired)
     {

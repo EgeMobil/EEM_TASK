@@ -9,6 +9,8 @@ int main()
 {
     initClimateControl(); 
 
+    climateControlConfig.FanStatus = fanIsOpen; //eklendi
+
     if(CCM_ERR == climateControlConfig.setTemperaturePtr(DESIRED_VALUE)) //istenen sıcaklık set edildi
         return 0;
 

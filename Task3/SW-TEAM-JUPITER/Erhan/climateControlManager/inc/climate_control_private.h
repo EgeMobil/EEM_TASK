@@ -5,9 +5,10 @@
 
 
 
-en_CCMReturn config_FanSpeed(void);
 
-en_CCMReturn Value_temperatureSensor(void);
+static en_CCMReturn config_FanSpeed(void);
+
+static en_CCMReturn Value_temperatureSensor(void);
 
 
 
