@@ -7,3 +7,23 @@ erhan can yiğit - 27.03.2025
 
 - TCS_Manager_CTOR dosyasının içersinde kullanılacak olan değişkenlerin Default değer atanmalı ve böylece olası tanımsız davranışlardan kaçınmış oluruz.
 
+# Re-create the .txt file since the code execution environment has been reset
+
+
+ [Furkan Kara]
+
+ImplementationChecklist.xlsx’e göre Değerlendirme:
+
+
+
+1.2. Runnable ve method tanımlamaları template’e uygun mu?
+Fonksiyon tanımlamaları mevcut ancak bir runnable akışı (main() içerisinde örnek senaryo) yalnızca temel düzeyde yapılmış. 
+
+1.4. Component’in toString() fonksiyonu var mı?
+toString() tanımlanmamış.
+
+2. Singleton Pattern doğru uygulandı mı?
+Singleton  uygulanmamış.
+
+3. Makefile düzgün tanımlanmış mı?
+makefile dosyası mevcut ve all, clean hedeflerini içeriyor.
