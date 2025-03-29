@@ -8,3 +8,36 @@ ImplementationChecklist.xlxs üzerinde:
 2.2 - constructer olarak initfonksiyonunu en yakın gördüm ama tam olarak karşılamıyor ama ve private olması gerekmektedir.
 2.3 - 2.2 nedeniyle bu da hatalı olmuş olur.
 3 - Makefile dosyası tamamıyla sorunsuz göründü bana.
+
+
+ClimateControlManager 
+Furkan Kara
+
+ImplementationChecklist.xlsx’e göre Değerlendirme:
+
+1. Component-Based olacak şekilde modüler tasarlandı mı?
+	Modüler yapı component-based tasarıma uygun.
+
+1.2. Runnable ve method tanımları template’e uygun mu?
+main.c içerisinde örnek bir runnable akış yer almıyor. 
+
+1.4. Component’in toString() fonksiyonu var mı?
+Nesnenin durumu hakkında dışa bilgi veren bir toString() benzeri fonksiyon yok. 
+
+2. Singleton Pattern doğru uygulandı mı?
+Singleton uygulanmamış.
+
+2.1. GetInstance() metodu var mı?
+Yok
+2.2. Constructor private mı?
+init fonksiyonu herkese açık şekilde tanımlanmış, dış erişim kısıtlanmamış.
+
+3. Makefile düzgün tanımlanmış mı?
+Hedefler, çıktılar ve temizlik fonksiyonları doğru şekilde yazılmış.
+
+3.1. all, clean, build hedefleri var mı?
+Evet, tüm hedefler eksiksiz.
+
+3.2. Çıktı dosyaları tanımlanmış mı (.o, .out vs)?
+build/ dizini altında oluşturuluyor. Düzenli yerleştirilmiş.
+
