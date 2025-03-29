@@ -9,12 +9,12 @@
  * @brief Fren yönetim modülünü başlatır.
  * 
  * Bu fonksiyon, BrakeManager modülünü başlatmak için çağrılır.
- * İçerisinde, fren yönetim bileşeninin kurucu fonksiyonu (Constructor) olan
- * BrakeManager_CTOR() çağrılarak gerekli yapılandırmalar yapılır.
+ * Singleton patternine uyum sağlamak amaçlı nesneden bir tane doğru şekilde oluşturulur.
+ * 
  * 
  * @note Bu fonksiyon sistem başlatıldığında ilk çalıştırılmalıdır.
  */
 void BrakeManager_ruInit(void){
 
-        BrakeManager_CTOR();
+        BrakeManager_GetInstance();
 }

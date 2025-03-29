@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -Iinc -Wall
+LDFLAGS = -lpthread
+
+SRC = src/main.c src/Climate.c src/Climate_TempSensor.c
+TARGET = main
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CC) -o $(TARGET) $(SRC) $(CFLAGS) $(LDFLAGS)
+
+clean:
+	del main.exe 2> NUL || rm -f main.exe

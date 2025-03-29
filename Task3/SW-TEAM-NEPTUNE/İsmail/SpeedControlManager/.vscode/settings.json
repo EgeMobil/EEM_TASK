@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "definition.h": "c",
+        "speed_control_public.h": "c"
+    }
+}

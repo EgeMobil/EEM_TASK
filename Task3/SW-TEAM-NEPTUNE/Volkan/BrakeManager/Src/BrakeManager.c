@@ -1,156 +1,102 @@
 #include "BrakeManager_Private.h"
 #include "BrakeManager_Public.h"
 #include <stdio.h>
-#include <stdlib.h>
-
+#include "stdlib.h"
+#include "string.h"
 
 static BrakeManager_t instance;
+
 /**
  * @brief BrakeManager initialization runable.
  *
  */
-void BrakeManager_CTOR(void) {
+static void BrakeManager_CTOR(void) {
 
     instance.current_brake_pressure = 0.0f;
     instance.abs_active             = 0;
-    instance.pedal_position         = 0.0f; 
-
+    instance.vehicle_speed         = 0.0f; 
 
     instance.applyBrakePressure    = ApplyBrakePressure_Impl;
     instance.releaseBrakePressure  = ReleaseBrakePressure_Impl;
-    instance.regulateBrakePressure = RegulateBrakePressure_Impl;
-    instance.detectWheelSlip       = DetectWheelSlip_Impl;
-    instance.setPedalPos           = setPedalPos_Impl;
-    instance.pedalPosToPressure    = pedalPosToPressure_Impl;
-    instance.setVehicleSpeed       = setVehicleSpeed_Impl;
-    instance.setWheelSpeed         = setWheelSpeed_Impl;
+    instance.setBrakePressure      = SetBrakePressure_Impl;
     instance.manangmentABS         = manangmentABS_Impl;
+    instance.absAlgorithm          = ABSAlgorithm_Impl;  
+    instance.toString              = toString_Impl;
+    instance.setVehicleSpeed       = SetVehicleSpeed_Impl;
     
-    printf("BrakeManager nesnesi oluşturuldu.\n");
+    printf("BrakeManager nesnesi olusturuldu.\n");
 }
-
-
 
 /**
  * @brief BrakeManager Nesnesinin adresini döndürür
  *
- * @param1 : BrakeManager türünden bir nesne
+ * @param1 : BrakeManager türünden bir nesne oluşturur ve bu fonskiyon çağrıldığı anda bu nesne oluşturulur. Bu fonskiyon nesneden bir tane doğru şekilde oluşturulmasını sağlar.
  * 
  */
 BrakeManager_t* BrakeManager_GetInstance(void){
+
+    static uint8_t isInitialized = 0; 
+    if (!isInitialized) {
+        BrakeManager_CTOR();  
+        isInitialized = 1;
+    }
     return &instance;
 }
 
 /**
- * @brief Fren Basıncını uygular.
+ * @brief Fren Basincini uygular.
  *
- * @param : Fren Basıncı
+ * @param : Fren Basinci
  * 
  */
- void ApplyBrakePressure_Impl(float pressure) {
+void ApplyBrakePressure_Impl(float pressure) {
     if (pressure < 0.0f) {
-        printf("UYARI: Fren basıncı negatif olamaz, 0.0'a ayarlanıyor!\n");
+        printf("UYARI: Fren basinci negatif olamaz, 0.0'a ayarlaniyor!\n");
+        pressure = 0.0f;
     }
     else if (pressure > 100.0f) {
-        printf("UYARI: Fren basıncı çok yüksek, 100.0'a ayarlanıyor!\n");
+        printf("UYARI: Fren basinci cok yüksek, 100.0'a ayarlaniyor!\n");
+        pressure = 100.0f;
     }
-    else if(pressure == 0 ){
-        instance.brake_active = 0;
-        instance.current_brake_pressure = pressure;
-        instance.Status = BRAKE_OFF;
-    }else{
-        printf("Fren uygulanıyor.!\n");
-        instance.brake_active = 1;
-        instance.current_brake_pressure = pressure;
-        instance.Status = BRAKE_ON;
-    }
+
+    instance.current_brake_pressure = pressure;
+    instance.brake_active = 1;
+    instance.Status = BRAKE_ON;
+    printf("Fren uygulaniyor. Basinc: %.2f\n", pressure);
 }
 
 /**
- * @brief Fren Basıncını Anlık olarak döndürür
- * 
- */
-float readCurrentPressure_Impl(void){
-    
-    return instance.current_brake_pressure;
-}
-
-/**
- * @brief Fren Basıncını uygulamayı bırakır
+ * @brief Fren Basincini uygulamayi birakir
  *
  * 
  */
- void ReleaseBrakePressure_Impl(void) {
-    printf("Fren serbest bırakılıyor...\n");
+void ReleaseBrakePressure_Impl(void) {
+    printf("Fren serbest birakiliyor...\n");
     instance.brake_active = 0;
-    instance.current_brake_pressure = 0;
+    instance.current_brake_pressure = 0.0f;
     instance.Status = BRAKE_OFF;
 }
+
 /**
- * @brief ABS aktif ise fren Yönetimi
+ * @brief Fren Basincini set eder.
  *
+ * @param : Fren Basinci
  * 
  */
- void RegulateBrakePressure_Impl(void) {
-
-    instance.abs_active=1;
-    /**
-     * ABS Sistemi için özel bir fren yönetim sistemi.
-     */
+void SetBrakePressure_Impl(float pressure) {
+    instance.current_brake_pressure = pressure;
+    printf("Fren basinci set edildi: %.2f\n", pressure);
 }
 
 /**
- * @brief Aracın kaymaya başladığını anlayan fonskiyon
+ * @brief Hizi set eder.
  *
- * @param1 : BrakeManager türünden bir nesne
+ * @param : Hiz
  * 
  */
- int DetectWheelSlip_Impl(void) {
-
-    if (instance.wheel_speed < instance.vehicle_speed * 0.8f) {
-        return 1;  // Kayma tespit edildi
-    }
-    return 0;
-}
-
-
-/**
- * @brief Fren pedalının değerini set eden fonskiyon
- *
- * @param1 : BrakeManager türünden bir nesne
- * 
- */
-void setPedalPos_Impl(float pedalPos) {
-
-    instance.pedal_position = pedalPos;
-}
-
-/**
- * @brief Fren pedalının yüzdesine göre uygulanacak basıncı hesaplayan fonskiyon
- * 
- */
-void pedalPosToPressure_Impl(void){
-
-    instance.current_brake_pressure = instance.pedal_position * 10;
-}
-
-
-/**
- * @brief Araç hızını başka apiden alıp set eden fonksiyon
- * 
- */
-void setVehicleSpeed_Impl(float speed){
-
+void SetVehicleSpeed_Impl(float speed){
     instance.vehicle_speed = speed;
-}
-
-/**
- * @brief Araç tekerlek hızını başka apiden alıp set eden fonksiyon
- * 
- */
-void setWheelSpeed_Impl(float speed){
-    
-    instance.wheel_speed = speed;
+    printf("Hiz set edildi: %.2f\n", speed);
 }
 
 /**
@@ -158,12 +104,48 @@ void setWheelSpeed_Impl(float speed){
  * 
  */
 ABS_Status_t manangmentABS_Impl(void){
-
     if(instance.vehicle_speed > 45){
+        instance.abs_active = 1;
         instance.ABS_Status = ABS_ON;
     }else{
-        instance.abs_active=0;
+        instance.abs_active = 0;
         instance.ABS_Status = ABS_OFF;
     }
     return instance.ABS_Status;
+}
+
+/**
+ * @brief ABS Algoritmasi
+ * 
+ * Bu fonksiyon, ABS aktif olduğunda fren basincini düzenler.
+ * Tekerlek kaymasini önlemek için fren basincini artirir veya azaltir.
+ */
+void ABSAlgorithm_Impl(void) {
+    if (instance.abs_active) {
+        printf("ABS aktif, fren basinci duzenleniyor...\n");
+        // Örnek bir ABS algoritmasi: Basinci %10 azalt ve tekrar uygula
+        float newPressure = instance.current_brake_pressure * 0.9f;
+        instance.applyBrakePressure(newPressure);
+    }
+}
+
+/**
+ * @brief Nesne bilgisini stringe çevirir
+ * 
+ */
+const char* toString_Impl(void) {
+    static char buffer[256];  
+    memset(buffer, 0, sizeof(buffer)); 
+
+    snprintf(buffer, sizeof(buffer),
+        "BrakeManager Durumu:\n"
+        "  Fren Basinci: %.2f\n"
+        "  ABS Durumu: %s\n"
+        "  Fren Aktif: %s\n",
+        instance.current_brake_pressure,
+        instance.ABS_Status == ABS_ON ? "Açik" : "Kapali",
+        instance.brake_active ? "Evet" : "Hayir"
+    );
+
+    return buffer;
 }

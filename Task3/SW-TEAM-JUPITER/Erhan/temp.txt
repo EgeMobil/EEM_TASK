@@ -1,0 +1,10 @@
+Ömer varol - 23.03.2025
+ImplementationChecklist.xlxs üzerinde:
+
+1.2 - Runnable kısmı yok, onun üzerinden değerlendirme nasıl olur bilemedim. Method tanımları uygun yapılmıştır.
+1.3 - climate_control.c dosyası 15. ve 26. satırdaki fonksiyon verilerin okunup okunmadığını kontrol eden ve duruma göre hata veren bir fonksiyon olmuş, fan hızını ayarlayan bir fonksiyon olmamış.
+1.4 - metodu göremedim.
+2.1 - getinstance metodu göremedim.
+2.2 - constructer olarak initfonksiyonunu en yakın gördüm ama tam olarak karşılamıyor ama ve private olması gerekmektedir.
+2.3 - 2.2 nedeniyle bu da hatalı olmuş olur.
+3 - Makefile dosyası tamamıyla sorunsuz göründü bana.
