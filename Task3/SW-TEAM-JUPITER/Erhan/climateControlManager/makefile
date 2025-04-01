@@ -4,7 +4,10 @@ CFLAGS = -I./inc -Wall -Wextra -g
 
 # Kaynak dosyalar ve çıktı dosyası
 SRC = ./build/main.c \
-		./src/climate_control.c
+		./src/ClimateControl.c \
+		./src/ClimateControl_ruProsses.c \
+		./src/ClimateControl_ruInitialisation.c
+		
 
 OUT = ./build/main.exe
 
