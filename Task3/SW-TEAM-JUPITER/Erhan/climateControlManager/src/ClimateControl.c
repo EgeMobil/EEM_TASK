@@ -1,5 +1,5 @@
-#include "climate_control_public.h"
-#include "climate_control_private.h"
+#include "ClimateControl_public.h"
+#include "ClimateControl_private.h"
 
 #include <math.h> // fabs() için
 #include <stdio.h>
@@ -42,13 +42,27 @@ en_CCMReturn adjustFanSpeed(void)
     return CCM_EOK;
 }
 
+
+void Fanstatus_IsOpen(void)
+{
+    climateControlConfig.FanStatus = fanIsOpen;
+}
+
+void Fanstatus_IsClosed(void)
+{
+    climateControlConfig.FanStatus = FanIsClosed;
+}
+
+
 //init işlemini yapan fonksiyon
 void initClimateControl(void)
 {
-    climateControlConfig.temperatureCurrent = CURRENT_TEMPERATURE;
-    climateControlConfig.getCurrentTempPtr  = getCurrentTemp;
-    climateControlConfig.setTemperaturePtr  = setTemperature;
-    climateControlConfig.adjustFanSpeedPtr  = adjustFanSpeed;
+    climateControlConfig.temperatureCurrent     = CURRENT_TEMPERATURE;
+    climateControlConfig.getCurrentTempPtr      = getCurrentTemp;
+    climateControlConfig.setTemperaturePtr      = setTemperature;
+    climateControlConfig.adjustFanSpeedPtr      = adjustFanSpeed;
+    climateControlConfig.Fanstatus_IsClosedPtr  = Fanstatus_IsClosed;
+    climateControlConfig.Fanstatus_IsOpenPtr    = Fanstatus_IsOpen;
     
 }
 

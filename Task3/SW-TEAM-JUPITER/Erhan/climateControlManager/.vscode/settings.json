@@ -66,6 +66,9 @@
     "math.h": "c",
     "definition.h": "c",
     "climate_control_private.h": "c",
-    "stdint.h": "c"
+    "stdint.h": "c",
+    "climatecontrol_private.h": "c",
+    "climatecontrol_public.h": "c",
+    "climatecontrol_definition.h": "c"
   }
 }

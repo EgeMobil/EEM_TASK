@@ -37,6 +37,9 @@ typedef struct
     float        (*getCurrentTempPtr)(void);
     en_CCMReturn (*setTemperaturePtr)(float);
     en_CCMReturn (*adjustFanSpeedPtr)(void);
+    void         (*Fanstatus_IsOpenPtr)(void);
+    void         (*Fanstatus_IsClosedPtr)(void);
+
 }st_climateControlConfig;
 
 

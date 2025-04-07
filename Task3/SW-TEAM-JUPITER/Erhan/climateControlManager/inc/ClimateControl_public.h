@@ -1,7 +1,7 @@
 #ifndef _CLIMATE_CONTROL_PUBLIC_H
 #define _CLIMATE_CONTROL_PUBLIC_H
 
-#include "definition.h"
+#include "ClimateControl_definition.h"
 
 typedef enum //eklendi
 {
@@ -22,7 +22,11 @@ float getCurrentTemp(void);
 
 en_CCMReturn adjustFanSpeed(void);
 
+void Fanstatus_IsClosed(void);
+void Fanstatus_IsClosed(void);
 
+void ClimateControl_ruInitialisation(void);
+void ClimateControl_ruProsses(void);
 
 
 #endif // _CLIMATE_CONTROL_PUBLIC_H

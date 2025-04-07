@@ -1,23 +1,11 @@
-#include "climate_control_public.h"
-
-#define DESIRED_VALUE 25.0 //istenen sıcaklık değeri
+#include "ClimateControl_public.h"
 
 
-int n = 10; //while döngüsünün çevrim sayısı
 
 int main() 
 {
-    initClimateControl(); 
+    ClimateControl_ruInitialisation();
+    ClimateControl_ruProsses();
 
-    climateControlConfig.FanStatus = fanIsOpen; //eklendi
 
-    if(CCM_ERR == climateControlConfig.setTemperaturePtr(DESIRED_VALUE)) //istenen sıcaklık set edildi
-        return 0;
-
-    while (n--)
-    {
-        if(CCM_ERR == climateControlConfig.adjustFanSpeedPtr()) //fan hızı ayarlandı
-        return 0;
-    }
-    printf("ambient temperature reached %fl degrees.\n", climateControlConfig.getCurrentTempPtr());
 }
