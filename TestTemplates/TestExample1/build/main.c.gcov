@@ -1,0 +1,55 @@
+        -:    0:Source:test/main.c
+        -:    0:Graph:build/test/main.gcno
+        -:    0:Data:build/test/main.gcda
+        -:    0:Runs:3
+        -:    0:Programs:1
+        -:    1:#include "CUnit.h"
+        -:    2:#include "Basic.h"
+        -:    3:#include "Console.h"
+        -:    4:#include "Automated.h"
+        -:    5:#include "math.h"
+        -:    6:
+        5:    7:void test_add() {
+        5:    8:    CU_ASSERT(add(2, 3) == 5);
+        5:    9:    CU_ASSERT(add(-1, 1) == 0);
+        5:   10:}
+        -:   11:
+        5:   12:void test_subtract() {
+        5:   13:    CU_ASSERT(subtract(5, 2) == 3);
+        5:   14:    CU_ASSERT(subtract(2, 5) == -3);
+        5:   15:}
+        -:   16:
+        5:   17:int init_suite(void) { return 0; }
+        5:   18:int clean_suite(void) { return 0; }
+        -:   19:
+        3:   20:int main() {
+        3:   21:    if (CUE_SUCCESS != CU_initialize_registry()) {
+    #####:   22:        return CU_get_error();
+        -:   23:    }
+        -:   24:
+        3:   25:    CU_pSuite suite = CU_add_suite("MathTestSuite", init_suite, clean_suite);
+        3:   26:    if (suite == NULL) {
+    #####:   27:        CU_cleanup_registry();
+    #####:   28:        return CU_get_error();
+        -:   29:    }
+        -:   30:
+        6:   31:    if ((CU_add_test(suite, "test_add", test_add) == NULL) ||
+        3:   32:        (CU_add_test(suite, "test_subtract", test_subtract) == NULL)) {
+    #####:   33:        CU_cleanup_registry();
+    #####:   34:        return CU_get_error();
+        -:   35:    }
+        -:   36:
+        -:   37:    // Basic tests
+        3:   38:    CU_basic_set_mode(CU_BRM_VERBOSE);
+        3:   39:    CU_basic_run_tests();
+        -:   40:
+        -:   41:    // XML output ayarı
+        3:   42:    CU_set_output_filename("build/cunit_report");
+        3:   43:    CU_automated_run_tests();
+        -:   44:    
+        -:   45:    //CU_console_run_tests();
+        -:   46:
+        3:   47:    CU_cleanup_registry();
+        -:   48:
+        3:   49:    return 0;
+        -:   50:}

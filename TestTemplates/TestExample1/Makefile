@@ -1,4 +1,5 @@
-CC = gcc
+SHELL = cmd.exe
+CC = "mingw32-gcc.exe"
 
 COVFLAGS = -fprofile-arcs -ftest-coverage
 CFLAGS = -Wall -Iinc -Iexternal/CUnit/Headers $(COVFLAGS)
@@ -57,6 +58,9 @@ coverage_gcov:
 
 report: cunit_xml coverage_xml coverage_gcov
 
+html_report: report
+	@echo Generating HTML report...
+	@java -cp tools/saxon-he-12.5.jar;tools/xmlresolver-4.6.0.jar net.sf.saxon.Transform -s:build/cunit_report-Results.xml -xsl:tools/CombinedReport.xsl -o:build/report.html
 # temizleme
 clean:
 	@if exist build\*.exe del /Q build\*.exe
