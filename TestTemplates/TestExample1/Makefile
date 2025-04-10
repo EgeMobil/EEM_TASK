@@ -58,7 +58,8 @@ coverage_gcov:
 
 report: cunit_xml coverage_xml coverage_gcov
 
-html_report: report
+html_report: report 
+#TODO: remove doctype tags
 	@echo Generating HTML report...
 	@java -cp tools/saxon-he-12.5.jar;tools/xmlresolver-4.6.0.jar net.sf.saxon.Transform -s:build/cunit_report-Results.xml -xsl:tools/CombinedReport.xsl -o:build/report.html
 # temizleme

@@ -1,0 +1,6 @@
+coverage tool notlar yapilacaklar
+  coverage source dosya sayisina gore html sayfa olusturulmali
+  coverage den donen sonuca gore calismayan kod parcalari kendi sayfalarinda gosterilmeli (hyperlink ile referans verilmeli)
+	coverage xml sonucunda sadece yuzdelik sonucu al gerisi onemsiz
+	makefile'i a doctype tagini silecek sekilde ayarla
+	

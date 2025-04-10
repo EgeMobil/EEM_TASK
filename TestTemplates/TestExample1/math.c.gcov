@@ -1,0 +1,17 @@
+        -:    0:Source:src/math.c
+        -:    0:Graph:build/src/math.gcno
+        -:    0:Data:build/src/math.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "math.h"
+        -:    2:
+        4:    3:int add(int a, int b) {
+        4:    4:    if (a> 10){
+    #####:    5:        return 0;
+        -:    6:    }
+        4:    7:    return a + b;
+        -:    8:}
+        -:    9:
+        4:   10:int subtract(int a, int b) {
+        4:   11:    return a - b;
+        -:   12:}
